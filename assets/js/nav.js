@@ -47,6 +47,12 @@ if (THE_SESSION) {
           <a href="about.html" class="navbar-link ${isActive(
             "about.html"
           )}" position: relative; font-weight: 600;">About Us</a>
+          <a href="eservice.html" class="navbar-link ${isActive(
+            "offer.html"
+          )}" position: relative; font-weight: 600;">E-service</a>
+          <a href="how-t-pay.html" class="navbar-link ${isActive(
+            "offer.html"
+          )}" position: relative; font-weight: 600;">How to Pay</a>
           <a href="offer.html" class="navbar-link ${isActive(
             "offer.html"
           )}" position: relative; font-weight: 600;">What We Offer</a>
