@@ -12,7 +12,7 @@ let heeaderr = "";
 heeaderr += `
   <a href="index.html" class="flex gap-1 items-center">
   <div class="flex items-center">
-    <img src="./assets/img/img/kano.png" class="w-[180px]" />
+    <img src="./assets/img/img/jigawa.png" class="w-[180px]" />
   </div>
   </a>
 `;
@@ -30,8 +30,9 @@ if (THE_SESSION) {
         <a href="index.html" class="home lg:text-sm text-xs">Home</a>
         <a href="about.html" class="about lg:text-sm text-xs">About Us</a>
         <a href="offer.html" class="offer lg:text-sm text-xs">What We Offer</a>
-          <a href="howtopay.html" class="howtopay">How to pay</a>        
-          <a href="eservices.html" class="Services">How to pay</a>        
+        <a href="eservices.html" class="about lg:text-sm text-xs">E-services</a>
+        <a href="how-to-pay.html" class="about lg:text-sm text-xs">About Us</a>
+        
         <a href="contact.html" class="contact lg:text-sm text-xs">Contact Us</a>
         <a class="button" href="./users/dashboard.html">Dashboard</a>
       </div>
@@ -205,7 +206,7 @@ $("#footer").html(`
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <div>
-        <img src="assets/img/img/kano.png" alt="Paykano Logo" class="h-12 mb-3" />
+        <img src="assets/img/img/jigawa.png" alt="Paykano Logo" class="h-12 mb-3" />
          <p class="text-secondary mb-4">Streamlining tax payments and  management for both individuals and businesses.</p>
           <div class="flex space-x-4">
             <a href="#" class="text-primary hover:text-primary-dark transition-colors">
@@ -296,7 +297,7 @@ $("body").append(`
                   <div class="calculator-main col-sm-12 col-md-8">
                     <div class="business-header">
                       <div class="business-logo">
-                        <img src="./assets/img/img/kano.png" width="50" />
+                        <img src="./assets/img/img/jigawa.png" width="50" />
                       </div>
                       <button
                         type="button"
@@ -817,7 +818,7 @@ let lgaList2 = {
     "Owerri West",
     "Unuimo",
   ],
-  kano: [
+  Jigawa: [
     "Auyo",
     "Babura",
     "Biriniwa",
@@ -1332,7 +1333,7 @@ let STATES2 = `
   <option value="FCT">Federal Capital Territory</option>
   <option value="Gombe">Gombe</option>
   <option value="Imo">Imo</option>
-  <option value="kano" selected>kano</option>
+  <option value="Jigawa" selected>Jigawa</option>
   <option value="Kaduna">Kaduna</option>
   <option value="Kano">Kano</option>
   <option value="Katsina">Katsina</option>
@@ -1364,7 +1365,7 @@ if (stateSelect2) {
   stateSelect2.innerHTML = STATES2;
 
   if (lgaSelect2) {
-    lgaList2["kano"].forEach((lga) => {
+    lgaList2["Jigawa"].forEach((lga) => {
       lgaSelect2.innerHTML += `
     <option value="${lga}">${lga}</option>
   `;
@@ -1412,9 +1413,9 @@ function convertNumberToWords(number) {
           groups2[z] +
           convertGroup(11 - z) +
           (z < 11 &&
-          !groups2.slice(z + 1, -1).includes("") &&
-          groups2[11] !== "" &&
-          group[11][0] === "0"
+            !groups2.slice(z + 1, -1).includes("") &&
+            groups2[11] !== "" &&
+            group[11][0] === "0"
             ? " and "
             : ", ");
       }
