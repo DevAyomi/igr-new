@@ -4,14 +4,16 @@
 
 let THE_SESSION = localStorage.getItem("userSession");
 
+const currentPage = window.location.pathname.split("/").pop();
+const isActive = (page) => (currentPage === page ? "active" : "");
+
 // if (THE_SESSION) {
 let heeaderr = "";
 heeaderr += `
   <a href="index.html" class="flex gap-1 items-center">
   <div class="flex items-center">
-    <img src="./assets/img/img/jigawa.png" class="w-[60px]" />
+    <img src="./assets/img/img/jigawa.png" class="w-[180px]" />
   </div>
-  <p class="text-black fontBold">PayJigawa</p>
   </a>
 `;
 if (THE_SESSION) {
@@ -27,9 +29,8 @@ if (THE_SESSION) {
       <div class="lg:flex gap-3 items-center">
         <a href="index.html" class="home lg:text-sm text-xs">Home</a>
         <a href="about.html" class="about lg:text-sm text-xs">About Us</a>
-        <a href="eservices.html" class="eservice lg:text-sm text-xs">E-Services</a>
         <a href="offer.html" class="offer lg:text-sm text-xs">What We Offer</a>
-        <a href="howtopay.html" class="howtopay lg:text-sm text-xs">How to pay</a>
+        
         <a href="contact.html" class="contact lg:text-sm text-xs">Contact Us</a>
         <a class="button" href="./users/dashboard.html">Dashboard</a>
       </div>
@@ -37,22 +38,25 @@ if (THE_SESSION) {
   `;
 } else {
   heeaderr += `
-    <div class="md:flex hidden items-center gap-3 text-[#555555]">
-      <button 
-        type="button" 
-        class="btn btn-outline-none search-toggle" 
-        data-bs-toggle="modal" 
-        data-bs-target="#searchModal">
-        <i class="fas fa-search"></i>
-      </button>
-      <div class="lg:flex hidden gap-3">
-        <a href="index.html" class="home text-sm">Home</a>
-        <a href="about.html" class="about text-sm">About Us</a>
-        <a href="eservices.html" class="eservice lg:text-sm text-xs">E-Services</a>
-        <a href="offer.html" class="offer text-sm">What We Offer</a>
-        <a href="howtopay.html" class="howtopay text-sm">How to pay</a>
-        <a href="contact.html" class="contact text-sm">Contact Us</a>
-      </div>
+     <nav class="hidden lg:flex items-center space-x-8">
+          <a href="index.html" class="navbar-link  ${isActive(
+            "index.html"
+          )}" style="position: relative">Home</a>
+          <a href="about.html" class="navbar-link ${isActive(
+            "about.html"
+          )}" position: relative; font-weight: 600;">About Us</a>
+          <a href="offer.html" class="navbar-link ${isActive(
+            "offer.html"
+          )}" position: relative; font-weight: 600;">What We Offer</a>
+          
+          <a href="contact.html" class="navbar-link ${isActive(
+            "contact.html"
+          )}" position: relative;">Contact</a>
+          <!-- <a href="faqs.html" class="navbar-link">FAQ</a> -->
+        </nav>
+
+
+ 
 
       <div class="lg:flex hidden items-center gap-3">
         <a class="outline-btn border-0 login" href="signin.html">Login</a>
@@ -65,14 +69,13 @@ if (THE_SESSION) {
 
 if (THE_SESSION) {
   heeaderr += `
-  <div class="mobile_nav p-4 mt-4 text-dark lg:mt-7">
+   <div class="mobile_nav p-4 mt-4 lg:mt-7">
     <div class="flex flex-col text-left gap-3">
     <a class="button" href="./users/dashboard.html">Dashboard</a>
         <a href="index.html" class="home">Home</a>
           <a href="about.html" class="about">About Us</a>
-          <a href="eservices.html" class="eservice">E-Services</a>
           <a href="offer.html" class="offer">What We Offer</a>
-          <a href="howtopay.html" class="howtopay">How to pay</a>
+          
           <a href="contact.html" class="contact">Contact Us</a>
     </div>
     <button 
@@ -197,53 +200,69 @@ function showActiveNav(thenav) {
 
 const currentYear = new Date().getFullYear();
 $("#footer").html(`
-    <footer class="bg-white flex lg:flex-row flex-col-reverse gap-4 justify-between items-center md:px-10 px-3 py-2 landingFooter border-t border-gray-200">
-      <div class="flex md:w-fit w-full items-center md:flex-row flex-col-reverse gap-2">
-          <p class="text-[#555555] md:text-sm text-xs">Copyright ${currentYear} Primeguage Solutions Limited</p>
-          <div class="flex items-center gap-1">
-            <img src="./assets/img/logo1.png" class="w-[40px] h-[20px] object-contain" alt="">
-            <img src="./assets/img/img/jtb.png" class="w-[40px] h-[20px] object-contain" alt="">
-            <img src="./assets/img/img/ndpc.png" class="w-[50px] h-[20px] object-contain" alt="">
-            <img src="./assets/img/img/pci.png" class="w-[50px] h-[20px] object-contain" alt="">
+    <footer id="footer" class="bg-white border-t border-gray-200 py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div>
+        <img src="assets/img/img/jigawa.png" alt="Paykano Logo" class="h-12 mb-3" />
+         <p class="text-secondary mb-4">Streamlining tax payments and  management for both individuals and businesses.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-primary hover:text-primary-dark transition-colors">
+              <i class="fab fa-facebook-f text-[#018447]"></i>
+            </a>
+            <a href="#" class="text-primary hover:text-primary-dark transition-colors">
+              <i class="fab fa-twitter text-[#018447]"></i>
+            </a>
+            <a href="#" class="text-primary hover:text-primary-dark transition-colors">
+              <i class="fab fa-instagram text-[#018447]"></i>
+            </a>
           </div>
-      </div>
+        </div>
 
-      <div class="xl:flex hidden items-center lg:gap-2">
-        <p class="text-xs lg:block hidden text-dark font-bold">Follow us on</p>
-        <a href="#"><iconify-icon icon="ph:facebook-logo-bold" class="text-sm border-l text-dark border-gray-600 pl-2"></iconify-icon></a>
-        <a href="#"><iconify-icon icon="ri:twitter-line" class="text-sm border-l text-dark border-gray-600 pl-2"></iconify-icon></a>
-        <a href="#"><iconify-icon icon="bi:instagram" class="text-sm border-l text-dark border-gray-600 pl-2"></iconify-icon></a>
-      </div>
+        <div>
+          <h3 class="text-lg fontBold text-black mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-secondary hover:text-primary transition-colors">Home</a></li>
+            <li><a href="eservices.html" class="text-secondary hover:text-primary transition-colors">Services</a></li>
+            <li><a href="about.html" class="text-secondary hover:text-primary transition-colors">About Us</a></li>
+            <li><a href="contact.html" class="text-secondary hover:text-primary transition-colors">Contact</a></li>
+          </ul>
+        </div>
 
-      <div class="flex items-center">
-        <div class="md:flex hidden items-center gap-3 mr-10">
-          <a href="news.html" class="text-center  flex justify-center flex-col items-center">
-                <img src="./assets/img/icons/news.svg" width="22" alt="News" />  
-                <p class="sm:text-[12px] md:text-sm m-0 font-bold text-dark">News</p>
-            </a>
+        <div>
+          <h3 class="text-lg fontBold text-black mb-4">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="invoiceGeneration/create.html" class="text-secondary hover:text-primary transition-colors">Pay Your Tax</a></li>
+            <li><a href="paye-manager/index.html" class="text-secondary hover:text-primary transition-colors">PAYE Manager</a></li>
+            <li><a href="eservices.html" class="text-secondary hover:text-primary transition-colors">Self Services</a></li>
+            <li><a href="taxinfo.html" class="text-secondary hover:text-primary transition-colors">Tax Calculator</a></li>
+          </ul>
+        </div>
 
-            <a href="library.html" class="text-center  flex justify-center flex-col items-center">
-                <img src="./assets/img/icons/library.svg" width="22" alt="Library" /> 
-                <p class="sm:text-[12px] md:text-sm m-0 font-bold text-dark">Library</p>
-            </a>
-            <a href="gallery.html" class="text-center  flex justify-center flex-col items-center">
-                <img src="./assets/img/icons/gallery.svg" width="22" alt="Gallery" /> 
-                <p class="sm:text-[12px] md:text-sm m-0 font-bold text-dark">Gallery</p>
-            </a>
-
-            <a type="button" class="text-center flex justify-center flex-col items-center" data-bs-toggle="modal" data-bs-target="#tax_calc_modal">
-                <img src="./assets/img/icons/calculator.svg" width="22" alt="Calculator" /> 
-                <p class="sm:text-[12px] md:text-sm m-0 font-bold text-dark">Tax Calculator</p>
-            </a>
-          
-            <a href="faqs.html" class="text-center  flex justify-center flex-col items-center">
-              <img src="./assets/img/icons/faq.svg" width="22" alt="FAQs" /> 
-              <p class="sm:text-[12px] md:text-sm m-0 font-bold text-dark">FAQs</p>
-            </a>
+        <div>
+          <h3 class="text-lg fontBold text-black mb-4">Contact Us</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt  mt-1 text-[#018447] mr-3"></i>
+              <span class="text-secondary">Government Quaters, Kano, Nigeria</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone text-[#018447] mt-1  mr-3"></i>
+              <span class="text-secondary">+234 654 728 9120</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope  mt-1 mr-3 text-[#018447]"></i>
+              <span class="text-secondary">info@kirs.gov.ng</span>
+            </li>
+          </ul>
         </div>
       </div>
 
-    </footer>
+      <div class="border-t border-gray-200 mt-8 pt-6 text-center">
+        <p class="text-secondary">© Copyright ${currentYear} Archi-Hitech Solutions Limited</p>
+      </div>
+    </div>
+  </footer>
 `);
 
 $("body").append(`
