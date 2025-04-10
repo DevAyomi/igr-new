@@ -1,7 +1,7 @@
 <?php
 // class Database {
 //     private $host = 'localhost';      // Database host
-//     private $db_name = 'jigawa'; // Your database name
+//     private $db_name = 'kano'; // Your database name
 //     private $username = 'root';// Database username
 //     private $password = 'root';// Database password
 //     public $conn;

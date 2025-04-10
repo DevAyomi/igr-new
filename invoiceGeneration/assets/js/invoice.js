@@ -78,7 +78,7 @@ async function fetchInvoice() {
         <!-- Header -->
         <div class="flex justify-between items-center mb-8">
           <div class="flex items-center gap-4">
-            <div class="logo"><img src="../assets/img/img/jigawa.png" /></div>
+            <div class="logo"><img src="../assets/img/img/kano.png" /></div>
             <h1 class="text-2xl font-bold">Invoice</h1>
           </div>
           <div class="flex items-start gap-2">
@@ -101,9 +101,9 @@ async function fetchInvoice() {
             </div>
 
             <div class="h-full text-break text-gray-600 bg-gray-50 p-3 rounded-lg space-y-2 border border-gray-100">
-              <p class="font-semibold text-dark">PayJigawa</p>
+              <p class="font-semibold text-dark">Paykano</p>
               <p class="text-sm">(234) 456 - 7894</p>
-              <p class="text-sm">No. 123 Dutse, Jigawa.</p>
+              <p class="text-sm">No. 123 Dutse, kano.</p>
               <p class="text-sm">info@jsirs.gov.ng</p>
             </div>
           </div>
@@ -234,7 +234,9 @@ async function fetchInvoice() {
               </div>
             </div>
             <div class="w-full text-right mr-2">
-              <p class="text-gray-400 text-sm">${invoiceInfo.payment_status === "paid" ? "PAID" : "PAYING"}</p>
+              <p class="text-gray-400 text-sm">${
+                invoiceInfo.payment_status === "paid" ? "PAID" : "PAYING"
+              }</p>
               <h3 class="font-bold mb-1 text-lg">${formatMoney(amount_due)}</h3>
             </div>
           </div>
@@ -246,16 +248,15 @@ async function fetchInvoice() {
       const qrCodeContainer = document.getElementById("qrContainer");
 
       const qrCode = new QRCode(qrCodeContainer, {
-        text: `https://payjigawa.com/invoiceGeneration/invoice.html?invoice_number=${invoice_number}`,
+        text: `https://paykano.com/invoiceGeneration/invoice.html?invoice_number=${invoice_number}`,
         colorDark: "#000000",
         colorLight: "#ffffff",
         version: 10,
       });
-      
-      if(invoiceInfo.payment_status === "paid") {
-        $("#makePayment").remove()
-      }
 
+      if (invoiceInfo.payment_status === "paid") {
+        $("#makePayment").remove();
+      }
     } else {
       $("#invoiceContainer").html(`
         <div class='d-flex justify-content-center'>

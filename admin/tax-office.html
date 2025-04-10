@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
   <link rel="icon" type="image/png" href="./assets/img/logo.png" />
-  <title>PayJigawa</title>
+  <title>Paykano</title>
 
-  <meta name="keywords" content="Jigawa IGR" />
-  <meta name="description" content="Jigawa Tax Collector" />
+  <meta name="keywords" content="kano IGR" />
+  <meta name="description" content="kano Tax Collector" />
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -187,134 +187,135 @@
   </div>
 
 
-  <div class="modal fade" id="createTaxOfficeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="createTaxOfficeModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="createTaxOfficeModalLabel">Create New Tax Office</h5>
-        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-          <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="office_name" class="form-label">Office Name</label>
-            <input type="text" class="form-control" placeholder="Enter office name" id="office_name" />
+  <div class="modal fade" id="createTaxOfficeModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="createTaxOfficeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createTaxOfficeModalLabel">Create New Tax Office</h5>
+          <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+            <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="office_name" class="form-label">Office Name</label>
+              <input type="text" class="form-control" placeholder="Enter office name" id="office_name" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="office_code" class="form-label">Office Code</label>
+              <input type="text" class="form-control" placeholder="Enter office code" id="office_code" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" class="form-control" placeholder="Enter location" id="location" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="contact_phone" class="form-label">Contact Phone</label>
+              <input type="text" class="form-control" placeholder="Enter contact phone" id="contact_phone" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="contact_email" class="form-label">Contact Email</label>
+              <input type="email" class="form-control" placeholder="Enter contact email" id="contact_email" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="region" class="form-label">Region</label>
+              <select id="region" class="form-select">
+                <option value="">Select region</option>
+                <option value="South West">South West</option>
+                <option value="South East">South East</option>
+                <option value="South South">South South</option>
+                <option value="North West">North West</option>
+                <option value="North East">North East</option>
+                <option value="North Central">North Central</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="office_code" class="form-label">Office Code</label>
-            <input type="text" class="form-control" placeholder="Enter office code" id="office_code" />
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="createTaxOfficeBtn" class="btn btn-primary">Create Tax Office</button>
         </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="location" class="form-label">Location</label>
-            <input type="text" class="form-control" placeholder="Enter location" id="location" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="contact_phone" class="form-label">Contact Phone</label>
-            <input type="text" class="form-control" placeholder="Enter contact phone" id="contact_phone" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="contact_email" class="form-label">Contact Email</label>
-            <input type="email" class="form-control" placeholder="Enter contact email" id="contact_email" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="region" class="form-label">Region</label>
-            <select id="region" class="form-select">
-              <option value="">Select region</option>
-              <option value="South West">South West</option>
-              <option value="South East">South East</option>
-              <option value="South South">South South</option>
-              <option value="North West">North West</option>
-              <option value="North East">North East</option>
-              <option value="North Central">North Central</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="createTaxOfficeBtn" class="btn btn-primary">Create Tax Office</button>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Edit Tax Office Modal -->
-<div class="modal fade" id="editTaxOfficeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="editTaxOfficeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editTaxOfficeModalLabel">Edit Tax Office</h5>
-        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-          <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="edit_office_id" />
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="edit_office_name" class="form-label">Office Name</label>
-            <input type="text" class="form-control" placeholder="Enter office name" id="edit_office_name" />
+  <!-- Edit Tax Office Modal -->
+  <div class="modal fade" id="editTaxOfficeModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="editTaxOfficeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editTaxOfficeModalLabel">Edit Tax Office</h5>
+          <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+            <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="edit_office_id" />
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="edit_office_name" class="form-label">Office Name</label>
+              <input type="text" class="form-control" placeholder="Enter office name" id="edit_office_name" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="edit_office_code" class="form-label">Office Code</label>
+              <input type="text" class="form-control" placeholder="Enter office code" id="edit_office_code" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="edit_location" class="form-label">Location</label>
+              <input type="text" class="form-control" placeholder="Enter location" id="edit_location" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="edit_contact_phone" class="form-label">Contact Phone</label>
+              <input type="text" class="form-control" placeholder="Enter contact phone" id="edit_contact_phone" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="edit_contact_email" class="form-label">Contact Email</label>
+              <input type="email" class="form-control" placeholder="Enter contact email" id="edit_contact_email" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col form-group mb-3">
+              <label for="edit_region" class="form-label">Region</label>
+              <select id="edit_region" class="form-select">
+                <option value="">Select region</option>
+                <option value="South West">South West</option>
+                <option value="South East">South East</option>
+                <option value="South South">South South</option>
+                <option value="North West">North West</option>
+                <option value="North East">North East</option>
+                <option value="North Central">North Central</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="edit_office_code" class="form-label">Office Code</label>
-            <input type="text" class="form-control" placeholder="Enter office code" id="edit_office_code" />
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="editTaxOfficeBtn" class="btn btn-primary">Save Changes</button>
         </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="edit_location" class="form-label">Location</label>
-            <input type="text" class="form-control" placeholder="Enter location" id="edit_location" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="edit_contact_phone" class="form-label">Contact Phone</label>
-            <input type="text" class="form-control" placeholder="Enter contact phone" id="edit_contact_phone" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="edit_contact_email" class="form-label">Contact Email</label>
-            <input type="email" class="form-control" placeholder="Enter contact email" id="edit_contact_email" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col form-group mb-3">
-            <label for="edit_region" class="form-label">Region</label>
-            <select id="edit_region" class="form-select">
-              <option value="">Select region</option>
-              <option value="South West">South West</option>
-              <option value="South East">South East</option>
-              <option value="South South">South South</option>
-              <option value="North West">North West</option>
-              <option value="North East">North East</option>
-              <option value="North Central">North Central</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="editTaxOfficeBtn" class="btn btn-primary">Save Changes</button>
       </div>
     </div>
   </div>
-</div>
 
 
 
@@ -328,27 +329,27 @@
             <iconify-icon icon="ph:x-thin"></iconify-icon>
           </button>
         </div>
-        <div class="modal-body" id="filterDropdown">  
-            <div class="form-group">
-                <label for="office_name_filter">Office Name:</label>
-                <input type="text" id="office_name_filter" class="form-control" placeholder="Enter office name" />
-            </div>
-            <div class="form-group">
-                <label for="office_code_filter">Office Code:</label>
-                <input type="text" id="office_code_filter" class="form-control" placeholder="Enter office code" />
-            </div>
-            <div class="form-group">
-                <label for="region_filter">Region:</label>
-                <select id="region_filter" class="form-control">
-                <option value="">Select region</option>
-                <option value="South West">South West</option>
-                <option value="South East">South East</option>
-                <option value="South South">South South</option>
-                <option value="North West">North West</option>
-                <option value="North East">North East</option>
-                <option value="North Central">North Central</option>
-                </select>
-            </div>
+        <div class="modal-body" id="filterDropdown">
+          <div class="form-group">
+            <label for="office_name_filter">Office Name:</label>
+            <input type="text" id="office_name_filter" class="form-control" placeholder="Enter office name" />
+          </div>
+          <div class="form-group">
+            <label for="office_code_filter">Office Code:</label>
+            <input type="text" id="office_code_filter" class="form-control" placeholder="Enter office code" />
+          </div>
+          <div class="form-group">
+            <label for="region_filter">Region:</label>
+            <select id="region_filter" class="form-control">
+              <option value="">Select region</option>
+              <option value="South West">South West</option>
+              <option value="South East">South East</option>
+              <option value="South South">South South</option>
+              <option value="North West">North West</option>
+              <option value="North East">North East</option>
+              <option value="North Central">North Central</option>
+            </select>
+          </div>
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" id="clearFilter" class="btn btn-primary">

@@ -47,7 +47,7 @@
     "title": "Contact Support",
     "description": "Get in touch with our support team for any tax-related inquiries.",
     "link": "./contact.html",
-    "img": "./assets/img/img/jigawa.png"
+    "img": "./assets/img/img/kano.png"
   },
   {
     "objectID": "9",
@@ -89,20 +89,20 @@
     "title": "Register",
     "description": "Create a new account to become tax payer.",
     "link": "./register/index.html",
-    "img": "./assets/img/img/jigawa.png"
+    "img": "./assets/img/img/kano.png"
   },
   {
     "objectID": "15",
     "title": "ETCC",
     "description": "Access the Electronic Tax Clearance Certificate system.",
     "link": "./etcc/initiate.html",
-    "img": "./assets/img/img/jigawa.png"
+    "img": "./assets/img/img/kano.png"
   },
   {
     "objectID": "16",
     "title": "Login",
     "description": "Log in to your account to manage your taxes.",
     "link": "./signin.html",
-    "img": "./assets/img/img/jigawa.png"
+    "img": "./assets/img/img/kano.png"
   }
 ]

@@ -337,7 +337,7 @@ function generateInvoice() {
         let dataToSend = {
           tax_number: userDataa?.tax_number,
           invoice_type: "direct",
-          tax_office: "Jigawa Tax Office",
+          tax_office: "kano Tax Office",
           lga: "Auyo",
           description: `PAYE Invoice for ${checked.length} employees of ${business_name}`,
           revenue_heads: [

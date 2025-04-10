@@ -444,7 +444,8 @@ function generateInvoice() {
   let selectOptions = revenueHeadItems
     .map(
       (item) =>
-        `<option data-mdaid="${item.mda_id}" ${item.item_name == "PAYE" ? "selected" : ""
+        `<option data-mdaid="${item.mda_id}" ${
+          item.item_name == "PAYE" ? "selected" : ""
         } value="${item.id}">${item.item_name} - (${item.category})</option>`
     )
     .join("");
@@ -454,8 +455,8 @@ function generateInvoice() {
     text: `Are you sure you want to generate invoice for the selected employees?`,
     html: `
       <p>Total amount to be paid: ₦ ${amountToBePaid.toLocaleString("en-NG", {
-      minimumFractionDigits: 2,
-    })}</p>
+        minimumFractionDigits: 2,
+      })}</p>
       <div class="form-group">
         <label for="revenueHead">Select Revenue Head:</label>
         <select id="revenueHead" class="form-select">
@@ -481,7 +482,7 @@ function generateInvoice() {
           document.getElementById("revenueHead").value;
         const selectedOption =
           document.getElementById("revenueHead").options[
-          document.getElementById("revenueHead").selectedIndex
+            document.getElementById("revenueHead").selectedIndex
           ];
         const mda_id = selectedOption.getAttribute("data-mdaid");
 
@@ -489,7 +490,7 @@ function generateInvoice() {
           tax_number: userDataa?.tax_number,
           invoice_type: "paye",
           invoice_duration: $("#revMonth").val(),
-          tax_office: "Jigawa Tax Office",
+          tax_office: "kano Tax Office",
           lga: "Auyo",
           description: `PAYE Invoice for ${checked.length} employees`,
           revenue_heads: [
@@ -663,8 +664,8 @@ function viewStaff(button) {
               <td>${staff.staff_email}</td>
               <td>${staff.staff_phone}</td>
               <td>₦${parseFloat(
-            staff.monthly_tax_payable
-          ).toLocaleString()}</td>
+                staff.monthly_tax_payable
+              ).toLocaleString()}</td>
               <td>${staff.created_at.split(" ")[0]}</td>
             </tr>
           `;
@@ -719,13 +720,14 @@ async function fetchEstimatedMonthlyTaxPayable(taxNumber, year, month) {
   );
   try {
     const response = await fetch(
-      `${HOST}/paye-monthly-payable?tax_number=${taxNumber}&year=${year}&month=${month}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-        "Content-Type": "application/json",
-      },
-    }
+      `${HOST}/paye-monthly-payable?tax_number=${taxNumber}&year=${year}&month=${month}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
     );
     const data = await response.json();
 
@@ -753,13 +755,15 @@ async function fetchEstimatedYearlyTaxPayable(taxNumber, year) {
   );
   try {
     const response = await fetch(
-      `${HOST}/paye-yearly-payable?year=${year}&tax_number=${taxNumber}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-        "Content-Type": "application/json",
-      },
-    });
+      `${HOST}/paye-yearly-payable?year=${year}&tax_number=${taxNumber}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     if (data.status === "success") {
@@ -783,13 +787,15 @@ async function fetchTotalAnnualRemittance(taxNumber, year) {
   );
   try {
     const response = await fetch(
-      `${HOST}/paye-invoices-paid?year=${year}&tax_number=${taxNumber}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-        "Content-Type": "application/json",
-      },
-    });
+      `${HOST}/paye-invoices-paid?year=${year}&tax_number=${taxNumber}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     if (data.status === "success") {
@@ -813,13 +819,15 @@ async function fetchTotalMonthlyRemittance(taxNumber, year, month) {
   );
   try {
     const response = await fetch(
-      `${HOST}/paye-invoices-paid?tax_number=${taxNumber}&year=${year}&month=${month}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-        "Content-Type": "application/json",
-      },
-    });
+      `${HOST}/paye-invoices-paid?tax_number=${taxNumber}&year=${year}&month=${month}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     if (data.status === "success") {

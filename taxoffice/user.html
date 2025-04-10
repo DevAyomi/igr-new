@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
   <link rel="icon" type="image/png" href="./assets/img/logo.png" />
-  <title>PayJigawa</title>
+  <title>Paykano</title>
 
-  <meta name="keywords" content="Jigawa IGR" />
-  <meta name="description" content="Jigawa Tax Collector" />
+  <meta name="keywords" content="kano IGR" />
+  <meta name="description" content="kano Tax Collector" />
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -229,8 +229,8 @@
                             </h6>
                           </div>
                           <div class="col-lg-6 d-flex ms-auto">
-                            <button class="btn btn-icon btn-primary ms-auto d-none" id="crtmdaAdmnBtn" data-bs-toggle="modal"
-                              data-bs-target="#createUserModal">
+                            <button class="btn btn-icon btn-primary ms-auto d-none" id="crtmdaAdmnBtn"
+                              data-bs-toggle="modal" data-bs-target="#createUserModal">
                               <span class="btn-inner--text">Create User</span>
                               <span class="btn-inner--icon"><i class="fa fa-plus text-sm ms-2"></i></span>
                             </button>
@@ -261,8 +261,8 @@
                             </h6>
                           </div>
                           <div class="col-lg-6 d-flex ms-auto">
-                            <button class="btn btn-icon btn-primary ms-auto" id="createTaxOfficeUserBtn" data-bs-toggle="modal"
-                              data-bs-target="#createTaxOfficeUserModal">
+                            <button class="btn btn-icon btn-primary ms-auto" id="createTaxOfficeUserBtn"
+                              data-bs-toggle="modal" data-bs-target="#createTaxOfficeUserModal">
                               <span class="btn-inner--text">Create User</span>
                               <span class="btn-inner--icon"><i class="fa fa-plus text-sm ms-2"></i></span>
                             </button>
@@ -568,51 +568,52 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Edit Tax Office Modal -->
-<div class="modal fade" id="editTaxOfficeUserModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="editTaxOfficeUserModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editTaxOfficeUserModalLabel">Edit Tax Office</h5>
-        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-          <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="editManagerId">
-        <div class="row">
-          <div class="col mb-3">
-            <label for="editManagerName" class="form-label">Manager Name <span class="text-danger">*</span></label>
-            <input type="text" id="editManagerName" class="form-control" required placeholder="Enter manager name" />
+  <div class="modal fade" id="editTaxOfficeUserModal" data-bs-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="editTaxOfficeUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editTaxOfficeUserModalLabel">Edit Tax Office</h5>
+          <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+            <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="editManagerId">
+          <div class="row">
+            <div class="col mb-3">
+              <label for="editManagerName" class="form-label">Manager Name <span class="text-danger">*</span></label>
+              <input type="text" id="editManagerName" class="form-control" required placeholder="Enter manager name" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="editManagerPhone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+              <input type="text" id="editManagerPhone" class="form-control" required placeholder="Enter phone number" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="editManagerEmail" class="form-label">Email <span class="text-danger">*</span></label>
+              <input type="email" id="editManagerEmail" class="form-control" required placeholder="Enter email" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="editPosition" class="form-label">Position <span class="text-danger">*</span></label>
+              <input type="text" id="editPosition" class="form-control" required placeholder="Enter position" />
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col mb-3">
-            <label for="editManagerPhone" class="form-label">Phone Number <span class="text-danger">*</span></label>
-            <input type="text" id="editManagerPhone" class="form-control" required placeholder="Enter phone number" />
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="editTaxOfficeBtn" class="btn btn-primary">Save Changes</button>
         </div>
-        <div class="row">
-          <div class="col mb-3">
-            <label for="editManagerEmail" class="form-label">Email <span class="text-danger">*</span></label>
-            <input type="email" id="editManagerEmail" class="form-control" required placeholder="Enter email" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col mb-3">
-            <label for="editPosition" class="form-label">Position <span class="text-danger">*</span></label>
-            <input type="text" id="editPosition" class="form-control" required placeholder="Enter position" />
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="editTaxOfficeBtn" class="btn btn-primary">Save Changes</button>
       </div>
     </div>
   </div>
-</div>
 
   <!--   Core JS Files   -->
   <script src="./assets/js/jquery.js"></script>

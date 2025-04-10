@@ -1,5 +1,5 @@
 const HOST = "https://phpclusters-188739-0.cloudclusters.net/development_env";
-// const HOST = "http://localhost/Jigawa-IGR-Backend";
+// const HOST = "http://localhost/kano-IGR-Backend";
 
 let loaderHTML = `
 <div class="loader mt-3">
@@ -13,9 +13,42 @@ let loaderHTML = `
 `;
 
 function numberToWordsWithNairaKobo(amount) {
-  const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
-  const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-  const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+  const ones = [
+    "",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+  ];
+  const tens = [
+    "",
+    "",
+    "Twenty",
+    "Thirty",
+    "Forty",
+    "Fifty",
+    "Sixty",
+    "Seventy",
+    "Eighty",
+    "Ninety",
+  ];
+  const teens = [
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen",
+  ];
   const scales = ["", "Thousand", "Million", "Billion", "Trillion"];
 
   function convertToWords(num) {
@@ -23,16 +56,30 @@ function numberToWordsWithNairaKobo(amount) {
     if (num < 10) return ones[num];
     if (num < 20) return teens[num - 10];
     if (num < 100) {
-      return tens[Math.floor(num / 10)] + (num % 10 !== 0 ? " " + ones[num % 10] : "");
+      return (
+        tens[Math.floor(num / 10)] +
+        (num % 10 !== 0 ? " " + ones[num % 10] : "")
+      );
     }
     if (num < 1000) {
-      return ones[Math.floor(num / 100)] + " Hundred" + (num % 100 !== 0 ? " and " + convertToWords(num % 100) : "");
+      return (
+        ones[Math.floor(num / 100)] +
+        " Hundred" +
+        (num % 100 !== 0 ? " and " + convertToWords(num % 100) : "")
+      );
     }
-    
+
     for (let i = 0; i < scales.length; i++) {
       let unit = Math.pow(1000, i + 1);
       if (num < unit) {
-        return convertToWords(Math.floor(num / Math.pow(1000, i))) + " " + scales[i] + (num % Math.pow(1000, i) !== 0 ? ", " + convertToWords(num % Math.pow(1000, i)) : "");
+        return (
+          convertToWords(Math.floor(num / Math.pow(1000, i))) +
+          " " +
+          scales[i] +
+          (num % Math.pow(1000, i) !== 0
+            ? ", " + convertToWords(num % Math.pow(1000, i))
+            : "")
+        );
       }
     }
     return "Amount too large";
@@ -54,7 +101,6 @@ function numberToWordsWithNairaKobo(amount) {
   return nairaWords + " and " + koboWords;
 }
 
-
 let STATES = `
   <option disabled>--Select State--</option>
   <option value="Abia">Abia</option>
@@ -74,7 +120,7 @@ let STATES = `
   <option value="FCT">Federal Capital Territory</option>
   <option value="Gombe">Gombe</option>
   <option value="Imo">Imo</option>
-  <option value="Jigawa" selected>Jigawa</option>
+  <option value="kano" selected>kano</option>
   <option value="Kaduna">Kaduna</option>
   <option value="Kano">Kano</option>
   <option value="Katsina">Katsina</option>
@@ -454,7 +500,7 @@ var lgaList = {
     "Owerri West",
     "Unuimo",
   ],
-  Jigawa: [
+  kano: [
     "Auyo",
     "Babura",
     "Biriniwa",
@@ -961,11 +1007,11 @@ const selectedRepLGA = document.querySelector("#repSelectLGA");
 if (selectedRepState) {
   selectedRepState.innerHTML = STATES;
   let selectedState = selectedRepState.value;
-  const jigawaLGAs = getStateLGAs("Jigawa");
+  const kanoLGAs = getStateLGAs("kano");
 
   selectedRepLGA.innerHTML = "";
 
-  jigawaLGAs.forEach((opt, ii) => {
+  kanoLGAs.forEach((opt, ii) => {
     selectedRepLGA.innerHTML += `
       <option value="${opt}">${opt}</option>
     `;
@@ -973,10 +1019,10 @@ if (selectedRepState) {
 
   selectedRepState.addEventListener("change", function () {
     let selectedState = $(this).val();
-    const jigawaLGAs = getStateLGAs(selectedState);
+    const kanoLGAs = getStateLGAs(selectedState);
 
     selectedRepLGA.innerHTML = "";
-    jigawaLGAs.forEach((opt, ii) => {
+    kanoLGAs.forEach((opt, ii) => {
       selectedRepLGA.innerHTML += `
       <option value="${opt}">${opt}</option>
     `;

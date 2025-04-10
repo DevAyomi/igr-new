@@ -78,7 +78,7 @@ async function fetchInvoice() {
         <!-- Header -->
         <div class="flex justify-between items-center mb-8">
           <div class="flex items-center gap-4">
-            <div class="logo"><img src="./img/jigawa.png" /></div>
+            <div class="logo"><img src="./img/kano.png" /></div>
             <h1 class="text-2xl font-bold">Invoice</h1>
           </div>
           <div class="flex items-start gap-2">
@@ -101,9 +101,9 @@ async function fetchInvoice() {
             </div>
 
             <div class="h-full text-gray-600 bg-gray-50 p-3 rounded-lg space-y-2 border border-gray-100">
-              <p class="font-semibold text-dark">PayJigawa</p>
+              <p class="font-semibold text-dark">Paykano</p>
               <p class="text-sm">(234) 456 - 7894</p>
-              <p class="text-sm">No. 123 Dutse, Jigawa.</p>
+              <p class="text-sm">No. 123 Dutse, kano.</p>
               <p class="text-sm">info@jsirs.gov.ng</p>
             </div>
           </div>
@@ -258,7 +258,7 @@ async function fetchInvoice() {
       const qrCodeContainer = document.getElementById("qrContainer");
 
       const qrCode = new QRCode(qrCodeContainer, {
-        text: `https://payjigawa.com/invoiceGeneration/invoice.html?invoice_number=${invoice_number}`,
+        text: `https://paykano.com/invoiceGeneration/invoice.html?invoice_number=${invoice_number}`,
         colorDark: "#000000",
         colorLight: "#ffffff",
         version: 10,

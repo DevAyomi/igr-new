@@ -372,11 +372,11 @@ function generateInvoice(button) {
     text: `Are you sure you want to generate invoice for this user?`,
     html: `
       <p>Total amount to be paid: ₦ ${monthlyTaxPayable.toLocaleString(
-      "en-NG",
-      {
-        minimumFractionDigits: 2,
-      }
-    )}</p>
+        "en-NG",
+        {
+          minimumFractionDigits: 2,
+        }
+      )}</p>
       <div class="form-group">
         <label for="revenueHead">Select Revenue Head:</label>
         <select id="revenueHead" class="form-select">
@@ -401,7 +401,7 @@ function generateInvoice(button) {
           document.getElementById("revenueHead").value;
         const selectedOption =
           document.getElementById("revenueHead").options[
-          document.getElementById("revenueHead").selectedIndex
+            document.getElementById("revenueHead").selectedIndex
           ];
         const mda_id = selectedOption.getAttribute("data-mdaid");
 
@@ -409,7 +409,7 @@ function generateInvoice(button) {
           tax_number: taxNumber,
           invoice_type: "direct assessment",
           invoice_duration: $("#revMonth").val(),
-          tax_office: "Jigawa Tax Office",
+          tax_office: "kano Tax Office",
           lga: "Auyo",
           description: `Direct Assessment Invoice for user ${taxNumber}`,
           revenue_heads: [

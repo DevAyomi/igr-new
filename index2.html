@@ -1,408 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PayJigawa</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paykano</title>
 
-    <style>
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+
+  <style>
+    .sectionA {
+      color: black;
+    }
+
+    @media (max-width: 767px) {
       .sectionA {
-        color: black;
+        color: white;
       }
+    }
 
-      @media (max-width: 767px) {
-        .sectionA {
-          color: white;
-        }
-      }
+    .collapse {
+      visibility: visible !important;
+    }
 
-      .collapse {
-        visibility: visible !important;
-      }
+    .taxTablee tr th,
+    .taxTablee tr td {
+      font-size: 14px;
+    }
 
-      .taxTablee tr th,
-      .taxTablee tr td {
-        font-size: 14px;
-      }
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
 
-      .card-link {
-        text-decoration: none;
-        color: inherit;
-      }
+    .card-link:hover .bgLightBlue {
+      background-color: #66b4f5;
+      text-decoration: underline;
+    }
+  </style>
+</head>
 
-      .card-link:hover .bgLightBlue {
-        background-color: #66b4f5;
-        text-decoration: underline;
-      }
-    </style>
-  </head>
+<body>
+  <header class="flex justify-between md:px-10 bg-white py-3">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
 
-  <body>
-    <header class="flex justify-between md:px-10 bg-white py-3">
-      <div
-        class="container flex justify-between items-center"
-        id="theHeader"
-      ></div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="position-relative">
-      <img
-        src="./assets/img/herobg.jpg"
-        alt="Background"
-        class="w-100 h-100 object-fit-cover position-absolute"
-        style="z-index: -1; filter: brightness(0.7)"
-      />
-      <div class="container min-vh-100 d-flex align-items-center">
-        <div class="row w-full mt-20 lg:mt-fit py-5">
-          <div class="col-lg-6 text-white hidden sm:block">
-            <h1 class="display-4 fw-bold mb-4">Empowering Taxpayers:</h1>
-            <h2 class="h3 mb-3">
-              Navigating Financial Responsibility with Ease
-            </h2>
-            <p class="lead mb-4">
-              Simplifying Tax Payments and Ensuring Swift, Instant Return Filing
-              for Your Financial Peace of Mind
-            </p>
-            <div class="d-flex gap-3 mb-10">
-              <a class="button" href="regcategory.html">Register as Taxpayer</a>
-              <a class="outline-btn" href="signin.html">Pay your Tax Now</a>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="container w-full bgDark py-2 md:py-4">
-              <h3 class="text-white mb-4 text-base md:text-xl fontBold">
-                Quick Links
-              </h3>
-              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pb-5">
-                <div class="w-full">
-                  <a href="paynow.html" class="card-link">
-                    <div
-                      class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center justify-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
-                    >
-                      <img
-                        src="./assets/img/icons/receipt-tax.png"
-                        width="40"
-                      />
-                      <p class="text-base lg:text-lg">Pay Tax Now</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="w-full">
-                  <a
-                    class="card-link"
-                    data-bs-toggle="modal"
-                    data-bs-target="#tax_calc_modal"
-                  >
-                    <div
-                      class="card bgLightBlue w-full h-full py-8 w-full rounded-xl flex flex-col items-center justify-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
-                    >
-                      <img src="./assets/img/icons/calculator.png" width="50" />
-                      <p class="text-base lg:text-lg">Tax Calculator</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="w-full">
-                  <a href="tinrequest.html" class="card-link">
-                    <div
-                      class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
-                    >
-                      <img src="./assets/img/icons/userid.png" width="50" />
-                      <p class="text-base lg:text-lg">Tin Request</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="w-full">
-                  <a href="../invoiceGeneration/create.html" class="card-link">
-                    <div
-                      class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center justify-center text-center text-lg font-bold text-dark relative hover-effect"
-                    >
-                      <!-- <img src="./assets/img/icons/verify.png" width="50" /> -->
-                      <iconify-icon
-                        icon="fa-solid:money-check-alt"
-                        class="text-2xl py-3"
-                      ></iconify-icon>
-                      <p class="text-base lg:text-lg">Generate Invoice</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="w-full">
-                  <a href="verifyetcc.html" class="card-link">
-                    <div
-                      class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
-                    >
-                      <img src="./assets/img/icons/verify.png" width="50" />
-                      <p class="text-base lg:text-lg">Verify eTCC</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="w-full">
-                  <a href="eservices.html" class="card-link">
-                    <div
-                      class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
-                    >
-                      <img src="./assets/img/icons/internet.png" width="50" />
-                      <p class="text-base lg:text-lg">E-Services</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Registration Steps -->
-    <section class="w-full px-6 py-10 lg:p-20 bg-[#F2F8FF]">
-      <div class="container lg:my-20">
-        <h2 class="mb-2 text-4xl font-extrabold textPrimary">
-          Don't know how to register?
-        </h2>
-        <p class="mb-4 text-lg text-dark">
-          You can get started easily with the following simple steps
-        </p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-          <div class="col flex gap-6 items-center">
-            <i class="fas fa-portrait textPrimary text-4xl"></i>
-            <div class="">
-              <h5 class="text-dark font-bold my-2">Select your Category</h5>
-              <p class="text-muted">
-                Select the type of taxpayer you are (Individual/Corporate)
-              </p>
-            </div>
-          </div>
-          <div class="col flex gap-6 items-center">
-            <i class="fas fa-address-card textPrimary text-4xl"></i>
-            <div class="">
-              <h5 class="text-dark font-bold my-2">Fill in your Details</h5>
-              <p class="text-muted">Input all your information</p>
-            </div>
-          </div>
-          <div class="col flex gap-6 items-center">
-            <img src="./assets/img/icons/tax-id.png" width="50" />
-            <div class="">
-              <h5 class="text-dark font-bold my-2">Get Taxpayer ID</h5>
-              <p class="text-muted">Get your Taxpayer ID instantly</p>
-            </div>
-          </div>
-          <div class="col flex gap-6 items-center">
-            <i class="fas fa-user-check textPrimary text-4xl"></i>
-            <div class="">
-              <h5 class="text-dark font-bold my-2">Verify Account</h5>
-              <p class="text-muted">
-                Verify account with email or Phone number
-              </p>
-            </div>
+  <!-- Hero Section -->
+  <section class="position-relative">
+    <img src="./assets/img/herobg.jpg" alt="Background" class="w-100 h-100 object-fit-cover position-absolute"
+      style="z-index: -1; filter: brightness(0.7)" />
+    <div class="container min-vh-100 d-flex align-items-center">
+      <div class="row w-full mt-20 lg:mt-fit py-5">
+        <div class="col-lg-6 text-white hidden sm:block">
+          <h1 class="display-4 fw-bold mb-4">Empowering Taxpayers:</h1>
+          <h2 class="h3 mb-3">
+            Navigating Financial Responsibility with Ease
+          </h2>
+          <p class="lead mb-4">
+            Simplifying Tax Payments and Ensuring Swift, Instant Return Filing
+            for Your Financial Peace of Mind
+          </p>
+          <div class="d-flex gap-3 mb-10">
+            <a class="button" href="regcategory.html">Register as Taxpayer</a>
+            <a class="outline-btn" href="signin.html">Pay your Tax Now</a>
           </div>
         </div>
 
-        <div class="mt-5">
-          <a class="button" href="regcategory.html">Register as Taxpayer</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="p-6 lg:p-20 bg-[#F2F8FF]">
-      <div class="container space-y-20">
-        <div class="row justify-between flex-col-reverse lg:flex-row">
-          <div class="col-md-6">
-            <h2 class="mb-2 mt-5 text-lg font-extrabold text-dark">
-              For individuals
-            </h2>
-            <p class="mb-4 text-base lg:text-lg text-muted">
-              Navigating the complexities of tax obligations has never been
-              easier for individuals. With our streamlined procedures, the UTBS
-              platform empowers you to effortlessly handle every aspect of tax
-              filing and payments. Whether you're calculating your taxes, making
-              payments, or filing returns, our user-friendly interface ensures a
-              seamless and efficient experience tailored to individual needs.
-              Say goodbye to the hassles of tax management and embrace a
-              straightforward approach to meeting your financial
-              responsibilities.
-            </p>
-          </div>
-          <div class="col-md-6 justify-end flex">
-            <img src="./assets/img/icons/individual.svg" alt="For Individual" />
-          </div>
-        </div>
-        <div class="row justify-between">
-          <div class="col-md-6 justify-start flex">
-            <img src="./assets/img/icons/corporate.svg" alt="For Corporate" />
-          </div>
-          <div class="col-md-6">
-            <h2 class="mb-2 mt-5 text-lg font-extrabold text-dark">
-              For Cooperate Organization
-            </h2>
-            <p class="mb-4 text-base lg:text-lg text-muted">
-              Simplify corporate tax management with an intuitive dashboard
-              designed for seamless handling of company and employee taxes. UTBS
-              provides a user-friendly platform where corporations can
-              effortlessly manage, file, and pay their tax returns. Beyond tax
-              filing, UTBS caters to the comprehensive needs of corporate
-              entities by facilitating the payment of PAYE (Pay As You Earn) and
-              efficient management of their staff. Embrace an integrated
-              solution that streamlines your corporate tax processes, ensuring
-              accuracy, compliance, and ease of financial management for both
-              businesses and their employees.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tax Calculator Section -->
-    <div
-      class="modal fade"
-      id="tax_calc_modal"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title text-dark text-xl" id="staticBackdropLabel">
-              Tax Calculator
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              <iconify-icon icon="icon-park:close"></iconify-icon>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <div class="formTabs">
-              <form action="">
-                <div class="form-group mb-3">
-                  <label for="">What is your Annual Gross income?*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="annualGross"
-                    oninput="formatNumber(this)"
-                  />
-                </div>
-
-                <div class="flex gap-3 mb-3">
-                  <div class="form-group w-6/12">
-                    <label for="">Pension (&#8358;)</label>
-                    <input type="number" class="form-control" />
+        <div class="col-lg-6">
+          <div class="container w-full bgDark py-2 md:py-4">
+            <h3 class="text-white mb-4 text-base md:text-xl fontBold">
+              Quick Links
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pb-5">
+              <div class="w-full">
+                <a href="paynow.html" class="card-link">
+                  <div
+                    class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center justify-center gap-3 text-center text-lg font-bold text-dark relative hover-effect">
+                    <img src="./assets/img/icons/receipt-tax.png" width="40" />
+                    <p class="text-base lg:text-lg">Pay Tax Now</p>
                   </div>
-                  <div class="form-group w-6/12">
-                    <label for="">NHF (&#8358;)</label>
-                    <input type="number" class="form-control" />
-                  </div>
-                </div>
-
-                <button
-                  class="flex items-center button gap-2 m-auto"
-                  id="calculateTaxBtn"
-                  type="button"
-                >
-                  <iconify-icon
-                    icon="solar:calculator-outline"
-                    class="text-lg"
-                  ></iconify-icon>
-                  <span>Calculate my Tax</span>
-                </button>
-              </form>
-            </div>
-
-            <div class="formTabs">
-              <button
-                class="textPrimary flex items-center gap-2 w-fit mb-4"
-                onclick="nextPrev(-1)"
-              >
-                <iconify-icon
-                  class="text-xl"
-                  icon="ion:return-up-back"
-                ></iconify-icon>
-                <span>Go Back</span>
-              </button>
-
-              <div class="monthly">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p>Tax due per Month</p>
-                    <p class="text-xl fontBold text-black" id="monthAmount"></p>
-                  </div>
-
-                  <button
-                    class="textPrimary"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#break1"
-                  >
-                    See breakdown
-                  </button>
-                </div>
+                </a>
               </div>
-
-              <div class="collapse" id="break1">
-                <div class="collapse1"></div>
-              </div>
-
-              <div class="monthly mt-5">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p>Tax due per Year</p>
-                    <p
-                      class="text-xl fontBold text-black"
-                      id="annualAmount"
-                    ></p>
+              <div class="w-full">
+                <a class="card-link" data-bs-toggle="modal" data-bs-target="#tax_calc_modal">
+                  <div
+                    class="card bgLightBlue w-full h-full py-8 w-full rounded-xl flex flex-col items-center justify-center gap-3 text-center text-lg font-bold text-dark relative hover-effect">
+                    <img src="./assets/img/icons/calculator.png" width="50" />
+                    <p class="text-base lg:text-lg">Tax Calculator</p>
                   </div>
-
-                  <button
-                    class="textPrimary"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#break2"
-                  >
-                    See breakdown
-                  </button>
-                </div>
+                </a>
               </div>
-
-              <div class="collapse" id="break2">
-                <div class="collapse2"></div>
+              <div class="w-full">
+                <a href="tinrequest.html" class="card-link">
+                  <div
+                    class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center gap-3 text-center text-lg font-bold text-dark relative hover-effect">
+                    <img src="./assets/img/icons/userid.png" width="50" />
+                    <p class="text-base lg:text-lg">Tin Request</p>
+                  </div>
+                </a>
+              </div>
+              <div class="w-full">
+                <a href="../invoiceGeneration/create.html" class="card-link">
+                  <div
+                    class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center justify-center text-center text-lg font-bold text-dark relative hover-effect">
+                    <!-- <img src="./assets/img/icons/verify.png" width="50" /> -->
+                    <iconify-icon icon="fa-solid:money-check-alt" class="text-2xl py-3"></iconify-icon>
+                    <p class="text-base lg:text-lg">Generate Invoice</p>
+                  </div>
+                </a>
+              </div>
+              <div class="w-full">
+                <a href="verifyetcc.html" class="card-link">
+                  <div
+                    class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center gap-3 text-center text-lg font-bold text-dark relative hover-effect">
+                    <img src="./assets/img/icons/verify.png" width="50" />
+                    <p class="text-base lg:text-lg">Verify eTCC</p>
+                  </div>
+                </a>
+              </div>
+              <div class="w-full">
+                <a href="eservices.html" class="card-link">
+                  <div
+                    class="card bgLightBlue w-full h-full py-8 rounded-xl flex flex-col items-center gap-3 text-center text-lg font-bold text-dark relative hover-effect">
+                    <img src="./assets/img/icons/internet.png" width="50" />
+                    <p class="text-base lg:text-lg">E-Services</p>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <section class="bottom-0 md:mt-5 w-full" id="footer"></section>
+  <!-- Registration Steps -->
+  <section class="w-full px-6 py-10 lg:p-20 bg-[#F2F8FF]">
+    <div class="container lg:my-20">
+      <h2 class="mb-2 text-4xl font-extrabold textPrimary">
+        Don't know how to register?
+      </h2>
+      <p class="mb-4 text-lg text-dark">
+        You can get started easily with the following simple steps
+      </p>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="col flex gap-6 items-center">
+          <i class="fas fa-portrait textPrimary text-4xl"></i>
+          <div class="">
+            <h5 class="text-dark font-bold my-2">Select your Category</h5>
+            <p class="text-muted">
+              Select the type of taxpayer you are (Individual/Corporate)
+            </p>
+          </div>
+        </div>
+        <div class="col flex gap-6 items-center">
+          <i class="fas fa-address-card textPrimary text-4xl"></i>
+          <div class="">
+            <h5 class="text-dark font-bold my-2">Fill in your Details</h5>
+            <p class="text-muted">Input all your information</p>
+          </div>
+        </div>
+        <div class="col flex gap-6 items-center">
+          <img src="./assets/img/icons/tax-id.png" width="50" />
+          <div class="">
+            <h5 class="text-dark font-bold my-2">Get Taxpayer ID</h5>
+            <p class="text-muted">Get your Taxpayer ID instantly</p>
+          </div>
+        </div>
+        <div class="col flex gap-6 items-center">
+          <i class="fas fa-user-check textPrimary text-4xl"></i>
+          <div class="">
+            <h5 class="text-dark font-bold my-2">Verify Account</h5>
+            <p class="text-muted">
+              Verify account with email or Phone number
+            </p>
+          </div>
+        </div>
+      </div>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/aos-master/dist/aos.js"></script>
-    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="assets/js/nav.js?v=1.2"></script>
-    <script src="./assets/js/tax-calculator.js"></script>
-    <script src="assets/js/landing.js"></script>
-    <script src="assets/js/landingcms.js"></script>
-  </body>
+      <div class="mt-5">
+        <a class="button" href="regcategory.html">Register as Taxpayer</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-6 lg:p-20 bg-[#F2F8FF]">
+    <div class="container space-y-20">
+      <div class="row justify-between flex-col-reverse lg:flex-row">
+        <div class="col-md-6">
+          <h2 class="mb-2 mt-5 text-lg font-extrabold text-dark">
+            For individuals
+          </h2>
+          <p class="mb-4 text-base lg:text-lg text-muted">
+            Navigating the complexities of tax obligations has never been
+            easier for individuals. With our streamlined procedures, the UTBS
+            platform empowers you to effortlessly handle every aspect of tax
+            filing and payments. Whether you're calculating your taxes, making
+            payments, or filing returns, our user-friendly interface ensures a
+            seamless and efficient experience tailored to individual needs.
+            Say goodbye to the hassles of tax management and embrace a
+            straightforward approach to meeting your financial
+            responsibilities.
+          </p>
+        </div>
+        <div class="col-md-6 justify-end flex">
+          <img src="./assets/img/icons/individual.svg" alt="For Individual" />
+        </div>
+      </div>
+      <div class="row justify-between">
+        <div class="col-md-6 justify-start flex">
+          <img src="./assets/img/icons/corporate.svg" alt="For Corporate" />
+        </div>
+        <div class="col-md-6">
+          <h2 class="mb-2 mt-5 text-lg font-extrabold text-dark">
+            For Cooperate Organization
+          </h2>
+          <p class="mb-4 text-base lg:text-lg text-muted">
+            Simplify corporate tax management with an intuitive dashboard
+            designed for seamless handling of company and employee taxes. UTBS
+            provides a user-friendly platform where corporations can
+            effortlessly manage, file, and pay their tax returns. Beyond tax
+            filing, UTBS caters to the comprehensive needs of corporate
+            entities by facilitating the payment of PAYE (Pay As You Earn) and
+            efficient management of their staff. Embrace an integrated
+            solution that streamlines your corporate tax processes, ensuring
+            accuracy, compliance, and ease of financial management for both
+            businesses and their employees.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tax Calculator Section -->
+  <div class="modal fade" id="tax_calc_modal" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark text-xl" id="staticBackdropLabel">
+            Tax Calculator
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <iconify-icon icon="icon-park:close"></iconify-icon>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="formTabs">
+            <form action="">
+              <div class="form-group mb-3">
+                <label for="">What is your Annual Gross income?*</label>
+                <input type="text" class="form-control" id="annualGross" oninput="formatNumber(this)" />
+              </div>
+
+              <div class="flex gap-3 mb-3">
+                <div class="form-group w-6/12">
+                  <label for="">Pension (&#8358;)</label>
+                  <input type="number" class="form-control" />
+                </div>
+                <div class="form-group w-6/12">
+                  <label for="">NHF (&#8358;)</label>
+                  <input type="number" class="form-control" />
+                </div>
+              </div>
+
+              <button class="flex items-center button gap-2 m-auto" id="calculateTaxBtn" type="button">
+                <iconify-icon icon="solar:calculator-outline" class="text-lg"></iconify-icon>
+                <span>Calculate my Tax</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="formTabs">
+            <button class="textPrimary flex items-center gap-2 w-fit mb-4" onclick="nextPrev(-1)">
+              <iconify-icon class="text-xl" icon="ion:return-up-back"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+
+            <div class="monthly">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p>Tax due per Month</p>
+                  <p class="text-xl fontBold text-black" id="monthAmount"></p>
+                </div>
+
+                <button class="textPrimary" data-bs-toggle="collapse" data-bs-target="#break1">
+                  See breakdown
+                </button>
+              </div>
+            </div>
+
+            <div class="collapse" id="break1">
+              <div class="collapse1"></div>
+            </div>
+
+            <div class="monthly mt-5">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p>Tax due per Year</p>
+                  <p class="text-xl fontBold text-black" id="annualAmount"></p>
+                </div>
+
+                <button class="textPrimary" data-bs-toggle="collapse" data-bs-target="#break2">
+                  See breakdown
+                </button>
+              </div>
+            </div>
+
+            <div class="collapse" id="break2">
+              <div class="collapse2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="bottom-0 md:mt-5 w-full" id="footer"></section>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js?v=1.2"></script>
+  <script src="./assets/js/tax-calculator.js"></script>
+  <script src="assets/js/landing.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+</body>
+
 </html>

@@ -70,7 +70,7 @@ async function fetchInvoice() {
         <div class="flex justify-center mt-4">
           <div class="flex items-center">
             <img src="./img/jsirs.png" alt="" width="70">
-            <h1 class="text-xl font-bold ms-2">PayJigawa</h1>
+            <h1 class="text-xl font-bold ms-2">Paykano</h1>
           </div>
         </div>
 
@@ -200,7 +200,7 @@ assessment in accordance with the relevant tax laws for all years including the 
           <div class="flex justify-between items-end">
             <div>
               <p>&nbsp; <br> &nbsp;</p>
-              <img src="./img/jigawa.png" width="100" class="z-10 grayscale opacity-50" alt="">
+              <img src="./img/kano.png" width="100" class="z-10 grayscale opacity-50" alt="">
               <hr>
               <p>Official stamp Impression</p>
             </div>
@@ -220,12 +220,12 @@ assessment in accordance with the relevant tax laws for all years including the 
           <p class="text-danger md:mx-10 mx-4 text-sm">Please Note: Any alteration made on this document renders it invalid</p>
         <div class="pb-6">
           <div class="flex items-center">
-            <img src="./img/jigawa.png" class="w-[100px]" alt="">
+            <img src="./img/kano.png" class="w-[100px]" alt="">
             <div>
-              <p class="text-xl fontBold pb-0">PayJigawa Portal</p>
+              <p class="text-xl fontBold pb-0">Paykano Portal</p>
               <div class="flex items-center gap-x-3 flex-wrap">
-                <p class="text-sm text-[#6F6F84]">www.payjigawa.com</p>
-                <p class="text-sm text-[#6F6F84]">Info@payjigawa.com</p>
+                <p class="text-sm text-[#6F6F84]">www.paykano.com</p>
+                <p class="text-sm text-[#6F6F84]">Info@paykano.com</p>
                 <p class="text-sm text-[#6F6F84]">07056990777, 08031230301</p>
                 <img src="../assets/img/logo1.png" class="h-[30px] w-[50px]" alt="">
               </div>
@@ -239,7 +239,7 @@ assessment in accordance with the relevant tax laws for all years including the 
       const qrCodeContainer = document.getElementById("qrContainer");
 
       const qrCode = new QRCode(qrCodeContainer, {
-        text: `https://payjigawa.com/etcc/etcc-certificate.html?tcc_number==${invoice_number}`,
+        text: `https://paykano.com/etcc/etcc-certificate.html?tcc_number==${invoice_number}`,
         colorDark: "#000000",
         colorLight: "#ffffff",
         version: 10,

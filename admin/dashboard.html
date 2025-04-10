@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
   <link rel="icon" type="image/png" href="./assets/img/logo.png" />
-  <title>PayJigawa</title>
+  <title>Paykano</title>
 
-  <meta name="keywords" content="Jigawa IGR" />
-  <meta name="description" content="Jigawa Tax Collector" />
+  <meta name="keywords" content="kano IGR" />
+  <meta name="description" content="kano Tax Collector" />
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -607,11 +607,13 @@
                     <div class="d-flex align-items-center gap-5">
                       <div class="form-group">
                         <label for="startDate">Start Date</label>
-                        <input type="date" id="revenueHeadStartDate" class="form-control" onchange="fetchRevenueHeadPerformance()" />
+                        <input type="date" id="revenueHeadStartDate" class="form-control"
+                          onchange="fetchRevenueHeadPerformance()" />
                       </div>
                       <div class="form-group">
                         <label for="endDate">End Date</label>
-                        <input type="date" id="revenueHeadEndDate" class="form-control" onchange="fetchRevenueHeadPerformance()" />
+                        <input type="date" id="revenueHeadEndDate" class="form-control"
+                          onchange="fetchRevenueHeadPerformance()" />
                       </div>
                     </div>
                   </div>
@@ -682,12 +684,12 @@
                 <div class="card" style="height: 100%;">
                   <div class="card-header">
                     <h6>
-                      Taxpayer Distribution by Location (Jigawa
+                      Taxpayer Distribution by Location (kano
                       State)
                     </h6>
                   </div>
                   <div class="card-body">
-                    <div id="geoHeatMapJigawa" style="width: 100%; height: 300px"></div>
+                    <div id="geoHeatMapkano" style="width: 100%; height: 300px"></div>
                   </div>
                 </div>
               </div>
@@ -716,70 +718,75 @@
                   </div>
                 </div>
               </div>
-                <div class="col-lg-6 col-12">
-                  <div class="card">
-                    <div class="card-header">
+              <div class="col-lg-6 col-12">
+                <div class="card">
+                  <div class="card-header">
                     <h6>Average Cycle Time Gauge</h6>
                     <div class="d-flex align-items-center gap-3">
                       <div class="form-group">
-                      <label for="cycleStartDate">Start Date</label>
-                      <input type="date" id="cycleStartDate" class="form-control" onchange="fetchAverageCycleTimeGauge()" />
+                        <label for="cycleStartDate">Start Date</label>
+                        <input type="date" id="cycleStartDate" class="form-control"
+                          onchange="fetchAverageCycleTimeGauge()" />
                       </div>
                       <div class="form-group">
-                      <label for="cycleEndDate">End Date</label>
-                      <input type="date" id="cycleEndDate" class="form-control" onchange="fetchAverageCycleTimeGauge()" />
+                        <label for="cycleEndDate">End Date</label>
+                        <input type="date" id="cycleEndDate" class="form-control"
+                          onchange="fetchAverageCycleTimeGauge()" />
                       </div>
                       <div class="form-group d-none">
-                      <label for="taxOfficeSelect">Tax Office</label>
-                      <select id="taxOfficeSelect" class="form-control" onchange="fetchAverageCycleTimeGauge()">
-                        <!-- Populate dynamically -->
-                      </select>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="chart-container">
-                        <canvas id="averageCycleTimeGauge"></canvas>
+                        <label for="taxOfficeSelect">Tax Office</label>
+                        <select id="taxOfficeSelect" class="form-control" onchange="fetchAverageCycleTimeGauge()">
+                          <!-- Populate dynamically -->
+                        </select>
                       </div>
                     </div>
                   </div>
+                  <div class="card-body">
+                    <div class="chart-container">
+                      <canvas id="averageCycleTimeGauge"></canvas>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-lg-6 col-12">
-                  <div class="card">
-                    <div class="card-header">
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="card">
+                  <div class="card-header">
                     <h6>TIN Request Count</h6>
                     <div class="d-flex align-items-center gap-3">
                       <div class="form-group">
-                      <label for="tinStartDate">Start Date</label>
-                      <input type="date" id="tinStartDate" class="form-control" onchange="fetchTimeRequestCountGauge()" />
+                        <label for="tinStartDate">Start Date</label>
+                        <input type="date" id="tinStartDate" class="form-control"
+                          onchange="fetchTimeRequestCountGauge()" />
                       </div>
                       <div class="form-group">
-                      <label for="tinEndDate">End Date</label>
-                      <input type="date" id="tinEndDate" class="form-control" onchange="fetchTimeRequestCountGauge()" />
+                        <label for="tinEndDate">End Date</label>
+                        <input type="date" id="tinEndDate" class="form-control"
+                          onchange="fetchTimeRequestCountGauge()" />
                       </div>
                       <div class="form-group">
-                      <label for="tinMonth">Month</label>
-                      <input type="month" id="tinMonth" class="form-control" onchange="fetchTimeRequestCountGauge()" />
+                        <label for="tinMonth">Month</label>
+                        <input type="month" id="tinMonth" class="form-control"
+                          onchange="fetchTimeRequestCountGauge()" />
                       </div>
                       <div class="form-group">
-                      <label for="tinYear">Year</label>
-                      <select id="tinYear" class="form-control" onchange="fetchTimeRequestCountGauge()">
-                        <!-- Populate with years dynamically -->
-                      </select>
-                      </div>
-                    </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="chart-container">
-                        <canvas id="tinRequestCountGauge"></canvas>
+                        <label for="tinYear">Year</label>
+                        <select id="tinYear" class="form-control" onchange="fetchTimeRequestCountGauge()">
+                          <!-- Populate with years dynamically -->
+                        </select>
                       </div>
                     </div>
                   </div>
+                  <div class="card-body">
+                    <div class="chart-container">
+                      <canvas id="tinRequestCountGauge"></canvas>
+                    </div>
+                  </div>
                 </div>
-              
-              
+              </div>
+
+
             </div>
-           
+
 
 
         </div>

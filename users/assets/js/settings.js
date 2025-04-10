@@ -41,22 +41,20 @@ async function fetchUserData(taxNumber) {
       $("#employmentStatus").val(data.employment_status);
       $("#numberOfStaff").val(data.number_of_staff);
 
-      let allInputs = document.querySelectorAll(".updateInputs")
+      let allInputs = document.querySelectorAll(".updateInputs");
       allInputs.forEach((allInpt) => {
-        if (allInpt.name === 'state') {
-          allInpt.value = data[allInpt.name]
+        if (allInpt.name === "state") {
+          allInpt.value = data[allInpt.name];
 
-          const jigawaLGAs = getStateLGAs(data[allInpt.name]);
-          $('#repSelectLGA').html('')
-          jigawaLGAs.forEach((opt, ii) => {
-            $("#repSelectLGA").append(`<option value="${opt}">${opt}</option>`)
+          const kanoLGAs = getStateLGAs(data[allInpt.name]);
+          $("#repSelectLGA").html("");
+          kanoLGAs.forEach((opt, ii) => {
+            $("#repSelectLGA").append(`<option value="${opt}">${opt}</option>`);
           });
         } else {
-          allInpt.value = data[allInpt.name]
+          allInpt.value = data[allInpt.name];
         }
-
-      })
-
+      });
     } else {
       console.error("Failed to fetch user data:", res.message);
     }
@@ -68,24 +66,21 @@ async function fetchUserData(taxNumber) {
 $("#updateProfileBtn").on("click", function () {
   $("#updateProfileBtn")
     .prop("disabled", true)
-    .html(
-      '<span class="spinner-border spinner-border-sm"></span> Updating...'
-    );
+    .html('<span class="spinner-border spinner-border-sm"></span> Updating...');
 
   let thedataToSend = {
-    tax_number: userData.tax_number
+    tax_number: userData.tax_number,
   };
 
-  let allInputs = document.querySelectorAll('.updateInputs')
+  let allInputs = document.querySelectorAll(".updateInputs");
   allInputs.forEach((inputo) => {
     if (inputo.disabled === true) {
-
     } else {
-      thedataToSend[inputo.name] = inputo.value
+      thedataToSend[inputo.name] = inputo.value;
     }
-  })
+  });
 
-  console.log(thedataToSend)
+  console.log(thedataToSend);
   $.ajax({
     type: "POST",
     url: `${HOST}/taxpayer-update-profile`,
@@ -93,9 +88,7 @@ $("#updateProfileBtn").on("click", function () {
     data: JSON.stringify(thedataToSend),
     crossDomain: true,
     success: function (response) {
-      $("#updateProfileBtn")
-        .prop("disabled", false)
-        .html("Change Password");
+      $("#updateProfileBtn").prop("disabled", false).html("Change Password");
       if (response.status === "success") {
         Swal.fire({
           title: "Success",
@@ -103,35 +96,32 @@ $("#updateProfileBtn").on("click", function () {
           html: `<p>Your Profile has been updated successfully.</p>`,
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.reload()
+            window.location.reload();
           }
         });
       } else {
         $("#msg_box").html(`
-          <div class="alert alert-danger text-center" role="alert">${response.message
-            ? response.message
-            : "An Error occurred while updating your profile"
+          <div class="alert alert-danger text-center" role="alert">${
+            response.message
+              ? response.message
+              : "An Error occurred while updating your profile"
           }</div>
         `);
       }
     },
     error: function (err) {
       console.error("Error fetching TCC:", err);
-      $("#updateProfileBtn")
-        .prop("disabled", false)
-        .html("Update");
+      $("#updateProfileBtn").prop("disabled", false).html("Update");
       $("#msg_box").html(`
-              <div class="alert alert-danger text-center" role="alert">${err.responseJSON.message
-          ? err.responseJSON.message
-          : "An Error occurred while updating your profile"
-        }</div>
+              <div class="alert alert-danger text-center" role="alert">${
+                err.responseJSON.message
+                  ? err.responseJSON.message
+                  : "An Error occurred while updating your profile"
+              }</div>
             `);
     },
   });
-
 });
-
-
 
 // Call the function with the user's tax number
 fetchUserData(userData.tax_number);
@@ -188,10 +178,11 @@ $("#changePasswordBtn").on("click", function () {
             .prop("disabled", false)
             .html("Change Password");
           $("#msg").html(`
-              <div class="alert alert-danger text-center" role="alert">${err.responseJSON.message
-              ? err.responseJSON.message
-              : "An Error occurred while resetting your password"
-            }</div>
+              <div class="alert alert-danger text-center" role="alert">${
+                err.responseJSON.message
+                  ? err.responseJSON.message
+                  : "An Error occurred while resetting your password"
+              }</div>
             `);
         },
       });

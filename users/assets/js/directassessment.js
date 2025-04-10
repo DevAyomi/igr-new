@@ -364,7 +364,7 @@ function generateInvoice(button) {
           tax_number: taxNumber,
           invoice_type: "direct assessment",
           invoice_duration: $("#revMonth").val(),
-          tax_office: "Jigawa Tax Office",
+          tax_office: "kano Tax Office",
           lga: "Auyo",
           description: `Direct Assessment Invoice for user ${taxNumber}`,
           revenue_heads: [

@@ -1,21 +1,21 @@
 const urlParams = new URLSearchParams(window.location.search);
-const invoice_number = urlParams.get('invoice_number');
+const invoice_number = urlParams.get("invoice_number");
 
 function convertTimestampToReadableDate(timestamp) {
   // Split the timestamp to get the date part
-  const datePart = timestamp.split(' ')[0];
+  const datePart = timestamp.split(" ")[0];
 
   // Extract the year, month, and day
-  const [year, month, day] = datePart.split('-');
+  const [year, month, day] = datePart.split("-");
 
   // Create a Date object
   const date = new Date(year, month - 1, day); // Month is 0-indexed
 
   // Format the date using Intl.DateTimeFormat
-  const readableDate = new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
+  const readableDate = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   }).format(date);
 
   return readableDate;
@@ -23,10 +23,10 @@ function convertTimestampToReadableDate(timestamp) {
 
 function addOneMonthAndFormat(timestamp) {
   // Split the timestamp to get the date part
-  const datePart = timestamp.split(' ')[0];
+  const datePart = timestamp.split(" ")[0];
 
   // Extract the year, month, and day
-  const [year, month, day] = datePart.split('-').map(Number);
+  const [year, month, day] = datePart.split("-").map(Number);
 
   // Create a Date object
   const date = new Date(year, month - 1, day); // Month is 0-indexed
@@ -35,49 +35,53 @@ function addOneMonthAndFormat(timestamp) {
   date.setMonth(date.getMonth() + 1);
 
   // Format the updated date using Intl.DateTimeFormat
-  const updatedDate = new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
+  const updatedDate = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   }).format(date);
 
   return updatedDate;
 }
 
 function formatMoney(amount) {
-  return parseFloat(amount).toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'NGN', // Change this to your desired currency code
+  return parseFloat(amount).toLocaleString("en-US", {
+    style: "currency",
+    currency: "NGN", // Change this to your desired currency code
     minimumFractionDigits: 2,
   });
 }
 
 async function fetchInvoice() {
   try {
-    const response = await fetch(`${HOST}/noauth-get-payment?invoice_number=${invoice_number}`);
+    const response = await fetch(
+      `${HOST}/noauth-get-payment?invoice_number=${invoice_number}`
+    );
     const userinvoice = await response.json();
 
     if (userinvoice.data.length > 0) {
-      let invoiceInfo = userinvoice.data[0]
+      let invoiceInfo = userinvoice.data[0];
 
-      let amount_due = 0
+      let amount_due = 0;
 
-      invoiceInfo.associated_revenue_heads.forEach(rev_head => {
-        amount_due += parseFloat(rev_head.amount)
+      invoiceInfo.associated_revenue_heads.forEach((rev_head) => {
+        amount_due += parseFloat(rev_head.amount);
       });
-      let invoiceContainer = ""
+      let invoiceContainer = "";
 
       invoiceContainer += `
         <!-- Header -->
         <div class="flex justify-between items-center mb-8">
           <div class="flex items-center gap-4">
-            <div class="logo"><img src="../assets/img/img/jigawa.png" /></div>
+            <div class="logo"><img src="../assets/img/img/kano.png" /></div>
             <h1 class="text-2xl font-bold">Payment Receipt</h1>
           </div>
           <div class="flex items-start gap-2">
             <div class="text-right">
               <p class="text-gray-500 text-sm">Receipt number:</p>
-              <h1 class="text-gray-800 font-bold text-lg">${invoiceInfo.invoice_number}</h1>
+              <h1 class="text-gray-800 font-bold text-lg">${
+                invoiceInfo.invoice_number
+              }</h1>
             </div>
           </div>
         </div>
@@ -114,9 +118,9 @@ async function fetchInvoice() {
             <div
               class="h-full text-gray-600 bg-gray-50 p-3 rounded-lg space-y-2 border border-gray-100"
             >
-              <p class="font-semibold text-dark">PayJigawa</p>
+              <p class="font-semibold text-dark">Paykano</p>
               <p class="text-sm">(234) 456 - 7894</p>
-              <p class="text-sm">No. 123 Dutse, Jigawa.</p>
+              <p class="text-sm">No. 123 Dutse, kano.</p>
               <p class="text-sm">info@jsirs.gov.ng</p>
             </div>
           </div>
@@ -133,7 +137,13 @@ async function fetchInvoice() {
             >
               <div class="flex items-center gap-1 mb-2">
                 <i class="fa fa-user text-sm primary"></i>
-                <p class="font-semibold text-dark">${invoiceInfo.user_info.first_name} ${invoiceInfo.user_info.surname === "" ? '' : invoiceInfo.user_info.surname}</p>
+                <p class="font-semibold text-dark">${
+                  invoiceInfo.user_info.first_name
+                } ${
+        invoiceInfo.user_info.surname === ""
+          ? ""
+          : invoiceInfo.user_info.surname
+      }</p>
               </div>
 
               <p class="text-sm">${invoiceInfo.user_info.phone}</p>
@@ -165,11 +175,15 @@ async function fetchInvoice() {
             </div>
             <div>
               <p class="text-gray-600">Issued Date</p>
-              <p class="font-semibold">${convertTimestampToReadableDate(invoiceInfo.timeIn)}</p>
+              <p class="font-semibold">${convertTimestampToReadableDate(
+                invoiceInfo.timeIn
+              )}</p>
             </div>
             <div>
               <p class="text-gray-600">Due Date</p>
-              <p class="font-semibold">${addOneMonthAndFormat(invoiceInfo.timeIn)}</p>
+              <p class="font-semibold">${addOneMonthAndFormat(
+                invoiceInfo.timeIn
+              )}</p>
             </div>
           </div>
         </div>
@@ -187,18 +201,22 @@ async function fetchInvoice() {
             </thead>
             <tbody class="">
               <tr class="h-4"></tr>
-      `
-      invoiceInfo.associated_revenue_heads.forEach(revenue => {
+      `;
+      invoiceInfo.associated_revenue_heads.forEach((revenue) => {
         invoiceContainer += `
           <tr class="text-sm text-gray-600 font-semibold rounded-full outline outline-offset-2 outline-slate-200 outline-1">
             <td class="py-3 px-4 rounded-full">${revenue.item_name}</td>
             <td class="py-3 px-4 text-center text-gray-400">1</td>
-            <td class="text-left text-gray-400">${formatMoney(revenue.amount)}</td>
-            <td class="text-left rounded-r-lg">${formatMoney(revenue.amount)}</td>
+            <td class="text-left text-gray-400">${formatMoney(
+              revenue.amount
+            )}</td>
+            <td class="text-left rounded-r-lg">${formatMoney(
+              revenue.amount
+            )}</td>
           </tr>
           <tr class="h-4"></tr>
-        `
-      })
+        `;
+      });
 
       invoiceContainer += ` 
             </tbody>
@@ -244,21 +262,18 @@ async function fetchInvoice() {
           <div class="signature-line"></div>
           <p class="mt-2 font-semibold">Executive Chairman JSIRS</p>
         </div>
-      `
+      `;
 
+      $("#invoiceContainer").html(invoiceContainer);
 
-      $("#invoiceContainer").html(invoiceContainer)
-
-      const qrCodeContainer = document.getElementById("qrContainer")
+      const qrCodeContainer = document.getElementById("qrContainer");
 
       const qrCode = new QRCode(qrCodeContainer, {
-        text: `https://payjigawa.com/invoiceGeneration/payment-receipt.html?invoice_number=${invoice_number}`,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
+        text: `https://paykano.com/invoiceGeneration/payment-receipt.html?invoice_number=${invoice_number}`,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
         version: 10,
       });
-
-
     } else {
       $("#invoiceContainer").html(`
           <div class='d-flex justify-content-center'>
@@ -266,17 +281,16 @@ async function fetchInvoice() {
           </div>
           <p class="mt-3 text-danger text-center">Invalid or Expired Receipt</p>
           
-        `)
+        `);
     }
-
   } catch (error) {
-    console.log(error)
+    console.log(error);
     $("#invoiceContainer").html(`
         <div class='d-flex justify-content-center'>
           <img src='../assets/img/not-found.png' alt='' />
         </div>
         <p class="mt-3 text-danger text-center">Failed to Fetch</p>
-      `)
+      `);
   }
 }
-fetchInvoice()
+fetchInvoice();

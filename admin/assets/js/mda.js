@@ -47,14 +47,15 @@ function fetchMdaData(page, filters = {}) {
     crossDomain: true,
     success: function (response) {
       $tableBody.empty();
-      if (!hasPermission(7)) { // View MDA List
+      if (!hasPermission(7)) {
+        // View MDA List
         $tableBody.html(`
           <tr>
             <td colspan="11" class="text-center text-warning font-bold">You don't have access to view mda list.</td>
           </tr>
         `);
       } else {
-        $('#mda-actions').removeClass('d-none')
+        $("#mda-actions").removeClass("d-none");
         if (response.status === "success") {
           dataToExport = response.data;
           renderTable(response.data);
@@ -64,7 +65,6 @@ function fetchMdaData(page, filters = {}) {
           alert(response.message || "Failed to fetch data.");
         }
       }
-
     },
     error: function (err) {
       showLoader(false); // Hide the loader
@@ -127,21 +127,28 @@ function renderTable(data) {
         <td>₦${parseFloat(mda.total_remittance || 0).toLocaleString()}</td>
         <td>${formatDate(mda.time_in)}</td>
         <td class="text-sm">
-          <span class="badge badge-md badge-${mda.status === "active" ? "success" : "danger"
-      }">
+          <span class="badge badge-md badge-${
+            mda.status === "active" ? "success" : "danger"
+          }">
             ${mda.status}
           </span>
         </td>
         <td>
-          <a href="./mda-details.html?id=${mda.id}" class="btn btn-primary btn-sm">View</a>
-          ${!hasPermission(9) ? '' : ` 
+          <a href="./mda-details.html?id=${
+            mda.id
+          }" class="btn btn-primary btn-sm">View</a>
+          ${
+            !hasPermission(9)
+              ? ""
+              : ` 
             <button class="btn btn-secondary editMda btn-sm" data-id="${mda.id}" data-bs-toggle="modal" data-bs-target="#editMdaModal">
               Edit
             </button>
             <button class="btn btn-danger btn-sm" onclick="deleteMda(${mda.id})">
               Delete
             </button>
-          `}
+          `
+          }
         </td>
       </tr>`;
     $tableBody.append(tableRow);
@@ -156,8 +163,9 @@ function renderPagination(pagination) {
   // Previous button
   $pagination.append(
     `<li class="page-item ${current_page === 1 ? "disabled" : ""}">
-        <a class="page-link" href="#" data-page="${current_page - 1
-    }">Previous</a>
+        <a class="page-link" href="#" data-page="${
+          current_page - 1
+        }">Previous</a>
       </li>`
   );
 
@@ -230,7 +238,8 @@ function fetchApprovalRequestData(page) {
     crossDomain: true,
     success: function (response) {
       showLoader(false); // Hide the loader
-      if (!hasPermission(7)) { // View MDA List
+      if (!hasPermission(7)) {
+        // View MDA List
         $tableBody.html(`
           <tr>
             <td colspan="11" class="text-center text-warning font-bold">You don't have access to view revenue list.</td>
@@ -274,14 +283,18 @@ function renderApprovalRequestTable(data) {
         <td>${rev.frequency}</td>
         <td>₦${parseFloat(rev.amount || 0).toLocaleString()}</td>
         <td>₦${parseFloat(
-      rev.total_revenue_generated || 0
-    ).toLocaleString()}</td>
+          rev.total_revenue_generated || 0
+        ).toLocaleString()}</td>
         <td>
-        ${!hasPermission(12) ? '' : `
+        ${
+          !hasPermission(12)
+            ? ""
+            : `
           <button class="btn-primary btn-sm btn approve-btn" data-rev-id="${rev.id}">
             Approve
           </button>
-        `}
+        `
+        }
           
         </td>
       </tr>
@@ -379,9 +392,10 @@ function approveRevenueHead(revenueHeadId) {
             title: errorTitle,
             html: `
               <div>${errorMessage}</div>
-              ${xhr.status
-                ? `<small class="text-muted">Status Code: ${xhr.status}</small>`
-                : ""
+              ${
+                xhr.status
+                  ? `<small class="text-muted">Status Code: ${xhr.status}</small>`
+                  : ""
               }
             `,
             icon: "error",
@@ -423,7 +437,11 @@ $("#createMdaBtn").on("click", function () {
     phone: $("#createMdaModal #phone").val().trim(),
     industry: $("#createMdaModal #industry").val(),
     allow_payment: $("#createMdaModal #allowPayment").is(":checked") ? 1 : 0,
-    allow_office_creation: $("#createMdaModal #allowOfficeCreation").is(":checked") ? 1 : 0,
+    allow_office_creation: $("#createMdaModal #allowOfficeCreation").is(
+      ":checked"
+    )
+      ? 1
+      : 0,
     status: $("#createMdaModal #status").val() === "1" ? 1 : 2,
     state: $("#createMdaModal #repSelectState").val(),
     lga: $("#createMdaModal #repSelectLGA").val(),
@@ -537,7 +555,10 @@ function populateEditModal(mda) {
   $("#editMdaModal #phone").val(mda.phone);
   $("#editMdaModal #address").val(mda.address);
   $("#editMdaModal #allowPayment").prop("checked", mda.allow_payment === "yes");
-  $("#editMdaModal #allowOfficeCreation").prop("checked", mda.allow_office_creation === "yes");
+  $("#editMdaModal #allowOfficeCreation").prop(
+    "checked",
+    mda.allow_office_creation === "yes"
+  );
   $("#editMdaModal #status").val(mda.status === "active" ? 1 : 2);
 }
 
@@ -558,7 +579,9 @@ $("#editMdaModal #editMdaSubmitBtn").on("click", function () {
     phone: $("#editMdaModal #phone").val(),
     status: $("#editMdaModal #status").val(),
     allowPayment: $("#editMdaModal #allowPayment").is(":checked"),
-    allow_office_creation: $("#editMdaModal #allowOfficeCreation").is(":checked"),
+    allow_office_creation: $("#editMdaModal #allowOfficeCreation").is(
+      ":checked"
+    ),
   };
 
   $("#editMdaSubmitBtn")
@@ -615,11 +638,11 @@ const editSelectedRepLGA = document.querySelector("#editSelectLGA");
 if (editSelectedRepState) {
   editSelectedRepState.innerHTML = editState;
   let selectedState = editSelectedRepState.value;
-  const jigawaLGAs = getEditStateLGAs("Jigawa");
+  const kanoLGAs = getEditStateLGAs("kano");
 
   editSelectedRepLGA.innerHTML = "";
 
-  jigawaLGAs.forEach((opt, ii) => {
+  kanoLGAs.forEach((opt, ii) => {
     editSelectedRepLGA.innerHTML += `
       <option value="${opt}">${opt}</option>
     `;
@@ -627,11 +650,11 @@ if (editSelectedRepState) {
 
   editSelectedRepState.addEventListener("change", function () {
     let selectedState = $(this).val();
-    const jigawaLGAs = getStateLGAs(selectedState);
+    const kanoLGAs = getStateLGAs(selectedState);
 
     editSelectedRepLGA.innerHTML = "";
 
-    jigawaLGAs.forEach((opt, ii) => {
+    kanoLGAs.forEach((opt, ii) => {
       editSelectedRepLGA.innerHTML += `
       <option value="${opt}">${opt}</option>
     `;

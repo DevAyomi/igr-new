@@ -1,249 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PayJigawa</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/responsive.css" />
-    <link rel="stylesheet" href="../assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="../assets/js/aos-master/dist/aos.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paykano</title>
 
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://html2canvas.hertzen.com/dist/html2canvas.js"
-    ></script>
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="../assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="../assets/js/aos-master/dist/aos.css" />
 
-    <style>
-      .formTabs {
-        display: none;
-      }
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
-      .invTa tr td {
-        padding-left: 0;
-        padding-bottom: 0px;
-        font-size: 14px;
-      }
+  <style>
+    .formTabs {
+      display: none;
+    }
 
-      .imgTabs {
-        display: none;
-      }
-    </style>
-  </head>
+    .invTa tr td {
+      padding-left: 0;
+      padding-bottom: 0px;
+      font-size: 14px;
+    }
 
-  <body>
-    <section class="flex h-[100vh] overflow-y-scroll flex justify-center">
-      <section class="">
-        <!-- <div class="flex align-items-center gap-1 my-4">
+    .imgTabs {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="flex h-[100vh] overflow-y-scroll flex justify-center">
+    <section class="">
+      <!-- <div class="flex align-items-center gap-1 my-4">
         <a type="button" style='color: #CDA545; font-weight: 500;' onclick="history.go(-1)" class="text-[18px]">Go
           Back</a>
       </div> -->
-        <div class="invoiceContainer flex justify-center">
-          <div
-            class="invoice bg-white md:w-[100%] w-[90%] shadow-md md:-mt-12 mt-2"
-            id="invoiceCard"
-          >
-            <!-- COMING FROM JS invoice.js -->
-            <div class="invoicetop"></div>
+      <div class="invoiceContainer flex justify-center">
+        <div class="invoice bg-white md:w-[100%] w-[90%] shadow-md md:-mt-12 mt-2" id="invoiceCard">
+          <!-- COMING FROM JS invoice.js -->
+          <div class="invoicetop"></div>
 
-            <div class="flex px-6 pt-3 items-center justify-between">
-              <h1 class="fontBold text-2xl">Invoice</h1>
+          <div class="flex px-6 pt-3 items-center justify-between">
+            <h1 class="fontBold text-2xl">Invoice</h1>
 
-              <div class="flex items-center gap-1">
-                <img src="./assets/img/vector.png" alt="" />
-                <p class="text-2xl fontBold">INV-2023-001</p>
-              </div>
+            <div class="flex items-center gap-1">
+              <img src="./assets/img/vector.png" alt="" />
+              <p class="text-2xl fontBold">INV-2023-001</p>
+            </div>
+          </div>
+
+          <div class="mt-2 sm:px-4 gap-3">
+            <img src="./assets/img/logo.png" alt="" class="w-[80px]" />
+          </div>
+
+          <div class="flex justify-between sm:px-6 mt-4">
+            <div class="w-full">
+              <p class="text-[#555555]">FROM :</p>
+              <p class="fontBold">kano State Internal Revenue Service</p>
+              <p class="text-[#222234] w-[60%] text-sm">kano</p>
             </div>
 
-            <div class="mt-2 sm:px-4 gap-3">
-              <img src="./assets/img/logo.png" alt="" class="w-[80px]" />
+            <div class="w-full md:mr-[-10%]">
+              <p class="text-[#555555]">TO :</p>
+              <p class="fontBold text-left">John Smith</p>
+              <p class="text-[#222234] text-sm md:w-[60%]">
+                123 Main St, Jos
+              </p>
             </div>
+          </div>
 
-            <div class="flex justify-between sm:px-6 mt-4">
-              <div class="w-full">
-                <p class="text-[#555555]">FROM :</p>
-                <p class="fontBold">Jigawa State Internal Revenue Service</p>
-                <p class="text-[#222234] w-[60%] text-sm">Jigawa</p>
-              </div>
+          <div class="sm:px-6 mt-4">
+            <p class="text-[#555555]">INFO :</p>
 
-              <div class="w-full md:mr-[-10%]">
-                <p class="text-[#555555]">TO :</p>
-                <p class="fontBold text-left">John Smith</p>
-                <p class="text-[#222234] text-sm md:w-[60%]">
-                  123 Main St, Jos
-                </p>
-              </div>
-            </div>
+            <table class="table table-borderless invTa md:w-[70%] w-full">
+              <tr>
+                <td>
+                  <p class="fontBold">Payer ID: JIG123456</p>
+                </td>
+                <td>Due Date: 2024-12-31</td>
+              </tr>
+              <tr>
+                <td>Invoice Date: 2024-11-18</td>
+                <td>Expiry Date: 2024-12-31</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="fontBold">Description:</span>
+                  Annual Tax Payment
+                </td>
+              </tr>
+            </table>
+          </div>
 
-            <div class="sm:px-6 mt-4">
-              <p class="text-[#555555]">INFO :</p>
+          <div class="sm:px-6">
+            <table class="table table-borderless">
+              <tr class="bgPrimary">
+                <td class="text-white text-sm">ITEM DESCRIPTION</td>
+                <td class="text-white text-sm">QTY</td>
+                <td class="text-white text-sm">RATE</td>
+                <td class="text-white text-sm">AMOUNT</td>
+              </tr>
+              <tr class="border-b border-b border-[#6F6F84]">
+                <td class="text-sm">Personal Income Tax</td>
+                <td class="text-sm">01</td>
+                <td class="text-sm"></td>
+                <td class="text-sm">₦ 250,000.00</td>
+              </tr>
+              <tr>
+                <td class="text-[#555555] text-sm">Sub Total</td>
+                <td></td>
+                <td></td>
+                <td class="text-[#000] text-sm">₦ 250,000.00</td>
+              </tr>
+              <tr class="border-b border-b border-[#6F6F84]">
+                <td class="text-[#555555] text-sm">Discount</td>
+                <td></td>
+                <td></td>
+                <td class="text-[#000] text-sm">₦0.00</td>
+              </tr>
 
-              <table class="table table-borderless invTa md:w-[70%] w-full">
-                <tr>
-                  <td>
-                    <p class="fontBold">Payer ID: JIG123456</p>
-                  </td>
-                  <td>Due Date: 2024-12-31</td>
-                </tr>
-                <tr>
-                  <td>Invoice Date: 2024-11-18</td>
-                  <td>Expiry Date: 2024-12-31</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="fontBold">Description:</span>
-                    Annual Tax Payment
-                  </td>
-                </tr>
-              </table>
-            </div>
+              <tr>
+                <td colspan="3" class="text-[#000]">
+                  Grand Total<span class="text-[#555555]"> (₦)</span>
+                </td>
+                <td class="text-[#000] text-xl fontBold">
+                  <span id="actualPrice">₦ 250,000.00</span>
+                </td>
+              </tr>
 
-            <div class="sm:px-6">
-              <table class="table table-borderless">
-                <tr class="bgPrimary">
-                  <td class="text-white text-sm">ITEM DESCRIPTION</td>
-                  <td class="text-white text-sm">QTY</td>
-                  <td class="text-white text-sm">RATE</td>
-                  <td class="text-white text-sm">AMOUNT</td>
-                </tr>
-                <tr class="border-b border-b border-[#6F6F84]">
-                  <td class="text-sm">Personal Income Tax</td>
-                  <td class="text-sm">01</td>
-                  <td class="text-sm"></td>
-                  <td class="text-sm">₦ 250,000.00</td>
-                </tr>
-                <tr>
-                  <td class="text-[#555555] text-sm">Sub Total</td>
-                  <td></td>
-                  <td></td>
-                  <td class="text-[#000] text-sm">₦ 250,000.00</td>
-                </tr>
-                <tr class="border-b border-b border-[#6F6F84]">
-                  <td class="text-[#555555] text-sm">Discount</td>
-                  <td></td>
-                  <td></td>
-                  <td class="text-[#000] text-sm">₦0.00</td>
-                </tr>
-
-                <tr>
-                  <td colspan="3" class="text-[#000]">
-                    Grand Total<span class="text-[#555555]"> (₦)</span>
-                  </td>
-                  <td class="text-[#000] text-xl fontBold">
-                    <span id="actualPrice">₦ 250,000.00</span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td colspan="4" class="text-sm text-[#000] pb-0">
-                    Amount in words
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    colspan="4"
-                    class="text-sm text-[#555555] pt-0 text-capitalize"
-                  >
-                    Two Hundred and Fifty Thousand Naira Only
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <div class="border-b border-b border-[#6F6F84] mb-2">
-                      <img src="./assets/img/sign.png" alt="" class="pb-2" />
-                    </div>
-                    <h4 class="fontBold">Ahmad Muktar</h4>
-                    <h4 class="fontBold">Executive Chairman JSIRS</h4>
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <hr class="my-4 md:mx-10 mx-4" />
-
-            <div class="md:px-10 px-2 pb-6">
-              <div class="flex items-center justify-center gap-2">
-                <img src="./assets/img/logo.png" alt="" width="100" />
-                <div>
-                  <p class="text-xl fontBold pb-0">
-                    Jigawa State Internal Revenue Service
-                  </p>
-                  <div class="flex items-center gap-x-3 flex-wrap">
-                    <p class="text-sm text-[#6F6F84]">www.jigawaigr.com</p>
-                    <p class="text-sm text-[#6F6F84]">info@jsirs.gov.ng</p>
-                    <p class="text-sm text-[#6F6F84]">
-                      1234567892, 12345680734
-                    </p>
-                    <img
-                      src="./assets/img/logo1.png"
-                      class="h-[30px] w-[70px]"
-                      alt=""
-                    />
+              <tr>
+                <td colspan="4" class="text-sm text-[#000] pb-0">
+                  Amount in words
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4" class="text-sm text-[#555555] pt-0 text-capitalize">
+                  Two Hundred and Fifty Thousand Naira Only
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <div class="border-b border-b border-[#6F6F84] mb-2">
+                    <img src="./assets/img/sign.png" alt="" class="pb-2" />
                   </div>
+                  <h4 class="fontBold">Ahmad Muktar</h4>
+                  <h4 class="fontBold">Executive Chairman JSIRS</h4>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <hr class="my-4 md:mx-10 mx-4" />
+
+          <div class="md:px-10 px-2 pb-6">
+            <div class="flex items-center justify-center gap-2">
+              <img src="./assets/img/logo.png" alt="" width="100" />
+              <div>
+                <p class="text-xl fontBold pb-0">
+                  kano State Internal Revenue Service
+                </p>
+                <div class="flex items-center gap-x-3 flex-wrap">
+                  <p class="text-sm text-[#6F6F84]">www.kanoigr.com</p>
+                  <p class="text-sm text-[#6F6F84]">info@jsirs.gov.ng</p>
+                  <p class="text-sm text-[#6F6F84]">
+                    1234567892, 12345680734
+                  </p>
+                  <img src="./assets/img/logo1.png" class="h-[30px] w-[70px]" alt="" />
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="flex justify-center px-4">
-          <div>
-            <div class="flex justify-between mt-4 gap-3">
-              <button
-                class="outline-btn flex gap-3 items-center px-10"
-                onclick="downloadInvoice('invoiceCard')"
-              >
-                <iconify-icon
-                  icon="mdi:printer-outline"
-                  class="text-xl"
-                ></iconify-icon>
-                <span>Download Invoice</span>
-              </button>
-              <button
-                class="outline-btn flex gap-3 items-center px-10"
-                onclick="printInvoice('invoiceCard')"
-              >
-                <iconify-icon
-                  icon="mdi:printer-outline"
-                  class="text-xl"
-                ></iconify-icon>
-                <span>Print Receipt</span>
-              </button>
-            </div>
+      <div class="flex justify-center px-4">
+        <div>
+          <div class="flex justify-between mt-4 gap-3">
+            <button class="outline-btn flex gap-3 items-center px-10" onclick="downloadInvoice('invoiceCard')">
+              <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon>
+              <span>Download Invoice</span>
+            </button>
+            <button class="outline-btn flex gap-3 items-center px-10" onclick="printInvoice('invoiceCard')">
+              <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon>
+              <span>Print Receipt</span>
+            </button>
           </div>
         </div>
-      </section>
+      </div>
     </section>
+  </section>
 
-    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="./assets/vendor/libs/popper/popper.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./assets/vendor/js/bootstrap.js"></script>
-    <script src="./assets/js/nav.js?v=1.3"></script>
-    <script src="../assets/js/aos-master/dist/aos.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <!-- <script src="assets/js/payment.js"></script> -->
-    <script src="assets/js/viewinvoice.js"></script>
-    <script src="../assets/js/invoice.js"></script>
-  </body>
+  <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="./assets/vendor/libs/popper/popper.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./assets/vendor/js/bootstrap.js"></script>
+  <script src="./assets/js/nav.js?v=1.3"></script>
+  <script src="../assets/js/aos-master/dist/aos.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- <script src="assets/js/payment.js"></script> -->
+  <script src="assets/js/viewinvoice.js"></script>
+  <script src="../assets/js/invoice.js"></script>
+</body>
+
 </html>

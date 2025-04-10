@@ -358,14 +358,14 @@ $(document).ready(function () {
   });
 });
 
-// Initialize the map centered on Jigawa State
-const jigawaMap = L.map("geoHeatMapJigawa").setView([12.2287, 9.5616], 8); // Jigawa State coordinates with zoom level 8
+// Initialize the map centered on kano State
+const kanoMap = L.map("geoHeatMapkano").setView([12.2287, 9.5616], 8); // kano State coordinates with zoom level 8
 
 // Add OpenStreetMap tiles
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(jigawaMap);
+}).addTo(kanoMap);
 
 // Fetch data from API
 async function fetchGeoHeatMapData() {
@@ -388,9 +388,9 @@ async function fetchGeoHeatMapData() {
       throw new Error("Invalid data structure received");
     }
 
-    // Example data points in Jigawa State
-    const jigawaDataPoints = result.data
-      .filter((item) => item.state === "Jigawa")
+    // Example data points in kano State
+    const kanoDataPoints = result.data
+      .filter((item) => item.state === "kano")
       .map((item) => ({
         name: item.lga || "Unknown",
         coords: getCoordinates(item.lga),
@@ -398,7 +398,7 @@ async function fetchGeoHeatMapData() {
       }));
 
     // Add markers or circles for each location
-    jigawaDataPoints.forEach((point) => {
+    kanoDataPoints.forEach((point) => {
       L.circle(point.coords, {
         color: "blue",
         fillColor: "#007bff",
@@ -406,7 +406,7 @@ async function fetchGeoHeatMapData() {
         radius: point.count * 100, // Adjust size based on count
       })
         .bindPopup(`<b>${point.name}</b><br>Taxpayers: ${point.count}`)
-        .addTo(jigawaMap);
+        .addTo(kanoMap);
     });
   } catch (error) {
     console.error("Error fetching geo heat map data:", error);
@@ -444,7 +444,7 @@ function getCoordinates(lga) {
     Yankwashi: [12.1, 9.8],
   };
 
-  return coordinates[lga] || [12.2287, 9.5616]; // Default to Jigawa State center if LGA not found
+  return coordinates[lga] || [12.2287, 9.5616]; // Default to kano State center if LGA not found
 }
 
 fetchGeoHeatMapData();

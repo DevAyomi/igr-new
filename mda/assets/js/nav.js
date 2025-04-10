@@ -5,7 +5,7 @@ $("#sidenav-main").html(`
       <a class="navbar-brand m-0" href="./dashboard.html" target="_blank">
         <img src="./assets/img/logo.png" width="30px" height="30px" class="navbar-brand-img h-100"
           alt="main_logo">
-        <span class="ms-1 font-weight-bold">PAY-JIGAWA</span>
+        <span class="ms-1 font-weight-bold">PAY-kano</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">

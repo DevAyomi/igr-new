@@ -1,182 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PayJigawa</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paykano</title>
 
-  <body>
-    <header
-      class="flex shadow-none justify-between md:px-10 px-4 bg-white py-3"
-    >
-      <div
-        class="container flex justify-between items-center"
-        id="theHeader"
-      ></div>
-    </header>
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+</head>
 
-    <div class="flex min-vh-100 position-relative flex-col justify-center">
-      <div
-        class="container mx-auto justify-center items-center flex flex-col py-10"
-      >
-        <!-- Step 1: Choose Verification Method -->
-        <div
-          id="step1"
-          class="w-full items-center flex flex-col justify-center"
-        >
-          <h4 class="mb-3 text-2xl font-bold text-center text-dark">
-            Choose Account Verification Method
-          </h4>
-          <p class="mb-4 text-center text-dark">
-            Set your password and verify account
-          </p>
-          <div
-            class="lg:flex items-center gap-20 px-4 w-full lg:w-[1000px] mt-10"
-          >
-            <div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  id="emailVerification"
-                  name="verificationMethod"
-                  value="email"
-                  checked
-                />
-                <label class="form-check-label" for="emailVerification">
-                  Email
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  id="phoneVerification"
-                  name="verificationMethod"
-                  value="phone"
-                />
-                <label class="form-check-label" for="phoneVerification">
-                  Phone Number
-                </label>
-              </div>
+<body>
+  <header class="flex shadow-none justify-between md:px-10 px-4 bg-white py-3">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
+
+  <div class="flex min-vh-100 position-relative flex-col justify-center">
+    <div class="container mx-auto justify-center items-center flex flex-col py-10">
+      <!-- Step 1: Choose Verification Method -->
+      <div id="step1" class="w-full items-center flex flex-col justify-center">
+        <h4 class="mb-3 text-2xl font-bold text-center text-dark">
+          Choose Account Verification Method
+        </h4>
+        <p class="mb-4 text-center text-dark">
+          Set your password and verify account
+        </p>
+        <div class="lg:flex items-center gap-20 px-4 w-full lg:w-[1000px] mt-10">
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="emailVerification" name="verificationMethod"
+                value="email" checked />
+              <label class="form-check-label" for="emailVerification">
+                Email
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="phoneVerification" name="verificationMethod"
+                value="phone" />
+              <label class="form-check-label" for="phoneVerification">
+                Phone Number
+              </label>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Step 2: Enter Verification Code -->
-        <div
-          id="step2"
-          class="hidden w-full items-center flex flex-col justify-center"
-        >
-          <h4 class="mb-3 text-2xl font-bold text-center text-dark">
-            Account Verification
-          </h4>
-          <img src="./assets/img/icons/Phone.svg" alt="Phone" class="my-3" />
+      <!-- Step 2: Enter Verification Code -->
+      <div id="step2" class="hidden w-full items-center flex flex-col justify-center">
+        <h4 class="mb-3 text-2xl font-bold text-center text-dark">
+          Account Verification
+        </h4>
+        <img src="./assets/img/icons/Phone.svg" alt="Phone" class="my-3" />
+        <p class="text-center text-dark">
+          Enter the verification code we sent to
+        </p>
+        <p class="mb-4 text-center textPrimary" id="verificationDetail"></p>
+        <div class="w-80 lg:w-[500px] text-center space-y-3">
+          <div class="form-group">
+            <input class="form-control code bg-[#ECF2F7] focus:bg-[#ECF2F7] border-none" id="otpInput" type="text"
+              placeholder="Type code here" />
+          </div>
           <p class="text-center text-dark">
-            Enter the verification code we sent to
-          </p>
-          <p class="mb-4 text-center textPrimary" id="verificationDetail"></p>
-          <div class="w-80 lg:w-[500px] text-center space-y-3">
-            <div class="form-group">
-              <input
-                class="form-control code bg-[#ECF2F7] focus:bg-[#ECF2F7] border-none"
-                id="otpInput"
-                type="text"
-                placeholder="Type code here"
-              />
-            </div>
-            <p class="text-center text-dark">
-              Didn’t get the code?
-              <button class="textPrimary text-right">Resend</button>
-            </p>
-          </div>
-        </div>
-
-        <!-- Step 3: Verification Success -->
-        <div id="step3" class="hidden text-center">
-          <i class="far fa-check-circle text-[100px] text-green-600 mb-4"></i>
-          <h4 class="mb-3 text-2xl font-bold text-center text-dark">
-            Verification Successful
-          </h4>
-          <p class="mb-4 text-center text-dark">
-            Login to your account now to enjoy the platform fully
+            Didn’t get the code?
+            <button class="textPrimary text-right">Resend</button>
           </p>
         </div>
       </div>
 
-      <!-- Proceed Button -->
-      <div
-        class="text-center bg-white show-shadow absolute bottom-0 py-3 left-0 right-0"
-      >
-        <button
-          class="button bgPrimary submitBtn rounded-md"
-          id="proceedButton"
-          onclick="handleFormTabs()"
-        >
-          Verify Account →
-        </button>
+      <!-- Step 3: Verification Success -->
+      <div id="step3" class="hidden text-center">
+        <i class="far fa-check-circle text-[100px] text-green-600 mb-4"></i>
+        <h4 class="mb-3 text-2xl font-bold text-center text-dark">
+          Verification Successful
+        </h4>
+        <p class="mb-4 text-center text-dark">
+          Login to your account now to enjoy the platform fully
+        </p>
       </div>
     </div>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/aos-master/dist/aos.js"></script>
-    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="assets/js/nav.js"></script>
-    <script src="assets/js/register.js"></script>
-    <script>
-      let currentStep = 1;
+    <!-- Proceed Button -->
+    <div class="text-center bg-white show-shadow absolute bottom-0 py-3 left-0 right-0">
+      <button class="button bgPrimary submitBtn rounded-md" id="proceedButton" onclick="handleFormTabs()">
+        Verify Account →
+      </button>
+    </div>
+  </div>
 
-      function handleFormTabs() {
-        // Hide all steps
-        document.getElementById("step1").classList.add("hidden");
-        document.getElementById("step2").classList.add("hidden");
-        document.getElementById("step3").classList.add("hidden");
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/register.js"></script>
+  <script>
+    let currentStep = 1;
 
-        // Handle navigation
-        if (currentStep === 1) {
-          // Move to Step 2: Account Verification
-          const selectedMethod = document.querySelector(
-            'input[name="verificationMethod"]:checked'
-          ).value;
-          const methodText =
-            selectedMethod === "email"
-              ? "your registered email address"
-              : "your phone number";
-          document.getElementById(
-            "verificationDetail"
-          ).textContent = `to ${methodText}`;
-          document.getElementById("step2").classList.remove("hidden");
-          currentStep++;
-        } else if (currentStep === 2) {
-          // Move to Step 3: Success
-          document.getElementById("step3").classList.remove("hidden");
-          document.getElementById("proceedButton").textContent = "Done";
-          currentStep++;
-        } else {
-          // Final step
-          alert("Verification completed!");
-        }
+    function handleFormTabs() {
+      // Hide all steps
+      document.getElementById("step1").classList.add("hidden");
+      document.getElementById("step2").classList.add("hidden");
+      document.getElementById("step3").classList.add("hidden");
+
+      // Handle navigation
+      if (currentStep === 1) {
+        // Move to Step 2: Account Verification
+        const selectedMethod = document.querySelector(
+          'input[name="verificationMethod"]:checked'
+        ).value;
+        const methodText =
+          selectedMethod === "email"
+            ? "your registered email address"
+            : "your phone number";
+        document.getElementById(
+          "verificationDetail"
+        ).textContent = `to ${methodText}`;
+        document.getElementById("step2").classList.remove("hidden");
+        currentStep++;
+      } else if (currentStep === 2) {
+        // Move to Step 3: Success
+        document.getElementById("step3").classList.remove("hidden");
+        document.getElementById("proceedButton").textContent = "Done";
+        currentStep++;
+      } else {
+        // Final step
+        alert("Verification completed!");
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>

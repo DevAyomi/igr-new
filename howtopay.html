@@ -1,284 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PayJigawa</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
-    <style>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paykano</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  <style>
+    .payment-options {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+    }
+
+    .payment-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px 20px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .payment-card.active {
+      border: 2px solid #02a75a;
+    }
+
+    .icon {
+      font-size: 2em;
+      color: #02a75a;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      color: #333;
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
       .payment-options {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-        max-width: 1200px;
+        gap: 15px;
       }
 
       .payment-card {
-        background: white;
-        border-radius: 10px;
-        padding: 30px 20px;
-        width: 200px;
-        text-align: center;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        cursor: pointer;
+        width: calc(50% - 15px);
+        min-width: 150px;
       }
+    }
 
-      .payment-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    @media (max-width: 480px) {
+      .payment-card {
+        width: 100%;
       }
+    }
 
-      .payment-card.active {
-        border: 2px solid #02a75a;
-      }
+    .header-banner {
+      background: linear-gradient(rgba(0, 0, 50, 0.411), rgba(0, 0, 50, 0.7)),
+        url("assets/howtopay/payment-bg.png") center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-bottom: 50px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
 
-      .icon {
-        font-size: 2em;
-        color: #02a75a;
-        margin-bottom: 15px;
-      }
+<body>
+  <header class="flex justify-between md:px-10 bg-white py-3">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
 
-      .title {
-        color: #333;
-        font-size: 1em;
-        font-weight: 500;
-      }
+  <main class="position-relative min-vh-100">
+    <section class="breadcrumb container mt-24 px-10 py-2 bg-white"></section>
 
-      @media (max-width: 768px) {
-        .payment-options {
-          gap: 15px;
-        }
+    <div class="container">
+      <!-- Page Header -->
+      <header class="py-5 text-white position-relative header-banner">
+        <div class="container text-center">
+          <h1 class="display-4 text-primary fw-bold">How to Pay</h1>
+          <p class="lead mt-3">
+            A step-by-step guide to making secure and seamless payments on Pay
+            kano.
+          </p>
+        </div>
+      </header>
 
-        .payment-card {
-          width: calc(50% - 15px);
-          min-width: 150px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .payment-card {
-          width: 100%;
-        }
-      }
-      .header-banner {
-        background: linear-gradient(rgba(0, 0, 50, 0.411), rgba(0, 0, 50, 0.7)),
-          url("assets/howtopay/payment-bg.png") center/cover no-repeat;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        margin-bottom: 50px;
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header class="flex justify-between md:px-10 bg-white py-3">
-      <div
-        class="container flex justify-between items-center"
-        id="theHeader"
-      ></div>
-    </header>
-
-    <main class="position-relative min-vh-100">
-      <section class="breadcrumb container mt-24 px-10 py-2 bg-white"></section>
-
-      <div class="container">
-        <!-- Page Header -->
-        <header class="py-5 text-white position-relative header-banner">
-          <div class="container text-center">
-            <h1 class="display-4 text-primary fw-bold">How to Pay</h1>
-            <p class="lead mt-3">
-              A step-by-step guide to making secure and seamless payments on Pay
-              Jigawa.
+      <div class="row justify-content-center text-dark container">
+        <!-- Step 1 -->
+        <section class="row d-flex align-items-start py-4 border-bottom">
+          <div class="col-md-6">
+            <h4 class="fw-bold">1. Access the Pay kano Home Page</h4>
+            <p>
+              Go to the Pay kano website and click on
+              <strong>"Generate Invoice"</strong>.
             </p>
           </div>
-        </header>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0014.jpg" class="img-fluid rounded shadow"
+              alt="Pay kano Homepage" />
+          </div>
+        </section>
 
-        <div class="row justify-content-center text-dark container">
-          <!-- Step 1 -->
-          <section class="row d-flex align-items-start py-4 border-bottom">
-            <div class="col-md-6">
-              <h4 class="fw-bold">1. Access the Pay Jigawa Home Page</h4>
-              <p>
-                Go to the Pay Jigawa website and click on
-                <strong>"Generate Invoice"</strong>.
-              </p>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0014.jpg"
-                class="img-fluid rounded shadow"
-                alt="Pay Jigawa Homepage"
-              />
-            </div>
-          </section>
+        <!-- Step 2 -->
+        <section class="row d-flex align-items-start py-4 border-bottom">
+          <div class="col-md-6">
+            <h4 class="fw-bold">2. Identify Yourself</h4>
+            <p>Choose one of the following to verify your identity:</p>
+            <ul class="list-unstyled">
+              <li>✅ TIN (Taxpayer Identification Number)</li>
+              <li>✅ Tax Registration ID</li>
+              <li>✅ Email</li>
+              <li>✅ Phone Number</li>
+            </ul>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0015.jpg" class="img-fluid rounded shadow"
+              alt="Identify Yourself" />
+          </div>
+        </section>
 
-          <!-- Step 2 -->
-          <section class="row d-flex align-items-start py-4 border-bottom">
-            <div class="col-md-6">
-              <h4 class="fw-bold">2. Identify Yourself</h4>
-              <p>Choose one of the following to verify your identity:</p>
-              <ul class="list-unstyled">
-                <li>✅ TIN (Taxpayer Identification Number)</li>
-                <li>✅ Tax Registration ID</li>
-                <li>✅ Email</li>
-                <li>✅ Phone Number</li>
-              </ul>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0015.jpg"
-                class="img-fluid rounded shadow"
-                alt="Identify Yourself"
-              />
-            </div>
-          </section>
+        <!-- Step 3 -->
+        <section class="row d-flex align-items-start py-4 border-bottom">
+          <div class="col-md-6">
+            <h4 class="fw-bold">3. First-Time Users</h4>
+            <p>
+              If this is your first time using Pay kano, you’ll need to
+              manually enter your details.
+            </p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0016.jpg" class="img-fluid rounded shadow" alt="First-Time User" />
+          </div>
+        </section>
 
-          <!-- Step 3 -->
-          <section class="row d-flex align-items-start py-4 border-bottom">
-            <div class="col-md-6">
-              <h4 class="fw-bold">3. First-Time Users</h4>
-              <p>
-                If this is your first time using Pay Jigawa, you’ll need to
-                manually enter your details.
-              </p>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0016.jpg"
-                class="img-fluid rounded shadow"
-                alt="First-Time User"
-              />
-            </div>
-          </section>
+        <!-- Step 4 -->
+        <section class="row d-flex align-items-start py-4 border-bottom">
+          <div class="col-md-6">
+            <h4 class="fw-bold">4. Enter Your Details</h4>
+            <p>Fill in your personal information and proceed.</p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0017.jpg" class="img-fluid rounded shadow" alt="Enter Details" />
+          </div>
+        </section>
 
-          <!-- Step 4 -->
-          <section class="row d-flex align-items-start py-4 border-bottom">
-            <div class="col-md-6">
-              <h4 class="fw-bold">4. Enter Your Details</h4>
-              <p>Fill in your personal information and proceed.</p>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0017.jpg"
-                class="img-fluid rounded shadow"
-                alt="Enter Details"
-              />
-            </div>
-          </section>
+        <!-- Step 5 -->
+        <section class="row d-flex align-items-start py-4 border-bottom">
+          <div class="col-md-6">
+            <h4 class="fw-bold">5. Add Billing Information</h4>
+            <p>
+              Select the applicable billing details. You can add multiple
+              items if needed, then proceed to generate your invoice.
+            </p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0018.jpg" class="img-fluid rounded shadow"
+              alt="Billing Information" />
+          </div>
+        </section>
 
-          <!-- Step 5 -->
-          <section class="row d-flex align-items-start py-4 border-bottom">
-            <div class="col-md-6">
-              <h4 class="fw-bold">5. Add Billing Information</h4>
-              <p>
-                Select the applicable billing details. You can add multiple
-                items if needed, then proceed to generate your invoice.
-              </p>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0018.jpg"
-                class="img-fluid rounded shadow"
-                alt="Billing Information"
-              />
-            </div>
-          </section>
+        <!-- Step 6 -->
+        <section class="row d-flex align-items-start py-4 border-bottom">
+          <div class="col-md-6">
+            <h4 class="fw-bold">6. Generate and Preview Invoice</h4>
+            <p>
+              Once your invoice is created, click the
+              <strong>"Preview"</strong> button to review your details before
+              payment.
+            </p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0019.jpg" class="img-fluid rounded shadow" alt="Preview Invoice" />
+          </div>
+        </section>
 
-          <!-- Step 6 -->
-          <section class="row d-flex align-items-start py-4 border-bottom">
-            <div class="col-md-6">
-              <h4 class="fw-bold">6. Generate and Preview Invoice</h4>
-              <p>
-                Once your invoice is created, click the
-                <strong>"Preview"</strong> button to review your details before
-                payment.
-              </p>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0019.jpg"
-                class="img-fluid rounded shadow"
-                alt="Preview Invoice"
-              />
-            </div>
-          </section>
+        <!-- Step 7 -->
+        <section class="row d-flex align-items-start py-4 border-bottom">
+          <div class="col-md-6">
+            <h4 class="fw-bold">7. Make Payment</h4>
+            <p>
+              On the invoice preview page, click
+              <strong>"Make Payment"</strong> at the bottom.
+            </p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0020.jpg" class="img-fluid rounded shadow" alt="Make Payment" />
+          </div>
+        </section>
 
-          <!-- Step 7 -->
-          <section class="row d-flex align-items-start py-4 border-bottom">
-            <div class="col-md-6">
-              <h4 class="fw-bold">7. Make Payment</h4>
-              <p>
-                On the invoice preview page, click
-                <strong>"Make Payment"</strong> at the bottom.
-              </p>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0020.jpg"
-                class="img-fluid rounded shadow"
-                alt="Make Payment"
-              />
-            </div>
-          </section>
-
-          <!-- Step 8 -->
-          <section class="row align-items-center py-4">
-            <div class="col-md-6">
-              <h4 class="fw-bold">8. Choose a Payment Method</h4>
-              <p>
-                Select your preferred payment channel and complete your
-                transaction.
-              </p>
-            </div>
-            <div class="col-md-6 text-center">
-              <img
-                src="assets/howtopay/IMG-20250310-WA0021.jpg"
-                class="img-fluid rounded shadow"
-                alt="Payment Methods"
-              />
-            </div>
-          </section>
-        </div>
+        <!-- Step 8 -->
+        <section class="row align-items-center py-4">
+          <div class="col-md-6">
+            <h4 class="fw-bold">8. Choose a Payment Method</h4>
+            <p>
+              Select your preferred payment channel and complete your
+              transaction.
+            </p>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="assets/howtopay/IMG-20250310-WA0021.jpg" class="img-fluid rounded shadow" alt="Payment Methods" />
+          </div>
+        </section>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <section class="bottom-0 w-full" id="footer"></section>
+  <section class="bottom-0 w-full" id="footer"></section>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/aos-master/dist/aos.js"></script>
-    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="assets/js/nav.js?v=1.2"></script>
-    <script src="./assets/js/tax-calculator.js"></script>
-    <script src="assets/js/landing.js"></script>
-    <script src="assets/js/landingcms.js"></script>
-    <script>
-      showActiveNav("howtopay");
-      showActiveNav("howtopay1");
-    </script>
-  </body>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js?v=1.2"></script>
+  <script src="./assets/js/tax-calculator.js"></script>
+  <script src="assets/js/landing.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+  <script>
+    showActiveNav("howtopay");
+    showActiveNav("howtopay1");
+  </script>
+</body>
+
 </html>

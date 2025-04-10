@@ -516,14 +516,14 @@ async function fetchRegistrationTrendsChart() {
 // Call the function when needed
 fetchRegistrationTrendsChart();
 
-// Initialize the map centered on Jigawa State
-const jigawaMap = L.map("geoHeatMapJigawa").setView([12.2287, 9.5616], 8); // Jigawa State coordinates with zoom level 8
+// Initialize the map centered on kano State
+const kanoMap = L.map("geoHeatMapkano").setView([12.2287, 9.5616], 8); // kano State coordinates with zoom level 8
 
 // Add OpenStreetMap tiles
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(jigawaMap);
+}).addTo(kanoMap);
 
 // Fetch data from API
 async function fetchGeoHeatMapData() {
@@ -546,9 +546,9 @@ async function fetchGeoHeatMapData() {
       throw new Error("Invalid data structure received");
     }
 
-    // Example data points in Jigawa State
-    const jigawaDataPoints = result.data
-      .filter((item) => item.state === "Jigawa")
+    // Example data points in kano State
+    const kanoDataPoints = result.data
+      .filter((item) => item.state === "kano")
       .map((item) => ({
         name: item.lga || "Unknown",
         coords: getCoordinates(item.lga),
@@ -556,7 +556,7 @@ async function fetchGeoHeatMapData() {
       }));
 
     // Add markers or circles for each location
-    jigawaDataPoints.forEach((point) => {
+    kanoDataPoints.forEach((point) => {
       L.circle(point.coords, {
         color: "blue",
         fillColor: "#007bff",
@@ -564,7 +564,7 @@ async function fetchGeoHeatMapData() {
         radius: point.count * 100, // Adjust size based on count
       })
         .bindPopup(`<b>${point.name}</b><br>Taxpayers: ${point.count}`)
-        .addTo(jigawaMap);
+        .addTo(kanoMap);
     });
   } catch (error) {
     console.error("Error fetching geo heat map data:", error);
@@ -583,7 +583,7 @@ function getCoordinates(lga) {
     Buji: [11.3833, 9.3],
     Babura: [12.7667, 8.8833],
   };
-  return coordinates[lga] || [12.2287, 9.5616]; // Default to Jigawa State center if LGA not found
+  return coordinates[lga] || [12.2287, 9.5616]; // Default to kano State center if LGA not found
 }
 
 // Call the function to fetch and render the data
@@ -2800,7 +2800,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { state: "Lagos", lat: 6.5244, lng: 3.3792, revenue: 700000 },
     { state: "Abuja", lat: 9.0765, lng: 7.3986, revenue: 450000 },
     { state: "Kaduna", lat: 10.5105, lng: 7.4165, revenue: 300000 },
-    { state: "Jigawa", lat: 12.1462, lng: 9.2124, revenue: 200000 },
+    { state: "kano", lat: 12.1462, lng: 9.2124, revenue: 200000 },
   ];
 
   // Add Markers

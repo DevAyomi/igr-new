@@ -1,280 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="./assets/img/apple-icon.png"
-    />
-    <link rel="icon" type="image/png" href="./assets/img/logo.png" />
-    <title>Payjigawa</title>
 
-    <meta name="keywords" content="Jigawa IGR" />
-    <meta name="description" content="Jigawa Tax Collector" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>Paykano</title>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-      rel="stylesheet"
-    />
-    <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/42d5adcbca.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link
-      id="pagestyle"
-      href="./assets/css/argon-dashboard.min.css?v=2.0.4"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <script
-      type="text/javascript"
-      src="https://www.gstatic.com/charts/loader.js"
-    ></script>
+  <meta name="keywords" content="kano IGR" />
+  <meta name="description" content="kano Tax Collector" />
 
-    <style>
-      .accordion-item {
-        border: none;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        padding: 0.5rem;
-        background-color: #f8f9fa;
-      }
-    </style>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-      .sideScroll::-webkit-scrollbar {
-        /* display: none; */
-        color: #f1f1f1;
-        border-radius: 4px;
-        width: 8px;
-      }
+  <style>
+    .accordion-item {
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      background-color: #f8f9fa;
+    }
+  </style>
 
-      .sideScroll::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 4px;
-      }
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .sideScroll::-webkit-scrollbar {
+      /* display: none; */
+      color: #f1f1f1;
+      border-radius: 4px;
+      width: 8px;
+    }
 
-      .sideScroll::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 4px;
-        transition: background 0.2s ease;
-      }
+    .sideScroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
 
-      .sideScroll::-webkit-scrollbar-thumb:hover {
-        background: #a1a1a1;
-      }
-    </style>
-    <style>
+    .sideScroll::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 4px;
+      transition: background 0.2s ease;
+    }
+
+    .sideScroll::-webkit-scrollbar-thumb:hover {
+      background: #a1a1a1;
+    }
+  </style>
+  <style>
+    .chart-container {
+      position: relative;
+      height: 400px;
+      /* Reduced height */
+      margin: 0.5rem 0;
+      max-width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
       .chart-container {
-        position: relative;
-        height: 400px;
-        /* Reduced height */
-        margin: 0.5rem 0;
-        max-width: 100%;
+        height: 200px;
       }
+    }
+  </style>
+</head>
 
-      /* Responsive adjustments */
-      @media (max-width: 1200px) {
-        .chart-container {
-          height: 200px;
-        }
-      }
-    </style>
-  </head>
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
 
-  <body class="g-sidenav-show bg-gray-100">
-    <div class="min-height-300 bg-dark position-absolute w-100"></div>
-    <aside
-      class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
-      id="sidenav-main"
-      style="background-color: white"
-    >
-      <!-- CONTENT COMING FROM NAV.JS -->
-    </aside>
-
-    <main class="main-content h-100 ps ps--active-y">
-      <nav
-        class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
-      >
-        <div class="container-fluid py-1 px-3">
-          <!-- CONTENT COMING FROM NAV.JS -->
-          <div id="breadcrumb-container"></div>
-          <div
-            class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto"
-          >
-            <a href="javascript:;" class="nav-link text-body p-0">
-              <div class="sidenav-toggler-inner">
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-              </div>
-            </a>
-          </div>
-          <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
-            <ul class="navbar-nav justify-content-end ms-auto">
-              <li class="nav-item d-flex align-items-center" id="profileImage">
-                <!-- CONTENT COMING FROM NAV.JS -->
-              </li>
-              <li
-                class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center"
-              >
-                <a
-                  href="javascript:;"
-                  class="nav-link text-body p-0"
-                  id="iconNavbarSidenav"
-                >
-                  <div class="sidenav-toggler-inner">
-                    <i class="sidenav-toggler-line bg-white"></i>
-                    <i class="sidenav-toggler-line bg-white"></i>
-                    <i class="sidenav-toggler-line bg-white"></i>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
+  <main class="main-content h-100 ps ps--active-y">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
         </div>
-      </nav>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-      <div class="container-fluid mt-lg-3 mt-sm-3">
-        <div class="position-relative">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-6">
-                <h3 class="text-white">Analytics</h3>
-              </div>
+    <div class="container-fluid mt-lg-3 mt-sm-3">
+      <div class="position-relative">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <h3 class="text-white">Analytics</h3>
             </div>
           </div>
+        </div>
 
-          <div class="row mx-lg-1">
-            <div class="col-lg-12">
-              <div class="card card-body">
-                <div class="accordion" id="analyticsAccordion">
-                  <!-- Taxpayer Analytics Section -->
-                  <div class="accordion-item d-none" id="taxpayer-analytics">
-                    <h5 class="accordion-header" id="headingTaxpayerAnalytics">
-                      <button
-                        class="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTaxpayerAnalytics"
-                        aria-expanded="true"
-                        aria-controls="collapseTaxpayerAnalytics"
-                      >
-                        <i class="fa fa-users me-2 text-primary"></i>
-                        Taxpayer Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseTaxpayerAnalytics"
-                      class="accordion-collapse collapse show"
-                      aria-labelledby="headingTaxpayerAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Total Registered Taxpayers -->
-                          <div class="col-lg-6 col-12 mb-4">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Total Registered Taxpayers</h6>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas id="taxpayerPieChart"></canvas>
-                                </div>
+        <div class="row mx-lg-1">
+          <div class="col-lg-12">
+            <div class="card card-body">
+              <div class="accordion" id="analyticsAccordion">
+                <!-- Taxpayer Analytics Section -->
+                <div class="accordion-item d-none" id="taxpayer-analytics">
+                  <h5 class="accordion-header" id="headingTaxpayerAnalytics">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTaxpayerAnalytics" aria-expanded="true"
+                      aria-controls="collapseTaxpayerAnalytics">
+                      <i class="fa fa-users me-2 text-primary"></i>
+                      Taxpayer Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseTaxpayerAnalytics" class="accordion-collapse collapse show"
+                    aria-labelledby="headingTaxpayerAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Total Registered Taxpayers -->
+                        <div class="col-lg-6 col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Total Registered Taxpayers</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="taxpayerPieChart"></canvas>
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Taxpayer Segmentation by Category -->
-                          <div class="col-lg-6 col-12 mb-4">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Taxpayer Segmentation by Category</h6>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas id="taxpayerBarChart"></canvas>
-                                </div>
+                        <!-- Taxpayer Segmentation by Category -->
+                        <div class="col-lg-6 col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Taxpayer Segmentation by Category</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="taxpayerBarChart"></canvas>
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Compliance Rate -->
-                          <div class="col-lg-6 col-12 mb-4">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Compliance Rate</h6>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas id="complianceGaugeChart"></canvas>
-                                </div>
+                        <!-- Compliance Rate -->
+                        <div class="col-lg-6 col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Compliance Rate</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="complianceGaugeChart"></canvas>
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Top Defaulters -->
-                          <div class="col-lg-6 col-12 mb-4">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Top Defaulters</h6>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas id="topDefaultersBarChart"></canvas>
-                                </div>
+                        <!-- Top Defaulters -->
+                        <div class="col-lg-6 col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Top Defaulters</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="topDefaultersBarChart"></canvas>
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Taxpayer Distribution by Location -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>
-                                  Taxpayer Distribution by Location (Jigawa
-                                  State)
-                                </h6>
-                              </div>
-                              <div class="card-body">
-                                <div
-                                  id="geoHeatMapJigawa"
-                                  style="width: 100%; height: 300px"
-                                ></div>
-                              </div>
+                        <!-- Taxpayer Distribution by Location -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>
+                                Taxpayer Distribution by Location (kano
+                                State)
+                              </h6>
+                            </div>
+                            <div class="card-body">
+                              <div id="geoHeatMapkano" style="width: 100%; height: 300px"></div>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Taxpayer Registration Trends -->
-                          <div class="col-lg-6 col-12 mb-4">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Taxpayer Registration Trends</h6>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas
-                                    id="registrationTrendsLineChart"
-                                  ></canvas>
-                                </div>
+                        <!-- Taxpayer Registration Trends -->
+                        <div class="col-lg-6 col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Taxpayer Registration Trends</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="registrationTrendsLineChart"></canvas>
                               </div>
                             </div>
                           </div>
@@ -282,73 +233,313 @@
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Tax Types and Rates Analytics Section -->
-                  <div class="accordion-item d-none" id="tax-types-analytics">
-                    <h5 class="accordion-header" id="headingTaxTypesAnalytics">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTaxTypesAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseTaxTypesAnalytics"
-                      >
-                        <i class="ni ni-books me-2 text-primary"></i>
-                        Tax Types and Rates Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseTaxTypesAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingTaxTypesAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Revenue Breakdown by Tax Type -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Revenue Breakdown by Tax Type</h6>
+                <!-- Tax Types and Rates Analytics Section -->
+                <div class="accordion-item d-none" id="tax-types-analytics">
+                  <h5 class="accordion-header" id="headingTaxTypesAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTaxTypesAnalytics" aria-expanded="false"
+                      aria-controls="collapseTaxTypesAnalytics">
+                      <i class="ni ni-books me-2 text-primary"></i>
+                      Tax Types and Rates Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseTaxTypesAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingTaxTypesAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Revenue Breakdown by Tax Type -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Revenue Breakdown by Tax Type</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="revenueBreakdownChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Rate Utilization Statistics -->
+                        <div class="col-lg-6 col-12 mb-4">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Rate Utilization Statistics</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="rateUtilizationChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Zonal Office Performance</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="zonalOfficePerformanceChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Tax Office Performance</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="taxOfficePerformanceChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Billing and Invoicing Analytics Section -->
+                <div class="accordion-item d-none" id="invoicingAnalytics">
+                  <h5 class="accordion-header" id="headingBillingAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseBillingAnalytics" aria-expanded="false"
+                      aria-controls="collapseBillingAnalytics">
+                      <i class="fa fa-receipt me-2 text-primary"></i>
+                      Billing and Invoicing Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseBillingAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingBillingAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Number of Invoices Generated -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Number of Invoices Generated</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="invoicesGeneratedChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Average Billing Amount by Taxpayer Category -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>
+                                Average Billing Amount by Taxpayer Category
+                              </h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="avgBillingChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <!-- Total Unpaid Invoices -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Total Unpaid Invoices</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="unpaidInvoicesChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Outstanding Amounts -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Outstanding Amounts</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="outstandingAmountsChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Invoice Count By Category</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="invoiceCountByCategoryChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Paid Invoice Count By Category</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="invoiceCountByCategoryPaidChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <!-- Collection Performance by Tax Period -->
+                        <div class="col-lg-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Collection Performance by Tax Period</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="collectionPerformanceChart"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-lg-12 col-12 mb-4">
+                          <div class="card" style="height: 100%">
+                            <div class="card-header pb-0">
+                              <h6>LGA Performance</h6>
+                              <div class="d-flex align-items-center gap-5">
+                                <div class="form-group">
+                                  <label for="startDate">Start Date</label>
+                                  <input type="date" id="lgaStartDate" class="form-control"
+                                    onchange="fetchLgaPerformance()" />
+                                </div>
+                                <div class="form-group">
+                                  <label for="endDate">End Date</label>
+                                  <input type="date" id="lgaEndDate" class="form-control"
+                                    onchange="fetchLgaPerformance()" />
+                                </div>
                               </div>
-                              <div class="card-body">
-                                <canvas id="revenueBreakdownChart"></canvas>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="chart-container">
+                                    <canvas id="topLgaPerformanceChart"></canvas>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="chart-container">
+                                    <canvas id="leastLgaPerformanceChart"></canvas>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-
-                          <!-- Rate Utilization Statistics -->
-                          <div class="col-lg-6 col-12 mb-4">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Rate Utilization Statistics</h6>
+                        </div>
+                        <div class="col-lg-12 col-12 mb-4">
+                          <div class="card" style="height: 100%">
+                            <div class="card-header pb-0">
+                              <h6>Revenue Head Performance</h6>
+                              <div class="d-flex align-items-center gap-5">
+                                <div class="form-group">
+                                  <label for="startDate">Start Date</label>
+                                  <input type="date" id="revenueHeadStartDate" class="form-control"
+                                    onchange="fetchRevenueHeadPerformance()" />
+                                </div>
+                                <div class="form-group">
+                                  <label for="endDate">End Date</label>
+                                  <input type="date" id="revenueHeadEndDate" class="form-control"
+                                    onchange="fetchRevenueHeadPerformance()" />
+                                </div>
                               </div>
-                              <div class="card-body">
-                                <canvas id="rateUtilizationChart"></canvas>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="chart-container">
+                                    <canvas id="topRevenueHeadPerformanceChart"></canvas>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="chart-container">
+                                    <canvas id="leastRevenueHeadPerformanceChart"></canvas>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Zonal Office Performance</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas
-                                  id="zonalOfficePerformanceChart"
-                                ></canvas>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>MDA Performance</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="mdaPerformanceChart"></canvas>
                               </div>
                             </div>
                           </div>
-
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Tax Office Performance</h6>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Average Cycle Time Gauge</h6>
+                              <div class="d-flex align-items-center gap-3">
+                                <div class="form-group">
+                                  <label for="cycleStartDate">Start Date</label>
+                                  <input type="date" id="cycleStartDate" class="form-control"
+                                    onchange="fetchAverageCycleTimeGauge()" />
+                                </div>
+                                <div class="form-group">
+                                  <label for="cycleEndDate">End Date</label>
+                                  <input type="date" id="cycleEndDate" class="form-control"
+                                    onchange="fetchAverageCycleTimeGauge()" />
+                                </div>
+                                <div class="form-group d-none">
+                                  <label for="taxOfficeSelect">Tax Office</label>
+                                  <select id="taxOfficeSelect" class="form-control"
+                                    onchange="fetchAverageCycleTimeGauge()">
+                                    <!-- Populate dynamically -->
+                                  </select>
+                                </div>
                               </div>
-                              <div class="card-body">
-                                <canvas id="taxOfficePerformanceChart"></canvas>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="averageCycleTimeGauge"></canvas>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>TIN Request Count</h6>
+                              <div class="d-flex align-items-center gap-3">
+                                <div class="form-group">
+                                  <label for="tinStartDate">Start Date</label>
+                                  <input type="date" id="tinStartDate" class="form-control"
+                                    onchange="fetchTimeRequestCountGauge()" />
+                                </div>
+                                <div class="form-group">
+                                  <label for="tinEndDate">End Date</label>
+                                  <input type="date" id="tinEndDate" class="form-control"
+                                    onchange="fetchTimeRequestCountGauge()" />
+                                </div>
+                                <div class="form-group">
+                                  <label for="tinMonth">Month</label>
+                                  <input type="month" id="tinMonth" class="form-control"
+                                    onchange="fetchTimeRequestCountGauge()" />
+                                </div>
+                                <div class="form-group">
+                                  <label for="tinYear">Year</label>
+                                  <select id="tinYear" class="form-control" onchange="fetchTimeRequestCountGauge()">
+                                    <!-- Populate with years dynamically -->
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-body">
+                              <div class="chart-container">
+                                <canvas id="tinRequestCountGauge"></canvas>
                               </div>
                             </div>
                           </div>
@@ -356,379 +547,50 @@
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Billing and Invoicing Analytics Section -->
-                  <div class="accordion-item d-none" id="invoicingAnalytics">
-                    <h5 class="accordion-header" id="headingBillingAnalytics">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseBillingAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseBillingAnalytics"
-                      >
-                        <i class="fa fa-receipt me-2 text-primary"></i>
-                        Billing and Invoicing Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseBillingAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingBillingAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Number of Invoices Generated -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Number of Invoices Generated</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="invoicesGeneratedChart"></canvas>
-                              </div>
+                <!-- Payment Analytics Section -->
+                <div class="accordion-item d-none" id="payment-analytics">
+                  <h5 class="accordion-header" id="headingPaymentAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapsePaymentAnalytics" aria-expanded="false"
+                      aria-controls="collapsePaymentAnalytics">
+                      <i class="fa fa-credit-card me-2 text-primary"></i>
+                      Payment Analytics
+                    </button>
+                  </h5>
+                  <div id="collapsePaymentAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingPaymentAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Total Payments Received -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Total Payments Received</h6>
                             </div>
-                          </div>
-
-                          <!-- Average Billing Amount by Taxpayer Category -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>
-                                  Average Billing Amount by Taxpayer Category
-                                </h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="avgBillingChart"></canvas>
-                              </div>
+                            <div class="card-body">
+                              <canvas id="totalPaymentsChart"></canvas>
                             </div>
                           </div>
                         </div>
 
-                        <div class="row mt-4">
-                          <!-- Total Unpaid Invoices -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Total Unpaid Invoices</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="unpaidInvoicesChart"></canvas>
-                              </div>
+                        <!-- Payment Methods Utilized -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Payment Methods Utilized</h6>
                             </div>
-                          </div>
-
-                          <!-- Outstanding Amounts -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Outstanding Amounts</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="outstandingAmountsChart"></canvas>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Invoice Count By Category</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas
-                                  id="invoiceCountByCategoryChart"
-                                ></canvas>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Paid Invoice Count By Category</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas
-                                  id="invoiceCountByCategoryPaidChart"
-                                ></canvas>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row mt-4">
-                          <!-- Collection Performance by Tax Period -->
-                          <div class="col-lg-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Collection Performance by Tax Period</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas
-                                  id="collectionPerformanceChart"
-                                ></canvas>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row mt-4">
-                          <div class="col-lg-12 col-12 mb-4">
-                            <div class="card" style="height: 100%">
-                              <div class="card-header pb-0">
-                                <h6>LGA Performance</h6>
-                                <div class="d-flex align-items-center gap-5">
-                                  <div class="form-group">
-                                    <label for="startDate">Start Date</label>
-                                    <input
-                                      type="date"
-                                      id="lgaStartDate"
-                                      class="form-control"
-                                      onchange="fetchLgaPerformance()"
-                                    />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="endDate">End Date</label>
-                                    <input
-                                      type="date"
-                                      id="lgaEndDate"
-                                      class="form-control"
-                                      onchange="fetchLgaPerformance()"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-6">
-                                    <div class="chart-container">
-                                      <canvas
-                                        id="topLgaPerformanceChart"
-                                      ></canvas>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-6">
-                                    <div class="chart-container">
-                                      <canvas
-                                        id="leastLgaPerformanceChart"
-                                      ></canvas>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-12 col-12 mb-4">
-                            <div class="card" style="height: 100%">
-                              <div class="card-header pb-0">
-                                <h6>Revenue Head Performance</h6>
-                                <div class="d-flex align-items-center gap-5">
-                                  <div class="form-group">
-                                    <label for="startDate">Start Date</label>
-                                    <input
-                                      type="date"
-                                      id="revenueHeadStartDate"
-                                      class="form-control"
-                                      onchange="fetchRevenueHeadPerformance()"
-                                    />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="endDate">End Date</label>
-                                    <input
-                                      type="date"
-                                      id="revenueHeadEndDate"
-                                      class="form-control"
-                                      onchange="fetchRevenueHeadPerformance()"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-6">
-                                    <div class="chart-container">
-                                      <canvas
-                                        id="topRevenueHeadPerformanceChart"
-                                      ></canvas>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-6">
-                                    <div class="chart-container">
-                                      <canvas
-                                        id="leastRevenueHeadPerformanceChart"
-                                      ></canvas>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>MDA Performance</h6>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas id="mdaPerformanceChart"></canvas>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Average Cycle Time Gauge</h6>
-                                <div class="d-flex align-items-center gap-3">
-                                  <div class="form-group">
-                                    <label for="cycleStartDate"
-                                      >Start Date</label
-                                    >
-                                    <input
-                                      type="date"
-                                      id="cycleStartDate"
-                                      class="form-control"
-                                      onchange="fetchAverageCycleTimeGauge()"
-                                    />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="cycleEndDate">End Date</label>
-                                    <input
-                                      type="date"
-                                      id="cycleEndDate"
-                                      class="form-control"
-                                      onchange="fetchAverageCycleTimeGauge()"
-                                    />
-                                  </div>
-                                  <div class="form-group d-none">
-                                    <label for="taxOfficeSelect"
-                                      >Tax Office</label
-                                    >
-                                    <select
-                                      id="taxOfficeSelect"
-                                      class="form-control"
-                                      onchange="fetchAverageCycleTimeGauge()"
-                                    >
-                                      <!-- Populate dynamically -->
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas id="averageCycleTimeGauge"></canvas>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>TIN Request Count</h6>
-                                <div class="d-flex align-items-center gap-3">
-                                  <div class="form-group">
-                                    <label for="tinStartDate">Start Date</label>
-                                    <input
-                                      type="date"
-                                      id="tinStartDate"
-                                      class="form-control"
-                                      onchange="fetchTimeRequestCountGauge()"
-                                    />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="tinEndDate">End Date</label>
-                                    <input
-                                      type="date"
-                                      id="tinEndDate"
-                                      class="form-control"
-                                      onchange="fetchTimeRequestCountGauge()"
-                                    />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="tinMonth">Month</label>
-                                    <input
-                                      type="month"
-                                      id="tinMonth"
-                                      class="form-control"
-                                      onchange="fetchTimeRequestCountGauge()"
-                                    />
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="tinYear">Year</label>
-                                    <select
-                                      id="tinYear"
-                                      class="form-control"
-                                      onchange="fetchTimeRequestCountGauge()"
-                                    >
-                                      <!-- Populate with years dynamically -->
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <div class="chart-container">
-                                  <canvas id="tinRequestCountGauge"></canvas>
-                                </div>
-                              </div>
+                            <div class="card-body">
+                              <canvas id="paymentMethodsChart"></canvas>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
 
-                  <!-- Payment Analytics Section -->
-                  <div class="accordion-item d-none" id="payment-analytics">
-                    <h5 class="accordion-header" id="headingPaymentAnalytics">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapsePaymentAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapsePaymentAnalytics"
-                      >
-                        <i class="fa fa-credit-card me-2 text-primary"></i>
-                        Payment Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapsePaymentAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingPaymentAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Total Payments Received -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Total Payments Received</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="totalPaymentsChart"></canvas>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- Payment Methods Utilized -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Payment Methods Utilized</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="paymentMethodsChart"></canvas>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row mt-4">
-                          <!-- Pending Payments -->
-                          <!-- <div class="col-lg-6 col-12">
+                      <div class="row mt-4">
+                        <!-- Pending Payments -->
+                        <!-- <div class="col-lg-6 col-12">
                             <div class="card">
                               <div class="card-header">
                                 <h6>Pending Payments</h6>
@@ -739,475 +601,369 @@
                             </div>
                           </div> -->
 
-                          <!-- Top Payers -->
-                          <div class="col-lg-6 col-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Top Payers</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="topPayersChart"></canvas>
-                              </div>
+                        <!-- Top Payers -->
+                        <div class="col-lg-6 col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Top Payers</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="topPayersChart"></canvas>
                             </div>
                           </div>
                         </div>
+                      </div>
 
-                        <div class="row mt-4">
-                          <!-- Average Payment Processing Time -->
-                          <div class="col-lg-12">
-                            <div class="card">
-                              <div class="card-header">
-                                <h6>Average Payment Processing Time</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="processingTimeChart"></canvas>
-                              </div>
+                      <div class="row mt-4">
+                        <!-- Average Payment Processing Time -->
+                        <div class="col-lg-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h6>Average Payment Processing Time</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="processingTimeChart"></canvas>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Tax Clearance Certificate (TCC) Analytics Section -->
-                  <div class="accordion-item d-none" id="tcc-analytics">
-                    <h5 class="accordion-header" id="headingTCCAnalytics">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTCCAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseTCCAnalytics"
-                      >
-                        <i class="fa fa-file-invoice me-2 text-primary"></i>
-                        Tax Clearance Certificate (TCC) Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseTCCAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingTCCAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <div class="col-lg-6 col-md-12">
-                            <div class="card h-100">
-                              <div class="card-header pb-0">
-                                <h6>Total TCCs Issued (Pending, Rejected)</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas
-                                  id="tccIssuedChart"
-                                  height="200"
-                                ></canvas>
-                              </div>
+                <!-- Tax Clearance Certificate (TCC) Analytics Section -->
+                <div class="accordion-item d-none" id="tcc-analytics">
+                  <h5 class="accordion-header" id="headingTCCAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseTCCAnalytics" aria-expanded="false" aria-controls="collapseTCCAnalytics">
+                      <i class="fa fa-file-invoice me-2 text-primary"></i>
+                      Tax Clearance Certificate (TCC) Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseTCCAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingTCCAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                          <div class="card h-100">
+                            <div class="card-header pb-0">
+                              <h6>Total TCCs Issued (Pending, Rejected)</h6>
                             </div>
-                          </div>
-                          <div class="col-lg-6 col-md-12">
-                            <div class="card h-100">
-                              <div class="card-header pb-0">
-                                <h6>Average Time to Process TCC</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas
-                                  id="tccProcessingTimeChart"
-                                  height="200"
-                                ></canvas>
-                              </div>
+                            <div class="card-body">
+                              <canvas id="tccIssuedChart" height="200"></canvas>
                             </div>
                           </div>
                         </div>
-                        <div class="row mt-4">
-                          <div class="col-lg-6 col-md-12">
-                            <div class="card h-100">
-                              <div class="card-header pb-0">
-                                <h6>Percentage of Taxpayers with Valid TCCs</h6>
-                              </div>
-                              <div
-                                class="card-body d-flex justify-content-center align-items-center"
-                              >
-                                <canvas
-                                  id="validTccGaugeChart"
-                                  width="200"
-                                  height="200"
-                                ></canvas>
-                              </div>
+                        <div class="col-lg-6 col-md-12">
+                          <div class="card h-100">
+                            <div class="card-header pb-0">
+                              <h6>Average Time to Process TCC</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="tccProcessingTimeChart" height="200"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-lg-6 col-md-12">
+                          <div class="card h-100">
+                            <div class="card-header pb-0">
+                              <h6>Percentage of Taxpayers with Valid TCCs</h6>
+                            </div>
+                            <div class="card-body d-flex justify-content-center align-items-center">
+                              <canvas id="validTccGaugeChart" width="200" height="200"></canvas>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Compliance and Audit Analytics Section -->
-                  <div class="accordion-item d-none" id="compliance-analytics">
-                    <h5
-                      class="accordion-header"
-                      id="headingComplianceAnalytics"
-                    >
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseComplianceAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseComplianceAnalytics"
-                      >
-                        <i class="ni ni-settings-gear-65 me-2 text-primary"></i>
-                        Compliance and Audit Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseComplianceAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingComplianceAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Number of Audits Conducted -->
-                          <div class="col-md-6 mb-4">
-                            <div class="card shadow-sm">
-                              <div class="card-header text-center">
-                                <h6 class="mb-0">Number of Audits Conducted</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="numberOfAuditsChart"></canvas>
-                              </div>
+                <!-- Compliance and Audit Analytics Section -->
+                <div class="accordion-item d-none" id="compliance-analytics">
+                  <h5 class="accordion-header" id="headingComplianceAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseComplianceAnalytics" aria-expanded="false"
+                      aria-controls="collapseComplianceAnalytics">
+                      <i class="ni ni-settings-gear-65 me-2 text-primary"></i>
+                      Compliance and Audit Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseComplianceAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingComplianceAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Number of Audits Conducted -->
+                        <div class="col-md-6 mb-4">
+                          <div class="card shadow-sm">
+                            <div class="card-header text-center">
+                              <h6 class="mb-0">Number of Audits Conducted</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="numberOfAuditsChart"></canvas>
                             </div>
                           </div>
-                          <!-- Success Rate of Audits -->
-                          <div class="col-md-6 mb-4">
-                            <div class="card shadow-sm text-center">
-                              <div class="card-header">
-                                <h6 class="mb-0">Success Rate of Audits</h6>
-                              </div>
-                              <div
-                                class="card-body d-flex align-items-center justify-content-center"
-                              >
-                                <div>
-                                  <h2
-                                    id="auditSuccessRate"
-                                    class="text-success display-4"
-                                  >
-                                    -
-                                  </h2>
-                                  <p class="text-muted">Success Rate</p>
-                                </div>
+                        </div>
+                        <!-- Success Rate of Audits -->
+                        <div class="col-md-6 mb-4">
+                          <div class="card shadow-sm text-center">
+                            <div class="card-header">
+                              <h6 class="mb-0">Success Rate of Audits</h6>
+                            </div>
+                            <div class="card-body d-flex align-items-center justify-content-center">
+                              <div>
+                                <h2 id="auditSuccessRate" class="text-success display-4">
+                                  -
+                                </h2>
+                                <p class="text-muted">Success Rate</p>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <!-- Common Reasons for Non-Compliance -->
-                          <div class="col-md-6 mb-4">
-                            <div class="card shadow-sm">
-                              <div class="card-header text-center">
-                                <h6 class="mb-0">
-                                  Common Reasons for Non-Compliance
-                                </h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="nonComplianceReasonsChart"></canvas>
-                              </div>
+                      </div>
+                      <div class="row">
+                        <!-- Common Reasons for Non-Compliance -->
+                        <div class="col-md-6 mb-4">
+                          <div class="card shadow-sm">
+                            <div class="card-header text-center">
+                              <h6 class="mb-0">
+                                Common Reasons for Non-Compliance
+                              </h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="nonComplianceReasonsChart"></canvas>
                             </div>
                           </div>
-                          <!-- Total Penalties Imposed vs. Collected -->
-                          <div class="col-md-6 mb-4">
-                            <div class="card shadow-sm">
-                              <div class="card-header text-center">
-                                <h6 class="mb-0">
-                                  Total Penalties Imposed vs. Collected
-                                </h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="penaltiesChart"></canvas>
-                              </div>
+                        </div>
+                        <!-- Total Penalties Imposed vs. Collected -->
+                        <div class="col-md-6 mb-4">
+                          <div class="card shadow-sm">
+                            <div class="card-header text-center">
+                              <h6 class="mb-0">
+                                Total Penalties Imposed vs. Collected
+                              </h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="penaltiesChart"></canvas>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Revenue Collection Analytics Section -->
-                  <div
-                    class="accordion-item d-none"
-                    id="revenueCollection-analysis"
-                  >
-                    <h5 class="accordion-header" id="headingRevenueAnalytics">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseRevenueAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseRevenueAnalytics"
-                      >
-                        <i class="ni ni-books me-2 text-primary"></i>
-                        Revenue Collection Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseRevenueAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingRevenueAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="card h-100">
-                              <div class="card-header pb-0">
-                                <h6>
-                                  Total Revenue Collected (Daily, Monthly,
-                                  Yearly)
-                                </h6>
-                              </div>
-                              <div class="card-body pt-0">
-                                <canvas id="totalRevenueChart"></canvas>
-                              </div>
+                <!-- Revenue Collection Analytics Section -->
+                <div class="accordion-item d-none" id="revenueCollection-analysis">
+                  <h5 class="accordion-header" id="headingRevenueAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseRevenueAnalytics" aria-expanded="false"
+                      aria-controls="collapseRevenueAnalytics">
+                      <i class="ni ni-books me-2 text-primary"></i>
+                      Revenue Collection Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseRevenueAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingRevenueAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="card h-100">
+                            <div class="card-header pb-0">
+                              <h6>
+                                Total Revenue Collected (Daily, Monthly,
+                                Yearly)
+                              </h6>
+                            </div>
+                            <div class="card-body pt-0">
+                              <canvas id="totalRevenueChart"></canvas>
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="card h-100">
-                              <div class="card-header pb-0">
-                                <h6>Revenue Growth Rate</h6>
-                              </div>
-                              <div class="card-body pt-0">
-                                <canvas id="revenueGrowthChart"></canvas>
-                              </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="card h-100">
+                            <div class="card-header pb-0">
+                              <h6>Revenue Growth Rate</h6>
+                            </div>
+                            <div class="card-body pt-0">
+                              <canvas id="revenueGrowthChart"></canvas>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Exemptions and Adjustments Analytics Section -->
-                  <div class="accordion-item d-none" id="exemptions-analytics">
-                    <h5
-                      class="accordion-header"
-                      id="headingExemptionsAnalytics"
-                    >
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseExemptionsAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseExemptionsAnalytics"
-                      >
-                        <i class="ni ni-chart-bar-32 me-2 text-primary"></i>
-                        Exemptions and Adjustments Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseExemptionsAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingExemptionsAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Total Exemptions Granted -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card h-100">
-                              <div class="card-header">
-                                <h6>Total Exemptions Granted</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="totalExemptionsChart"></canvas>
-                              </div>
+                <!-- Exemptions and Adjustments Analytics Section -->
+                <div class="accordion-item d-none" id="exemptions-analytics">
+                  <h5 class="accordion-header" id="headingExemptionsAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseExemptionsAnalytics" aria-expanded="false"
+                      aria-controls="collapseExemptionsAnalytics">
+                      <i class="ni ni-chart-bar-32 me-2 text-primary"></i>
+                      Exemptions and Adjustments Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseExemptionsAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingExemptionsAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Total Exemptions Granted -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card h-100">
+                            <div class="card-header">
+                              <h6>Total Exemptions Granted</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="totalExemptionsChart"></canvas>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Common Reasons for Exemptions -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card h-100">
-                              <div class="card-header">
-                                <h6>Common Reasons for Exemptions</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="exemptionReasonsChart"></canvas>
-                              </div>
+                        <!-- Common Reasons for Exemptions -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card h-100">
+                            <div class="card-header">
+                              <h6>Common Reasons for Exemptions</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="exemptionReasonsChart"></canvas>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Number and Value of Tax Adjustments -->
-                          <div class="col-lg-12">
-                            <div class="card h-100">
-                              <div class="card-header">
-                                <h6>Number and Value of Tax Adjustments</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="taxAdjustmentsChart"></canvas>
-                              </div>
+                        <!-- Number and Value of Tax Adjustments -->
+                        <div class="col-lg-12">
+                          <div class="card h-100">
+                            <div class="card-header">
+                              <h6>Number and Value of Tax Adjustments</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="taxAdjustmentsChart"></canvas>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- Notifications and Alerts Analytics Section -->
-                  <div
-                    class="accordion-item d-none"
-                    id="notifications-analytics"
-                  >
-                    <h5
-                      class="accordion-header"
-                      id="headingNotificationsAnalytics"
-                    >
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseNotificationsAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseNotificationsAnalytics"
-                      >
-                        <i class="ni ni-bell-55 me-2 text-primary"></i>
-                        Notifications and Alerts Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseNotificationsAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingNotificationsAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Number of Alerts Sent for Overdue Payments -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card h-100">
-                              <div class="card-header">
-                                <h6>
-                                  Number of Alerts Sent for Overdue Payments
-                                </h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="alertsSentChart"></canvas>
-                              </div>
+                <!-- Notifications and Alerts Analytics Section -->
+                <div class="accordion-item d-none" id="notifications-analytics">
+                  <h5 class="accordion-header" id="headingNotificationsAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseNotificationsAnalytics" aria-expanded="false"
+                      aria-controls="collapseNotificationsAnalytics">
+                      <i class="ni ni-bell-55 me-2 text-primary"></i>
+                      Notifications and Alerts Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseNotificationsAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingNotificationsAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Number of Alerts Sent for Overdue Payments -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card h-100">
+                            <div class="card-header">
+                              <h6>
+                                Number of Alerts Sent for Overdue Payments
+                              </h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="alertsSentChart"></canvas>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Taxpayer Responsiveness to Alerts -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card h-100">
-                              <div class="card-header">
-                                <h6>Taxpayer Responsiveness to Alerts</h6>
-                              </div>
-                              <div class="card-body">
-                                <canvas id="alertResponsesChart"></canvas>
-                              </div>
+                        <!-- Taxpayer Responsiveness to Alerts -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card h-100">
+                            <div class="card-header">
+                              <h6>Taxpayer Responsiveness to Alerts</h6>
+                            </div>
+                            <div class="card-body">
+                              <canvas id="alertResponsesChart"></canvas>
                             </div>
                           </div>
+                        </div>
 
-                          <!-- Upcoming vs. Overdue Deadlines -->
-                          <div class="col-lg-12">
-                            <div class="card h-100">
-                              <div class="card-header">
-                                <h6>Upcoming vs. Overdue Deadlines</h6>
-                              </div>
-                              <div class="card-body">
-                                <div id="deadlinesGanttChart"></div>
-                              </div>
+                        <!-- Upcoming vs. Overdue Deadlines -->
+                        <div class="col-lg-12">
+                          <div class="card h-100">
+                            <div class="card-header">
+                              <h6>Upcoming vs. Overdue Deadlines</h6>
+                            </div>
+                            <div class="card-body">
+                              <div id="deadlinesGanttChart"></div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <!-- System Usage Analytics Section -->
-                  <div
-                    class="accordion-item d-none"
-                    id="system-usage-analytics"
-                  >
-                    <h5
-                      class="accordion-header"
-                      id="headingSystemUsageAnalytics"
-                    >
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseSystemUsageAnalytics"
-                        aria-expanded="false"
-                        aria-controls="collapseSystemUsageAnalytics"
-                      >
-                        <i class="ni ni-tv-2 me-2 text-primary"></i>
-                        System Usage Analytics
-                      </button>
-                    </h5>
-                    <div
-                      id="collapseSystemUsageAnalytics"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="headingSystemUsageAnalytics"
-                      data-bs-parent="#analyticsAccordion"
-                    >
-                      <div class="accordion-body">
-                        <div class="row">
-                          <!-- Number of Active Users -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card">
-                              <div class="card-header text-center">
-                                <h6>Number of Active Users</h6>
-                              </div>
-                              <div class="card-body">
-                                <div
-                                  id="activeUsersChart"
-                                  style="height: 300px"
-                                ></div>
-                              </div>
+                <!-- System Usage Analytics Section -->
+                <div class="accordion-item d-none" id="system-usage-analytics">
+                  <h5 class="accordion-header" id="headingSystemUsageAnalytics">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseSystemUsageAnalytics" aria-expanded="false"
+                      aria-controls="collapseSystemUsageAnalytics">
+                      <i class="ni ni-tv-2 me-2 text-primary"></i>
+                      System Usage Analytics
+                    </button>
+                  </h5>
+                  <div id="collapseSystemUsageAnalytics" class="accordion-collapse collapse"
+                    aria-labelledby="headingSystemUsageAnalytics" data-bs-parent="#analyticsAccordion">
+                    <div class="accordion-body">
+                      <div class="row">
+                        <!-- Number of Active Users -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card">
+                            <div class="card-header text-center">
+                              <h6>Number of Active Users</h6>
                             </div>
-                          </div>
-                          <!-- Most Frequently Accessed Features -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card">
-                              <div class="card-header text-center">
-                                <h6>Most Frequently Accessed Features</h6>
-                              </div>
-                              <div class="card-body">
-                                <div
-                                  id="accessedFeaturesChart"
-                                  style="height: 300px"
-                                ></div>
-                              </div>
+                            <div class="card-body">
+                              <div id="activeUsersChart" style="height: 300px"></div>
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <!-- System Uptime -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card">
-                              <div class="card-header text-center">
-                                <h6>System Uptime</h6>
-                              </div>
-                              <div class="card-body">
-                                <div
-                                  id="systemUptimeChart"
-                                  style="height: 300px"
-                                ></div>
-                              </div>
+                        <!-- Most Frequently Accessed Features -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card">
+                            <div class="card-header text-center">
+                              <h6>Most Frequently Accessed Features</h6>
+                            </div>
+                            <div class="card-body">
+                              <div id="accessedFeaturesChart" style="height: 300px"></div>
                             </div>
                           </div>
-                          <!-- Common System Errors -->
-                          <div class="col-lg-6 mb-4">
-                            <div class="card">
-                              <div class="card-header text-center">
-                                <h6>Common System Errors</h6>
-                              </div>
-                              <div class="card-body">
-                                <div
-                                  id="systemErrorsChart"
-                                  style="height: 300px"
-                                ></div>
-                              </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- System Uptime -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card">
+                            <div class="card-header text-center">
+                              <h6>System Uptime</h6>
+                            </div>
+                            <div class="card-body">
+                              <div id="systemUptimeChart" style="height: 300px"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Common System Errors -->
+                        <div class="col-lg-6 mb-4">
+                          <div class="card">
+                            <div class="card-header text-center">
+                              <h6>Common System Errors</h6>
+                            </div>
+                            <div class="card-body">
+                              <div id="systemErrorsChart" style="height: 300px"></div>
                             </div>
                           </div>
                         </div>
@@ -1218,137 +974,139 @@
               </div>
             </div>
           </div>
-
-          <footer class="footer pt-3" id="footer">
-            <!-- CONTENT COMING FROM NAV.JS -->
-          </footer>
         </div>
+
+        <footer class="footer pt-3" id="footer">
+          <!-- CONTENT COMING FROM NAV.JS -->
+        </footer>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <!--   Core JS Files   -->
-    <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/core/popper.min.js"></script>
-    <script src="./assets/js/core/bootstrap.min.js"></script>
-    <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="./assets/js/plugins/choices.min.js"></script>
-    <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
 
-    <script>
-      var win = navigator.platform.indexOf("Win") > -1;
-      if (win && document.querySelector("#sidenav-scrollbar")) {
-        var options = {
-          damping: "0.5",
-        };
-        Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
-      }
-    </script>
+  <script>
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
 
-    <script>
-      var win = navigator.platform.indexOf("Win") > -1;
-      if (win && document.querySelector("#sidenav-scrollbar")) {
-        var options = {
-          damping: "0.5",
-        };
-        Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
-      }
-    </script>
+  <script>
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      // Number of Audits Conducted
-      const numberOfAuditsCtx = document
-        .getElementById("numberOfAuditsChart")
-        .getContext("2d");
-      new Chart(numberOfAuditsCtx, {
-        type: "line",
-        data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-          datasets: [
-            {
-              label: "Audits Conducted",
-              data: [10, 20, 15, 30, 25, 35, 40],
-              borderColor: "#007bff",
-              backgroundColor: "rgba(0, 123, 255, 0.2)",
-              tension: 0.3,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        },
-      });
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Number of Audits Conducted
+    const numberOfAuditsCtx = document
+      .getElementById("numberOfAuditsChart")
+      .getContext("2d");
+    new Chart(numberOfAuditsCtx, {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        datasets: [
+          {
+            label: "Audits Conducted",
+            data: [10, 20, 15, 30, 25, 35, 40],
+            borderColor: "#007bff",
+            backgroundColor: "rgba(0, 123, 255, 0.2)",
+            tension: 0.3,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    });
 
-      // Success Rate of Audits
-      document.getElementById("auditSuccessRate").innerText = "85%";
+    // Success Rate of Audits
+    document.getElementById("auditSuccessRate").innerText = "85%";
 
-      // Common Reasons for Non-Compliance
-      const nonComplianceReasonsCtx = document
-        .getElementById("nonComplianceReasonsChart")
-        .getContext("2d");
-      new Chart(nonComplianceReasonsCtx, {
-        type: "bar",
-        data: {
-          labels: [
-            "Late Filing",
-            "Underreporting",
-            "Non-Payment",
-            "Incorrect Documentation",
-          ],
-          datasets: [
-            {
-              label: "Frequency",
-              data: [50, 30, 20, 15],
-              backgroundColor: ["#ff6384", "#36a2eb", "#ffcd56", "#4bc0c0"],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        },
-      });
+    // Common Reasons for Non-Compliance
+    const nonComplianceReasonsCtx = document
+      .getElementById("nonComplianceReasonsChart")
+      .getContext("2d");
+    new Chart(nonComplianceReasonsCtx, {
+      type: "bar",
+      data: {
+        labels: [
+          "Late Filing",
+          "Underreporting",
+          "Non-Payment",
+          "Incorrect Documentation",
+        ],
+        datasets: [
+          {
+            label: "Frequency",
+            data: [50, 30, 20, 15],
+            backgroundColor: ["#ff6384", "#36a2eb", "#ffcd56", "#4bc0c0"],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    });
 
-      // Total Penalties Imposed vs. Collected
-      const penaltiesCtx = document
-        .getElementById("penaltiesChart")
-        .getContext("2d");
-      new Chart(penaltiesCtx, {
-        type: "bar",
-        data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-          datasets: [
-            {
-              label: "Imposed",
-              data: [50000, 60000, 55000, 70000, 65000, 80000, 75000],
-              backgroundColor: "#ff6384",
-            },
-            {
-              label: "Collected",
-              data: [30000, 40000, 35000, 50000, 45000, 60000, 55000],
-              backgroundColor: "#36a2eb",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-        },
-      });
-    </script>
+    // Total Penalties Imposed vs. Collected
+    const penaltiesCtx = document
+      .getElementById("penaltiesChart")
+      .getContext("2d");
+    new Chart(penaltiesCtx, {
+      type: "bar",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        datasets: [
+          {
+            label: "Imposed",
+            data: [50000, 60000, 55000, 70000, 65000, 80000, 75000],
+            backgroundColor: "#ff6384",
+          },
+          {
+            label: "Collected",
+            data: [30000, 40000, 35000, 50000, 45000, 60000, 55000],
+            backgroundColor: "#36a2eb",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    });
+  </script>
 
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 
-    <script src="../assets/js/constant.js"></script>
-    <script src="./assets/js/nav.js"></script>
-    <script src="./assets/js/argon-dashboard.min.js"></script>
-    <script src="./assets/js/rolespermission.js"></script>
-    <script src="./assets/js/analytics.js"></script>
-    <script>
-      showActiveNav("analytics-nav");
-      showBreadCrumb("Analytics");
-    </script>
-  </body>
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/rolespermission.js"></script>
+  <script src="./assets/js/analytics.js"></script>
+  <script>
+    showActiveNav("analytics-nav");
+    showBreadCrumb("Analytics");
+  </script>
+</body>
+
 </html>

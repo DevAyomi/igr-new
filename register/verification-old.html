@@ -1,231 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>PayJigawa</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css"
-    />
-    <link rel="stylesheet" href="assets/css/animate.min.css" />
-    <link rel="stylesheet" href="assets/css/fontawesome-all.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="assets/css/colors/switch.css"
-    />
-    <!-- Color Alternatives -->
-    <link
-      href="assets/css/colors/color-2.css"
-      rel="alternate stylesheet"
-      type="text/css"
-      title="color-2"
-    />
-    <link
-      href="assets/css/colors/color-3.css"
-      rel="alternate stylesheet"
-      type="text/css"
-      title="color-3"
-    />
-    <link
-      href="assets/css/colors/color-4.css"
-      rel="alternate stylesheet"
-      type="text/css"
-      title="color-4"
-    />
-    <link
-      href="assets/css/colors/color-5.css"
-      rel="alternate stylesheet"
-      type="text/css"
-      title="color-5"
-    />
-    <style>
-      div:where(.swal2-container)
-        button:where(.swal2-styled):where(.swal2-confirm) {
-        border: 0;
-        border-radius: 0.25em;
-        background: initial;
-        background-color: initial;
-        background-color: #02a75a !important;
-        color: #fff !important;
-        font-size: 1em;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Paykano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome-all.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <body>
-    <div class="clearfix"></div>
+  <link rel="stylesheet" type="text/css" href="assets/css/colors/switch.css" />
+  <!-- Color Alternatives -->
+  <link href="assets/css/colors/color-2.css" rel="alternate stylesheet" type="text/css" title="color-2" />
+  <link href="assets/css/colors/color-3.css" rel="alternate stylesheet" type="text/css" title="color-3" />
+  <link href="assets/css/colors/color-4.css" rel="alternate stylesheet" type="text/css" title="color-4" />
+  <link href="assets/css/colors/color-5.css" rel="alternate stylesheet" type="text/css" title="color-5" />
+  <style>
+    div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+      border: 0;
+      border-radius: 0.25em;
+      background: initial;
+      background-color: initial;
+      background-color: #02a75a !important;
+      color: #fff !important;
+      font-size: 1em;
+    }
+  </style>
+</head>
 
-    <div class="wrapper">
-      <div class="steps-area steps-area-fixed">
-        <div class="image-holder">
-          <img class="myimg" src="assets/img/side-img.jpg" alt="" />
-        </div>
-        <div class="steps clearfix">
-          <ul class="tablist multisteps-form__progress">
-            <li class="multisteps-form__progress-btn js-active current">
-              <span>1</span>
-            </li>
-            <li class="multisteps-form__progress-btn last">
-              <span>2</span>
-            </li>
-          </ul>
-        </div>
+<body>
+  <div class="clearfix"></div>
+
+  <div class="wrapper">
+    <div class="steps-area steps-area-fixed">
+      <div class="image-holder">
+        <img class="myimg" src="assets/img/side-img.jpg" alt="" />
+      </div>
+      <div class="steps clearfix">
+        <ul class="tablist multisteps-form__progress">
+          <li class="multisteps-form__progress-btn js-active current">
+            <span>1</span>
+          </li>
+          <li class="multisteps-form__progress-btn last">
+            <span>2</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <form class="multisteps-form__form" action="index.html#" id="wizard" method="POST">
+      <div style="position: absolute; z-index: 10">
+        <a href="../index.html" class="d-flex gap-1 align-items-center m-4">
+          <div class="flex items-center">
+            <img src="../assets/img/img/kano.png" style="width: 60px" />
+          </div>
+          <p class="text-black fontBold" style="font-size: 20px; color: #000; font-weight: bold">
+            Paykano
+          </p>
+        </a>
       </div>
 
-      <form
-        class="multisteps-form__form"
-        action="index.html#"
-        id="wizard"
-        method="POST"
-      >
-        <div style="position: absolute; z-index: 10">
-          <a href="../index.html" class="d-flex gap-1 align-items-center m-4">
-            <div class="flex items-center">
-              <img src="../assets/img/img/jigawa.png" style="width: 60px" />
-            </div>
-            <p
-              class="text-black fontBold"
-              style="font-size: 20px; color: #000; font-weight: bold"
-            >
-              PayJigawa
-            </p>
-          </a>
-        </div>
+      <div class="form-area position-relative">
+        <!-- div 1 -->
+        <div class="multisteps-form__panel js-active" data-animation="slideHorz">
+          <div class="wizard-forms">
+            <div>
+              <div class="form-content pera-content">
+                <div class="step-inner-content">
+                  <!-- <span class="step-no">Category</span> -->
+                  <h2>Verify Your Account</h2>
+                  <h3>Choose Account Verification Method</h3>
+                  <!-- <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p> -->
+                  <div class="step-box">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label class="step-box-content bg-white text-center relative-position"
+                          style="min-height: 100px !important">
+                          <span class="step-box-icon">
+                            <div>
+                              <i class="fa fa-envelope" style="font-size: 50px; color: #02a75a"></i>
+                            </div>
+                          </span>
+                          <span class="step-box-text"> Email </span>
 
-        <div class="form-area position-relative">
-          <!-- div 1 -->
-          <div
-            class="multisteps-form__panel js-active"
-            data-animation="slideHorz"
-          >
-            <div class="wizard-forms">
-              <div>
-                <div class="form-content pera-content">
-                  <div class="step-inner-content">
-                    <!-- <span class="step-no">Category</span> -->
-                    <h2>Verify Your Account</h2>
-                    <h3>Choose Account Verification Method</h3>
-                    <!-- <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p> -->
-                    <div class="step-box">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <label
-                            class="step-box-content bg-white text-center relative-position"
-                            style="min-height: 100px !important"
-                          >
-                            <span class="step-box-icon">
-                              <div>
-                                <i
-                                  class="fa fa-envelope"
-                                  style="font-size: 50px; color: #02a75a"
-                                ></i>
-                              </div>
-                            </span>
-                            <span class="step-box-text"> Email </span>
+                          <span class="service-check-option">
+                            <span><input class="slector_categs required" required type="radio" name="slector_categs"
+                                value="email" /></span>
+                          </span>
+                        </label>
+                      </div>
 
-                            <span class="service-check-option">
-                              <span
-                                ><input
-                                  class="slector_categs required"
-                                  required
-                                  type="radio"
-                                  name="slector_categs"
-                                  value="email"
-                              /></span>
-                            </span>
-                          </label>
-                        </div>
+                      <div class="col-md-4">
+                        <label class="step-box-content bg-white text-center relative-position"
+                          style="min-height: 100px !important">
+                          <span class="step-box-icon">
+                            <div>
+                              <i class="fas fa-mobile-alt" style="font-size: 50px; color: #02a75a"></i>
+                            </div>
+                          </span>
+                          <span class="step-box-text">
+                            <h3 class="text-xl font-semibold">
+                              Phone Number
+                            </h3>
+                          </span>
 
-                        <div class="col-md-4">
-                          <label
-                            class="step-box-content bg-white text-center relative-position"
-                            style="min-height: 100px !important"
-                          >
-                            <span class="step-box-icon">
-                              <div>
-                                <i
-                                  class="fas fa-mobile-alt"
-                                  style="font-size: 50px; color: #02a75a"
-                                ></i>
-                              </div>
-                            </span>
-                            <span class="step-box-text">
-                              <h3 class="text-xl font-semibold">
-                                Phone Number
-                              </h3>
-                            </span>
-
-                            <span class="service-check-option">
-                              <span
-                                ><input
-                                  class="slector_categs required"
-                                  required
-                                  type="radio"
-                                  name="slector_categs"
-                                  value="phone"
-                              /></span>
-                            </span>
-                          </label>
-                        </div>
+                          <span class="service-check-option">
+                            <span><input class="slector_categs required" required type="radio" name="slector_categs"
+                                value="phone" /></span>
+                          </span>
+                        </label>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.inner -->
-              <div class="actions">
-                <ul>
-                  <li class="disable" aria-disabled="true">
-                    <span class="js-btn-next" title="NEXT"
-                      >Backward <i class="fa fa-arrow-right"></i
-                    ></span>
-                  </li>
-                  <li>
-                    <span class="" id="sendCodeBtn" title="NEXT"
-                      >NEXT <i class="fa fa-arrow-right"></i
-                    ></span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="multisteps-form__panel" data-animation="slideHorz">
-            <div class="wizard-forms">
-              <div>
-                <div class="form-content pera-content">
-                  <div class="step-inner-content">
-                    <div class="form-inner-area mt-10">
-                      <h2>Account Verification</h2>
-                      <p class="text-dark">
-                        Enter the verification code we sent to
-                      </p>
-                      <p id="chooseMethod">jaf@example.com</p>
-                      <input
-                        type="text"
-                        name="phone"
-                        placeholder="Type code here *"
-                        id="code"
-                      />
-                    </div>
-
-                    <p class="text-center text-dark">
-                      Didn’t get the code?
-                      <button class="textPrimary text-right" id="resendBtn">
-                        Resend
-                      </button>
-                    </p>
                   </div>
                 </div>
               </div>
@@ -233,30 +123,69 @@
             <!-- /.inner -->
             <div class="actions">
               <ul>
-                <li>
-                  <span class="js-btn-prev" title="BACK"
-                    ><i class="fa fa-arrow-left"></i> BACK
-                  </span>
+                <li class="disable" aria-disabled="true">
+                  <span class="js-btn-next" title="NEXT">Backward <i class="fa fa-arrow-right"></i></span>
                 </li>
                 <li>
-                  <span class="" id="verifyBtn" title="VERIFY">VERIFY</span>
+                  <span class="" id="sendCodeBtn" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      </form>
-    </div>
 
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/conditionize.flexible.jquery.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/switch.js"></script>
-    <script src="../assets/js/constant.js"></script>
-    <script src="assets/js/verification.js"></script>
-  </body>
+        <div class="multisteps-form__panel" data-animation="slideHorz">
+          <div class="wizard-forms">
+            <div>
+              <div class="form-content pera-content">
+                <div class="step-inner-content">
+                  <div class="form-inner-area mt-10">
+                    <h2>Account Verification</h2>
+                    <p class="text-dark">
+                      Enter the verification code we sent to
+                    </p>
+                    <p id="chooseMethod">jaf@example.com</p>
+                    <input type="text" name="phone" placeholder="Type code here *" id="code" />
+                  </div>
+
+                  <p class="text-center text-dark">
+                    Didn’t get the code?
+                    <button class="textPrimary text-right" id="resendBtn">
+                      Resend
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.inner -->
+          <div class="actions">
+            <ul>
+              <li>
+                <span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK
+                </span>
+              </li>
+              <li>
+                <span class="" id="verifyBtn" title="VERIFY">VERIFY</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/jquery.validate.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/conditionize.flexible.jquery.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/switch.js"></script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="assets/js/verification.js"></script>
+</body>
+
 </html>

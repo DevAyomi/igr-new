@@ -1,319 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PayJigawa</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
-    <link
-      id="pagestyle"
-      href="users/assets/css/argon-dashboard.min.css"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paykano</title>
 
-  <body>
-    <header class="flex justify-between md:px-10 bg-white py-3">
-      <div
-        class="container flex justify-between items-center"
-        id="theHeader"
-      ></div>
-    </header>
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  <link id="pagestyle" href="users/assets/css/argon-dashboard.min.css" rel="stylesheet" />
+</head>
 
-    <div class="container flex-col justify-center">
-      <!-- Content -->
-      <div class="container-fluid py-4 mt-20">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h1 class="text-center text-3xl my-3 fontBold">PAYE Manager</h1>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="">
-                  <button
-                    class="flex p-0 textPrimary items-center gap-2"
-                    onclick="history.go(-1)"
-                  >
-                    <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
-                    <span>Go back</span>
-                  </button>
-                </div>
+<body>
+  <header class="flex justify-between md:px-10 bg-white py-3">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
+
+  <div class="container flex-col justify-center">
+    <!-- Content -->
+    <div class="container-fluid py-4 mt-20">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h1 class="text-center text-3xl my-3 fontBold">PAYE Manager</h1>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="">
+                <button class="flex p-0 textPrimary items-center gap-2" onclick="history.go(-1)">
+                  <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+                  <span>Go back</span>
+                </button>
               </div>
             </div>
+          </div>
 
-            <div class="card">
-              <div class="multisteps-form">
-                <div class="row">
-                  <div class="col-12 col-lg-12 mx-auto mt-4 mb-sm-5">
-                    <div class="multisteps-form__progress">
-                      <button
-                        class="multisteps-form__progress-btn js-active"
-                        type="button"
-                        title="Basic Information"
-                      >
-                        Basic Information
-                      </button>
-                      <button
-                        class="multisteps-form__progress-btn"
-                        type="button"
-                        title="Contact Information"
-                      >
-                        Contact Information
-                      </button>
-                      <button
-                        class="multisteps-form__progress-btn"
-                        type="button"
-                        title="Preview & Verify"
-                      >
-                        Preview & Verify
-                      </button>
-                    </div>
+          <div class="card">
+            <div class="multisteps-form">
+              <div class="row">
+                <div class="col-12 col-lg-12 mx-auto mt-4 mb-sm-5">
+                  <div class="multisteps-form__progress">
+                    <button class="multisteps-form__progress-btn js-active" type="button" title="Basic Information">
+                      Basic Information
+                    </button>
+                    <button class="multisteps-form__progress-btn" type="button" title="Contact Information">
+                      Contact Information
+                    </button>
+                    <button class="multisteps-form__progress-btn" type="button" title="Preview & Verify">
+                      Preview & Verify
+                    </button>
                   </div>
                 </div>
-                <!--form panels-->
-                <div class="row">
-                  <div class="col-12 col-lg-12 m-auto">
-                    <form class="multisteps-form__form">
-                      <!--single form panel-->
-                      <div
-                        class="multisteps-form__panel p-3 border-radius-xl js-active"
-                        data-animation="FadeIn"
-                      >
-                        <div class="multisteps-form__content">
-                          <div>
-                            <h4 class="fw-bold">Register</h4>
-                            <p class="mt-2 mb-4">Basic Information</p>
+              </div>
+              <!--form panels-->
+              <div class="row">
+                <div class="col-12 col-lg-12 m-auto">
+                  <form class="multisteps-form__form">
+                    <!--single form panel-->
+                    <div class="multisteps-form__panel p-3 border-radius-xl js-active" data-animation="FadeIn">
+                      <div class="multisteps-form__content">
+                        <div>
+                          <h4 class="fw-bold">Register</h4>
+                          <p class="mt-2 mb-4">Basic Information</p>
 
-                            <div class="form-group mb-3">
-                              <label for="">Name Of Organization*</label>
-                              <input
-                                type="text"
-                                class="form-control w-full"
-                                required
-                              />
-                            </div>
+                          <div class="form-group mb-3">
+                            <label for="">Name Of Organization*</label>
+                            <input type="text" class="form-control w-full" required />
+                          </div>
 
-                            <div class="form-group mb-3">
-                              <label for="">Select Your Industry*</label>
-                              <select class="form-select w-full" required>
-                                <option value="">Select from list</option>
-                                <option value="Industry A">Industry A</option>
-                                <option value="Industry B">Industry B</option>
-                                <option value="Industry C">Industry C</option>
+                          <div class="form-group mb-3">
+                            <label for="">Select Your Industry*</label>
+                            <select class="form-select w-full" required>
+                              <option value="">Select from list</option>
+                              <option value="Industry A">Industry A</option>
+                              <option value="Industry B">Industry B</option>
+                              <option value="Industry C">Industry C</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="">No. Of Staff*</label>
+                            <input type="text" class="form-control w-full" required />
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="">TIN (Optional)</label>
+                            <input type="text" class="form-control w-full" />
+                          </div>
+
+                          <div id="msg_box"></div>
+                        </div>
+                        <div class="button-row d-flex mt-4">
+                          <button class="button ms-auto mb-0 js-btn-next" type="button" title="Continue">
+                            Continue
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!--single form panel-->
+                    <div class="multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+                      <div class="multisteps-form__content">
+                        <div>
+                          <h4 class="fw-bold">Register</h4>
+                          <p class="mt-2 mb-4">Contact Information</p>
+
+                          <div class="form-group mb-3">
+                            <label for="">Email*</label>
+                            <input type="text" class="form-control" required />
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="">Phone Number*</label>
+                            <input type="text" class="form-control" required />
+                          </div>
+
+                          <div class="row">
+                            <div class="form-group col-6 mb-3">
+                              <label for="">State*</label>
+                              <select class="form-select" required>
+                                <option value="kano">kano</option>
                               </select>
                             </div>
 
-                            <div class="form-group mb-3">
-                              <label for="">No. Of Staff*</label>
-                              <input
-                                type="text"
-                                class="form-control w-full"
-                                required
-                              />
+                            <div class="form-group col-6 mb-3">
+                              <label for="">Local Government Area*</label>
+                              <select class="form-select" data-name="lga" required>
+                                <option value="">Select lga</option>
+                                <option value="kano">kano</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="form-group mb-3">
+                            <label for="">Address*</label>
+                            <input type="text" class="form-control" required />
+                          </div>
+                        </div>
+                        <div class="button-row d-flex mt-4">
+                          <button class="button ms-auto mb-0 js-btn-next" type="button" title="Continue">
+                            Continue
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!--single form panel-->
+                    <div class="multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+                      <div class="multisteps-form__content">
+                        <div>
+                          <h4 class="fw-bold">Company Information</h4>
+                          <p class="mt-2 mb-4">Contact Information</p>
+
+                          <div class="flex gap-3 md:flex-row flex-col">
+                            <div class="form-group">
+                              <label for="">Name Of Organisation</label>
+                              <input type="text" class="form-control" readonly />
                             </div>
 
-                            <div class="form-group mb-3">
+                            <div class="form-group">
+                              <label for="">Industry</label>
+                              <input type="text" class="form-control" readonly />
+                            </div>
+                          </div>
+
+                          <div class="flex gap-3 md:flex-row flex-col mb-3">
+                            <div class="form-group">
+                              <label for="">No Of Staff</label>
+                              <input type="text" class="form-control" readonly />
+                            </div>
+
+                            <div class="form-group">
                               <label for="">TIN (Optional)</label>
-                              <input type="text" class="form-control w-full" />
+                              <input type="text" class="form-control" readonly />
+                            </div>
+                          </div>
+
+                          <div class="flex gap-3 md:flex-row flex-col mb-3">
+                            <div class="form-group">
+                              <label for="">Email</label>
+                              <input type="text" class="form-control" readonly />
                             </div>
 
-                            <div id="msg_box"></div>
+                            <div class="form-group">
+                              <label for="">State</label>
+                              <input type="text" class="form-control" readonly />
+                            </div>
                           </div>
-                          <div class="button-row d-flex mt-4">
-                            <button
-                              class="button ms-auto mb-0 js-btn-next"
-                              type="button"
-                              title="Continue"
-                            >
-                              Continue
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <!--single form panel-->
-                      <div
-                        class="multisteps-form__panel p-3 border-radius-xl bg-white"
-                        data-animation="FadeIn"
-                      >
-                        <div class="multisteps-form__content">
-                          <div>
-                            <h4 class="fw-bold">Register</h4>
-                            <p class="mt-2 mb-4">Contact Information</p>
 
-                            <div class="form-group mb-3">
-                              <label for="">Email*</label>
-                              <input
-                                type="text"
-                                class="form-control"
-                                required
-                              />
+                          <div class="flex gap-3 md:flex-row flex-col mb-3">
+                            <div class="form-group">
+                              <label for="">LGA</label>
+                              <input type="text" class="form-control" readonly />
                             </div>
 
                             <div class="form-group mb-3">
-                              <label for="">Phone Number*</label>
-                              <input
-                                type="text"
-                                class="form-control"
-                                required
-                              />
+                              <label for="">Address</label>
+                              <input type="text" class="form-control" readonly />
                             </div>
-
-                            <div class="row">
-                              <div class="form-group col-6 mb-3">
-                                <label for="">State*</label>
-                                <select class="form-select" required>
-                                  <option value="Jigawa">Jigawa</option>
-                                </select>
-                              </div>
-
-                              <div class="form-group col-6 mb-3">
-                                <label for="">Local Government Area*</label>
-                                <select
-                                  class="form-select"
-                                  data-name="lga"
-                                  required
-                                >
-                                  <option value="">Select lga</option>
-                                  <option value="Jigawa">Jigawa</option>
-                                </select>
-                              </div>
-                            </div>
-
-                            <div class="form-group mb-3">
-                              <label for="">Address*</label>
-                              <input
-                                type="text"
-                                class="form-control"
-                                required
-                              />
-                            </div>
-                          </div>
-                          <div class="button-row d-flex mt-4">
-                            <button
-                              class="button ms-auto mb-0 js-btn-next"
-                              type="button"
-                              title="Continue"
-                            >
-                              Continue
-                            </button>
                           </div>
                         </div>
-                      </div>
-                      <!--single form panel-->
-                      <div
-                        class="multisteps-form__panel p-3 border-radius-xl bg-white"
-                        data-animation="FadeIn"
-                      >
-                        <div class="multisteps-form__content">
-                          <div>
-                            <h4 class="fw-bold">Company Information</h4>
-                            <p class="mt-2 mb-4">Contact Information</p>
-
-                            <div class="flex gap-3 md:flex-row flex-col">
-                              <div class="form-group">
-                                <label for="">Name Of Organisation</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-
-                              <div class="form-group">
-                                <label for="">Industry</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-                            </div>
-
-                            <div class="flex gap-3 md:flex-row flex-col mb-3">
-                              <div class="form-group">
-                                <label for="">No Of Staff</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-
-                              <div class="form-group">
-                                <label for="">TIN (Optional)</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-                            </div>
-
-                            <div class="flex gap-3 md:flex-row flex-col mb-3">
-                              <div class="form-group">
-                                <label for="">Email</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-
-                              <div class="form-group">
-                                <label for="">State</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-                            </div>
-
-                            <div class="flex gap-3 md:flex-row flex-col mb-3">
-                              <div class="form-group">
-                                <label for="">LGA</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-
-                              <div class="form-group mb-3">
-                                <label for="">Address</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  readonly
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="button-row d-flex mt-4">
-                            <button
-                              class="button ms-auto mb-0"
-                              type="button"
-                              title="Submit"
-                            >
-                              Submit
-                            </button>
-                          </div>
+                        <div class="button-row d-flex mt-4">
+                          <button class="button ms-auto mb-0" type="button" title="Submit">
+                            Submit
+                          </button>
                         </div>
                       </div>
-                    </form>
-                  </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -321,22 +218,24 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/aos-master/dist/aos.js"></script>
-    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="assets/js/nav.js"></script>
-    <script src="../assets/node_modules/publitio_js_sdk/build/publitio-api.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/payment.js"></script>
-    <script src="./assets/js/tabHandler.js"></script>
-    <script src="assets/js/multistep-form.js"></script>
-    <script src="./assets/js/invoice.js"></script>
-    <script src="assets/js/etcc-initiate.js"></script>
-  </body>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="../assets/node_modules/publitio_js_sdk/build/publitio-api.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/payment.js"></script>
+  <script src="./assets/js/tabHandler.js"></script>
+  <script src="assets/js/multistep-form.js"></script>
+  <script src="./assets/js/invoice.js"></script>
+  <script src="assets/js/etcc-initiate.js"></script>
+</body>
+
 </html>

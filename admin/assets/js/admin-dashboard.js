@@ -10,13 +10,15 @@ async function fetchTotalRevenue(monthYear) {
   const [year, month] = monthYear.split("-");
   try {
     const response = await fetch(
-      `${HOST}/get-total-amount-paid?month=${month}&year=${year}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + authToken,
-        "Content-Type": "application/json",
-      },
-    });
+      `${HOST}/get-total-amount-paid?month=${month}&year=${year}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authToken,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     if (data.status === "success") {
@@ -40,13 +42,15 @@ async function fetchTotalAnnualRevenue(year) {
   );
   try {
     const response = await fetch(
-      `${HOST}/get-total-amount-paid-yearly?year=${year}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + authToken,
-        "Content-Type": "application/json",
-      },
-    });
+      `${HOST}/get-total-amount-paid-yearly?year=${year}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authToken,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     if (data.status === "success") {
@@ -71,13 +75,15 @@ async function fetchExpectedMonthlyRevenue(monthYear) {
   const [year, month] = monthYear.split("-");
   try {
     const response = await fetch(
-      `${HOST}/get-expected-monthly-revenue?month=${month}&year=${year}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + authToken,
-        "Content-Type": "application/json",
-      },
-    });
+      `${HOST}/get-expected-monthly-revenue?month=${month}&year=${year}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authToken,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     if (data.status === "success") {
@@ -102,13 +108,15 @@ async function fetchExpectedAccruedRevenue(monthYear) {
   const [year, month] = monthYear.split("-");
   try {
     const response = await fetch(
-      `${HOST}/get-accrued-monthly-revenue?month=${month}&year=${year}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + authToken,
-        "Content-Type": "application/json",
-      },
-    });
+      `${HOST}/get-accrued-monthly-revenue?month=${month}&year=${year}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authToken,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     if (data.status === "success") {
@@ -342,20 +350,22 @@ function fetchTaxSummary(monthYear, isMonthYear = false) {
         $("#tinIssued").text(data.tin_issued || 0);
         $("#tccIssued").text(data.tcc_issued || 0);
         $("#payeRemitted").text(
-          `₦ ${data.paye_remitted !== null
-            ? parseFloat(data.paye_remitted).toLocaleString(undefined, {
-              minimumFractionDigits: 2,
-            })
-            : "0.00"
+          `₦ ${
+            data.paye_remitted !== null
+              ? parseFloat(data.paye_remitted).toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                })
+              : "0.00"
           }`
         );
         $("#totalAmountUnpaidPaye").text(
-          `₦ ${data.unpaid_amount_paye_taxes !== null
-            ? parseFloat(data.unpaid_amount_paye_taxes).toLocaleString(
-              undefined,
-              { minimumFractionDigits: 2 }
-            )
-            : "0.00"
+          `₦ ${
+            data.unpaid_amount_paye_taxes !== null
+              ? parseFloat(data.unpaid_amount_paye_taxes).toLocaleString(
+                  undefined,
+                  { minimumFractionDigits: 2 }
+                )
+              : "0.00"
           }`
         );
         $("#totalUnpaidPaye").text(data.unpaid_paye_taxes || 0);
@@ -380,14 +390,14 @@ $(document).ready(function () {
   });
 });
 
-// Initialize the map centered on Jigawa State
-const jigawaMap = L.map("geoHeatMapJigawa").setView([12.2287, 9.5616], 8); // Jigawa State coordinates with zoom level 8
+// Initialize the map centered on kano State
+const kanoMap = L.map("geoHeatMapkano").setView([12.2287, 9.5616], 8); // kano State coordinates with zoom level 8
 
 // Add OpenStreetMap tiles
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(jigawaMap);
+}).addTo(kanoMap);
 
 // Fetch data from API
 async function fetchGeoHeatMapData() {
@@ -410,9 +420,9 @@ async function fetchGeoHeatMapData() {
       throw new Error("Invalid data structure received");
     }
 
-    // Example data points in Jigawa State
-    const jigawaDataPoints = result.data
-      .filter((item) => item.state === "Jigawa")
+    // Example data points in kano State
+    const kanoDataPoints = result.data
+      .filter((item) => item.state === "kano")
       .map((item) => ({
         name: item.lga || "Unknown",
         coords: getCoordinates(item.lga),
@@ -420,7 +430,7 @@ async function fetchGeoHeatMapData() {
       }));
 
     // Add markers or circles for each location
-    jigawaDataPoints.forEach((point) => {
+    kanoDataPoints.forEach((point) => {
       L.circle(point.coords, {
         color: "blue",
         fillColor: "#007bff",
@@ -428,7 +438,7 @@ async function fetchGeoHeatMapData() {
         radius: point.count * 100, // Adjust size based on count
       })
         .bindPopup(`<b>${point.name}</b><br>Taxpayers: ${point.count}`)
-        .addTo(jigawaMap);
+        .addTo(kanoMap);
     });
   } catch (error) {
     console.error("Error fetching geo heat map data:", error);
@@ -466,7 +476,7 @@ function getCoordinates(lga) {
     Yankwashi: [12.1, 9.8],
   };
 
-  return coordinates[lga] || [12.2287, 9.5616]; // Default to Jigawa State center if LGA not found
+  return coordinates[lga] || [12.2287, 9.5616]; // Default to kano State center if LGA not found
 }
 
 fetchGeoHeatMapData();
@@ -708,13 +718,15 @@ async function fetchRevenueGrowthChart() {
   const selectedYear = document.getElementById("yearSelect").value;
   try {
     const response = await fetch(
-      `${HOST}/admin-revenue-growth-2?year=${selectedYear}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + authToken,
-        "Content-Type": "application/json",
-      },
-    }); // Replace with your actual endpoint
+      `${HOST}/admin-revenue-growth-2?year=${selectedYear}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authToken,
+          "Content-Type": "application/json",
+        },
+      }
+    ); // Replace with your actual endpoint
     const data = await response.json();
 
     if (data.status === "success") {

@@ -94,12 +94,15 @@ async function checkEmailExists() {
 
   if (email) {
     try {
-      const response = await fetch(`${HOST}/noauth-get-taxpayers?email=${email}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${HOST}/noauth-get-taxpayers?email=${email}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const res = await response.json();
       const data = res.data;
@@ -158,12 +161,15 @@ async function checkPhoneExists() {
 
   if (phone) {
     try {
-      const response = await fetch(`${HOST}/noauth-get-taxpayers?phone=${phone}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${HOST}/noauth-get-taxpayers?phone=${phone}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const res = await response.json();
       const data = res.data;
@@ -211,7 +217,8 @@ async function validateDigits() {
   // Validate phone number format (only digits)
   const digitPattern = /^\d{11}$/;
   if (!digitPattern.test(digit)) {
-    digitResponseDiv.textContent = "Please enter a valid ID number upto 11 digits.";
+    digitResponseDiv.textContent =
+      "Please enter a valid ID number upto 11 digits.";
     digitResponseDiv.classList.add("text-danger");
     digitResponseDiv.style.display = "block";
     personalSubmitBtn.disabled = true;
@@ -288,7 +295,14 @@ function validatePassword() {
   updateChecklistItem(matchCheck, passwordsMatch);
 
   // Enable register button if all conditions are met
-  registerUserBtn.disabled = !(isLongEnough && hasUppercase && hasLowercase && hasNumber && hasSpecialChar && passwordsMatch);
+  registerUserBtn.disabled = !(
+    isLongEnough &&
+    hasUppercase &&
+    hasLowercase &&
+    hasNumber &&
+    hasSpecialChar &&
+    passwordsMatch
+  );
 }
 
 function updateChecklistItem(element, isValid) {
@@ -300,7 +314,6 @@ function updateChecklistItem(element, isValid) {
     element.innerHTML = "✘ " + element.dataset.text;
   }
 }
-
 
 let pageUrl = new URL(window.location.href);
 let createdby = pageUrl.searchParams.get("createdby");
@@ -865,11 +878,11 @@ $(document).ready(function () {
       $('select[name="id_type"]').prop("required", false);
       $("#decideTab").html(repFormTab);
 
-      $('#rep_position').on('change', function () {
-        let valueO = $(this).val()
-        console.log(valueO)
+      $("#rep_position").on("change", function () {
+        let valueO = $(this).val();
+        console.log(valueO);
         if (valueO === "5") {
-          $('#rep_position_cont').html(`
+          $("#rep_position_cont").html(`
             <div class="form-floating mb-2">
               <input
                 type="text"
@@ -880,11 +893,11 @@ $(document).ready(function () {
               />
               <label for="specify"></label>
             </div>
-          `)
+          `);
         } else {
-          $('#rep_position_cont').html(``)
+          $("#rep_position_cont").html(``);
         }
-      })
+      });
 
       // Populate states dropdown
       const selectedRepresentState = document.querySelector("#rep_state");
@@ -892,7 +905,7 @@ $(document).ready(function () {
         // Assuming `STATES` is an array of state names
         selectedRepresentState.innerHTML = STATES;
         let selectedState = selectedRepState.value;
-        const jigawaLGAs = getStateLGAs("Jigawa");
+        const kanoLGAs = getStateLGAs("kano");
 
         // Add event listener for state change
         selectedRepresentState.addEventListener("change", function () {
@@ -900,7 +913,7 @@ $(document).ready(function () {
           populateLGAs(selectedState); // Populate LGAs for the selected state
         });
       }
-      populateLGAs("Jigawa");
+      populateLGAs("kano");
       const idTypeOption = $('select[name="id_type"]');
       // $(".idNumberCont").hide();
 
@@ -1185,9 +1198,10 @@ async function registerUser() {
       error: function (request, error) {
         $("#registerUserBtn").prop("disabled", false).text("Register");
         $("#msg_box").html(
-          `<p class="text-danger text-center mt-4 text-lg">${request.responseJSON.message
-            ? request.responseJSON.message
-            : "Registration Failed"
+          `<p class="text-danger text-center mt-4 text-lg">${
+            request.responseJSON.message
+              ? request.responseJSON.message
+              : "Registration Failed"
           }</p>`
         );
         console.log(error);

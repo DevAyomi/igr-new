@@ -1,424 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="./assets/img/apple-icon.png"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="./assets/img/logo.png" />
-    <title>PayJigawa</title>
+    <title>Paykano</title>
 
-    <meta name="keywords" content="Jigawa IGR" />
-    <meta name="description" content="Jigawa Tax Collector" />
+    <meta name="keywords" content="kano IGR" />
+    <meta name="description" content="kano Tax Collector" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/42d5adcbca.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link
-      id="pagestyle"
-      href="./assets/css/argon-dashboard.min.css?v=2.0.4"
-      rel="stylesheet"
-    />
+    <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/fontawesome/css/all.css" />
-  </head>
+</head>
 
-  <body class="g-sidenav-show bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
     <div class="min-height-300 bg-dark position-absolute w-100"></div>
 
     <aside
-      class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
-      id="sidenav-main" style="background-color: white;"
-    >
-      <!-- CONTENT COMING FROM NAV.JS -->
+        class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+        id="sidenav-main" style="background-color: white;">
+        <!-- CONTENT COMING FROM NAV.JS -->
     </aside>
 
     <main class="main-content h-100">
-       <nav
-        class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
-      >
-        <div class="container-fluid py-1 px-3">
-            <!-- CONTENT COMING FROM NAV.JS -->
-          <div id="breadcrumb-container"></div>
-          <div
-            class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto"
-          >
-            <a href="javascript:;" class="nav-link text-body p-0">
-              <div class="sidenav-toggler-inner">
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-              </div>
-            </a>
-          </div>
-            <div
-                class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2"
-            >
-                <ul class="navbar-nav justify-content-end ms-auto">
-                    <li class="nav-item d-flex align-items-center"  id="profileImage">
-                        <!-- CONTENT COMING FROM NAV.JS -->
-                    </li>
-                    <li
-                        class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center"
-                    >
-                        <a
-                        href="javascript:;"
-                        class="nav-link text-body p-0"
-                        id="iconNavbarSidenav"
-                        >
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+            <div class="container-fluid py-1 px-3">
+                <!-- CONTENT COMING FROM NAV.JS -->
+                <div id="breadcrumb-container"></div>
+                <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+                    <a href="javascript:;" class="nav-link text-body p-0">
                         <div class="sidenav-toggler-inner">
                             <i class="sidenav-toggler-line bg-white"></i>
                             <i class="sidenav-toggler-line bg-white"></i>
                             <i class="sidenav-toggler-line bg-white"></i>
                         </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-      </nav>
-
-
-      <div class="container-fluid mt-lg-5 mt-sm-3">
-        <div class="mx-lg-4 position-relative">
-          <div class="container-fluid py-4">
-            <div class="row">
-                <div class="col-lg-6">
-                  <div class="">
-                    <button
-                      class="flex p-0 btn btn-link text-white items-center gap-2"
-                      onclick="history.go(-1)"
-                    >
-                      <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
-                      <span>Go back</span>
-                    </button>
-                  </div>
+                    </a>
                 </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <h4 class="text-white">Manage users</h4>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="card position-sticky top-1">
-                        <ul class="nav flex-column bg-white border-radius-lg p-3">
-                        <li class="nav-item pt-2">
-                            <a class="nav-link text-body d-flex align-items-center" data-scroll="" href="#basic-info">
-                            <i class="ni ni-books me-2 text-dark opacity-6"></i>
-                            <span class="text-sm">Basic Info</span>
+                <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+                    <ul class="navbar-nav justify-content-end ms-auto">
+                        <li class="nav-item d-flex align-items-center" id="profileImage">
+                            <!-- CONTENT COMING FROM NAV.JS -->
+                        </li>
+                        <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line bg-white"></i>
+                                    <i class="sidenav-toggler-line bg-white"></i>
+                                    <i class="sidenav-toggler-line bg-white"></i>
+                                </div>
                             </a>
                         </li>
-                        <li class="nav-item pt-2">
-                            <a class="nav-link text-body d-flex align-items-center" data-scroll="" href="#access-level">
-                            <i class="ni ni-ui-04 me-2 text-dark opacity-6"></i>
-                            <span class="text-sm">Access Level</span>
-                            </a>
-                        </li>
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-                <div class="col-lg-9">
-                    <div class="w-full">
-                        <section class="card-body card" id="basic-info">
-            
-                            <form action="" >
-                    
-                                <div class="row">
-                                    <div class="col">
-                                        <label class="form-label">Name of User <span class="text-danger">*</span></label>
-                                        <input required type="text" class="form-control" placeholder="Enter Full Name..">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <label class="form-label">Email Address <span class="text-danger">*</span></label>
-                                        <input required type="email" class="form-control" placeholder="Email address">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <label class="form-label">Phone Number <span class="text-danger">*</span></label>
-                                        <input required type="number" class="form-control" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                    
-                                <div class="row">
-                                    <div class="col">
-                                        <label class="form-label">Role<span class="text-danger">*</span></label>
-                    
-                                        <select class="form-select">
-                                                <option value="Support Admin">Support Admin</option>
-                                                <option value="Admin">Admin</option>
-                                              </select>
-                                    </div>
-                                </div>
-                    
-                    
-                                <div class="mt-3" id="access-level">
-                                    <p class="mb-5 h5">Access Level</p>
-                    
-                    
-                                    <div class="row gy-4">
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Dashboard</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block d-flex gap-3 align-items-center"><input type="checkbox" class="form-switch form-check"> Full Access</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> No Access</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Analytics</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View Revenue Performance</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View Invoice Manager</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View Taxpayer Relations</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View TIN requests manager</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View Impressions</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">MDAs</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View MDA list</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Create MDA</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Activate/Deactivate MDA</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Create revenue head</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Update revenue head</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Approve revenue head</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Activate/Deactivate revenue head</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Reports</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check" data-name="reports_access" value="view_inv_list"> View Invoice list</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check" data-name="reports_access" value="generate_inv_report"> Generate Invoice Report</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check" data-name="reports_access" value="view_coll_list"> View Collection list</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check" data-name="reports_access" value="generate_coll_report"> Generate Collection Report</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check" data-name="reports_access" value="view_settle_list"> View Settlement list</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check" data-name="reports_access" value="generate_settle_report"> Generate Settlement Report</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Tax Payers</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View Tax Payer list</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Edit Tax Payer details</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Activate/deactivate Taxpayer</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Allocate applicable taxes</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Download report</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Enumeration</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Register new user</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View the general enumeration list</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Update taxpayer details</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Download report</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Access Enumeration dashboard</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Audit Trails</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View the audit trail module</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Analyze audit logs (by use of filters and maneuvering the data)</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Generate reports</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Manage Logs</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">User Management</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View Admin User List</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Create a new user and Assign a Role</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Update user role</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Activate/deactivate users</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">CMS</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Create a new post - Gallery</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Create a new post - News</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Manage publication - Gallery</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Manage publication - News</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Support</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View support Module</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Respond to tickets</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Escalate issues</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Export support data</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Generate report</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="" class="">ETCC</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> First reviewer</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Second reviewer</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Third reviewer</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="" class="">Payee</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> View Payee</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Edit Payee</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="" class="">Tax Manager</label>
-                                                <div class="checkbox-group">
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check">No Access</label>
-                                                    <label class="block  d-flex gap-3 align-items-center"><input type="checkbox" class="form-check"> Full Access</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between mt-4">
-                                    <button type="button" class="btn btn-primary rounded-xl mt-2">Edit
-                                              User</button>
-                    
-                                    <button type="button" class="btn btn-primary rounded-xl mt-2">Change Password</button>
-                                </div>
-                    
-                            </form>
-                    
-                        </section>
-                    
-                        <div class="card card-body mt-3 table-responsive">
-                            <h1 class="text-lg fw-bold mb-2">Access Level</h1>
-                    
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th>Dashboard Access</th>
-                                        <td>full Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Analytics Access</th>
-                                        <td>view_revenue~view_invoice~view_taxpayer~view_tin~view_impressions Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Mda Access</th>
-                                        <td>view_mda~create_mda~activate_mda~create_revenue~update_revenue~approve_revenue~activate_revenue Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Report Access</th>
-                                        <td>view_inv_list~generate_inv_report~view_coll_list~generate_coll_report~view_settle_list~generate_settle_report Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Enumeration Access</th>
-                                        <td>reg_user~view_enum_list~updt_taxpayer~download_report~access_enum Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Audit Trail Access</th>
-                                        <td>view_audit~analyze_audit~generate_reports~manage_logs Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Users Access</th>
-                                        <td>view_admin~create_new_user~update_user~activate_users Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Cms Access</th>
-                                        <td>create_gallery~create_news~manage_publication_gallery~manage_publication_news Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Support Access</th>
-                                        <td>view_support~respond_ticket~escalate_issues~export_support~generate_report Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>ETCC Access</th>
-                                        <td>first_reviewer~second_reviewer~third_reviewer Access</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Payee Access</th>
-                                        <td>view_payee~edit_payee Access</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            </div>
+        </nav>
+
+
+        <div class="container-fluid mt-lg-5 mt-sm-3">
+            <div class="mx-lg-4 position-relative">
+                <div class="container-fluid py-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="">
+                                <button class="flex p-0 btn btn-link text-white items-center gap-2"
+                                    onclick="history.go(-1)">
+                                    <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+                                    <span>Go back</span>
+                                </button>
+                            </div>
                         </div>
-                    
-                        
-                    
-                    
                     </div>
-                </div>
-              </div>
-    
-      
-            
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-white">Manage users</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card position-sticky top-1">
+                                <ul class="nav flex-column bg-white border-radius-lg p-3">
+                                    <li class="nav-item pt-2">
+                                        <a class="nav-link text-body d-flex align-items-center" data-scroll=""
+                                            href="#basic-info">
+                                            <i class="ni ni-books me-2 text-dark opacity-6"></i>
+                                            <span class="text-sm">Basic Info</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item pt-2">
+                                        <a class="nav-link text-body d-flex align-items-center" data-scroll=""
+                                            href="#access-level">
+                                            <i class="ni ni-ui-04 me-2 text-dark opacity-6"></i>
+                                            <span class="text-sm">Access Level</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="w-full">
+                                <section class="card-body card" id="basic-info">
 
-          <footer class="footer pt-3" id="footer">
-            <!-- CONTENT COMING FROM NAV.JS -->
-          </footer>
-        </div>
-      </div>
+                                    <form action="">
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="form-label">Name of User <span
+                                                        class="text-danger">*</span></label>
+                                                <input required type="text" class="form-control"
+                                                    placeholder="Enter Full Name..">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="form-label">Email Address <span
+                                                        class="text-danger">*</span></label>
+                                                <input required type="email" class="form-control"
+                                                    placeholder="Email address">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="form-label">Phone Number <span
+                                                        class="text-danger">*</span></label>
+                                                <input required type="number" class="form-control"
+                                                    placeholder="Phone Number">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="form-label">Role<span class="text-danger">*</span></label>
+
+                                                <select class="form-select">
+                                                    <option value="Support Admin">Support Admin</option>
+                                                    <option value="Admin">Admin</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mt-3" id="access-level">
+                                            <p class="mb-5 h5">Access Level</p>
+
+
+                                            <div class="row gy-4">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Dashboard</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-switch form-check"> Full
+                                                                Access</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> No
+                                                                Access</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Analytics</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View Revenue
+                                                                Performance</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View Invoice
+                                                                Manager</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View Taxpayer
+                                                                Relations</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View TIN
+                                                                requests manager</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View
+                                                                Impressions</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">MDAs</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View MDA
+                                                                list</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Create
+                                                                MDA</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check">
+                                                                Activate/Deactivate MDA</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Create revenue
+                                                                head</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Update revenue
+                                                                head</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Approve revenue
+                                                                head</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check">
+                                                                Activate/Deactivate revenue head</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Reports</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"
+                                                                    data-name="reports_access" value="view_inv_list">
+                                                                View Invoice list</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"
+                                                                    data-name="reports_access"
+                                                                    value="generate_inv_report"> Generate Invoice
+                                                                Report</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"
+                                                                    data-name="reports_access" value="view_coll_list">
+                                                                View Collection list</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"
+                                                                    data-name="reports_access"
+                                                                    value="generate_coll_report"> Generate Collection
+                                                                Report</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"
+                                                                    data-name="reports_access" value="view_settle_list">
+                                                                View Settlement list</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"
+                                                                    data-name="reports_access"
+                                                                    value="generate_settle_report"> Generate Settlement
+                                                                Report</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Tax Payers</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View Tax Payer
+                                                                list</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Edit Tax Payer
+                                                                details</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check">
+                                                                Activate/deactivate Taxpayer</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Allocate
+                                                                applicable taxes</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Download
+                                                                report</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Enumeration</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Register new
+                                                                user</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View the general
+                                                                enumeration list</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Update taxpayer
+                                                                details</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Download
+                                                                report</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Access
+                                                                Enumeration dashboard</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Audit Trails</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View the audit
+                                                                trail module</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Analyze audit
+                                                                logs (by use of filters and maneuvering the
+                                                                data)</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Generate
+                                                                reports</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Manage
+                                                                Logs</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">User Management</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View Admin User
+                                                                List</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Create a new
+                                                                user and Assign a Role</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Update user
+                                                                role</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check">
+                                                                Activate/deactivate users</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">CMS</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Create a new
+                                                                post - Gallery</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Create a new
+                                                                post - News</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Manage
+                                                                publication - Gallery</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Manage
+                                                                publication - News</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Support</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View support
+                                                                Module</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Respond to
+                                                                tickets</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Escalate
+                                                                issues</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Export support
+                                                                data</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Generate
+                                                                report</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="" class="">ETCC</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> First
+                                                                reviewer</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Second
+                                                                reviewer</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Third
+                                                                reviewer</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="" class="">Payee</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> View
+                                                                Payee</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Edit
+                                                                Payee</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="" class="">Tax Manager</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check">No Access</label>
+                                                            <label class="block  d-flex gap-3 align-items-center"><input
+                                                                    type="checkbox" class="form-check"> Full
+                                                                Access</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-4">
+                                            <button type="button" class="btn btn-primary rounded-xl mt-2">Edit
+                                                User</button>
+
+                                            <button type="button" class="btn btn-primary rounded-xl mt-2">Change
+                                                Password</button>
+                                        </div>
+
+                                    </form>
+
+                                </section>
+
+                                <div class="card card-body mt-3 table-responsive">
+                                    <h1 class="text-lg fw-bold mb-2">Access Level</h1>
+
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th>Dashboard Access</th>
+                                                <td>full Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Analytics Access</th>
+                                                <td>view_revenue~view_invoice~view_taxpayer~view_tin~view_impressions
+                                                    Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Mda Access</th>
+                                                <td>view_mda~create_mda~activate_mda~create_revenue~update_revenue~approve_revenue~activate_revenue
+                                                    Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Report Access</th>
+                                                <td>view_inv_list~generate_inv_report~view_coll_list~generate_coll_report~view_settle_list~generate_settle_report
+                                                    Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Enumeration Access</th>
+                                                <td>reg_user~view_enum_list~updt_taxpayer~download_report~access_enum
+                                                    Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Audit Trail Access</th>
+                                                <td>view_audit~analyze_audit~generate_reports~manage_logs Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Users Access</th>
+                                                <td>view_admin~create_new_user~update_user~activate_users Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Cms Access</th>
+                                                <td>create_gallery~create_news~manage_publication_gallery~manage_publication_news
+                                                    Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Support Access</th>
+                                                <td>view_support~respond_ticket~escalate_issues~export_support~generate_report
+                                                    Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>ETCC Access</th>
+                                                <td>first_reviewer~second_reviewer~third_reviewer Access</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Payee Access</th>
+                                                <td>view_payee~edit_payee Access</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <footer class="footer pt-3" id="footer">
+                        <!-- CONTENT COMING FROM NAV.JS -->
+                    </footer>
+                </div>
+            </div>
     </main>
 
 
@@ -433,37 +534,38 @@
     <script src="./assets/js/plugins/datatables.js"></script>
     <script>
         const dataTable = new simpleDatatables.DataTable("#datatable1");
-  
+
         const dataTable1 = new simpleDatatables.DataTable("#datatable2");
         const dataTable2 = new simpleDatatables.DataTable("#datatable3");
 
-      var win = navigator.platform.indexOf("Win") > -1;
-      if (win && document.querySelector("#sidenav-scrollbar")) {
-        var options = {
-          damping: "0.5",
-        };
-        Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
-      }
+        var win = navigator.platform.indexOf("Win") > -1;
+        if (win && document.querySelector("#sidenav-scrollbar")) {
+            var options = {
+                damping: "0.5",
+            };
+            Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+        }
     </script>
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script>
-      $(document).ready(function () {
-        $("#getMDAs").select2({
-          dropdownParent: $("#filterInvoice")
+        $(document).ready(function () {
+            $("#getMDAs").select2({
+                dropdownParent: $("#filterInvoice")
+            })
+            $("#listOfpayable").select2({
+                dropdownParent: $("#filterInvoice")
+            })
+
         })
-        $("#listOfpayable").select2({
-          dropdownParent: $("#filterInvoice")
-        })
-  
-      })
     </script>
     <script src="./assets/js/jquery.js"></script>
     <script src="../assets/js/constant.js"></script>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-      showActiveNav("user-nav");
-      showBreadCrumb("Manage User");
+    showActiveNav("user-nav");
+    showBreadCrumb("Manage User");
     </script>
-  </body>
+</body>
+
 </html>

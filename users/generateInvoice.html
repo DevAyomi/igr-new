@@ -1,456 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PAY-JIGAWA</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/responsive.css" />
-    <link rel="stylesheet" href="../assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="../assets/js/aos-master/dist/aos.css" />
-    <link
-      id="pagestyle"
-      href="../users/assets/css/argon-dashboard.min.css"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAY-kano</title>
 
-  <body>
-    <!-- <header class="flex shadow-sm justify-between md:px-10 px-4 bg-white py-3">
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="../assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="../assets/js/aos-master/dist/aos.css" />
+  <link id="pagestyle" href="../users/assets/css/argon-dashboard.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- <header class="flex shadow-sm justify-between md:px-10 px-4 bg-white py-3">
       <div class="container flex justify-between" id="theHeader"></div>
     </header> -->
- 
-    <div class="container mx-auto">
 
-        
-   
-      <!-- Content -->
-      <div class="multisteps-form">
-        <!--progress bar--> 
-        <div class="flex items-center gap-2 mt-6">
-      <a href="dashboard.html"><p style=" text-wrap: nowrap; text-align: left;"  class="d-flex text-primary">Go Back</p></a>
-    </div>
-    <div class="row mt-2"> 
-      <div class="col-12 col-lg-8 mx-auto my-5"> 
-        <div class="multisteps-form__progress" style="position: static; z-index: 1000;"> 
-          <button class="multisteps-form__progress-btn js-active" type="button" title="User Info" > 
-            <span>Billing info</span> 
-          </button> 
-          <button class="multisteps-form__progress-btn" type="button" title="Address" > 
-            <span>Personal Details</span> 
-          </button> 
-          <button class="multisteps-form__progress-btn" type="button" title="Order Info" > 
-            <span>Generate Invoice</span> 
-          </button> 
-          <button class="multisteps-form__progress-btn" type="button" title="Order Info" > 
-            <span>Verify</span> 
-          </button> 
-          <button class="multisteps-form__progress-btn" type="button" title="Order Info" > 
-            <span>Make Payment</span> 
-          </button> 
-        </div> 
-      </div> 
-    </div>
-    
-        <!--form panels-->
-        <div class="row">
-          <div class="col-12 col-lg-8 m-auto">
-            <form class="multisteps-form__form">
-              <!--single form panel-->
-              <div
-                class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active"
-                data-animation="FadeIn"
-              >
-                <div class="multisteps-form__content">
-                  <div class="row mt-3">
-                    <div action="" class="w-full">
-                      <div>
-                        <div id="text-color">
-                          <h1 class="fontBold text-3xl">Generate Invoice</h1>
-                          <h1 class="my-3">Personal Details</h1>
-                        </div>
+  <div class="container mx-auto">
 
-                        <div class="form-group my-4">
-                          <label for="tin/email">Enter Tin or Email*</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="tinOrEmail"
-                            required
-                          />
-                        </div>
 
-                        <div class="form-group flex justify-between gap-4" id="theFetchBtns">
-                          <button
-                            type="button"
-                            id="last-button"
-                            class="outline-btn js-btn-next"
-                            onclick="fillManually()"
-                          >
-                            Fill Manually
-                          </button>
-                          <button
-                            id="last-button"
-                            onclick="fetchUserDetails()"
-                            class="button text-white js-btn-next"
-                            type="button"
-                          >
-                            Fetch Details
-                          </button>
-                        </div>
-                        <div id="msg_box001"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--single form panel-->
-              <div
-                class="card multisteps-form__panel p-3 border-radius-xl bg-white"
-                data-animation="FadeIn"
-              >
-                <div class="multisteps-form__content">
-                  <div class="flex items-center">
-                    <div action="" class="w-full">
-                      <h1 class="fontBold text-2xl">Generate Invoice</h1>
-                      <h1 class="mb-3 mt-3">Personal Details</h1>
 
-                      <div class="form-group mb-4">
-                        <label for="">Select your category*</label>
-                        <select
-                          class="form-select payInputs selCateg"
-                          required
-                          id="category"
-                        >
-                          <option disabled selected>Select--</option>
-                          <option value="2">Individual</option>
-                          <option value="1">Corporate</option>
-                          <option value="3">State Agency</option>
-                          <option value="4">Federal Agency</option>
-                        </select>
+    <!-- Content -->
+    <div class="multisteps-form">
+      <!--progress bar-->
+      <div class="flex items-center gap-2 mt-6">
+        <a href="dashboard.html">
+          <p style=" text-wrap: nowrap; text-align: left;" class="d-flex text-primary">Go Back</p>
+        </a>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 col-lg-8 mx-auto my-5">
+          <div class="multisteps-form__progress" style="position: static; z-index: 1000;">
+            <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">
+              <span>Billing info</span>
+            </button>
+            <button class="multisteps-form__progress-btn" type="button" title="Address">
+              <span>Personal Details</span>
+            </button>
+            <button class="multisteps-form__progress-btn" type="button" title="Order Info">
+              <span>Generate Invoice</span>
+            </button>
+            <button class="multisteps-form__progress-btn" type="button" title="Order Info">
+              <span>Verify</span>
+            </button>
+            <button class="multisteps-form__progress-btn" type="button" title="Order Info">
+              <span>Make Payment</span>
+            </button>
+          </div>
+        </div> 
+      </div>
+
+      <!--form panels-->
+      <div class="row">
+        <div class="col-12 col-lg-8 m-auto">
+          <form class="multisteps-form__form">
+            <!--single form panel-->
+            <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+              <div class="multisteps-form__content">
+                <div class="row mt-3">
+                  <div action="" class="w-full">
+                    <div>
+                      <div id="text-color">
+                        <h1 class="fontBold text-3xl">Generate Invoice</h1>
+                        <h1 class="my-3">Personal Details</h1>
                       </div>
 
-                      <div class="sm:flex items-center mb-4 gap-2" id="theName">
-                        <div class="form-group w-full">
-                          <label for="">First name *</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs"
-                            required
-                            data-name="first_name"
-                            placeholder="Enter your first name"
-                          />
-                        </div>
-
-                        <div class="form-group w-full">
-                          <label for="">Surname *</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs"
-                            required
-                            data-name="surname"
-                            placeholder="Enter your surname"
-                          />
-                        </div>
+                      <div class="form-group my-4">
+                        <label for="tin/email">Enter Tin or Email*</label>
+                        <input type="text" class="form-control" id="tinOrEmail" required />
                       </div>
 
-                      <div class="sm:flex items-center mb-4 gap-2" id="theEmail">
-                        <div class="form-group w-full">
-                          <label for="">Email *</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs"
-                            required
-                            data-name="email"
-                            placeholder="Enter your Email Address"
-                          />
-                        </div>
-
-                        <div class="form-group w-full">
-                          <label for="">Phone number *</label>
-                          <input
-                            type="number"
-                            class="form-control payInputs"
-                            id="phonenumber"
-                            minlength="11"
-                            maxlength="11"
-                            required
-                            data-name="phone"
-                            placeholder="Your 11-digits phone number"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="sm:flex items-center mb-4 gap-2">
-                        <div class="form-group w-full" id="theTin">
-                          <label for="">TIN (Optional)</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs"
-                            id="tin"
-                            data-name="tin"
-                            placeholder="Enter your TIN"
-                          />
-                        </div>
-
-                        <div class="form-group w-full">
-                          <label for="">State*</label>
-                          <select
-                            name=""
-                            id="selectState"
-                            class="form-select payInputs"
-                            data-name="state"
-                          >
-                            <option value="Jigawa">Jigawa</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="sm:flex items-center mb-4 gap-2">
-                        <div class="form-group w-full">
-                          <label for="">LGA*</label>
-                          <select
-                            name=""
-                            id="selectLGA"
-                            class="form-select payInputs"
-                            required
-                            data-name="lga"
-                          ></select>
-                        </div>
-
-                        <div class="form-group w-full" id="theLga">
-                          <label for="">Address*</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs"
-                            minlength="10"
-                            required
-                            data-name="address"
-                            placeholder=" Enter your address"
-                          />
-                        </div>
-                      </div>
-
-                      <button
-                        class="button w-full js-btn-next"
-                        type="button"
-                      >
-                        Continue
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--single form panel-->
-              <div
-                class="card multisteps-form__panel p-3 border-radius-xl bg-white"
-                data-animation="FadeIn"
-              >
-                <div class="multisteps-form__content">
-                  <div class="flex justify-center items-center h-full -mt-10">
-                    <div action="" class="w-full secondForm">
-                      <h1 class="fontBold text-2xl">Generate Invoice</h1>
-                      <h1 class="mb-3 mt-3">Billing Information</h1>
-
-                      <div class="form-group mb-2">
-                        <label for="">Select MDA *</label>
-                        <select
-                          onchange="updateSelectedOption1(this)"
-                          class="revHeadInputSel form-select mda"
-                          required
-                          name=""
-                          id="mda"
-                        ></select>
-                      </div>
-
-                      <hr class="my-3" />
-
-                      <div class="flex items-center gap-2">
-                        <div class="form-group w-8/12">
-                          <label for="">What do you want to pay for?*</label>
-                          <select
-                            onchange="updateSelectedOption()"
-                            class="revHeadInputSel h-[40px] form-select genInv revHeadsss"
-                            required
-                            name=""
-                            id="rev_heads"
-                          ></select>
-                        </div>
-
-                        <div class="form-group w-4/12">
-                          <label for="">Amount to be paid*</label>
-                          <input
-                            type="text"
-                            class="form-control genInv h-[40px] thePaymentInput amountTopay amountTopa"
-                            id="amountTopay"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="hidden justify-end" id="otherSec">
-                        <button
-                          onclick="addInput()"
-                          type="button"
-                          class="textPrimary flex gap-2 items-center"
-                        >
-                          <iconify-icon icon="ic:outline-plus"></iconify-icon>
-                          Add Item
+                      <div class="form-group flex justify-between gap-4" id="theFetchBtns">
+                        <button type="button" id="last-button" class="outline-btn js-btn-next" onclick="fillManually()">
+                          Fill Manually
+                        </button>
+                        <button id="last-button" onclick="fetchUserDetails()" class="button text-white js-btn-next"
+                          type="button">
+                          Fetch Details
                         </button>
                       </div>
-
-                      <div id="moreInput" class="mb-4"></div>
-
-                      <div class="form-group mb-3">
-                        <label for="description">Description*</label>
-                        <input
-                          type="text"
-                          class="form-control genInv"
-                          id="thedescripInput"
-                          required
-                        />
-                      </div>
-
-                      <button
-                        class="button w-full js-btn-next"
-                        type="button"
-                      >
-                        Continue
-                      </button>
-
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-              <!--single form panel-->
-              <div
-                class="card multisteps-form__panel p-3 border-radius-xl bg-white"
-                data-animation="FadeIn"
-              >
-                <div class="multisteps-form__content">
-                  <div class="flex justify-center items-center h-full">
-                    <div action="" class="w-full secondForm">
-                      <h1 class="mb-3 mt-3">Billing Details</h1>
-                      <div class="shadow-md p-3 bg-[#E9ECEF]" id="bill">
-                        <div class="flex space-x-3">
-                          <p></p>
-                          <p></p>
-                        </div>
-                      </div>
-                      <h1 class="mb-3 mt-3">User Details</h1>
-                      <div class="sm:flex items-center mb-4 gap-2" id="theName2">
-                        <div class="form-group w-full">
-                          <label for="">First name</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="first_name"
-                          />
-                        </div>
-
-                        <div class="form-group w-full">
-                          <label for="">Surname</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="surname"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="sm:flex items-center mb-4 gap-2">
-                        <div class="form-group w-full">
-                          <label for="">Email</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="email"
-                          />
-                        </div>
-
-                        <div class="form-group w-full">
-                          <label for="">Phone number *</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="phone"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="sm:flex items-center mb-4 gap-2">
-                        <div class="form-group w-full">
-                          <label for="">TIN (Optional)</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="tin"
-                          />
-                        </div>
-
-                        <div class="form-group w-full">
-                          <label for="">State</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="state"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="sm:flex items-center mb-4 gap-2">
-                        <div class="form-group w-full">
-                          <label for="">LGA</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="lga"
-                          />
-                        </div>
-
-                        <div class="form-group w-full">
-                          <label for="">Address</label>
-                          <input
-                            type="text"
-                            class="form-control payInputs2"
-                            readonly
-                            data-name="address"
-                          />
-                        </div>
-                      </div>
-
-                      <button
-                        class="button w-full js-btn-next"
-                        type="button"
-                        id="generating_inv"
-                        onclick="generateInvoiceNon()"
-                      >
-                        Continue
-                      </button>
-                      <div id="msg_box"></div>
+                      <div id="msg_box001"></div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!--single form panel-->
-              <!-- <div
+            </div>
+            <!--single form panel-->
+            <div class="card multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+              <div class="multisteps-form__content">
+                <div class="flex items-center">
+                  <div action="" class="w-full">
+                    <h1 class="fontBold text-2xl">Generate Invoice</h1>
+                    <h1 class="mb-3 mt-3">Personal Details</h1>
+
+                    <div class="form-group mb-4">
+                      <label for="">Select your category*</label>
+                      <select class="form-select payInputs selCateg" required id="category">
+                        <option disabled selected>Select--</option>
+                        <option value="2">Individual</option>
+                        <option value="1">Corporate</option>
+                        <option value="3">State Agency</option>
+                        <option value="4">Federal Agency</option>
+                      </select>
+                    </div>
+
+                    <div class="sm:flex items-center mb-4 gap-2" id="theName">
+                      <div class="form-group w-full">
+                        <label for="">First name *</label>
+                        <input type="text" class="form-control payInputs" required data-name="first_name"
+                          placeholder="Enter your first name" />
+                      </div>
+
+                      <div class="form-group w-full">
+                        <label for="">Surname *</label>
+                        <input type="text" class="form-control payInputs" required data-name="surname"
+                          placeholder="Enter your surname" />
+                      </div>
+                    </div>
+
+                    <div class="sm:flex items-center mb-4 gap-2" id="theEmail">
+                      <div class="form-group w-full">
+                        <label for="">Email *</label>
+                        <input type="text" class="form-control payInputs" required data-name="email"
+                          placeholder="Enter your Email Address" />
+                      </div>
+
+                      <div class="form-group w-full">
+                        <label for="">Phone number *</label>
+                        <input type="number" class="form-control payInputs" id="phonenumber" minlength="11"
+                          maxlength="11" required data-name="phone" placeholder="Your 11-digits phone number" />
+                      </div>
+                    </div>
+
+                    <div class="sm:flex items-center mb-4 gap-2">
+                      <div class="form-group w-full" id="theTin">
+                        <label for="">TIN (Optional)</label>
+                        <input type="text" class="form-control payInputs" id="tin" data-name="tin"
+                          placeholder="Enter your TIN" />
+                      </div>
+
+                      <div class="form-group w-full">
+                        <label for="">State*</label>
+                        <select name="" id="selectState" class="form-select payInputs" data-name="state">
+                          <option value="kano">kano</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="sm:flex items-center mb-4 gap-2">
+                      <div class="form-group w-full">
+                        <label for="">LGA*</label>
+                        <select name="" id="selectLGA" class="form-select payInputs" required data-name="lga"></select>
+                      </div>
+
+                      <div class="form-group w-full" id="theLga">
+                        <label for="">Address*</label>
+                        <input type="text" class="form-control payInputs" minlength="10" required data-name="address"
+                          placeholder=" Enter your address" />
+                      </div>
+                    </div>
+
+                    <button class="button w-full js-btn-next" type="button">
+                      Continue
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--single form panel-->
+            <div class="card multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+              <div class="multisteps-form__content">
+                <div class="flex justify-center items-center h-full -mt-10">
+                  <div action="" class="w-full secondForm">
+                    <h1 class="fontBold text-2xl">Generate Invoice</h1>
+                    <h1 class="mb-3 mt-3">Billing Information</h1>
+
+                    <div class="form-group mb-2">
+                      <label for="">Select MDA *</label>
+                      <select onchange="updateSelectedOption1(this)" class="revHeadInputSel form-select mda" required
+                        name="" id="mda"></select>
+                    </div>
+
+                    <hr class="my-3" />
+
+                    <div class="flex items-center gap-2">
+                      <div class="form-group w-8/12">
+                        <label for="">What do you want to pay for?*</label>
+                        <select onchange="updateSelectedOption()"
+                          class="revHeadInputSel h-[40px] form-select genInv revHeadsss" required name=""
+                          id="rev_heads"></select>
+                      </div>
+
+                      <div class="form-group w-4/12">
+                        <label for="">Amount to be paid*</label>
+                        <input type="text" class="form-control genInv h-[40px] thePaymentInput amountTopay amountTopa"
+                          id="amountTopay" />
+                      </div>
+                    </div>
+
+                    <div class="hidden justify-end" id="otherSec">
+                      <button onclick="addInput()" type="button" class="textPrimary flex gap-2 items-center">
+                        <iconify-icon icon="ic:outline-plus"></iconify-icon>
+                        Add Item
+                      </button>
+                    </div>
+
+                    <div id="moreInput" class="mb-4"></div>
+
+                    <div class="form-group mb-3">
+                      <label for="description">Description*</label>
+                      <input type="text" class="form-control genInv" id="thedescripInput" required />
+                    </div>
+
+                    <button class="button w-full js-btn-next" type="button">
+                      Continue
+                    </button>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!--single form panel-->
+            <div class="card multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+              <div class="multisteps-form__content">
+                <div class="flex justify-center items-center h-full">
+                  <div action="" class="w-full secondForm">
+                    <h1 class="mb-3 mt-3">Billing Details</h1>
+                    <div class="shadow-md p-3 bg-[#E9ECEF]" id="bill">
+                      <div class="flex space-x-3">
+                        <p></p>
+                        <p></p>
+                      </div>
+                    </div>
+                    <h1 class="mb-3 mt-3">User Details</h1>
+                    <div class="sm:flex items-center mb-4 gap-2" id="theName2">
+                      <div class="form-group w-full">
+                        <label for="">First name</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="first_name" />
+                      </div>
+
+                      <div class="form-group w-full">
+                        <label for="">Surname</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="surname" />
+                      </div>
+                    </div>
+
+                    <div class="sm:flex items-center mb-4 gap-2">
+                      <div class="form-group w-full">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="email" />
+                      </div>
+
+                      <div class="form-group w-full">
+                        <label for="">Phone number *</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="phone" />
+                      </div>
+                    </div>
+
+                    <div class="sm:flex items-center mb-4 gap-2">
+                      <div class="form-group w-full">
+                        <label for="">TIN (Optional)</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="tin" />
+                      </div>
+
+                      <div class="form-group w-full">
+                        <label for="">State</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="state" />
+                      </div>
+                    </div>
+
+                    <div class="sm:flex items-center mb-4 gap-2">
+                      <div class="form-group w-full">
+                        <label for="">LGA</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="lga" />
+                      </div>
+
+                      <div class="form-group w-full">
+                        <label for="">Address</label>
+                        <input type="text" class="form-control payInputs2" readonly data-name="address" />
+                      </div>
+                    </div>
+
+                    <button class="button w-full js-btn-next" type="button" id="generating_inv"
+                      onclick="generateInvoiceNon()">
+                      Continue
+                    </button>
+                    <div id="msg_box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--single form panel-->
+            <!-- <div
                 class="card multisteps-form__panel p-3 border-radius-xl bg-white"
                 data-animation="FadeIn"
               >
@@ -487,10 +336,10 @@
                             <div class="w-full">
                               <p class="text-[#555555]">FROM :</p>
                               <p class="fontBold">
-                                Jigawa State Internal Revenue Service
+                                kano State Internal Revenue Service
                               </p>
                               <p class="text-[#222234] w-[60%] text-sm">
-                                Jigawa
+                                kano
                               </p>
                             </div>
 
@@ -618,13 +467,13 @@
                               <img src="./assets/img/logo.png" alt="" width="100" />
                               <div>
                                 <p class="text-xl fontBold pb-0">
-                                  Jigawa State Internal Revenue Service
+                                  kano State Internal Revenue Service
                                 </p>
                                 <div
                                   class="flex items-center gap-x-3 flex-wrap"
                                 >
                                   <p class="text-sm text-[#6F6F84]">
-                                    www.jigawaigr.com
+                                    www.kanoigr.com
                                   </p>
                                   <p class="text-sm text-[#6F6F84]">
                                     info@jsirs.gov.ng
@@ -696,339 +545,282 @@
                   </div>
                 </div>
               </div> -->
-              <!--single form panel-->
-              <div
-                class="card multisteps-form__panel p-3 border-radius-xl bg-white"
-                data-animation="FadeIn"
-              >
-                <div class="multisteps-form__content">
-                  <div class="flex justify-center items-center h-full">
-                    <div action="" class="w-full secondForm">
-                      <div id="makePayment" class="my-5 mx-auto">
-                        <!-- PAYMENT DESIGN COMING FROM PAYMENT.js -->
-                         Coming Soon........
-                      </div>
-                      <button
-                        class="button w-full js-btn-next"
-                        type="button"
-                      >
-                        Continue
-                      </button>
+            <!--single form panel-->
+            <div class="card multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+              <div class="multisteps-form__content">
+                <div class="flex justify-center items-center h-full">
+                  <div action="" class="w-full secondForm">
+                    <div id="makePayment" class="my-5 mx-auto">
+                      <!-- PAYMENT DESIGN COMING FROM PAYMENT.js -->
+                      Coming Soon........
                     </div>
+                    <button class="button w-full js-btn-next" type="button">
+                      Continue
+                    </button>
                   </div>
                 </div>
               </div>
-              <!--single form panel-->
-              <div
-                class="card multisteps-form__panel p-3 border-radius-xl bg-white"
-                data-animation="FadeIn"
-              >
-                <div class="multisteps-form__content">
-                  <div class="flex justify-center items-center h-full">
-                    <div action="" class="w-full secondForm">
-                      <div class="invoiceContainer flex justify-center pr-10">
-                        <div
-                          class="invoice bg-white w-full shadow-md"
-                          id="receiptCard"
-                        >
-                          <div class="receipt">
-                            <!-- Header -->
-                            <div
-                              class="flex px-6 pt-3 items-center justify-between"
-                            >
-                              <h1 class="fontBold text-2xl">INV-2024-001</h1>
+            </div>
+            <!--single form panel-->
+            <div class="card multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+              <div class="multisteps-form__content">
+                <div class="flex justify-center items-center h-full">
+                  <div action="" class="w-full secondForm">
+                    <div class="invoiceContainer flex justify-center pr-10">
+                      <div class="invoice bg-white w-full shadow-md" id="receiptCard">
+                        <div class="receipt">
+                          <!-- Header -->
+                          <div class="flex px-6 pt-3 items-center justify-between">
+                            <h1 class="fontBold text-2xl">INV-2024-001</h1>
 
+                            <div>
+                              <img src="./assets/img/logo.png" alt="" class="w-[80px]" />
+                            </div>
+
+                            <div class="flex items-center gap-1">
+                              <p class="text-base">Date: 18 Nov 2024</p>
+                            </div>
+                          </div>
+
+                          <!-- Contact Info -->
+                          <div class="flex items-center gap-x-3 flex-wrap justify-center mt-4">
+                            <p class="text-base flex items-center gap-1 text-[#000]">
+                              <iconify-icon icon="ic:outline-email"></iconify-icon>
+                              <span>Info@jsirs.gov.ng</span>
+                            </p>
+                            <p class="text-base flex items-center gap-1 text-[#000]">
+                              <iconify-icon icon="ic:round-phone"></iconify-icon>
+                              <span>0812121212, 09121121212</span>
+                            </p>
+                            <p class="text-base flex items-center gap-1 text-[#000]">
+                              <iconify-icon icon="streamline:web"></iconify-icon>
+                              <span>www.kanoigr.com</span>
+                            </p>
+                          </div>
+                          <!-- Title -->
+                          <p class="fontBold text-black text-2xl text-center mt-3">
+                            kano STATE GOVERNMENT
+                          </p>
+                          <p class="fontBold text-black text-lg text-center mt-1">
+                            INTERNAL REVENUE SERVICE
+                          </p>
+
+                          <div class="flex justify-center my-8">
+                            <button class="button" type="button">
+                              PAYMENT RECEIPT
+                            </button>
+                          </div>
+
+                          <!-- From/To Section -->
+                          <div class="flex justify-end -mt-20">
+                            <div class="w-[20%] pr-8" id="qrContainer"></div>
+                          </div>
+
+                          <div class="flex justify-between px-6 mt-4 mb-2">
+                            <div class="w-full">
+                              <p class="text-[#555555]">
+                                This is from :
+                                <span class="fontBold text-black">MInistry of Finance</span>
+                              </p>
+                            </div>
+
+                            <div class="w-full flex justify-end">
+                              <p class="text-[#555555]">
+                                This is to :
+                                <span class="fontBold text-black capitalize">Muktar Ahmad</span>
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="border-b border-[4px] border-gray-700 mx-6"></div>
+
+                          <div class="px-6 mt-4 mb-4">
+                            <table class="table table-borderless">
+                              <thead>
+                                <tr>
+                                  <th scope="col">ITEM DESCRIPTION</th>
+                                  <th scope="col">QTY</th>
+                                  <th scope="col">PRICE</th>
+                                  <th scope="col">AMOUNT</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Annual Business Permit</td>
+                                  <td>1</td>
+                                  <td>₦50,000.00</td>
+                                  <td>₦50,000.00</td>
+                                </tr>
+                                <tr>
+                                  <td>Property Tax</td>
+                                  <td>1</td>
+                                  <td>₦75,000.00</td>
+                                  <td>₦75,000.00</td>
+                                </tr>
+                                <tr>
+                                  <td colspan="3">Sub Total</td>
+                                  <td>₦125,000.00</td>
+                                </tr>
+                                <tr>
+                                  <td colspan="3">Discount</td>
+                                  <td>₦0.00</td>
+                                </tr>
+                                <tr>
+                                  <td colspan="3" class="fontBold">
+                                    Grand Total (NGN)
+                                  </td>
+                                  <td class="fontBold">₦125,000.00</td>
+                                </tr>
+                                <tr>
+                                  <td colspan="4">
+                                    Amount in words: One Hundred and
+                                    Twenty-Five Thousand Naira Only
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+                          <!-- Footer Information -->
+                          <div class="border-b border-[4px] border-gray-700 mx-6"></div>
+                          <div class="px-6 mt-4">
+                            <div class="flex justify-between">
                               <div>
-                                <img
-                                  src="./assets/img/logo.png"
-                                  alt=""
-                                  class="w-[80px]"
-                                />
-                              </div>
-
-                              <div class="flex items-center gap-1">
-                                <p class="text-base">Date: 18 Nov 2024</p>
-                              </div>
-                            </div>
-
-                            <!-- Contact Info -->
-                            <div
-                              class="flex items-center gap-x-3 flex-wrap justify-center mt-4"
-                            >
-                              <p
-                                class="text-base flex items-center gap-1 text-[#000]"
-                              >
-                                <iconify-icon
-                                  icon="ic:outline-email"
-                                ></iconify-icon>
-                                <span>Info@jsirs.gov.ng</span>
-                              </p>
-                              <p
-                                class="text-base flex items-center gap-1 text-[#000]"
-                              >
-                                <iconify-icon
-                                  icon="ic:round-phone"
-                                ></iconify-icon>
-                                <span>0812121212, 09121121212</span>
-                              </p>
-                              <p
-                                class="text-base flex items-center gap-1 text-[#000]"
-                              >
-                                <iconify-icon
-                                  icon="streamline:web"
-                                ></iconify-icon>
-                                <span>www.jigawaigr.com</span>
-                              </p>
-                            </div>
-                            <!-- Title -->
-                            <p
-                              class="fontBold text-black text-2xl text-center mt-3"
-                            >
-                              JIGAWA STATE GOVERNMENT
-                            </p>
-                            <p
-                              class="fontBold text-black text-lg text-center mt-1"
-                            >
-                              INTERNAL REVENUE SERVICE
-                            </p>
-
-                            <div class="flex justify-center my-8">
-                              <button class="button" type="button">
-                                PAYMENT RECEIPT
-                              </button>
-                            </div>
-
-                            <!-- From/To Section -->
-                            <div class="flex justify-end -mt-20">
-                              <div class="w-[20%] pr-8" id="qrContainer"></div>
-                            </div>
-
-                            <div class="flex justify-between px-6 mt-4 mb-2">
-                              <div class="w-full">
-                                <p class="text-[#555555]">
-                                  This is from :
-                                  <span class="fontBold text-black"
-                                    >MInistry of Finance</span
-                                  >
+                                <p class="mb-2 fontBold">
+                                  Payer ID: PYR123456
                                 </p>
+                                <p class="mb-2 fontBold">TIN: 1234567890</p>
+                                <p class="mb-2">Due Date: 30 Nov 2024</p>
                               </div>
-
-                              <div class="w-full flex justify-end">
-                                <p class="text-[#555555]">
-                                  This is to :
-                                  <span class="fontBold text-black capitalize"
-                                    >Muktar Ahmad</span
-                                  >
-                                </p>
+                              <div>
+                                <p class="mb-2">Invoice Date: 18 Nov 2024</p>
+                                <p class="mb-2">Expiry Date: 30 Nov 2024</p>
                               </div>
                             </div>
+                            <p>
+                              <span class="fontBold">Description:</span>
+                              Annual payment for business operations and
+                              property tax
+                            </p>
+                          </div>
 
-                            <div
-                              class="border-b border-[4px] border-gray-700 mx-6"
-                            ></div>
-
-                            <div class="px-6 mt-4 mb-4">
-                              <table class="table table-borderless">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">ITEM DESCRIPTION</th>
-                                    <th scope="col">QTY</th>
-                                    <th scope="col">PRICE</th>
-                                    <th scope="col">AMOUNT</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Annual Business Permit</td>
-                                    <td>1</td>
-                                    <td>₦50,000.00</td>
-                                    <td>₦50,000.00</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Property Tax</td>
-                                    <td>1</td>
-                                    <td>₦75,000.00</td>
-                                    <td>₦75,000.00</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">Sub Total</td>
-                                    <td>₦125,000.00</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3">Discount</td>
-                                    <td>₦0.00</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="3" class="fontBold">
-                                      Grand Total (NGN)
-                                    </td>
-                                    <td class="fontBold">₦125,000.00</td>
-                                  </tr>
-                                  <tr>
-                                    <td colspan="4">
-                                      Amount in words: One Hundred and
-                                      Twenty-Five Thousand Naira Only
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-
-                            <!-- Footer Information -->
-                            <div class="border-b border-[4px] border-gray-700 mx-6"></div>
-                            <div class="px-6 mt-4">
-                              <div class="flex justify-between">
-                                <div>
-                                  <p class="mb-2 fontBold">
-                                    Payer ID: PYR123456
-                                  </p>
-                                  <p class="mb-2 fontBold">TIN: 1234567890</p>
-                                  <p class="mb-2">Due Date: 30 Nov 2024</p>
-                                </div>
-                                <div>
-                                  <p class="mb-2">Invoice Date: 18 Nov 2024</p>
-                                  <p class="mb-2">Expiry Date: 30 Nov 2024</p>
-                                </div>
+                          <!-- Signature -->
+                          <div class="flex justify-end px-6 mt-4">
+                            <div>
+                              <div class="border-b border-b border-[#6F6F84] mb-2">
+                                <img src="./assets/img/sign.png" alt="" class="pb-2">
                               </div>
-                              <p>
-                                <span class="fontBold">Description:</span>
-                                Annual payment for business operations and
-                                property tax
-                              </p>
-                            </div>
 
-                            <!-- Signature -->
-                            <div class="flex justify-end px-6 mt-4">
-                                <div>
-                                  <div class="border-b border-b border-[#6F6F84] mb-2">
-                                    <img src="./assets/img/sign.png" alt="" class="pb-2">
-                                  </div>
-                                
-                                  
-                                  <h4 class="fontBold">Executive Chairman JSIRS</h4>
-                                </div>
-                              </div>
-                    
-                              <div class="px-6 mb-6" id='logo11'>
-                                <img src="./assets/img/logo11.png" width="100" alt="" />
-                              </div>
-                    
-                              <div class="invoicetop" id='invtopp'></div>
-                            </div>
 
-                      <div class="flex justify-center pr-10">
-                        <div class="w-full">
-                          <!-- <div class="mt-4">
+                              <h4 class="fontBold">Executive Chairman JSIRS</h4>
+                            </div>
+                          </div>
+
+                          <div class="px-6 mb-6" id='logo11'>
+                            <img src="./assets/img/logo11.png" width="100" alt="" />
+                          </div>
+
+                          <div class="invoicetop" id='invtopp'></div>
+                        </div>
+
+                        <div class="flex justify-center pr-10">
+                          <div class="w-full">
+                            <!-- <div class="mt-4">
                             <p class="text-xl">Note: You can make part payment by editing amount you are to pay</p>
                           </div> -->
-                          <div class="flex justify-between flex-wrap mt-4">
-                            <div class="flex gap-3 items-center">
-                              <button
-                                class="outline-btn flex gap-3 items-center"
-                                onclick="downloadInvoice('receiptCard')"
-                              >
-                                <iconify-icon
-                                  icon="mdi:printer-outline"
-                                  class="text-xl"
-                                ></iconify-icon>
-                                <span>Download Receipt</span>
-                              </button>
+                            <div class="flex justify-between flex-wrap mt-4">
+                              <div class="flex gap-3 items-center">
+                                <button class="outline-btn flex gap-3 items-center"
+                                  onclick="downloadInvoice('receiptCard')">
+                                  <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon>
+                                  <span>Download Receipt</span>
+                                </button>
 
-                              <button
-                                class="outline-btn flex gap-3 items-center"
-                                onclick="printInvoice('receiptCard')"
-                              >
-                                <iconify-icon
-                                  icon="mdi:printer-outline"
-                                  class="text-xl"
-                                ></iconify-icon>
-                                <span>Print Receipt</span>
-                              </button>
+                                <button class="outline-btn flex gap-3 items-center"
+                                  onclick="printInvoice('receiptCard')">
+                                  <iconify-icon icon="mdi:printer-outline" class="text-xl"></iconify-icon>
+                                  <span>Print Receipt</span>
+                                </button>
+                              </div>
+
+                              <a href="dashboard.html" class="button flex gap-3 items-center">
+                                <span>Return To Dashboard</span>
+                                <iconify-icon icon="eva:arrow-forward-outline" class="text-xl"></iconify-icon>
+                              </a>
                             </div>
-
-                            <a
-                              href="dashboard.html"
-                              class="button flex gap-3 items-center"
-                            >
-                              <span>Return To Dashboard</span>
-                              <iconify-icon
-                                icon="eva:arrow-forward-outline"
-                                class="text-xl"
-                              ></iconify-icon>
-                            </a>
                           </div>
                         </div>
                       </div>
                     </div>
+
                   </div>
-                  
                 </div>
-              </div>
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../assets/js/aos-master/dist/aos.js"></script>
-    <script src="../assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="../assets/js/nav.js"></script>
-    <script src="./assets/js/payment.js"></script>
-    <script src="../assets/js/tabHandler.js"></script>
-    <script src="../assets/js/invoice.js"></script>
-    <!-- <script src="assets/js/generateinvoice.js"></script> -->
-    <script src="../assets/js/landingcms.js"></script>
-    <script src="../assets/js/multistep-form.js"></script>
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="../assets/js/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="./assets/js/payment.js"></script>
+  <script src="../assets/js/tabHandler.js"></script>
+  <script src="../assets/js/invoice.js"></script>
+  <!-- <script src="assets/js/generateinvoice.js"></script> -->
+  <script src="../assets/js/landingcms.js"></script>
+  <script src="../assets/js/multistep-form.js"></script>
 
-    <script>
-      $(document).ready(function () {
-        //change selectboxes to selectize mode to be searchable
-        $(".revHeadInputSel").select2();
-      });
-    </script>
+  <script>
+    $(document).ready(function () {
+      //change selectboxes to selectize mode to be searchable
+      $(".revHeadInputSel").select2();
+    });
+  </script>
 
-    <script>
-      const amountInp = document.querySelector(".amountTopay");
+  <script>
+    const amountInp = document.querySelector(".amountTopay");
 
-      amountInp.addEventListener("input", function (e) {
-        let inputVal = e.target.value;
+    amountInp.addEventListener("input", function (e) {
+      let inputVal = e.target.value;
 
-        // Immediately return if the first character is a dot to allow ".xx" inputs
-        if (inputVal === ".") {
-          return;
-        }
+      // Immediately return if the first character is a dot to allow ".xx" inputs
+      if (inputVal === ".") {
+        return;
+      }
 
-        // Normalize the input by removing commas and any non-numeric characters except for the decimal point
-        let normalizedInput = inputVal
-          .replace(/,/g, "")
-          .replace(/[^0-9.]/g, "");
+      // Normalize the input by removing commas and any non-numeric characters except for the decimal point
+      let normalizedInput = inputVal
+        .replace(/,/g, "")
+        .replace(/[^0-9.]/g, "");
 
-        // Split the input into whole and decimal parts
-        let [whole, decimal] = normalizedInput.split(".");
+      // Split the input into whole and decimal parts
+      let [whole, decimal] = normalizedInput.split(".");
 
-        // Ensure the whole part is only numeric
-        whole = whole.replace(/\D/g, "");
+      // Ensure the whole part is only numeric
+      whole = whole.replace(/\D/g, "");
 
-        // If there's a decimal part, limit it to two digits
-        if (decimal) {
-          decimal = decimal.substring(0, 2); // Limit decimal part to two digits
-        }
+      // If there's a decimal part, limit it to two digits
+      if (decimal) {
+        decimal = decimal.substring(0, 2); // Limit decimal part to two digits
+      }
 
-        // Format the whole part with commas
-        let formattedWhole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      // Format the whole part with commas
+      let formattedWhole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        // Reconstruct the formatted value
-        e.target.value =
-          decimal !== undefined
-            ? `${formattedWhole}.${decimal}`
-            : formattedWhole;
-      });
-    </script>
-  </body>
+      // Reconstruct the formatted value
+      e.target.value =
+        decimal !== undefined
+          ? `${formattedWhole}.${decimal}`
+          : formattedWhole;
+    });
+  </script>
+</body>
+
 </html>

@@ -1,439 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <title>PayJigawa</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./assets/css/create.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <title>Paykano</title>
 
-  <body class="bg-gray-50">
-    <div class="profile-web-form-wrapper">
-      <div class="bg-properties bg-default-color px-3">
-        <div class="mx-auto min-h-screen flex flex-col">
-          <!-- Header -->
-          <div class="flex container px-4 justify-between items-center py-4">
-            <a href="../index.html">
-              <div class="flex items-center">
-                <img src="assets/img/jigawa.png" width="70" />
-                <span class="font-semibold text-xl">PayJigawa</span>
-              </div>
-            </a>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/create.css" />
+</head>
+
+<body class="bg-gray-50">
+  <div class="profile-web-form-wrapper">
+    <div class="bg-properties bg-default-color px-3">
+      <div class="mx-auto min-h-screen flex flex-col">
+        <!-- Header -->
+        <div class="flex container px-4 justify-between items-center py-4">
+          <a href="../index.html">
+            <div class="flex items-center">
+              <img src="assets/img/kano.png" width="70" />
+              <span class="font-semibold text-xl">Paykano</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Form Tab -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 lg:my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl w-full lg:text-5xl font-bold mb-4">
+              Taxpayer Verification
+            </h1>
+            <p class="text-gray-600 mb-8">
+              Verify your taxpayer account to access all features and
+              services.
+            </p>
           </div>
 
-          <!-- Form Tab -->
-          <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 lg:my-8 form-tab">
-            <div class="w-full sm:w-1.4/3 hidden sm:block">
-              <h1 class="text-xl w-full lg:text-5xl font-bold mb-4">
-                Taxpayer Verification
-              </h1>
-              <p class="text-gray-600 mb-8">
-                Verify your taxpayer account to access all features and
-                services.
-              </p>
-            </div>
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <h2 class="text-xl font-semibold mb-2">Verify Your Account</h2>
+            <p class="text-gray-600 mb-4">
+              Choose Account Verification Method
+            </p>
 
-            <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
-              <h2 class="text-xl font-semibold mb-2">Verify Your Account</h2>
-              <p class="text-gray-600 mb-4">
-                Choose Account Verification Method
-              </p>
+            <form onSubmit="return false;">
+              <!-- Radio Options -->
+              <div class="payment-container grid grid-cols-2 gap-4">
+                <label class="form-check-label bg-gray-100 text-center flex flex-col rounded-xl p-2" for="email">
+                  <input class="form-check-input paymnt-radio" type="radio" name="verifyCategory" value="email"
+                    id="email" required />
+                  <div class="h-20 w-auto">
+                    <img src="./assets/img/email-outline.png" alt="email" class="w-full h-full object-contain" />
+                  </div>
 
-              <form onSubmit="return false;">
-                <!-- Radio Options -->
-                <div class="payment-container grid grid-cols-2 gap-4">
-                  <label
-                    class="form-check-label bg-gray-100 text-center flex flex-col rounded-xl p-2"
-                    for="email"
-                  >
-                    <input
-                      class="form-check-input paymnt-radio"
-                      type="radio"
-                      name="verifyCategory"
-                      value="email"
-                      id="email"
-                      required
-                    />
-                    <div class="h-20 w-auto">
-                      <img
-                        src="./assets/img/email-outline.png"
-                        alt="email"
-                        class="w-full h-full object-contain"
-                      />
-                    </div>
+                  <p class="mt-2 font-medium">Email</p>
+                </label>
+                <label class="form-check-label bg-gray-100 text-center flex flex-col rounded-xl p-2" for="phone">
+                  <input class="form-check-input paymnt-radio" type="radio" name="verifyCategory" value="phone" required
+                    id="phone" disabled />
+                  <div class="h-20 w-auto">
+                    <img src="./assets/img/phone-outline.png" alt="phone" class="w-full h-full object-contain" />
+                  </div>
 
-                    <p class="mt-2 font-medium">Email</p>
-                  </label>
-                  <label
-                    class="form-check-label bg-gray-100 text-center flex flex-col rounded-xl p-2"
-                    for="phone"
-                  >
-                    <input
-                      class="form-check-input paymnt-radio"
-                      type="radio"
-                      name="verifyCategory"
-                      value="phone"
-                      required
-                      id="phone"
-                      disabled
-                    />
-                    <div class="h-20 w-auto">
-                      <img
-                        src="./assets/img/phone-outline.png"
-                        alt="phone"
-                        class="w-full h-full object-contain"
-                      />
-                    </div>
+                  <p class="mt-2 font-medium">Phone</p>
+                </label>
+              </div>
+              <small class="text-gray-600 mt-5">Phone number verification service is not available right now,
+                use your email to verify your account</small>
 
-                    <p class="mt-2 font-medium">Phone</p>
-                  </label>
+              <!-- Submit Button -->
+              <button id="sendCodeBtn" disabled
+                class="w-full bg-green-600 mt-10 disabled:bg-green-300 text-white py-3 rounded-lg hover:bg-green-500 transition">
+                Continue
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- manually fill personal details -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">
+              Taxpayer Verification
+            </h1>
+            <p class="text-gray-600 mb-8">
+              Verify your taxpayer account to access all features and
+              services.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
                 </div>
-                <small class="text-gray-600 mt-5"
-                  >Phone number verification service is not available right now,
-                  use your email to verify your account</small
-                >
+                <span class="ml-4 font-semibold hidden sm:block">Verification Method</span>
+              </div>
+              <div class="step-line step-active"></div>
 
-                <!-- Submit Button -->
-                <button
-                  id="sendCodeBtn"
-                  disabled
-                  class="w-full bg-green-600 mt-10 disabled:bg-green-300 text-white py-3 rounded-lg hover:bg-green-500 transition"
-                >
-                  Continue
-                </button>
-              </form>
+              <div class="flex items-start mb-2">
+                <div class="step-circle active"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Account Verification</span>
+              </div>
             </div>
           </div>
 
-          <!-- manually fill personal details -->
-          <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab">
-            <div class="w-full sm:w-1.4/3 hidden sm:block">
-              <h1 class="text-xl lg:text-5xl font-bold mb-4">
-                Taxpayer Verification
-              </h1>
-              <p class="text-gray-600 mb-8">
-                Verify your taxpayer account to access all features and
-                services.
-              </p>
-              <div class="flex flex-col">
-                <div class="flex items-start mb-2">
-                  <div
-                    class="step-circle completed flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <span class="ml-4 font-semibold hidden sm:block"
-                    >Verification Method</span
-                  >
-                </div>
-                <div class="step-line step-active"></div>
-
-                <div class="flex items-start mb-2">
-                  <div class="step-circle active"></div>
-                  <span class="ml-4 font-semibold hidden sm:block"
-                    >Account Verification</span
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
-              <div class="block sm:hidden">
-                <div class="flex items-center justify-between">
-                  <div class="cursor-pointer">
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M21.5607 26.0607C20.9749 26.6464 20.0251 26.6464 19.4393 26.0607L10.4393 17.0607C9.85355 16.4749 9.85355 15.5251 10.4393 14.9393L19.4393 5.93934C20.0251 5.35355 20.9749 5.35355 21.5607 5.93934C22.1464 6.52513 22.1464 7.47487 21.5607 8.06066L13.6213 16L21.5607 23.9393C22.1464 24.5251 22.1464 25.4749 21.5607 26.0607Z"
-                        fill="#02a75a"
-                      ></path>
-                    </svg>
-                  </div>
-                  <!---->
-                </div>
-                <div class="py-[22px]">
-                  <svg
-                    width="100%"
-                    height="3"
-                    viewBox="0 0 100 3"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect width="100%" height="3" fill="#DBE7FD"></rect>
-                    <rect width="260" height="3" fill="#02a75a"></rect>
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <div class="block sm:hidden">
+              <div class="flex items-center justify-between">
+                <div class="cursor-pointer">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M21.5607 26.0607C20.9749 26.6464 20.0251 26.6464 19.4393 26.0607L10.4393 17.0607C9.85355 16.4749 9.85355 15.5251 10.4393 14.9393L19.4393 5.93934C20.0251 5.35355 20.9749 5.35355 21.5607 5.93934C22.1464 6.52513 22.1464 7.47487 21.5607 8.06066L13.6213 16L21.5607 23.9393C22.1464 24.5251 22.1464 25.4749 21.5607 26.0607Z"
+                      fill="#02a75a"></path>
                   </svg>
                 </div>
                 <!---->
               </div>
+              <div class="py-[22px]">
+                <svg width="100%" height="3" viewBox="0 0 100 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="3" fill="#DBE7FD"></rect>
+                  <rect width="260" height="3" fill="#02a75a"></rect>
+                </svg>
+              </div>
+              <!---->
+            </div>
 
-              <button
-                class="flex gap-1 items-center text-[#17A349]"
-                onclick="nextPrev(-1)"
-              >
-                <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
-                <span>Go Back</span>
-              </button>
-              <h2 class="text-xl font-semibold my-2">Account Verification</h2>
-              <p class="text-gray-600 mb-2">
-                Enter the verification code we sent to
-              </p>
-              <p class="font-semibold" id="chooseMethod">jaf@example.com</p>
+            <button class="flex gap-1 items-center text-[#17A349]" onclick="nextPrev(-1)">
+              <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+            <h2 class="text-xl font-semibold my-2">Account Verification</h2>
+            <p class="text-gray-600 mb-2">
+              Enter the verification code we sent to
+            </p>
+            <p class="font-semibold" id="chooseMethod">jaf@example.com</p>
 
-              <form class="space-y-6 mt-6" onSubmit="return false;">
-                <!-- Phone -->
-                <div class="form-floating my-2">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Type code here *"
-                    id="code"
-                    required
-                  />
-                  <label for="code">Code</label>
-                </div>
+            <form class="space-y-6 mt-6" onSubmit="return false;">
+              <!-- Phone -->
+              <div class="form-floating my-2">
+                <input type="text" class="form-control" placeholder="Type code here *" id="code" required />
+                <label for="code">Code</label>
+              </div>
 
-                <div
-                  class="bg-green-50 p-4 rounded-lg flex justify-between items-center"
-                >
-                  <span class="text-gray-700">Didn't get the code?</span>
-                  <span
-                    class="text-[#02a75a] font-semibold hidden"
-                    id="resendCounter"
-                    >Resend in 01:00</span
-                  >
-                  <button
-                    id="resendBtn"
-                    type="button"
-                    class="text-[#02a75a] font-semibold"
-                  >
-                    Resend
-                  </button>
-                </div>
-
-                <!-- Submit Button -->
-                <button
-                  disabled
-                  class="w-full bg-green-600 disabled:bg-green-300 text-white py-3 rounded-lg hover:bg-green-500 transition"
-                  id="verifyBtn"
-                >
-                  Verify
+              <div class="bg-green-50 p-4 rounded-lg flex justify-between items-center">
+                <span class="text-gray-700">Didn't get the code?</span>
+                <span class="text-[#02a75a] font-semibold hidden" id="resendCounter">Resend in 01:00</span>
+                <button id="resendBtn" type="button" class="text-[#02a75a] font-semibold">
+                  Resend
                 </button>
-              </form>
+              </div>
+
+              <!-- Submit Button -->
+              <button disabled
+                class="w-full bg-green-600 disabled:bg-green-300 text-white py-3 rounded-lg hover:bg-green-500 transition"
+                id="verifyBtn">
+                Verify
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- register success -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">Pay your tax</h1>
+            <p class="text-gray-600 mb-8">
+              Collect payments, access loans and manage operations with a
+              business banking solution that meets all your needs.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Customer validation</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Personal details</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Billing Info</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Generate Invoice</span>
+              </div>
             </div>
           </div>
 
-          <!-- register success -->
-          <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab">
-            <div class="w-full sm:w-1.4/3 hidden sm:block">
-              <h1 class="text-xl lg:text-5xl font-bold mb-4">Pay your tax</h1>
-              <p class="text-gray-600 mb-8">
-                Collect payments, access loans and manage operations with a
-                business banking solution that meets all your needs.
-              </p>
-              <div class="flex flex-col">
-                <div class="flex items-start mb-2">
-                  <div
-                    class="step-circle completed flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <span class="ml-4 font-semibold hidden sm:block"
-                    >Customer validation</span
-                  >
-                </div>
-                <div class="step-line step-active"></div>
-
-                <div class="flex items-start mb-2">
-                  <div
-                    class="step-circle completed flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <span class="ml-4 font-semibold hidden sm:block"
-                    >Personal details</span
-                  >
-                </div>
-                <div class="step-line step-active"></div>
-
-                <div class="flex items-start mb-2">
-                  <div
-                    class="step-circle completed flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <span class="ml-4 font-semibold hidden sm:block"
-                    >Billing Info</span
-                  >
-                </div>
-                <div class="step-line step-active"></div>
-
-                <div class="flex items-start">
-                  <div
-                    class="step-circle completed flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <span class="ml-4 font-semibold hidden sm:block"
-                    >Generate Invoice</span
-                  >
-                </div>
-              </div>
+          <div
+            class="bg-white w-full flex justify-center space-y-6 flex-col items-center p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <!-- large check svg icon -->
+            <svg width="400" height="100" viewBox="0 0 30 30" class="text-9xl" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13.4301" cy="13.4301" r="13.4301" fill="#BCE8C0"></circle>
+              <circle cx="13.4301" cy="13.4301" r="10.6366" fill="#1EB12D"></circle>
+              <circle cx="13.4299" cy="13.4301" r="8.27291" fill="#18902C"></circle>
+              <path
+                d="M9.40263 13.4033C9.69091 13.1236 10.158 13.1231 10.4466 13.4023L11.6708 14.5862C11.7651 14.6775 11.9179 14.6774 12.0122 14.5859L16.1946 10.5251C16.4847 10.2435 16.9552 10.2443 17.2442 10.5269C17.5316 10.8081 17.5308 11.262 17.2422 11.5422L12.6406 16.0098C12.1993 16.4382 11.4839 16.4382 11.0425 16.0098L9.40263 14.4177C9.11416 14.1376 9.11416 13.6834 9.40263 13.4033Z"
+                fill="white"></path>
+            </svg>
+            <h2 class="text-xl font-semibold text-gray-800">
+              Account Verified Successful!
+            </h2>
+            <p class="text-sm text-center">
+              Your account has been successfully verified. Below is your
+              taxpayer identification number.
+            </p>
+            <div class="bg-green-50 w-72 p-4 rounded-lg text-center">
+              <h3 class="text-lg text-green-600 font-medium mb-3">
+                Taxpayer ID
+              </h3>
+              <h1 class="text-green-600 font-bold text-2xl" id="tax_payer_id">
+                -
+              </h1>
             </div>
 
-            <div
-              class="bg-white w-full flex justify-center space-y-6 flex-col items-center p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl"
-            >
-              <!-- large check svg icon -->
-              <svg
-                width="400"
-                height="100"
-                viewBox="0 0 30 30"
-                class="text-9xl"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="13.4301"
-                  cy="13.4301"
-                  r="13.4301"
-                  fill="#BCE8C0"
-                ></circle>
-                <circle
-                  cx="13.4301"
-                  cy="13.4301"
-                  r="10.6366"
-                  fill="#1EB12D"
-                ></circle>
-                <circle
-                  cx="13.4299"
-                  cy="13.4301"
-                  r="8.27291"
-                  fill="#18902C"
-                ></circle>
-                <path
-                  d="M9.40263 13.4033C9.69091 13.1236 10.158 13.1231 10.4466 13.4023L11.6708 14.5862C11.7651 14.6775 11.9179 14.6774 12.0122 14.5859L16.1946 10.5251C16.4847 10.2435 16.9552 10.2443 17.2442 10.5269C17.5316 10.8081 17.5308 11.262 17.2422 11.5422L12.6406 16.0098C12.1993 16.4382 11.4839 16.4382 11.0425 16.0098L9.40263 14.4177C9.11416 14.1376 9.11416 13.6834 9.40263 13.4033Z"
-                  fill="white"
-                ></path>
-              </svg>
-              <h2 class="text-xl font-semibold text-gray-800">
-                Account Verified Successful!
-              </h2>
-              <p class="text-sm text-center">
-                Your account has been successfully verified. Below is your
-                taxpayer identification number.
-              </p>
-              <div class="bg-green-50 w-72 p-4 rounded-lg text-center">
-                <h3 class="text-lg text-green-600 font-medium mb-3">
-                  Taxpayer ID
-                </h3>
-                <h1 class="text-green-600 font-bold text-2xl" id="tax_payer_id">
-                  -
-                </h1>
-              </div>
-
-              <div class="flex w-full items-center justify-between gap-10">
-                <a
-                  href="../index.html"
-                  class="w-full bg-slate-600 text-white py-3 rounded-lg hover:bg-slate-500 transition text-center"
-                  >Verify Later</a
-                >
-                <a
-                  href="verification.html"
-                  id="verifyNowBtn"
-                  class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition text-center"
-                  >Verify Now</a
-                >
-              </div>
+            <div class="flex w-full items-center justify-between gap-10">
+              <a href="../index.html"
+                class="w-full bg-slate-600 text-white py-3 rounded-lg hover:bg-slate-500 transition text-center">Verify
+                Later</a>
+              <a href="verification.html" id="verifyNowBtn"
+                class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition text-center">Verify
+                Now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script src="../assets/js/constant.js"></script>
-    <script src="./tabHandler.js"></script>
-    <script src="./assets/js/verification.js"></script>
-  </body>
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="./tabHandler.js"></script>
+  <script src="./assets/js/verification.js"></script>
+</body>
+
 </html>

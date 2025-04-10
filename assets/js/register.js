@@ -17,7 +17,7 @@ let STATES = `
   <option value="FCT">Federal Capital Territory</option>
   <option value="Gombe">Gombe</option>
   <option value="Imo">Imo</option>
-  <option value="Jigawa" selected>Jigawa</option>
+  <option value="kano" selected>kano</option>
   <option value="Kaduna">Kaduna</option>
   <option value="Kano">Kano</option>
   <option value="Katsina">Katsina</option>
@@ -397,7 +397,7 @@ var lgaList = {
     "Owerri West",
     "Unuimo",
   ],
-  Jigawa: [
+  kano: [
     "Auyo",
     "Babura",
     "Biriniwa",
@@ -904,11 +904,11 @@ const selectedRepLGA = document.querySelector("#repSelectLGA");
 if (selectedRepState) {
   selectedRepState.innerHTML = STATES;
   let selectedState = selectedRepState.value;
-  const jigawaLGAs = getStateLGAs("Jigawa");
+  const kanoLGAs = getStateLGAs("kano");
 
   selectedRepLGA.innerHTML = "";
 
-  jigawaLGAs.forEach((opt, ii) => {
+  kanoLGAs.forEach((opt, ii) => {
     selectedRepLGA.innerHTML += `
       <option value="${opt}">${opt}</option>
     `;
@@ -916,11 +916,11 @@ if (selectedRepState) {
 
   selectedRepState.addEventListener("change", function () {
     let selectedState = $(this).val();
-    const jigawaLGAs = getStateLGAs(selectedState);
+    const kanoLGAs = getStateLGAs(selectedState);
 
     selectedRepLGA.innerHTML = "";
 
-    jigawaLGAs.forEach((opt, ii) => {
+    kanoLGAs.forEach((opt, ii) => {
       selectedRepLGA.innerHTML += `
       <option value="${opt}">${opt}</option>
     `;
@@ -1167,7 +1167,7 @@ let lgaSelect = document.querySelector("#selectLGA");
 
 if (stateSelect) {
   stateSelect.innerHTML = STATES;
-  lgaList["Jigawa"].forEach((lga) => {
+  lgaList["kano"].forEach((lga) => {
     lgaSelect.innerHTML += `
       <option value="${lga}">${lga}</option>
     `;

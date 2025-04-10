@@ -1,145 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PayJigawa</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
-    <style></style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paykano</title>
 
-  <body>
-    <header class="flex shadow-none justify-between md:px-10 bg-white py-3">
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  <style></style>
+</head>
+
+<body>
+  <header class="flex shadow-none justify-between md:px-10 bg-white py-3">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
+
+  <!-- Desktop View (hidden on mobile) -->
+  <div class="hidden md:flex fixed top-0 left-0 right-0 bg-white shadow-md mt-24 pb-3">
+    <div class="container max-w-3xl mx-auto">
+      <div class="flex justify-between gap-5">
+        <div class="py-2 w-96 bgPrimary text-white rounded-lg flex flex-col items-center justify-center text-center">
+          <p class="text-base font-bold">Category</p>
+        </div>
+        <div class="py-2 w-96 bg-white text-dark rounded-lg flex flex-col items-center justify-center text-center">
+          <p class="text-base font-bold">Your Details</p>
+        </div>
+        <div class="py-2 w-96 bg-white text-dark rounded-lg flex flex-col items-center justify-center text-center">
+          <p class="text-base font-bold">Get Taxpayer ID</p>
+        </div>
+        <div class="py-2 w-96 bg-white text-dark rounded-lg flex flex-col items-center justify-center text-center">
+          <p class="text-base font-bold">Verify</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile View (shown only on mobile) -->
+  <div class="md:hidden fixed top-0 left-0 right-0 bg-white shadow-md mt-24 pb-1 z-50">
+    <div class="container mx-auto px-4">
+      <!-- Scrollable Steps -->
+      <div class="scroll-container overflow-x-auto">
+        <div class="flex gap-4 min-w-max pb-2">
+          <div class="step-indicator">
+            <div class="bgPrimary text-white rounded-lg p-2 min-w-[100px]">
+              <p class="font-bold text-sm">Category</p>
+            </div>
+          </div>
+          <div class="step-indicator">
+            <div class="bg-white text-dark rounded-lg p-2 min-w-[100px]">
+              <p class="font-bold text-sm">Your Details</p>
+            </div>
+          </div>
+          <div class="step-indicator">
+            <div class="bg-white text-dark rounded-lg p-2 min-w-[100px]">
+              <p class="font-bold text-sm">Get Taxpayer ID</p>
+            </div>
+          </div>
+          <div class="step-indicator">
+            <div class="bg-white text-dark rounded-lg p-2 min-w-[100px]">
+              <p class="font-bold text-sm">Verify</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto w-full min-vh-100 flex flex-col items-center justify-center">
+    <div class="grid items-center justify-center md:grid-cols-2 gap-6 px-10">
       <div
-        class="container flex justify-between items-center"
-        id="theHeader"
-      ></div>
-    </header>
-
-    <!-- Desktop View (hidden on mobile) -->
-    <div
-      class="hidden md:flex fixed top-0 left-0 right-0 bg-white shadow-md mt-24 pb-3"
-    >
-      <div class="container max-w-3xl mx-auto">
-        <div class="flex justify-between gap-5">
-          <div
-            class="py-2 w-96 bgPrimary text-white rounded-lg flex flex-col items-center justify-center text-center"
-          >
-            <p class="text-base font-bold">Category</p>
-          </div>
-          <div
-            class="py-2 w-96 bg-white text-dark rounded-lg flex flex-col items-center justify-center text-center"
-          >
-            <p class="text-base font-bold">Your Details</p>
-          </div>
-          <div
-            class="py-2 w-96 bg-white text-dark rounded-lg flex flex-col items-center justify-center text-center"
-          >
-            <p class="text-base font-bold">Get Taxpayer ID</p>
-          </div>
-          <div
-            class="py-2 w-96 bg-white text-dark rounded-lg flex flex-col items-center justify-center text-center"
-          >
-            <p class="text-base font-bold">Verify</p>
-          </div>
-        </div>
+        class="card-option w-[300px] flex flex-col space-y-3 h-[200px] bg-[#FDFDFA] text-dark rounded-lg p-3 lg:p-6 text-center"
+        data-id="individual" onclick="selectCard(this)">
+        <i class="fas fa-user text-xl lg:text-2xl"></i>
+        <h3 class="text-base lg:text-xl font-semibold">Individual</h3>
+        <p class="text-sm">
+          Individual taxpayers navigate personal finances, ensuring compliance
+          with tax regulations
+        </p>
+      </div>
+      <div
+        class="card-option w-[300px] flex flex-col space-y-3 h-[200px] bg-[#FDFDFA] text-dark rounded-lg p-3 lg:p-6 text-center"
+        data-id="corporate" onclick="selectCard(this)">
+        <i class="fas fa-briefcase text-xl lg:text-2xl"></i>
+        <h3 class="text-xl font-semibold">Corporate</h3>
+        <p class="text-sm">
+          corporate taxpayers manage complex financial structures and oversee
+          employee payroll within the regulatory framework
+        </p>
       </div>
     </div>
+  </div>
 
-    <!-- Mobile View (shown only on mobile) -->
-    <div
-      class="md:hidden fixed top-0 left-0 right-0 bg-white shadow-md mt-24 pb-1 z-50"
-    >
-      <div class="container mx-auto px-4">
-        <!-- Scrollable Steps -->
-        <div class="scroll-container overflow-x-auto">
-          <div class="flex gap-4 min-w-max pb-2">
-            <div class="step-indicator">
-              <div class="bgPrimary text-white rounded-lg p-2 min-w-[100px]">
-                <p class="font-bold text-sm">Category</p>
-              </div>
-            </div>
-            <div class="step-indicator">
-              <div class="bg-white text-dark rounded-lg p-2 min-w-[100px]">
-                <p class="font-bold text-sm">Your Details</p>
-              </div>
-            </div>
-            <div class="step-indicator">
-              <div class="bg-white text-dark rounded-lg p-2 min-w-[100px]">
-                <p class="font-bold text-sm">Get Taxpayer ID</p>
-              </div>
-            </div>
-            <div class="step-indicator">
-              <div class="bg-white text-dark rounded-lg p-2 min-w-[100px]">
-                <p class="font-bold text-sm">Verify</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="text-center absolute bottom-0 right-0 left-0 bg-white show-shadow absolute bottom-0 py-3 left-0 right-0">
+    <button class="button bgPrimary submitBtn rounded-md" onclick="proceed()">
+      Proceed →
+    </button>
+  </div>
 
-    <div
-      class="container mx-auto w-full min-vh-100 flex flex-col items-center justify-center"
-    >
-      <div class="grid items-center justify-center md:grid-cols-2 gap-6 px-10">
-        <div
-          class="card-option w-[300px] flex flex-col space-y-3 h-[200px] bg-[#FDFDFA] text-dark rounded-lg p-3 lg:p-6 text-center"
-          data-id="individual"
-          onclick="selectCard(this)"
-        >
-          <i class="fas fa-user text-xl lg:text-2xl"></i>
-          <h3 class="text-base lg:text-xl font-semibold">Individual</h3>
-          <p class="text-sm">
-            Individual taxpayers navigate personal finances, ensuring compliance
-            with tax regulations
-          </p>
-        </div>
-        <div
-          class="card-option w-[300px] flex flex-col space-y-3 h-[200px] bg-[#FDFDFA] text-dark rounded-lg p-3 lg:p-6 text-center"
-          data-id="corporate"
-          onclick="selectCard(this)"
-        >
-          <i class="fas fa-briefcase text-xl lg:text-2xl"></i>
-          <h3 class="text-xl font-semibold">Corporate</h3>
-          <p class="text-sm">
-            corporate taxpayers manage complex financial structures and oversee
-            employee payroll within the regulatory framework
-          </p>
-        </div>
-      </div>
-    </div>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/register.js"></script>
+</body>
 
-    <div
-      class="text-center absolute bottom-0 right-0 left-0 bg-white show-shadow absolute bottom-0 py-3 left-0 right-0"
-    >
-      <button class="button bgPrimary submitBtn rounded-md" onclick="proceed()">
-        Proceed →
-      </button>
-    </div>
-
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/aos-master/dist/aos.js"></script>
-    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="assets/js/nav.js"></script>
-    <script src="assets/js/register.js"></script>
-  </body>
 </html>

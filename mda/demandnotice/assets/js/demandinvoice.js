@@ -1,35 +1,41 @@
 const urlParams = new URLSearchParams(window.location.search);
-const invoice_number = urlParams.get('invoice_number');
+const invoice_number = urlParams.get("invoice_number");
 
-$("#makePayment").attr('href', `./payment.html?invoice_number=${invoice_number}`)
+$("#makePayment").attr(
+  "href",
+  `./payment.html?invoice_number=${invoice_number}`
+);
 
 function formatMoney(amount) {
-  return parseFloat(amount).toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'NGN', // Change this to your desired currency code
+  return parseFloat(amount).toLocaleString("en-US", {
+    style: "currency",
+    currency: "NGN", // Change this to your desired currency code
     minimumFractionDigits: 2,
   });
 }
 
 function sumArray(numbers) {
-  return numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  return numbers.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
 }
 
 function convertTimestampToReadableDate(timestamp) {
   // Split the timestamp to get the date part
-  const datePart = timestamp.split(' ')[0];
+  const datePart = timestamp.split(" ")[0];
 
   // Extract the year, month, and day
-  const [year, month, day] = datePart.split('-');
+  const [year, month, day] = datePart.split("-");
 
   // Create a Date object
   const date = new Date(year, month - 1, day); // Month is 0-indexed
 
   // Format the date using Intl.DateTimeFormat
-  const readableDate = new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
+  const readableDate = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   }).format(date);
 
   return readableDate;
@@ -37,10 +43,10 @@ function convertTimestampToReadableDate(timestamp) {
 
 function addOneMonthAndFormat(timestamp) {
   // Split the timestamp to get the date part
-  const datePart = timestamp.split(' ')[0];
+  const datePart = timestamp.split(" ")[0];
 
   // Extract the year, month, and day
-  const [year, month, day] = datePart.split('-').map(Number);
+  const [year, month, day] = datePart.split("-").map(Number);
 
   // Create a Date object
   const date = new Date(year, month - 1, day); // Month is 0-indexed
@@ -49,10 +55,10 @@ function addOneMonthAndFormat(timestamp) {
   date.setMonth(date.getMonth() + 1);
 
   // Format the updated date using Intl.DateTimeFormat
-  const updatedDate = new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
+  const updatedDate = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   }).format(date);
 
   return updatedDate;
@@ -60,18 +66,20 @@ function addOneMonthAndFormat(timestamp) {
 
 async function fetchInvoice() {
   try {
-    const response = await fetch(`${HOST}/get-demand-notice-invoices?invoice_number=${invoice_number}`);
+    const response = await fetch(
+      `${HOST}/get-demand-notice-invoices?invoice_number=${invoice_number}`
+    );
     const userinvoice = await response.json();
 
     if (userinvoice.data.demand_notices.length > 0) {
-      let demandInvoiceInfo = userinvoice.data.demand_notices[0]
+      let demandInvoiceInfo = userinvoice.data.demand_notices[0];
 
-      let amount_due = 0
+      let amount_due = 0;
 
-      demandInvoiceInfo.revenue_heads.forEach(rev_head => {
-        amount_due += parseFloat(rev_head.amount)
+      demandInvoiceInfo.revenue_heads.forEach((rev_head) => {
+        amount_due += parseFloat(rev_head.amount);
       });
-      let invoiceContainer = ""
+      let invoiceContainer = "";
 
       invoiceContainer += `
       <!--header-->
@@ -83,12 +91,16 @@ async function fetchInvoice() {
             </div>
             <div class="h-full border border-2" style="border-color: #000 !important"></div>
             <div class='w-[50%]'>
-              <h1 class="fontBold text-base headingdeman">JIGAWA STATE<br /> INTERNAL REVENUE<br /> SERVICE (JIRS)</h1>
+              <h1 class="fontBold text-base headingdeman">kano STATE<br /> INTERNAL REVENUE<br /> SERVICE (JIRS)</h1>
               <div class="border border-2 p-2 w-full" style="border-color: #000 !important;">
                 <p class=" text-sm"><strong class='fontBold'>BUSINESS TYPE:</strong> <span
-                    class="text-xs">${demandInvoiceInfo.tax_business_type}</span></p>
+                    class="text-xs">${
+                      demandInvoiceInfo.tax_business_type
+                    }</span></p>
                 <p class="text-sm"><strong class='fontBold'>NAME:</strong> <span
-                    class="text-xs">${demandInvoiceInfo.tax_first_name} ${demandInvoiceInfo.tax_last_name}</span></p>
+                    class="text-xs">${demandInvoiceInfo.tax_first_name} ${
+        demandInvoiceInfo.tax_last_name
+      }</span></p>
                 <p class="text-sm"><strong class='fontBold'>PHONE:</strong> <span
                     class="text-xss">${demandInvoiceInfo.tax_phone}</span></p>
                 <p class="text-sm"><strong class='fontBold'>ADDRESS:</strong> <span
@@ -110,7 +122,9 @@ async function fetchInvoice() {
               <p class="text-sm"><strong class='fontBold'>DEMAND NOTICE NO:</strong> <span
                   class="text-xs">${demandInvoiceInfo.invoice_number}</span></p>
               <p class="text-sm"><strong class='fontBold'>DATE:</strong> <span
-                  class="text-xs">${demandInvoiceInfo.date_created.split(" ")[0]}</span></p>
+                  class="text-xs">${
+                    demandInvoiceInfo.date_created.split(" ")[0]
+                  }</span></p>
 
             </div>
           </div>
@@ -134,32 +148,39 @@ async function fetchInvoice() {
               <th class='text-xs'>S/N</th>
               <th class='text-xs'>AGENCY</th>
               <th class='text-xs'>REVENUE ITEM</th>
-              <th class='text-xs'>CURRENT YEAR (${demandInvoiceInfo.revenue_heads[0].current_year_date})</th>
-              <th class='text-xs'>OUTSTANDING YEAR (${demandInvoiceInfo.revenue_heads[0].previous_year_date})</th>
+              <th class='text-xs'>CURRENT YEAR (${
+                demandInvoiceInfo.revenue_heads[0].current_year_date
+              })</th>
+              <th class='text-xs'>OUTSTANDING YEAR (${
+                demandInvoiceInfo.revenue_heads[0].previous_year_date
+              })</th>
               <th class='text-xs'>AGENCY CODE</th>
               <th class='text-xs'>REVENUE CODE</th>
             </tr>
           </thead>
           <tbody>
-      `
-      TheDemandTotal = []
+      `;
+      TheDemandTotal = [];
       demandInvoiceInfo.revenue_heads.forEach((demandnot, i) => {
         invoiceContainer += `
           <tr>
             <td class='text-xs'>${i + 1}</td>
             <td class='text-xs'>${demandnot.mda_name}</td>
             <td class='text-xs'>${demandnot.item_name}</td>
-            <td class='text-xs'>${formatMoney(parseFloat(demandnot.current_year_amount))}</td>
-            <td class='text-xs'>${parseFloat(demandnot.previous_year_amount).toLocaleString()}</td>
+            <td class='text-xs'>${formatMoney(
+              parseFloat(demandnot.current_year_amount)
+            )}</td>
+            <td class='text-xs'>${parseFloat(
+              demandnot.previous_year_amount
+            ).toLocaleString()}</td>
             <td class='text-xs'>${demandnot.mda_code}</td>
             <td class='text-xs'>${demandnot.item_code}</td>
           </tr>
-        `
+        `;
 
-        TheDemandTotal.push(parseFloat(demandnot.current_year_amount))
-        TheDemandTotal.push(parseFloat(demandnot.previous_year_amount))
-      })
-
+        TheDemandTotal.push(parseFloat(demandnot.current_year_amount));
+        TheDemandTotal.push(parseFloat(demandnot.previous_year_amount));
+      });
 
       invoiceContainer += `
             <tr>
@@ -173,8 +194,8 @@ async function fetchInvoice() {
                     earlier payment of the said amount is produced as requested , an action will be commenced against
                     you in a court of competent Jurisdiction.</li>
                   <li>You are required to present this Notice at any IGR collecting bank for payment or pay online via
-                    the PayJigawa portal. </li>
-                  <li>You are required to obtain a teller from the bank, an E-receipt from the PayJigawa portal or any
+                    the Paykano portal. </li>
+                  <li>You are required to obtain a teller from the bank, an E-receipt from the Paykano portal or any
                     JIRS Tax Station close to you.</li>
                 </ol>
               </td>
@@ -200,12 +221,14 @@ async function fetchInvoice() {
                     gateways: PayDirect, Etransact and Remita.</li>
                   <li>Ensure you obtain a receipt from the bank teller upon completing payment.</li>
                   <li>Bring the receipt to the JIRS head office or any of our Tax stations to obtain your official JIRS
-                    hardcopy receipt. You can also retrieve your E-receipt on the PayJigawa portal.</li>
+                    hardcopy receipt. You can also retrieve your E-receipt on the Paykano portal.</li>
                 </ol>
               </td>
               <td>
 
-                <h1 class="text-xl fontBold" id="theBal" data-money="${parseFloat(sumArray(TheDemandTotal))}">TOTAL
+                <h1 class="text-xl fontBold" id="theBal" data-money="${parseFloat(
+                  sumArray(TheDemandTotal)
+                )}">TOTAL
                   ${formatMoney(parseFloat(sumArray(TheDemandTotal)))}</h1>
               </td>
             </tr>
@@ -213,7 +236,7 @@ async function fetchInvoice() {
               <td>
                 <p class=" text-center p-1 bg-[#02A75A] text-white text-xs fontBold">HOW TO PAY ONLINE</p>
                 <ol style='font-size:12px; list-style-type: decimal; padding-left: 20px'>
-                  <li>Visit <span class="underline text-[blue]">www.payjigawa.com</span> from your mobile or Computer.
+                  <li>Visit <span class="underline text-[blue]">www.paykano.com</span> from your mobile or Computer.
                   </li>
                   <li>Click on “Pay Now” on the homepage.</li>
                   <li>Enter your Demand Notice Number and click on proceed.</li>
@@ -239,25 +262,22 @@ async function fetchInvoice() {
           <div class="border border-1 p-2  lg:pr-[100px] pr-[30px]" style="border-color: #000 !important;">
             <p class="text-xs fontBold text-center">HAVING ISSUES WITH YOUR PAYMENT,</p>
             <p class="text-xs fontBold text-center">EMAIL OR CALL </p>
-            <p class="text-xs fontBold text-center">ict@irs.jigawa.gov.ng</p>
+            <p class="text-xs fontBold text-center">ict@irs.kano.gov.ng</p>
             <p class="text-xs fontBold text-center">+2347060403146, +2349033509195</p>
           </div>
         </div>
-      `
+      `;
 
-
-      $("#invoiceContainer").html(invoiceContainer)
+      $("#invoiceContainer").html(invoiceContainer);
 
       // const qrCodeContainer = document.getElementById("qrContainer")
 
       // const qrCode = new QRCode(qrCodeContainer, {
-      //   text: `https://payjigawa.com/invoiceGeneration/invoice.html?invoice_number=${invoice_number}`,
+      //   text: `https://paykano.com/invoiceGeneration/invoice.html?invoice_number=${invoice_number}`,
       //   colorDark: '#000000',
       //   colorLight: '#ffffff',
       //   version: 10,
       // });
-
-
     } else {
       $("#invoiceContainer").html(`
         <div class='d-flex justify-content-center'>
@@ -265,30 +285,27 @@ async function fetchInvoice() {
         </div>
         <p class="mt-3 text-danger text-center">Invalid or Expired Invoice</p>
         
-      `)
+      `);
     }
-
   } catch (error) {
-    console.log(error)
+    console.log(error);
     $("#invoiceContainer").html(`
       <div class='d-flex justify-content-center'>
         <img src='../assets/img/not-found.png' alt='' />
       </div>
       <p class="mt-3 text-danger text-center">Failed to Fetch</p>
-    `)
+    `);
   }
 }
-fetchInvoice()
+fetchInvoice();
 
 function printInvoice(thecard) {
   var originalContent = document.body.innerHTML;
   var printContent = document.getElementById(thecard).innerHTML;
 
-
   document.body.innerHTML = printContent;
   window.print();
   document.body.innerHTML = originalContent;
-
 }
 
 function downloadInvoice(thecard) {
@@ -296,8 +313,8 @@ function downloadInvoice(thecard) {
   var HTML_Height = $(`#${thecard}`).height();
 
   var top_left_margin = 15;
-  var PDF_Width = HTML_Width + (top_left_margin * 2);
-  var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+  var PDF_Width = HTML_Width + top_left_margin * 2;
+  var PDF_Height = PDF_Width * 1.5 + top_left_margin * 2;
   var canvas_image_width = HTML_Width;
   var canvas_image_height = HTML_Height;
 
@@ -305,11 +322,25 @@ function downloadInvoice(thecard) {
 
   html2canvas($(`#${thecard}`)[0]).then(function (canvas) {
     var imgData = canvas.toDataURL("image/jpeg", 1.0);
-    var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
-    pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+    var pdf = new jsPDF("p", "pt", [PDF_Width, PDF_Height]);
+    pdf.addImage(
+      imgData,
+      "JPG",
+      top_left_margin,
+      top_left_margin,
+      canvas_image_width,
+      canvas_image_height
+    );
     for (var i = 1; i <= totalPDFPages; i++) {
       pdf.addPage(PDF_Width, PDF_Height);
-      pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
+      pdf.addImage(
+        imgData,
+        "JPG",
+        top_left_margin,
+        -(PDF_Height * i) + top_left_margin * 4,
+        canvas_image_width,
+        canvas_image_height
+      );
     }
     pdf.save("demand_notice.pdf");
   });

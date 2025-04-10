@@ -1,218 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="./assets/img/apple-icon.png"
-    />
-    <link rel="icon" type="image/png" href="./assets/img/logo.png" />
-    <title>PayJigawa</title>
 
-    <meta name="keywords" content="Jigawa IGR" />
-    <meta name="description" content="Jigawa Tax Collector" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>Paykano</title>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-      rel="stylesheet"
-    />
-    <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/42d5adcbca.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link
-      id="pagestyle"
-      href="./assets/css/argon-dashboard.min.css?v=2.0.4"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <style>
+  <meta name="keywords" content="kano IGR" />
+  <meta name="description" content="kano Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <style>
+    .chart-container {
+      position: relative;
+      height: 300px;
+      /* Reduced height */
+      margin: 0.5rem 0;
+      max-width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
       .chart-container {
-        position: relative;
         height: 300px;
-        /* Reduced height */
-        margin: 0.5rem 0;
-        max-width: 100%;
       }
+    }
+  </style>
+</head>
 
-      /* Responsive adjustments */
-      @media (max-width: 1200px) {
-        .chart-container {
-          height: 300px;
-        }
-      }
-    </style>
-  </head>
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
 
-  <body class="g-sidenav-show bg-gray-100">
-    <div class="min-height-300 bg-dark position-absolute w-100"></div>
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
 
-    <aside
-      class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
-      id="sidenav-main"
-      style="background-color: white"
-    >
-      <!-- CONTENT COMING FROM NAV.JS -->
-    </aside>
-
-    <main class="main-content h-100">
-      <nav
-        class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
-      >
-        <div class="container-fluid py-1 px-3">
-          <!-- CONTENT COMING FROM NAV.JS -->
-          <div id="breadcrumb-container"></div>
-          <div
-            class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto"
-          >
-            <a href="javascript:;" class="nav-link text-body p-0">
-              <div class="sidenav-toggler-inner">
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-                <i class="sidenav-toggler-line bg-white"></i>
-              </div>
-            </a>
-          </div>
-          <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
-            <ul class="navbar-nav justify-content-end ms-auto">
-              <li class="nav-item d-flex align-items-center" id="profileImage">
-                <!-- CONTENT COMING FROM NAV.JS -->
-              </li>
-              <li
-                class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center"
-              >
-                <a
-                  href="javascript:;"
-                  class="nav-link text-body p-0"
-                  id="iconNavbarSidenav"
-                >
-                  <div class="sidenav-toggler-inner">
-                    <i class="sidenav-toggler-line bg-white"></i>
-                    <i class="sidenav-toggler-line bg-white"></i>
-                    <i class="sidenav-toggler-line bg-white"></i>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
         </div>
-      </nav>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-      <div class="container-fluid mt-lg-5 mt-sm-3">
-        <div class="position-relative">
-          <div class="container-fluid py-4">
-            <div class="row">
-              <div class="col-lg-6">
-                <h4 class="text-white">Dashboard</h4>
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <div class="position-relative">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4 class="text-white">Dashboard</h4>
+            </div>
+          </div>
+
+          <!-- Top Section (KPIs) -->
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="card mb-4">
+                <div class="card-body p-4">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                          Total Revenue Collected
+                        </p>
+                        <h5 class="font-weight-bolder totalRevenueCollected">
+                          0.00
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                        <i class="fa fa-dollar-sign text-lg opacity-10" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <!-- Top Section (KPIs) -->
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-12">
-                <div class="card mb-4">
-                  <div class="card-body p-4">
-                    <div class="row">
-                      <div class="col-8">
-                        <div class="numbers">
-                          <p
-                            class="text-sm mb-0 text-uppercase font-weight-bold"
-                          >
-                            Total Revenue Collected
-                          </p>
-                          <h5 class="font-weight-bolder totalRevenueCollected">
-                            0.00
-                          </h5>
-                        </div>
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="card mb-4">
+                <div class="card-body p-4">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                          Outstanding Revenue
+                        </p>
+                        <h5 class="font-weight-bolder outstandingRevenue">
+                          0.00
+                        </h5>
                       </div>
-                      <div class="col-4 text-end">
-                        <div
-                          class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle"
-                        >
-                          <i
-                            class="fa fa-dollar-sign text-lg opacity-10"
-                            aria-hidden="true"
-                          ></i>
-                        </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                        <i class="fa fa-exclamation-circle text-lg opacity-10" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-12">
-                <div class="card mb-4">
-                  <div class="card-body p-4">
-                    <div class="row">
-                      <div class="col-8">
-                        <div class="numbers">
-                          <p
-                            class="text-sm mb-0 text-uppercase font-weight-bold"
-                          >
-                            Outstanding Revenue
-                          </p>
-                          <h5 class="font-weight-bolder outstandingRevenue">
-                            0.00
-                          </h5>
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="card mb-4">
+                <div class="card-body p-4">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                          Compliance Rate
+                        </p>
+                        <h5 class="font-weight-bolder complianceRate">0%</h5>
                       </div>
-                      <div class="col-4 text-end">
-                        <div
-                          class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle"
-                        >
-                          <i
-                            class="fa fa-exclamation-circle text-lg opacity-10"
-                            aria-hidden="true"
-                          ></i>
-                        </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                        <i class="fa fa-check-circle text-lg opacity-10" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-12">
-                <div class="card mb-4">
-                  <div class="card-body p-4">
-                    <div class="row">
-                      <div class="col-8">
-                        <div class="numbers">
-                          <p
-                            class="text-sm mb-0 text-uppercase font-weight-bold"
-                          >
-                            Compliance Rate
-                          </p>
-                          <h5 class="font-weight-bolder complianceRate">0%</h5>
-                        </div>
-                      </div>
-                      <div class="col-4 text-end">
-                        <div
-                          class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle"
-                        >
-                          <i
-                            class="fa fa-check-circle text-lg opacity-10"
-                            aria-hidden="true"
-                          ></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="col-lg-3 col-md-6 col-12">
+            </div>
+            <!-- <div class="col-lg-3 col-md-6 col-12">
                 <div class="card mb-4">
                   <div class="card-body p-4">
                     <div class="row">
@@ -242,319 +190,315 @@
                   </div>
                 </div>
               </div> -->
-            </div>
+          </div>
 
-            <!-- Middle Section (Charts) -->
-            <div class="row">
-              <div class="col-lg-6 mb-4">
-                <div class="card">
-                  <div class="card-body">
-                    <h6>Revenue by Tax Type</h6>
-                    <div
-                      class="chart-container d-flex justify-content-center align-items-center"
-                    >
-                      <canvas id="revenueByTaxTypeChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card">
-                  <div class="card-body">
-                    <h6>Revenue by Tax Type</h6>
-                    <div
-                      class="chart-container d-flex justify-content-center align-items-center"
-                    >
-                      <canvas id="revenueByTaxTypeChart2"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 mb-4">
-                <div class="card">
-                  <div class="card-body">
-                    <h6>Monthly Revenue Trends</h6>
-                    <!-- <div class="chart-container"> -->
-                    <canvas id="monthlyRevenueTrendsChart"></canvas>
-                    <!-- </div> -->
+          <!-- Middle Section (Charts) -->
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h6>Revenue by Tax Type</h6>
+                  <div class="chart-container d-flex justify-content-center align-items-center">
+                    <canvas id="revenueByTaxTypeChart"></canvas>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Bottom Section (Tables) -->
-            <div class="row">
-              <div class="col-lg-6 mb-4">
-                <div class="card">
-                  <div class="card-body">
-                    <h6>Non-Compliant Taxpayers</h6>
-                    <div class="table-responsive">
-                      <table class="table" id="nonCompliantTaxpayersTable">
-                        <thead class="">
-                          <tr>
-                            <th>S/N</th>
-                            <th>Taxpayer Name</th>
-                            <th>Outstanding Amount</th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-sm"></tbody>
-                      </table>
-                    </div>
+            <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h6>Revenue by Tax Type</h6>
+                  <div class="chart-container d-flex justify-content-center align-items-center">
+                    <canvas id="revenueByTaxTypeChart2"></canvas>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="card">
-              <div class="card-body">
-                <h6>Recent Payment</h6>
-                <div class="table-responsive">
-                  <table class="table" id="payment-table">
-                    <thead class="text-center">
-                      <tr>
-                        <th>S/N</th>
-                        <th>PAYER NAME</th>
-                        <th>REVENUE HEAD</th>
-                        <th>AMOUNT</th>
-                        <th>DATE</th>
-                      </tr>
-                    </thead>
-                    <tbody class="text-sm"></tbody>
-                  </table>
+            <div class="col-lg-12 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h6>Monthly Revenue Trends</h6>
+                  <!-- <div class="chart-container"> -->
+                  <canvas id="monthlyRevenueTrendsChart"></canvas>
+                  <!-- </div> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <footer class="footer pt-3" id="footer">
-            <!-- CONTENT COMING FROM NAV.JS -->
-          </footer>
+          <!-- Bottom Section (Tables) -->
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h6>Non-Compliant Taxpayers</h6>
+                  <div class="table-responsive">
+                    <table class="table" id="nonCompliantTaxpayersTable">
+                      <thead class="">
+                        <tr>
+                          <th>S/N</th>
+                          <th>Taxpayer Name</th>
+                          <th>Outstanding Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-sm"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h6>Recent Payment</h6>
+              <div class="table-responsive">
+                <table class="table" id="payment-table">
+                  <thead class="text-center">
+                    <tr>
+                      <th>S/N</th>
+                      <th>PAYER NAME</th>
+                      <th>REVENUE HEAD</th>
+                      <th>AMOUNT</th>
+                      <th>DATE</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-sm"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <footer class="footer pt-3" id="footer">
+          <!-- CONTENT COMING FROM NAV.JS -->
+        </footer>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <!--   Core JS Files   -->
-    <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/core/popper.min.js"></script>
-    <script src="./assets/js/core/bootstrap.min.js"></script>
-    <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="./assets/js/plugins/choices.min.js"></script>
-    <script src="./assets/js/plugins/chartjs.min.js"></script>
-    <script src="./assets/js/plugins/datatables.js"></script>
-    <script>
-      const dataTable = new simpleDatatables.DataTable("#payment-table");
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="./assets/js/plugins/datatables.js"></script>
+  <script>
+    const dataTable = new simpleDatatables.DataTable("#payment-table");
 
-      var win = navigator.platform.indexOf("Win") > -1;
-      if (win && document.querySelector("#sidenav-scrollbar")) {
-        var options = {
-          damping: "0.5",
-        };
-        Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
-      }
-    </script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/constant.js"></script>
-    <script src="./assets/js/nav.js"></script>
-    <script src="./assets/js/argon-dashboard.min.js"></script>
-    <script src="./assets/js/dashboard.js"></script>
-    <script>
-      showActiveNav("dashboard-nav");
-      showBreadCrumb("Dashboard");
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
-    <script>
-      // Dummy data for charts
-      const dummyRevenueByTaxTypeData = {
-        labels: ["Direct", "Demand Notice", "Presumptive"],
-        values: [50, 20, 30],
-        colors: ["#1b502f", "#36A2EB", "#172b4d"],
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
       };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 
-      const dummyMonthlyRevenueTrendsData = {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/dashboard.js"></script>
+  <script>
+    showActiveNav("dashboard-nav");
+    showBreadCrumb("Dashboard");
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+  <script>
+    // Dummy data for charts
+    const dummyRevenueByTaxTypeData = {
+      labels: ["Direct", "Demand Notice", "Presumptive"],
+      values: [50, 20, 30],
+      colors: ["#1b502f", "#36A2EB", "#172b4d"],
+    };
+
+    const dummyMonthlyRevenueTrendsData = {
+      labels: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+      values: [
+        1000, 2000, 1500, 3000, 2500, 1800, 2200, 2700, 3200, 2900, 3100,
+        3300,
+      ],
+    };
+
+    // Dummy data for tables
+    const dummyNonCompliantTaxpayers = [
+      { name: "Taxpayer 1", outstanding_amount: 1000 },
+      { name: "Taxpayer 2", outstanding_amount: 2000 },
+      { name: "Taxpayer 3", outstanding_amount: 1500 },
+    ];
+
+    const dummyPendingTCCApplications = [
+      { applicant_name: "Applicant 1", application_date: "2023-01-01" },
+      { applicant_name: "Applicant 2", application_date: "2023-02-01" },
+      { applicant_name: "Applicant 3", application_date: "2023-03-01" },
+    ];
+
+    const dummyRecentPayments = [
+      {
+        user_info: { first_name: "John", surname: "Doe" },
+        associated_revenue_heads: [{ item_name: "Revenue Head 1" }],
+        amount_paid: 1000,
+        date_payment_created: "2023-01-01",
+      },
+      {
+        user_info: { first_name: "Jane", surname: "Smith" },
+        associated_revenue_heads: [{ item_name: "Revenue Head 2" }],
+        amount_paid: 2000,
+        date_payment_created: "2023-02-01",
+      },
+    ];
+
+    // Render dummy data for charts
+    const ctxRevenueByTaxType = document
+      .getElementById("revenueByTaxTypeChart")
+      .getContext("2d");
+    new Chart(ctxRevenueByTaxType, {
+      type: "pie",
+      data: {
+        labels: dummyRevenueByTaxTypeData.labels,
+        datasets: [
+          {
+            data: dummyRevenueByTaxTypeData.values,
+            backgroundColor: dummyRevenueByTaxTypeData.colors,
+          },
         ],
-        values: [
-          1000, 2000, 1500, 3000, 2500, 1800, 2200, 2700, 3200, 2900, 3100,
-          3300,
+      },
+      options: {
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    });
+
+    const ctxRevenueByTaxType2 = document
+      .getElementById("revenueByTaxTypeChart2")
+      .getContext("2d");
+    new Chart(ctxRevenueByTaxType2, {
+      type: "pie",
+      data: {
+        labels: dummyRevenueByTaxTypeData.labels,
+        datasets: [
+          {
+            data: dummyRevenueByTaxTypeData.values,
+            backgroundColor: dummyRevenueByTaxTypeData.colors,
+          },
         ],
-      };
-
-      // Dummy data for tables
-      const dummyNonCompliantTaxpayers = [
-        { name: "Taxpayer 1", outstanding_amount: 1000 },
-        { name: "Taxpayer 2", outstanding_amount: 2000 },
-        { name: "Taxpayer 3", outstanding_amount: 1500 },
-      ];
-
-      const dummyPendingTCCApplications = [
-        { applicant_name: "Applicant 1", application_date: "2023-01-01" },
-        { applicant_name: "Applicant 2", application_date: "2023-02-01" },
-        { applicant_name: "Applicant 3", application_date: "2023-03-01" },
-      ];
-
-      const dummyRecentPayments = [
-        {
-          user_info: { first_name: "John", surname: "Doe" },
-          associated_revenue_heads: [{ item_name: "Revenue Head 1" }],
-          amount_paid: 1000,
-          date_payment_created: "2023-01-01",
-        },
-        {
-          user_info: { first_name: "Jane", surname: "Smith" },
-          associated_revenue_heads: [{ item_name: "Revenue Head 2" }],
-          amount_paid: 2000,
-          date_payment_created: "2023-02-01",
-        },
-      ];
-
-      // Render dummy data for charts
-      const ctxRevenueByTaxType = document
-        .getElementById("revenueByTaxTypeChart")
-        .getContext("2d");
-      new Chart(ctxRevenueByTaxType, {
-        type: "pie",
-        data: {
-          labels: dummyRevenueByTaxTypeData.labels,
-          datasets: [
-            {
-              data: dummyRevenueByTaxTypeData.values,
-              backgroundColor: dummyRevenueByTaxTypeData.colors,
-            },
-          ],
-        },
-        options: {
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
+      },
+      options: {
+        plugins: {
+          legend: {
+            position: "bottom",
           },
         },
-      });
+      },
+    });
 
-      const ctxRevenueByTaxType2 = document
-        .getElementById("revenueByTaxTypeChart2")
-        .getContext("2d");
-      new Chart(ctxRevenueByTaxType2, {
-        type: "pie",
-        data: {
-          labels: dummyRevenueByTaxTypeData.labels,
-          datasets: [
-            {
-              data: dummyRevenueByTaxTypeData.values,
-              backgroundColor: dummyRevenueByTaxTypeData.colors,
-            },
-          ],
-        },
-        options: {
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
+    const ctxMonthlyRevenueTrends = document
+      .getElementById("monthlyRevenueTrendsChart")
+      .getContext("2d");
+    new Chart(ctxMonthlyRevenueTrends, {
+      type: "line",
+      data: {
+        labels: dummyMonthlyRevenueTrendsData.labels,
+        datasets: [
+          {
+            label: "Monthly Revenue",
+            data: dummyMonthlyRevenueTrendsData.values,
+            borderColor: "#1b502f",
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            beginAtZero: true,
+          },
+          y: {
+            beginAtZero: true,
           },
         },
-      });
+      },
+    });
 
-      const ctxMonthlyRevenueTrends = document
-        .getElementById("monthlyRevenueTrendsChart")
-        .getContext("2d");
-      new Chart(ctxMonthlyRevenueTrends, {
-        type: "line",
-        data: {
-          labels: dummyMonthlyRevenueTrendsData.labels,
-          datasets: [
-            {
-              label: "Monthly Revenue",
-              data: dummyMonthlyRevenueTrendsData.values,
-              borderColor: "#1b502f",
-              backgroundColor: "rgba(75, 192, 192, 0.2)",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          scales: {
-            x: {
-              beginAtZero: true,
-            },
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
-
-      // Render dummy data for tables
-      const $nonCompliantTaxpayersTbody = $(
-        "#nonCompliantTaxpayersTable tbody"
-      );
-      $nonCompliantTaxpayersTbody.empty();
-      dummyNonCompliantTaxpayers.forEach((taxpayer, index) => {
-        const row = `
+    // Render dummy data for tables
+    const $nonCompliantTaxpayersTbody = $(
+      "#nonCompliantTaxpayersTable tbody"
+    );
+    $nonCompliantTaxpayersTbody.empty();
+    dummyNonCompliantTaxpayers.forEach((taxpayer, index) => {
+      const row = `
           <tr>
             <td>${index + 1}</td>
             <td>${taxpayer.name}</td>
             <td>₦ ${parseFloat(
-              taxpayer.outstanding_amount
-            ).toLocaleString()}</td>
+        taxpayer.outstanding_amount
+      ).toLocaleString()}</td>
           </tr>
         `;
-        $nonCompliantTaxpayersTbody.append(row);
-      });
+      $nonCompliantTaxpayersTbody.append(row);
+    });
 
-      const $pendingTCCApplicationsTbody = $(
-        "#pendingTCCApplicationsTable tbody"
-      );
-      $pendingTCCApplicationsTbody.empty();
-      dummyPendingTCCApplications.forEach((application, index) => {
-        const row = `
+    const $pendingTCCApplicationsTbody = $(
+      "#pendingTCCApplicationsTable tbody"
+    );
+    $pendingTCCApplicationsTbody.empty();
+    dummyPendingTCCApplications.forEach((application, index) => {
+      const row = `
           <tr>
             <td>${index + 1}</td>
             <td>${application.applicant_name}</td>
             <td>${new Date(
-              application.application_date
-            ).toLocaleDateString()}</td>
+        application.application_date
+      ).toLocaleDateString()}</td>
           </tr>
         `;
-        $pendingTCCApplicationsTbody.append(row);
-      });
+      $pendingTCCApplicationsTbody.append(row);
+    });
 
-      const $recentPaymentsTbody = $("#payment-table tbody");
-      $recentPaymentsTbody.empty();
-      dummyRecentPayments.forEach((payment, index) => {
-        const revenueHeads = payment.associated_revenue_heads
-          .map((head) => head.item_name)
-          .join(", ");
-        const row = `
+    const $recentPaymentsTbody = $("#payment-table tbody");
+    $recentPaymentsTbody.empty();
+    dummyRecentPayments.forEach((payment, index) => {
+      const revenueHeads = payment.associated_revenue_heads
+        .map((head) => head.item_name)
+        .join(", ");
+      const row = `
           <tr>
             <td>${index + 1}</td>
-            <td>${payment.user_info.first_name} ${
-          payment.user_info.surname
+            <td>${payment.user_info.first_name} ${payment.user_info.surname
         }</td>
             <td>${revenueHeads}</td>
             <td>₦ ${parseFloat(payment.amount_paid).toLocaleString()}</td>
             <td>${new Date(
-              payment.date_payment_created
-            ).toLocaleDateString()}</td>
+          payment.date_payment_created
+        ).toLocaleDateString()}</td>
           </tr>
         `;
-        $recentPaymentsTbody.append(row);
-      });
-    </script>
-  </body>
+      $recentPaymentsTbody.append(row);
+    });
+  </script>
+</body>
+
 </html>

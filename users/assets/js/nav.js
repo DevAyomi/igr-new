@@ -9,7 +9,7 @@ $("#sidenav-main").html(`
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="dashboard.html">
         <img src="./assets/img/logo-ct-dark.png" width="26px" height="26px" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold">PAY-JIGAWA</span>
+        <span class="ms-1 font-weight-bold">PAY-kano</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -52,8 +52,9 @@ $("#sidenav-main").html(`
           </a>
         </li>
 
-        ${userData?.tax_category === "formal"
-    ? `
+        ${
+          userData?.tax_category === "formal"
+            ? `
             <li class="nav-item">
           <a href="direct-assessment.html" class="nav-link informal-nav" aria-controls="ecommerceExamples" role="button" aria-expanded="false">
             <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
@@ -63,11 +64,12 @@ $("#sidenav-main").html(`
           </a>
         </li>
             `
-    : ``
-  }
+            : ``
+        }
 
-        ${userData?.category == "individual"
-    ? `
+        ${
+          userData?.category == "individual"
+            ? `
           <li class="nav-item">
             <a href="paye-manager.html" class="nav-link paye-nav" aria-controls="teamExamples" role="button" aria-expanded="false">
               <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
@@ -77,7 +79,7 @@ $("#sidenav-main").html(`
             </a>
           </li>
         `
-    : `
+            : `
             <li class="nav-item">
             <a href="corporate/paye-manager.html" class="nav-link paye-nav" aria-controls="teamExamples" role="button" aria-expanded="false">
               <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
@@ -87,7 +89,7 @@ $("#sidenav-main").html(`
             </a>
           </li>
             `
-  }
+        }
         
 
         <li class="nav-item">
@@ -307,7 +309,6 @@ $("#profileImage").append(`
   </div>
 `);
 
-
 // Add this function to handle logout
 function handleLogout() {
   // Add your logout logic here
@@ -422,21 +423,20 @@ const capitalizeWords = (str) => {
 };
 
 const script = document.createElement("script");
-script.src = "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js";
+script.src =
+  "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js";
 document.head.appendChild(script);
-
-
-
 
 function openChat() {
   if (Tawk_API) {
     // Show and open chat
 
-    loginToTawk()
+    loginToTawk();
   }
 }
 
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+var Tawk_API = Tawk_API || {},
+  Tawk_LoadStart = new Date();
 (function () {
   var s1 = document.createElement("script"),
     s0 = document.getElementsByTagName("script")[0];
@@ -457,20 +457,23 @@ async function loginToTawk() {
   }
 
   // Ensure the widget is loaded before calling login
-  if (typeof Tawk_API !== 'undefined' && Tawk_API.login) {
-    Tawk_API.login({
-      hash: hashInBase64(userData.tax_number),
-      userId: userData.tax_number,
-      // name: userData.fullname,
-      // email: userData.email,
-    }, function (error) {
-      if (error) {
-        console.error("Tawk.to login error:", error);
-      } else {
-        Tawk_API.showWidget();
-        Tawk_API.maximize();
+  if (typeof Tawk_API !== "undefined" && Tawk_API.login) {
+    Tawk_API.login(
+      {
+        hash: hashInBase64(userData.tax_number),
+        userId: userData.tax_number,
+        // name: userData.fullname,
+        // email: userData.email,
+      },
+      function (error) {
+        if (error) {
+          console.error("Tawk.to login error:", error);
+        } else {
+          Tawk_API.showWidget();
+          Tawk_API.maximize();
+        }
       }
-    });
+    );
   } else {
     console.error("Tawk.to is not ready yet.");
   }

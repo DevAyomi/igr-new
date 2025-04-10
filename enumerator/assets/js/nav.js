@@ -7,7 +7,7 @@ $("#sidenav-main").html(`
       <a class="navbar-brand m-0" href="./dashboard.html" target="_blank">
         <img src="./assets/img/logo.png" width="30px" height="30px" class="navbar-brand-img h-100"
           alt="main_logo">
-        <span class="ms-1 font-weight-bold">Jigawa IGR</span>
+        <span class="ms-1 font-weight-bold">kano IGR</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -57,7 +57,6 @@ $("#sidenav-main").html(`
     </div>
  
 `);
-
 
 const enumUser = JSON.parse(localStorage.getItem("enumeratorUser"));
 
@@ -120,7 +119,6 @@ function showBreadCrumb(thename) {
         </ol>
       </nav>
   `);
-
 }
 
 let currentYear = new Date().getFullYear();
@@ -146,7 +144,6 @@ $("#footer").html(`
     </div>
   </div>  
 `);
-
 
 const SessionManager = {
   // Set session start time and last activity time
@@ -220,4 +217,3 @@ $.ajaxSetup({
 });
 
 const authToken = SessionManager.getSessionData().token;
-
