@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PayJigawa</title>
+  <title>PayKano</title>
 
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -113,84 +113,50 @@
         </div>
       </div>
       <!--end container-->
-
-      <div class="container relative max-w-6xl lg:mt-24 mt-16">
-        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
-          <div class="text-center px-6">
-            <div class="relative overflow-hidden text-transparent -m-3">
-              <i data-feather="hexagon" class="h-20 w-20 fa fa-phone-alt bg-green-600/5 rounded-3xl mx-auto"></i>
-              <div
-                class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                <i class="uil uil-phone"></i>
-              </div>
-            </div>
-
-            <div class="content mt-7">
-              <h5 class="title h5 text-xl font-bold textSecondary2">Phone</h5>
-              <p class="text-slate-500 mt-3">
-                Call us for any inquiries or assistance.
-              </p>
-
-              <div class="mt-5">
-                <a href="tel:+152534-468-854"
-                  class="btn btn-link text-green-600 hover:text-green-600 after:bg-green-600 transition duration-500">+152
-                  534-468-854</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center px-6">
-            <div class="relative overflow-hidden text-transparent -m-3">
-              <i data-feather="hexagon" class="h-20 fa fa-envelope w-20 bg-green-600/5 rounded-3xl mx-auto"></i>
-              <div
-                class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                <i class="uil uil-envelope"></i>
-              </div>
-            </div>
-
-            <div class="content mt-7">
-              <h5 class="title h5 text-xl font-bold textSecondary2">Email</h5>
-              <p class="text-slate-500 mt-3">
-                Send us an email and we'll get back to you as soon as
-                possible.
-              </p>
-
-              <div class="mt-4">
-                <a href="mailto:info@jsirs.com"
-                  class="btn btn-link text-green-600 hover:text-green-600 after:bg-green-600 transition duration-500">info@jsirs.com</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center px-6">
-            <div class="relative overflow-hidden text-transparent -m-3">
-              <i data-feather="hexagon" class="h-20 w-20 fa fa-map-marker-alt bg-green-600/5 rounded-3xl mx-auto"></i>
-              <div
-                class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
-                <i class="uil uil-map-marker"></i>
-              </div>
-            </div>
-
-            <div class="content mt-7">
-              <h5 class="title h5 text-xl font-bold textSecondary2">
-                Location
-              </h5>
-              <p class="text-slate-500 mt-3">
-                C/54 Northwest Freeway, Suite 558, <br />
-                Dutse, Jigawa
-              </p>
-
-              <div class="mt-3">
-                <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
-                  data-type="iframe"
-                  class="video-play-icon read-more lightbox btn btn-link text-green-600 hover:text-green-600 after:bg-green-600 transition duration-500">View
-                  on Google map</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--end grid-->
+<div class="container relative max-w-6xl lg:mt-24 mt-16">
+  <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
+    <!-- Phone Card -->
+    <div class="contact-card p-8 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+      <div class="contact-icon-wrapper">
+        <i class="uil uil-phone contact-icon"></i>
       </div>
+      <h5 class="title text-xl mb-4">Phone</h5>
+      <p class="text-gray-500 mb-5">
+        Call us for any inquiries or assistance.
+      </p>
+      <a href="tel:080000000000"
+        class="inline-block text-green-600 font-medium hover:text-green-700 transition-colors">080000000000</a>
+    </div>
+
+    <!-- Email Card -->
+    <div class="contact-card p-8 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+      <div class="contact-icon-wrapper">
+        <i class="uil uil-envelope contact-icon"></i>
+      </div>
+      <h5 class="title text-xl mb-4">Email</h5>
+      <p class="text-gray-500 mb-5">
+        Send us an email and we'll get back to you as soon as possible.
+      </p>
+      <a href="mailto:info@kirs.gov.ng"
+        class="inline-block text-green-600 font-medium hover:text-green-700 transition-colors">info@kirs.gov.ng</a>
+    </div>
+
+    <!-- Location Card -->
+    <div class="contact-card p-8 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+      <div class="contact-icon-wrapper">
+        <i class="uil uil-map-marker contact-icon"></i>
+      </div>
+      <h5 class="title text-xl mb-4">Location</h5>
+      <p class="text-gray-500 mb-5">
+        Government Qtrs Kano
+      </p>
+      <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
+        data-type="iframe"
+        class="video-play-icon inline-block text-green-600 font-medium hover:text-green-700 transition-colors">View
+        on Google map</a>
+    </div>
+  </div>
+</div>
       <!--end container-->
     </section>
     <!--end section-->

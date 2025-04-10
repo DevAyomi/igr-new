@@ -1,302 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PayJigawa</title>
 
-    <!-- FAVION ICON -->
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon.png"
-      type="image/x-icon"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
-    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paykano</title>
 
-  <body>
-    <header class="flex justify-between md:px-10 bg-white py-3">
-      <div
-        class="container flex justify-between items-center"
-        id="theHeader"
-      ></div>
-    </header>
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#881E33',
+              green: '#2E8B57',
+              lightGreen: '#F0FFF4',
+              lightRed: '#FFF5F5'
+            },
+            light: '#F5F7FA',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          boxShadow: {
+            'custom': '0 4px 20px rgba(0, 0, 0, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
 
-    <main class="position-relative">
-      <section class="breadcrumb container mt-24 px-10 py-2 bg-white"></section>
+    .textPmary {
+      color: #ec0e3b;
+    }
 
-      <section class="py-10 bg-gray-50">
-        <div class="container">
-          <div class="lg:mb-14">
-            <h2
-              class="mb-4 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 text-center"
-            >
-              Simplifying Tax Compliance
-            </h2>
-            <p class="mb-0 text-gray-600 text-center text-lg md:text-xl">
-              Discover our suite of services designed to make tax filing and
-              payment effortless.
-            </p>
+    .textGreen {
+      color: #2E8B57;
+    }
+
+    .bgPmary {
+      background-color: #e5103b;
+    }
+
+    .bgGreen {
+      background-color: #2E8B57;
+    }
+
+    .button {
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #be2a48;
+      color: white;
+    }
+
+    .service-card {
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .gradient-bg-red {
+      background: linear-gradient(135deg, #ee0a38 0%, #ff032d 100%);
+    }
+
+    .gradient-bg-green {
+      background: linear-gradient(135deg, #2E8B57 0%, #3DA06F 100%);
+    }
+
+    .border-brand-red {
+      border-color: #ff0905;
+    }
+
+    .border-brand-green {
+      border-color: #2E8B57;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+  <header class="flex justify-between md:px-10 bg-white py-3 fixed w-full top-0 z-50 shadow-sm">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
+
+  <main class="position-relative pt-20">
+    <section class="breadcrumb container mt-4 px-10 py-2 bg-white"></section>
+
+    <section class="py-16 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto mb-16">
+          <h2 class="mb-6 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 text-center" data-aos="fade-up"
+            data-aos-delay="100">
+            Modern Tax Solutions for Everyone
+          </h2>
+          <div class="w-24 h-1 bgPmary mx-auto mb-6" data-aos="fade-up" data-aos-delay="200"></div>
+          <p class="mb-0 text-gray-600 text-center text-lg md:text-xl max-w-3xl mx-auto" data-aos="fade-up"
+            data-aos-delay="300">
+            Experience our comprehensive platform designed to streamline tax processes and make compliance effortless
+            for individuals and organizations alike.
+          </p>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="100">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightRed flex items-center justify-center mb-6">
+                <iconify-icon icon="mdi:person-check-outline" class="textPmary text-3xl"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                User-Friendly Portal
+              </h3>
+              <p class="text-gray-600">
+                Register or log in to access your personalized dashboard for managing tax obligations as an individual,
+                business, or government entity.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="200">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightRed flex items-center justify-center mb-6">
+                <iconify-icon icon="la:money-check-alt" class="text-3xl textPmary"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Comprehensive Payment Options
+              </h3>
+              <p class="text-gray-600">
+                Handle all your financial obligations in one place: PAYE, property taxes, vehicle registration,
+                withholding tax, business permits, and numerous other government payments.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="300">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightGreen flex items-center justify-center mb-6">
+                <iconify-icon icon="material-symbols:payments-sharp" class="text-3xl textGreen"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Flexible Payment Methods
+              </h3>
+              <p class="text-gray-600">
+                Experience seamless transactions through multiple channels. Pay invoices at bank branches or through
+                digital options including POS terminals and major card networks (Verve, Visa, or MasterCard).
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="100">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightGreen flex items-center justify-center mb-6">
+                <iconify-icon icon="uil:transaction" class="text-3xl textGreen"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Detailed Financial Records
+              </h3>
+              <p class="text-gray-600">
+                Access comprehensive reports of your tax contributions and payment history with advanced analytics to
+                help you track and plan your financial obligations.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="200">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightGreen flex items-center justify-center mb-6">
+                <iconify-icon icon="ri:todo-line" class="text-3xl textGreen"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Knowledge Center
+              </h3>
+              <p class="text-gray-600">
+                Access our extensive library of resources featuring step-by-step guides, video tutorials, and FAQs to
+                master the tax payment process with confidence.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="300">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightRed flex items-center justify-center mb-6">
+                <iconify-icon icon="ant-design:transaction-outlined" class="text-3xl textPmary"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Transaction Management
+              </h3>
+              <p class="text-gray-600">
+                Easily monitor your financial activities with our intuitive dashboard. View, download, and share payment
+                receipts instantly for your records or verification purposes.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="100">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightGreen flex items-center justify-center mb-6">
+                <iconify-icon icon="gala:secure" class="text-3xl textGreen"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Enhanced Security
+              </h3>
+              <p class="text-gray-600">
+                Rest assured knowing your financial data is protected with state-of-the-art security protocols and
+                end-to-end encryption throughout all transactions.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-custom overflow-hidden service-card" data-aos="fade-up"
+            data-aos-delay="200">
+            <div class="p-8">
+              <div class="w-16 h-16 rounded-full bg-brand-lightRed flex items-center justify-center mb-6">
+                <iconify-icon icon="material-symbols:support-agent-rounded" class="text-3xl textPmary"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Round-the-Clock Assistance
+              </h3>
+              <p class="text-gray-600">
+                Our dedicated support team is available 24/7 to help resolve issues and ensure your government payment
+                experience is smooth and hassle-free.
+              </p>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <section class="py-12">
-          <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6 flex items-center">
-                  <div>
-                    <div class="flex items-center mb-4">
-                      <iconify-icon
-                        icon="mdi:person-check-outline"
-                        class="textPrimary text-3xl mr-4"
-                      ></iconify-icon>
-                      <h3 class="text-lg font-bold text-gray-800">
-                        Self service
-                      </h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                      Sign in or register to pay bills or taxes as an
-                      Individual, corporate, state agency or federal agency.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6">
-                  <div class="flex items-center mb-4">
-                    <iconify-icon
-                      icon="la:money-check-alt"
-                      class="text-3xl mr-2 text-[#881E33]"
-                    ></iconify-icon>
-                    <h3 class="text-lg font-bold text-gray-800">
-                      Pay taxes & services
-                    </h3>
-                  </div>
-                  <p class="text-gray-600 text-sm">
-                    You can pay for taxes, services or bills such as PAYE, Land
-                    use charge Vehicle registration, Withholding tax, Business
-                    premises, Capital gain tax, Waste management, etc
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6">
-                  <div class="flex items-center mb-4">
-                    <iconify-icon
-                      icon="material-symbols:payments-sharp"
-                      class="text-3xl text-green-500 mr-4"
-                    ></iconify-icon>
-                    <h3 class="text-lg font-bold text-gray-800">
-                      Multiple payment channels
-                    </h3>
-                  </div>
-                  <p class="text-gray-600 text-sm">
-                    Enjoy a faster and easier way to pay taxes or bills.
-                    Payments can be made against an invoice at any bank branch
-                    or online payments with debits cards (POS, Verve, Visa, or
-                    MasterCard)
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6">
-                  <div class="flex items-center mb-4">
-                    <iconify-icon
-                      icon="uil:transaction"
-                      class="text-3xl text-blue-500 mr-4"
-                    ></iconify-icon>
-                    <h3 class="text-lg font-bold text-gray-800">
-                      Payment transaction methods
-                    </h3>
-                  </div>
-                  <p class="text-gray-600 text-sm">
-                    View your tax information and payment history over a period
-                    of time.
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6">
-                  <div class="flex items-center mb-4">
-                    <iconify-icon
-                      icon="ri:todo-line"
-                      class="text-3xl text-green-500 mr-4"
-                    ></iconify-icon>
-                    <h3 class="text-lg font-bold text-gray-800">Learn more</h3>
-                  </div>
-                  <p class="text-gray-600 text-sm">
-                    We are here to help you understand how to pay your bills or
-                    taxes with ease.
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6">
-                  <div class="flex items-center mb-4">
-                    <iconify-icon
-                      icon="ant-design:transaction-outlined"
-                      class="text-3xl text-orange-500 mr-4"
-                    ></iconify-icon>
-                    <h3 class="text-lg font-bold text-gray-800">
-                      Track transactions
-                    </h3>
-                  </div>
-                  <p class="text-gray-600 text-sm">
-                    Easy access to your payment history and receipt. View, share
-                    and download your receipts with ease.
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6">
-                  <div class="flex items-center mb-4">
-                    <iconify-icon
-                      icon="gala:secure"
-                      class="text-3xl text-green-500 mr-4"
-                    ></iconify-icon>
-                    <h3 class="text-lg font-bold text-gray-800">
-                      Safe & secure
-                    </h3>
-                  </div>
-                  <p class="text-gray-600 text-sm">
-                    Payments are routed through the most secured channels,
-                    ensuring safe and secure transactions.
-                  </p>
-                </div>
-              </div>
-              <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <div class="p-6">
-                  <div class="flex items-center mb-4">
-                    <iconify-icon
-                      icon="material-symbols:support-agent-rounded"
-                      class="text-3xl text-blue-500 mr-4"
-                    ></iconify-icon>
-                    <h3 class="text-lg font-bold text-gray-800">
-                      24/7 Support
-                    </h3>
-                  </div>
-                  <p class="text-gray-600 text-sm">
-                    We are always available to assist and ensure that your tax
-                    payment and all payments to the government is seamless.
-                  </p>
-                </div>
-              </div>
+    <section
+      class="relative bg-cover bg-center bg-fixed bg-[url('https://images.unsplash.com/photo-1678693362793-e2fffac536d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmlnZXJpYW5uJTIwcmV2ZW51ZXxlbnwwfHwwfHx8MA%3D%3D')] h-[70vh] mt-8"
+      data-aos="fade-up">
+      <div class="absolute inset-0 bg-gray-900 bg-opacity-75"></div>
+
+      <div class="relative z-10 flex flex-col justify-center items-center h-full container mx-auto px-6 lg:px-20">
+        <h1 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl text-center max-w-4xl mb-6">
+          Revolutionizing Revenue Administration
+        </h1>
+
+        <div class="w-24 h-1 bgPmary mx-auto mb-6"></div>
+
+        <p class="text-white text-center lg:text-xl max-w-3xl mx-auto mb-10">
+          We're leading the digital transformation of tax administration, creating systems that enhance collection
+          efficiency, promote transparency, and optimize resource utilization for sustainable development.
+        </p>
+
+        <button
+          class="button font-medium text-black py-3 px-8 rounded-full flex items-center gap-3 transition hover:shadow-lg">
+          <span>Explore Our Solutions</span>
+          <iconify-icon icon="ic:sharp-arrow-right-alt" class="text-xl"></iconify-icon>
+        </button>
+      </div>
+    </section>
+
+    <section class="py-20 bg-light">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Pay Tax Card -->
+          <div class="bg-white shadow-custom rounded-xl overflow-hidden text-center p-8 service-card" data-aos="fade-up"
+            data-aos-delay="100">
+            <div class="w-20 h-20 rounded-full gradient-bg-red flex items-center justify-center mx-auto mb-6">
+              <iconify-icon icon="mdi:file-document-outline" class="text-4xl text-white"></iconify-icon>
             </div>
-          </div>
-        </section>
-
-        <section
-          class="relative bg-cover bg-center bg-[url('./assets/img/img/servicebg.jpg')] h-[60vh] mt-16"
-        >
-          <div class="absolute inset-0 bg-black bg-opacity-70"></div>
-
-          <div
-            class="relative z-10 items-center container mx-auto px-6 lg:px-20 flex flex-col justify-center h-full"
-          >
-            <h1 class="text-white fontBold text-3xl lg:text-4xl lg:w-2/3">
-              Transforming Revenue Collection for Growth
-            </h1>
-            servicebg
-            <p class="text-white text-center lg:text-lg mt-4 lg:mt-6 lg:w-3/4">
-              Jigawa State is evolving, and the Internal Revenue Service is
-              paving the way by streamlining tax collection processes to ensure
-              maximum efficiency, transparency, and minimal cost.
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+              Tax Portal
+            </h2>
+            <p class="text-gray-600 mb-8">
+              Access our integrated platform designed for swift, secure tax payments with real-time processing and
+              instant confirmation.
             </p>
-
-            <a
-            href="index.html"
-              class="button text-black py-3 px-6 mt-8 rounded-md flex items-center gap-2 transition"
-            >
-              <span>Discover Our Services</span>
-              <iconify-icon
-                icon="ic:sharp-arrow-right-alt"
-                class="text-xl"
-              ></iconify-icon>
-          </a>
+            <a href="./taxcategory.html" class="inline-block">
+              <button
+                class="bgPmary text-white py-3 px-8 rounded-full flex items-center gap-2 transition hover:bg-opacity-90">
+                Get Started
+                <iconify-icon icon="ic:sharp-arrow-right-alt" class="text-lg"></iconify-icon>
+              </button>
+            </a>
           </div>
-        </section>
 
-        <section class="px-6 lg:px-16 py-16 bg-gray-50">
-          <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Pay Tax Card -->
-            <div class="bg-white shadow-lg rounded-lg text-center p-6">
-              <h2 class="text-2xl font-semibold text-gray-800">
-                Pay Your Taxes
-              </h2>
-              <p class="text-gray-600 mt-4">
-                Conveniently make payments for all types of taxes with ease and
-                security.
-              </p>
-              <a href="./taxcategory.html" class="inline-block mt-6">
-                <button
-                  class="bgPrimary text-white py-2 px-6 rounded-lg flex items-center gap-2 transition"
-                >
-                  Learn More
-                  <iconify-icon
-                    icon="ic:sharp-arrow-right-alt"
-                    class="text-lg"
-                  ></iconify-icon>
-                </button>
-              </a>
+          <!-- Address Card -->
+          <div class="bg-white shadow-custom rounded-xl overflow-hidden text-center p-8 service-card" data-aos="fade-up"
+            data-aos-delay="200">
+            <div class="w-20 h-20 rounded-full gradient-bg-green flex items-center justify-center mx-auto mb-6">
+              <iconify-icon icon="mdi:map-marker-outline" class="text-4xl text-white"></iconify-icon>
             </div>
-
-            <!-- Address Card -->
-            <div class="bg-white shadow-lg rounded-lg text-center p-6">
-              <iconify-icon
-                icon="mdi:map-marker-outline"
-                class="text-4xl textPrimary"
-              ></iconify-icon>
-              <h2 class="text-2xl font-semibold text-gray-800 mt-4">
-                Our Address
-              </h2>
-              <p class="text-gray-600 mt-2">
-                37 Dutse Road, Dutse, Jigawa State
-              </p>
-            </div>
-
-            <!-- Contact Us Card -->
-            <div class="bg-white shadow-lg rounded-lg text-center p-6">
-              <iconify-icon
-                icon="mdi:email-outline"
-                class="text-4xl textPrimary"
-              ></iconify-icon>
-              <h2 class="text-2xl font-semibold text-gray-800 mt-4">
-                Contact Us
-              </h2>
-              <p class="text-gray-600 mt-2">
-                Email: info@jsirs.gov.ng<br />
-                Phone: +234 812 345 6789
-              </p>
-            </div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+              Visit Our Office
+            </h2>
+            <p class="text-gray-600 mb-8">
+              Revenue Administration Headquarters<br>
+              Central Business District<br>
+              Administrative Zone
+            </p>
+            <button
+              class="border-2 border-brand-green text-brand-green hover:bg-brand-green py-3 px-8 rounded-full flex items-center gap-2 transition hover:bgGreen hover:text-white mx-auto">
+              View Location
+              <iconify-icon icon="mdi:map-marker" class="text-lg"></iconify-icon>
+            </button>
           </div>
-        </section>
-      </section>
-    </main>
 
-    <section class="bottom-0 w-full" id="footer"></section>
+          <!-- Contact Us Card -->
+          <div class="bg-white shadow-custom rounded-xl overflow-hidden text-center p-8 service-card" data-aos="fade-up"
+            data-aos-delay="300">
+            <div class="w-20 h-20 rounded-full gradient-bg-red flex items-center justify-center mx-auto mb-6">
+              <iconify-icon icon="mdi:email-outline" class="text-4xl text-white"></iconify-icon>
+            </div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+              Get In Touch
+            </h2>
+            <p class="text-gray-600 mb-8">
+              Email: support@taxease.gov<br />
+              Phone: +234 800 TAX HELP
+            </p>
+            <button
+              class="border-2 border-[#ff0905] text-[#ff0905] hover:bg-[#ff0905] py-3 px-8 rounded-full flex items-center gap-2 transition hover:bgPrimary hover:text-white mx-auto">
+              Contact Us
+              <iconify-icon icon="mdi:phone" class="text-lg"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/js/aos-master/dist/aos.js"></script>
-    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="assets/js/nav.js?v=1.2"></script>
-    <script src="./assets/js/tax-calculator.js"></script>
-    <script src="assets/js/landing.js"></script>
-    <script src="assets/js/landingcms.js"></script>
-    <script>
-      showActiveNav("offer");
-      showActiveNav("offer1");
-    </script>
-  </body>
+  <section class="bottom-0 w-full" id="footer"></section>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  </script>
+  <script src="assets/js/nav.js?v=1.2"></script>
+  <script src="./assets/js/tax-calculator.js"></script>
+  <script src="assets/js/landing.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+  <script>
+    showActiveNav("offer");
+    showActiveNav("offer1");
+  </script>
+</body>
+
 </html>
