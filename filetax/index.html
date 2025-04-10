@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <title>PayJigawa</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/create.css" />
+</head>
+
+<body class="bg-gray-50">
+  <div class="profile-web-form-wrapper">
+    <div class="bg-properties bg-default-color">
+      <div class="mx-auto min-h-screen flex flex-col">
+        <!-- Header -->
+        <div class="flex container px-4 justify-between items-center py-4">
+          <a href="../index.html">
+            <div class="flex items-center">
+              <img src="./img/jigawa.png" width="70" />
+              <span class="font-semibold text-xl">PayJigawa</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Form Tab -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 lg:my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">Tax Filling</h1>
+            <p class="text-gray-600 mb-8">
+              Simplify tax payments, access financial services, and manage
+              your business efficiently.
+            </p>
+          </div>
+
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <h2 class="text-xl font-semibold mb-2">
+              Organization validation
+            </h2>
+            <p class="text-gray-600 mb-4">
+              Select your preferred identification method
+            </p>
+
+            <form id="organizationValForm" onSubmit="return false;">
+              <!-- Radio Options -->
+              <div class="mb-4 flex gap-4 flex-wrap items-center">
+                <div class="form-check mb-2">
+                  <input class="form-check-input firstInpts" type="radio" name="identificationMethod" value="TIN"
+                    id="TIN" checked />
+                  <label class="form-check-label" for="TIN">TIN</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input firstInpts" type="radio" name="identificationMethod" value="TaxRegID"
+                    id="TaxRegID" />
+                  <label class="form-check-label" for="TaxRegID">Tax RegID</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input firstInpts" type="radio" name="identificationMethod" value="Email"
+                    id="Email" />
+                  <label class="form-check-label" for="Email">Email</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input firstInpts" type="radio" name="identificationMethod" value="Phone"
+                    id="Phone" />
+                  <label class="form-check-label" for="Phone">Phone</label>
+                </div>
+              </div>
+
+              <!-- Floating Input -->
+              <div class="form-floating mb-4">
+                <input type="text" class="form-control invInput" id="identificationInput" placeholder="" />
+                <label for="identificationInput">Enter your <span id="identiMethod">TIN</span>
+                  <span class="text-danger">*</span></label>
+              </div>
+              <!-- description related to the above information -->
+              <p class="text-gray-500 mb-4 text-sm">
+                This will help us verify your identity and access your
+                account.
+              </p>
+
+              <!-- Submit Button -->
+              <button onclick="validateAndProceed('organizationValForm', () => fetchUserDetails())" id="submitFetch"
+                class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition">
+                Continue
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Fetch details -->
+        <input type="hidden" id="taxNumber" />
+
+        <!-- Primary Information -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab" style="display: none">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">Tax Filling</h1>
+            <p class="text-gray-600 mb-8">
+              Simplify tax payments, access financial services, and manage
+              your business efficiently.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Organization validation</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start mb-2">
+                <div class="step-circle active"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Select Tax Type</span>
+              </div>
+              <div class="step-line"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Review & Submission</span>
+              </div>
+              <div class="step-line"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Generate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <div class="block sm:hidden">
+              <div class="flex items-center justify-between">
+                <div class="cursor-pointer">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M21.5607 26.0607C20.9749 26.6464 20.0251 26.6464 19.4393 26.0607L10.4393 17.0607C9.85355 16.4749 9.85355 15.5251 10.4393 14.9393L19.4393 5.93934C20.0251 5.35355 20.9749 5.35355 21.5607 5.93934C22.1464 6.52513 22.1464 7.47487 21.5607 8.06066L13.6213 16L21.5607 23.9393C22.1464 24.5251 22.1464 25.4749 21.5607 26.0607Z"
+                      fill="#02a75a"></path>
+                  </svg>
+                </div>
+                <!---->
+              </div>
+              <div class="py-[22px]">
+                <svg width="100%" height="3" viewBox="0 0 100 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="3" fill="#DBE7FD"></rect>
+                  <rect width="260" height="3" fill="#02a75a"></rect>
+                </svg>
+              </div>
+              <!---->
+            </div>
+
+            <button class="flex gap-1 items-center text-[#17A349]" onclick="nextPrev(-1)">
+              <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+            <h2 class="text-xl font-semibold mb-2">Select Tax Type</h2>
+            <p class="text-gray-600 mb-4">
+              Choose the type of tax you want to file:
+            </p>
+            <form id="taxTypeForm" onSubmit="return false;">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                    type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                    PAYE Return
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    Withholding Tax
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                    type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                    Direct Assessment
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                  tabindex="0">
+                  <div id="payeForm">
+                    <div class="form-floating mt-2 mb-4">
+                      <input type="number" class="form-control" id="payeMonthlyIncome" placeholder="Annual Gross Income"
+                        required />
+                      <label for="payeMonthlyIncome">Annual Gross Income</label>
+                    </div>
+                    <div class="flex justify-end">
+                      <button onclick="addDocumentItem()"
+                        class="items-center btn btn-sm flex gap-2 bg-green-100 rounded-lg w-fit">
+                        <iconify-icon icon="basil:add-solid" class="text-green-600 text-xl"></iconify-icon>
+                        <span class="text-green-600">Add Item</span>
+                      </button>
+                    </div>
+
+                    <div class="documentItems">
+                      <p class="mb-2">
+                        Document <span class="numbering">1</span>
+                      </p>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control documentName" id="documentName"
+                          placeholder="Document Name" />
+                        <label for="documentName">Document Name</label>
+                      </div>
+                      <div class="form-floating">
+                        <input type="file" class="form-control documentFile" id="documentFile"
+                          accept=".png, .pdf, .docx, .doc, .jpeg, .jpg" />
+                        <label for="documentFile">Document</label>
+                      </div>
+                      <p class="text-xs text-gray-600 mb-3">
+                        Allowed formats: (png, pdf, docx, doc, jpeg, jpg)Max
+                        size: 10mb
+                      </p>
+                    </div>
+
+                    <div id="payeMoreDocumentItems"></div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                  tabindex="0">
+                  <div id="whtForm">
+                    <div class="form-floating mt-2 mb-4">
+                      <input type="number" class="form-control" id="whtAmount" placeholder="Transaction Amount"
+                        required />
+                      <label for="whtAmount">Transaction Amount</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                      <select name="transaction_type" id="transaction_type" class="form-select">
+                        <option value=""></option>
+                        <option value="consultancy">Consultancy</option>
+                        <option value="rent">Rent</option>
+                        <option value="dividends">Dividends</option>
+                        <option value="construction">Construction</option>
+                        <option value="commissions">Commissions</option>
+                        <option value="directors_fees">Directors Fees</option>
+                      </select>
+                      <label for="transaction_type">Transaction Type</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                      <select name="recipient_type" id="recipient_type" class="form-select">
+                        <option value=""></option>
+                        <option value="individual">Individual</option>
+                        <option value="company">Company</option>
+                      </select>
+                      <label for="recipient_type">Recipient Type</label>
+                    </div>
+                    <div class="flex justify-end">
+                      <button onclick="addDocumentItem()"
+                        class="items-center btn btn-sm flex gap-2 bg-green-100 rounded-lg w-fit">
+                        <iconify-icon icon="basil:add-solid" class="text-green-600 text-xl"></iconify-icon>
+                        <span class="text-green-600">Add Item</span>
+                      </button>
+                    </div>
+
+                    <div class="documentItems">
+                      <p class="mb-2">
+                        Document <span class="numbering">1</span>
+                      </p>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control documentName" id="documentName"
+                          placeholder="Document Name" />
+                        <label for="documentName">Document Name</label>
+                      </div>
+                      <div class="form-floating">
+                        <input type="file" class="form-control documentFile" id="documentFile"
+                          accept=".png, .pdf, .docx, .doc, .jpeg, .jpg" />
+                        <label for="documentFile">Document</label>
+                      </div>
+                      <p class="text-xs text-gray-600 mb-3">
+                        Allowed formats: (png, pdf, docx, doc, jpeg, jpg)Max
+                        size: 10mb
+                      </p>
+                    </div>
+
+                    <div id="whtMoreDocumentItems"></div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                  tabindex="0">
+                  <div id="directAssessmentForm">
+                    <div class="form-floating mt-2 mb-4">
+                      <input type="number" class="form-control" id="payeMonthlyIncome" placeholder="Annual Gross Income"
+                        required />
+                      <label for="payeMonthlyIncome">Annual Gross Income</label>
+                    </div>
+                    <div class="form-floating my-4">
+                      <select id="professionSelect" class="form-select" required>
+                        <option value="">--select profession--</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="Actuary">Actuary</option>
+                        <option value="Aerospace Engineer">
+                          Aerospace Engineer
+                        </option>
+                        <option value="Agricultural Scientist">
+                          Agricultural Scientist
+                        </option>
+                        <option value="Aircraft Mechanic">
+                          Aircraft Mechanic
+                        </option>
+                        <option value="Air Traffic Controller">
+                          Air Traffic Controller
+                        </option>
+                        <option value="Architect">Architect</option>
+                        <option value="Art Director">Art Director</option>
+                        <option value="Attorney">Attorney</option>
+                        <option value="Auditor">Auditor</option>
+                        <option value="Automotive Engineer">
+                          Automotive Engineer
+                        </option>
+                        <option value="Auto-rickshaw Operators">
+                          Auto-rickshaw Operators
+                        </option>
+                        <option value="Bag Makers">Bag Makers</option>
+                        <option value="Banker">Banker</option>
+                        <option value="Barber">Barber</option>
+                        <option value="Bar or Beer Pallor">
+                          Bar or Beer Pallor
+                        </option>
+                        <option value="Bead makers">Bead makers</option>
+                        <option value="Beautician">Beautician</option>
+                        <option value="Biologist">Biologist</option>
+                        <option value="Biomedical Engineer">
+                          Biomedical Engineer
+                        </option>
+                        <option value="Blacksmiths">Blacksmiths</option>
+                        <option value="Bookkeeper">Bookkeeper</option>
+                        <option value="Borehole water sellers">
+                          Borehole water sellers
+                        </option>
+                        <option value="Brand Manager">Brand Manager</option>
+                        <option value="Bread sellers">Bread sellers</option>
+                        <option value="Bricklayers">Bricklayers</option>
+                        <option value="Bus Driver">Bus Driver</option>
+                        <option value="Business Analyst">
+                          Business Analyst
+                        </option>
+                        <option value="Business Man">Business Man</option>
+                        <option value="Business Woman">Business Woman</option>
+                        <option value="Carpenters">Carpenters</option>
+                        <option value="Catering Services">
+                          Catering Services
+                        </option>
+                        <option value="Caterpillar Driver">
+                          Caterpillar Driver
+                        </option>
+                        <option value="Chef">Chef</option>
+                        <option value="Chemist">Chemist</option>
+                        <option value="Civil Engineer">Civil Engineer</option>
+                        <option value="Civil Servant">Civil Servant</option>
+                        <option value="Cleaners">Cleaners</option>
+                        <option value="Clergy">Clergy</option>
+                        <option value="Clinical Psychologist">
+                          Clinical Psychologist
+                        </option>
+                        <option value="Computer Programmer">
+                          Computer Programmer
+                        </option>
+                        <option value="Construction Manager">
+                          Construction Manager
+                        </option>
+                        <option value="Consultancy/Salary">
+                          Consultancy/Salary
+                        </option>
+                        <option value="Consultancy Services">
+                          Consultancy Services
+                        </option>
+                        <option value="Consultants">Consultants</option>
+                        <option value="Copywriter">Copywriter</option>
+                        <option value="Counselor">Counselor</option>
+                        <option value="Cow rearer">Cow rearer</option>
+                        <option value="Crop Farmer">Crop Farmer</option>
+                        <option value="Data Analyst">Data Analyst</option>
+                        <option value="Dentist">Dentist</option>
+                        <option value="Dentists">Dentists</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="Dietetician">Dietetician</option>
+                        <option value="Directors Fee">Directors Fee</option>
+                        <option value="Director's Fee/Salary">
+                          Director's Fee/Salary
+                        </option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Economist">Economist</option>
+                        <option value="Electrical Engineer">
+                          Electrical Engineer
+                        </option>
+                        <option value="Electricians">Electricians</option>
+                        <option value="Environmental Scientist">
+                          Environmental Scientist
+                        </option>
+                        <option value="Evangelism">Evangelism</option>
+                        <option value="Event Planner">Event Planner</option>
+                        <option value="Farming">Farming</option>
+                        <option value="Fashion Designer">
+                          Fashion Designer
+                        </option>
+                        <option value="Financial Advisor">
+                          Financial Advisor
+                        </option>
+                        <option value="Financial Analyst">
+                          Financial Analyst
+                        </option>
+                        <option value="Firefighter">Firefighter</option>
+                        <option value="Fish sellers">Fish sellers</option>
+                        <option value="Flight Attendant">
+                          Flight Attendant
+                        </option>
+                        <option value="Food Scientist">Food Scientist</option>
+                        <option value="Food Sellers or Vendors">
+                          Food Sellers or Vendors
+                        </option>
+                        <option value="Forensic Scientist">
+                          Forensic Scientist
+                        </option>
+                        <option value="Game Developer">Game Developer</option>
+                        <option value="Geneticist">Geneticist</option>
+                        <option value="Geologist">Geologist</option>
+                        <option value="Goat Rearer">Goat Rearer</option>
+                        <option value="Graphic Designers">
+                          Graphic Designers
+                        </option>
+                        <option value="Hairdresser">Hairdresser</option>
+                        <option value="Hawkers">Hawkers</option>
+                        <option value="Human Resource Manager">
+                          Human Resource Manager
+                        </option>
+                        <option value="Industrial Designer">
+                          Industrial Designer
+                        </option>
+                        <option value="Information Security Analyst">
+                          Information Security Analyst
+                        </option>
+                        <option value="Insurance Agent">
+                          Insurance Agent
+                        </option>
+                        <option value="Interior Designer">
+                          Interior Designer
+                        </option>
+                        <option value="Investment Banker">
+                          Investment Banker
+                        </option>
+                        <option value="IT Project Manager">
+                          IT Project Manager
+                        </option>
+                        <option value="Journalist">Journalist</option>
+                        <option value="Keke Driver">Keke Driver</option>
+                        <option value="Kiosk owners">Kiosk owners</option>
+                        <option value="Landscape Architect">
+                          Landscape Architect
+                        </option>
+                        <option value="Laundry Shop">Laundry Shop</option>
+                        <option value="Legal Services/Salary">
+                          Legal Services/Salary
+                        </option>
+                        <option value="Librarian">Librarian</option>
+                        <option value="Livestock Farmer">
+                          Livestock Farmer
+                        </option>
+                        <option value="Logo Printer">Logo Printer</option>
+                        <option value="Management Consultant">
+                          Management Consultant
+                        </option>
+                        <option value="Marketing Manager">
+                          Marketing Manager
+                        </option>
+                        <option value="Market Research Analyst">
+                          Market Research Analyst
+                        </option>
+                        <option value="Market stall owners">
+                          Market stall owners
+                        </option>
+                        <option value="Meat sellers">Meat sellers</option>
+                        <option value="Mechanic">Mechanic</option>
+                        <option value="Mechanical Engineer">
+                          Mechanical Engineer
+                        </option>
+                        <option value="Med-Lab Scientists">
+                          Med-Lab Scientists
+                        </option>
+                        <option value="Microbiologist">Microbiologist</option>
+                        <option value="Musician">Musician</option>
+                        <option value="Nail Technician">
+                          Nail Technician
+                        </option>
+                        <option value="Neurologist">Neurologist</option>
+                        <option value="Nuclear Engineer">
+                          Nuclear Engineer
+                        </option>
+                        <option value="Nurse">Nurse</option>
+                        <option value="Occupational Therapist">
+                          Occupational Therapist
+                        </option>
+                        <option value="Okada Rider">Okada Rider</option>
+                        <option value="Operations Manager">
+                          Operations Manager
+                        </option>
+                        <option value="Optometry">Optometry</option>
+                        <option value="Paralegal">Paralegal</option>
+                        <option value="Pensioner">Pensioner</option>
+                        <option value="Pharmacists">Pharmacists</option>
+                        <option value="Photographers">Photographers</option>
+                        <option value="Physical Therapist">
+                          Physical Therapist
+                        </option>
+                        <option value="Physician">Physician</option>
+                        <option value="Pilot">Pilot</option>
+                        <option value="Plumber">Plumber</option>
+                        <option value="Police Officer">Police Officer</option>
+                        <option value="Political Scientist">
+                          Political Scientist
+                        </option>
+                        <option value="POS Shop">POS Shop</option>
+                        <option value="Potters">Potters</option>
+                        <option value="Product Manager">
+                          Product Manager
+                        </option>
+                        <option value="Psychologist">Psychologist</option>
+                        <option value="Public Health Worker">
+                          Public Health Worker
+                        </option>
+                        <option value="Public Relations Specialist">
+                          Public Relations Specialist
+                        </option>
+                        <option value="Pure water Sellers">
+                          Pure water Sellers
+                        </option>
+                        <option value="Quality Control Inspector">
+                          Quality Control Inspector
+                        </option>
+                        <option value="Real Estate Agent">
+                          Real Estate Agent
+                        </option>
+                        <option value="Research Scientist">
+                          Research Scientist
+                        </option>
+                        <option value="Rickshaw Operators">
+                          Rickshaw Operators
+                        </option>
+                        <option value="Salary">Salary</option>
+                        <option value="Sales Manager">Sales Manager</option>
+                        <option value="Shoemakers">Shoemakers</option>
+                        <option value="Software developers">
+                          Software developers
+                        </option>
+                        <option value="Sports Coach">Sports Coach</option>
+                        <option value="Street vendors">Street vendors</option>
+                        <option value="Student">Student</option>
+                        <option value="Surgeon">Surgeon</option>
+                        <option value="Surveyor">Surveyor</option>
+                        <option value="Tailor">Tailor</option>
+                        <option value="Tax Consultant">Tax Consultant</option>
+                        <option value="Taxi Driver">Taxi Driver</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Technical Writer">
+                          Technical Writer
+                        </option>
+                        <option value="Thrift wears sellers">
+                          Thrift wears sellers
+                        </option>
+                        <option value="Trading">Trading</option>
+                        <option value="Trading/Salary">Trading/Salary</option>
+                        <option value="Trailer Driver">Trailer Driver</option>
+                        <option value="Translators">Translators</option>
+                        <option value="Truck Driver">Truck Driver</option>
+                        <option value="Urban Planner">Urban Planner</option>
+                        <option value="Veterinarian">Veterinarian</option>
+                        <option value="Vulcanizers">Vulcanizers</option>
+                        <option value="Weavers">Weavers</option>
+                        <option value="Web developers">Web developers</option>
+                        <option value="Welders">Welders</option>
+                        <option value="Wheelbarrow pushers">
+                          Wheelbarrow pushers
+                        </option>
+                        <option value="Writers">Writers</option>
+                        <option value="Zoologist">Zoologist</option>
+                      </select>
+                      <label for="professionSelect">Select Profession
+                        <span class="text-danger">*</span></label>
+                    </div>
+                    <div class="flex justify-end">
+                      <button onclick="addDocumentItem()"
+                        class="items-center btn btn-sm flex gap-2 bg-green-100 rounded-lg w-fit">
+                        <iconify-icon icon="basil:add-solid" class="text-green-600 text-xl"></iconify-icon>
+                        <span class="text-green-600">Add Item</span>
+                      </button>
+                    </div>
+
+                    <div class="documentItems">
+                      <p class="mb-2">
+                        Document <span class="numbering">1</span>
+                      </p>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control documentName" id="documentName"
+                          placeholder="Document Name" />
+                        <label for="documentName">Document Name</label>
+                      </div>
+                      <div class="form-floating">
+                        <input type="file" class="form-control documentFile" id="documentFile"
+                          accept=".png, .pdf, .docx, .doc, .jpeg, .jpg" />
+                        <label for="documentFile">Document</label>
+                      </div>
+                      <p class="text-xs text-gray-600 mb-3">
+                        Allowed formats: (png, pdf, docx, doc, jpeg, jpg)Max
+                        size: 10mb
+                      </p>
+                    </div>
+
+                    <div id="directAssessmentMoreDocumentItems"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition"
+                onclick="validateAndProceed('taxTypeForm', () => submitForm())">
+                Continue
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Preview and submission -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab previewSection" style="display: none">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">Tax Filling</h1>
+            <p class="text-gray-600 mb-8">
+              Simplify tax payments, access financial services, and manage
+              your business efficiently.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Organization validation</span>
+              </div>
+              <div class="step-line step-active"></div>
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Select Tax Type</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle active"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Review & Submission</span>
+              </div>
+              <div class="step-line"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Generate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <div class="block sm:hidden">
+              <div class="flex items-center justify-between">
+                <div class="cursor-pointer">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M21.5607 26.0607C20.9749 26.6464 20.0251 26.6464 19.4393 26.0607L10.4393 17.0607C9.85355 16.4749 9.85355 15.5251 10.4393 14.9393L19.4393 5.93934C20.0251 5.35355 20.9749 5.35355 21.5607 5.93934C22.1464 6.52513 22.1464 7.47487 21.5607 8.06066L13.6213 16L21.5607 23.9393C22.1464 24.5251 22.1464 25.4749 21.5607 26.0607Z"
+                      fill="#02a75a"></path>
+                  </svg>
+                </div>
+                <!---->
+              </div>
+              <div class="py-[22px]">
+                <svg width="100%" height="3" viewBox="0 0 100 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="3" fill="#DBE7FD"></rect>
+                  <rect width="390" height="3" fill="#02a75a"></rect>
+                </svg>
+              </div>
+              <!---->
+            </div>
+
+            <button class="flex gap-1 items-center text-[#17A349]" onclick="nextPrev(-1)">
+              <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+            <h2 class="text-xl font-semibold mb-2">Review & Submission</h2>
+            <p class="text-gray-600 mb-4">
+              Preview details before finalizing. Receive a Tax Filing
+              Reference Number after submission.
+            </p>
+            <form id="previewForm" onSubmit="return false;" class="space-y-6">
+              <!-- Preview Section -->
+              <div id="previewSection" class="space-y-4"></div>
+
+              <!-- Submit Button -->
+              <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition"
+                onclick="submitTaxFile()" id="submitTaxFileBtn">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- invoice success -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab" style="display: none">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">Tax Filling</h1>
+            <p class="text-gray-600 mb-8">
+              Simplify tax payments, access financial services, and manage
+              your business efficiently.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Organization validation</span>
+              </div>
+              <div class="step-line step-active"></div>
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Select Tax Type</span>
+              </div>
+              <div class="step-line step-active"></div>
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Review & Submission</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle active"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Generate</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white w-full flex justify-center space-y-6 flex-col items-center p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <!-- large check svg icon -->
+            <svg width="400" height="100" viewBox="0 0 30 30" class="text-9xl" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13.4301" cy="13.4301" r="13.4301" fill="#BCE8C0"></circle>
+              <circle cx="13.4301" cy="13.4301" r="10.6366" fill="#1EB12D"></circle>
+              <circle cx="13.4299" cy="13.4301" r="8.27291" fill="#18902C"></circle>
+              <path
+                d="M9.40263 13.4033C9.69091 13.1236 10.158 13.1231 10.4466 13.4023L11.6708 14.5862C11.7651 14.6775 11.9179 14.6774 12.0122 14.5859L16.1946 10.5251C16.4847 10.2435 16.9552 10.2443 17.2442 10.5269C17.5316 10.8081 17.5308 11.262 17.2422 11.5422L12.6406 16.0098C12.1993 16.4382 11.4839 16.4382 11.0425 16.0098L9.40263 14.4177C9.11416 14.1376 9.11416 13.6834 9.40263 13.4033Z"
+                fill="white"></path>
+            </svg>
+            <h2 class="text-xl font-semibold text-gray-800">
+              Tax Filed Successfully!
+            </h2>
+            <p class="text-sm text-center">
+              Your Tax File reference number has been generated successfully.
+            </p>
+            <div class="bg-green-50 w-72 p-4 rounded-lg text-center">
+              <h3 class="text-lg text-green-600 font-medium mb-3">
+                Tax File Reference Number
+              </h3>
+              <h1 class="text-green-600 font-bold text-2xl" id="refNumber">
+                -
+              </h1>
+            </div>
+
+            <a href="../index.html"
+              class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition text-center">Back to
+              homepage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="../assets/node_modules/publitio_js_sdk/build/publitio-api.min.js"></script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="./tabHandler.js"></script>
+  <script src="./assets/js/initiate.js"></script>
+</body>
+
+</html>

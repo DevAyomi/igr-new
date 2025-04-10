@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment UI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .payment-container {
+        max-width: 600px;
+        margin: 50px auto;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .payment-sidebar {
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .payment-header {
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: #4a4a4a;
+      }
+
+      .payment-method {
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        color: #5a5a5a;
+        cursor: pointer;
+        transition: color 0.2s;
+        border-bottom: 1px solid transparent;
+      }
+
+      .payment-method:hover {
+        color: #4caf7d;
+      }
+
+      .payment-method i {
+        margin-right: 10px;
+      }
+
+      .payment-main {
+        background-color: white;
+        padding: 30px;
+      }
+
+      .business-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e2e2e2;
+      }
+
+      .business-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+
+      .business-info {
+        text-align: right;
+        color: #6c757d;
+      }
+
+      .payment-amount {
+        color: #4caf7d;
+        font-weight: bold;
+      }
+
+      .payment-form-title {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #666;
+      }
+
+      .card-input {
+        margin-bottom: 20px;
+      }
+
+      .calculate-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #17b152;
+        border: none;
+        color: white;
+        font-weight: 500;
+        border-radius: 4px;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+      }
+
+      .calculate-button:hover {
+        background-color: #7bc89c;
+      }
+
+      .payment-footer {
+        text-align: center;
+        color: #8a8a8a;
+        font-size: 0.85rem;
+        margin-top: 30px;
+      }
+
+      .payment-footer a {
+        color: #4caf7d;
+        text-decoration: none;
+      }
+
+      .active-method {
+        color: #4caf7d;
+        font-weight: 500;
+      }
+
+      .active-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #4caf7d;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 10px;
+      }
+
+      .payment-tab {
+        display: none;
+      }
+
+      .payment-tab.active {
+        display: block;
+      }
+
+      .mobile-money-form {
+        margin-top: 20px;
+      }
+
+      /* Custom styles for tabs */
+      .payment-tabs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .payment-tabs li {
+        display: block;
+        border-top: 1px solid #d2d2d2;
+      }
+
+      .payment-tabs li a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #4caf7d;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .result {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .result-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+      }
+
+      .back-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #4caf7d;
+        border: none;
+        color: white;
+        font-weight: 500;
+        border-radius: 4px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #3d8b63;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="payment-container d-flex">
+        <!-- Left sidebar with tabs -->
+        <div class="payment-sidebar col-md-4">
+          <div class="payment-header">Tax Calculator</div>
+
+          <ul class="payment-tabs">
+            <li class="payment-method active-method" id="paye-tab">
+              <a href="#paye"> <i class="bi bi-credit-card"></i> PAYE </a>
+            </li>
+            <li class="payment-method" id="wht-tab">
+              <a href="#wht"> <i class="bi bi-credit-card"></i> WHT </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Main payment area -->
+        <div class="payment-main col-md-8">
+          <div class="business-header">
+            <div class="business-logo">
+              <img src="./assets/img/img/jigawa.png" width="70" />
+            </div>
+            <div class="payment-header">PayJigawa</div>
+          </div>
+          <div class="business-header">
+            <div class="business-logo">
+              <img src="./assets/img/img/jigawa.png" width="70" />
+              <h5>PayJigawa</h5>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <iconify-icon icon="icon-park:close"></iconify-icon>
+            </button>
+          </div>
+
+          <!-- PAYE Calculator -->
+          <div id="paye" class="payment-tab active">
+            <div class="payment-form">
+              <div class="payment-form-title">PAYE Calculator</div>
+
+              <form id="payeForm">
+                <div class="form-group">
+                  <label for="payeMonthlyIncome">Annual Gross Income</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="payeMonthlyIncome"
+                    required
+                  />
+                </div>
+                <button type="submit" class="calculate-button">
+                  Calculate PAYE
+                </button>
+              </form>
+              <div class="loader" id="payeLoader" style="display: none"></div>
+              <div class="result" id="payeResult">
+                <div class="result-row">
+                  <span>Transaction Amount:</span>
+                  <span id="payeGrossIncome">$0</span>
+                </div>
+                <button class="back-button" onclick="showForm('payeForm')">
+                  Back to Form
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Withholding Tax Calculator -->
+          <div id="wht" class="payment-tab">
+            <div class="payment-form">
+              <div class="payment-form-title">Withholding Tax Calculator</div>
+
+              <form id="whtForm">
+                <div class="form-group mb-2">
+                  <label for="whtAmount">Transaction Amount</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="whtAmount"
+                    required
+                  />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="transaction_type">Transaction Type</label>
+                  <select
+                    name="transaction_type"
+                    id="transaction_type"
+                    class="form-select"
+                  >
+                    <option value="consultancy">Consultancy</option>
+                    <option value="rent">Rent</option>
+                    <option value="dividends">Dividends</option>
+                    <option value="construction">Construction</option>
+                    <option value="commissions">Commissions</option>
+                    <option value="directors_fees">Directors Fees</option>
+                  </select>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="recipient_type">Recipient Type</label>
+                  <select
+                    name="recipient_type"
+                    id="recipient_type"
+                    class="form-select"
+                  >
+                    <option value="individual">Individual</option>
+                    <option value="company">Company</option>
+                  </select>
+                </div>
+                <button type="submit" class="calculate-button">
+                  Calculate WHT
+                </button>
+              </form>
+              <div class="loader" id="whtLoader" style="display: none"></div>
+              <div class="result" id="whtResult">
+                <div class="result-row">
+                  <span>Transaction Amount:</span>
+                  <span id="whtGrossAmount">$0</span>
+                </div>
+                <div class="result-row">
+                  <span>WHT Rate:</span>
+                  <span id="whtTaxRate">$0</span>
+                </div>
+                <div class="result-row">
+                  <span>WHT Due:</span>
+                  <span id="whtTaxDue">$0</span>
+                </div>
+                <div class="result-row">
+                  <span>Net Payment:</span>
+                  <span id="whtNetAmount">$0</span>
+                </div>
+                <button class="back-button" onclick="showForm('whtForm')">
+                  Back to Form
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+
+    <!-- JavaScript to handle tab switching and tax calculations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Tab switching functionality
+        const tabs = document.querySelectorAll(".payment-method");
+        const tabContents = document.querySelectorAll(".payment-tab");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Remove active class from all tabs
+            tabs.forEach((t) => t.classList.remove("active-method"));
+
+            // Add active class to clicked tab
+            this.classList.add("active-method");
+
+            // Get the target tab content
+            const targetId = this.querySelector("a")
+              .getAttribute("href")
+              .substring(1);
+
+            // Hide all tab contents
+            tabContents.forEach((content) =>
+              content.classList.remove("active")
+            );
+
+            // Show the target tab content
+            document.getElementById(targetId).classList.add("active");
+          });
+        });
+
+        // PAYE Calculator (API Integration)
+        document.getElementById("payeForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          showLoader("payeLoader", "payeForm", "payeResult");
+
+          const annualGrossIncome =
+            parseFloat(document.getElementById("payeMonthlyIncome").value) * 12;
+
+          const payload = {
+            annual_gross_income: annualGrossIncome,
+          };
+
+          fetch(
+            "https://phpclusters-188739-0.cloudclusters.net/development_env/noauth-calculate-paye",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById(
+                "payeGrossIncome"
+              ).textContent = `$${data.data.transaction_amount.toFixed(2)}`;
+              showResult("payeLoader", "payeForm", "payeResult");
+            })
+            .catch((error) => {
+              console.error("Error calculating PAYE:", error);
+              alert(
+                "An error occurred while calculating PAYE. Please try again."
+              );
+              showForm("payeForm");
+            });
+        });
+
+        // Withholding Tax Calculator (API Integration)
+        document.getElementById("whtForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          showLoader("whtLoader", "whtForm", "whtResult");
+
+          const amount = parseFloat(document.getElementById("whtAmount").value);
+          const transaction_type =
+            document.getElementById("transaction_type").value;
+
+          const recipient_type =
+            document.getElementById("recipient_type").value;
+
+          const payload = {
+            transaction_amount: amount,
+            transaction_type,
+            recipient_type,
+          };
+
+          fetch(
+            "https://phpclusters-188739-0.cloudclusters.net/development_env/calculate-wht",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.status === "success") {
+                document.getElementById(
+                  "whtGrossAmount"
+                ).textContent = `$${data.data.transaction_amount.toFixed(2)}`;
+                document.getElementById(
+                  "whtTaxRate"
+                ).textContent = `${data.data.wht_rate.toFixed(2)}%`;
+                document.getElementById(
+                  "whtTaxDue"
+                ).textContent = `$${data.data.wht_due.toFixed(2)}`;
+                document.getElementById(
+                  "whtNetAmount"
+                ).textContent = `$${data.data.net_payment.toFixed(2)}`;
+                showResult("whtLoader", "whtForm", "whtResult");
+              } else {
+                throw new Error("API returned an error status");
+              }
+            })
+            .catch((error) => {
+              console.error("Error calculating WHT:", error);
+              alert(
+                "An error occurred while calculating WHT. Please try again."
+              );
+              showForm("whtForm");
+            });
+        });
+      });
+
+      function showLoader(loaderId, formId, resultId) {
+        document.getElementById(loaderId).style.display = "block";
+        document.getElementById(formId).style.display = "none";
+        document.getElementById(resultId).style.display = "none";
+      }
+
+      function showResult(loaderId, formId, resultId) {
+        document.getElementById(loaderId).style.display = "none";
+        document.getElementById(resultId).style.display = "block";
+      }
+
+      function showForm(formId) {
+        document.getElementById(formId).style.display = "block";
+        document.getElementById(
+          formId.replace("Form", "Result")
+        ).style.display = "none";
+      }
+    </script>
+  </body>
+</html>

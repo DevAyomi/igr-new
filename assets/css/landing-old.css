@@ -1,0 +1,354 @@
+body {
+  background: #fafafa;
+}
+
+main {
+  padding-top: 100px;
+}
+
+/* .background-image {
+    width: 80%;
+    height: 75vh;
+    object-fit: cover;
+} */
+
+.rect {
+  width: 520px;
+}
+
+.theBody {
+  top: 20%;
+}
+
+#the_cards {
+  margin-top: 130px;
+}
+
+.cardImg {
+  height: 120px;
+}
+
+.slideimage3 {
+  padding-left: 5rem;
+  width: 490px;
+}
+
+.slideimage2 {
+  padding-left: 5rem;
+}
+
+.swal2-styled.swal2-confirm {
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  background-color: #02a75a !important;
+  color: #fff;
+  font-size: 1em;
+}
+
+@media (max-width: 1024px) {
+  .slideimage2 {
+    width: 400px;
+  }
+}
+
+/* Desktops and laptops ----------- */
+
+@media only screen and (max-width: 1224px) {
+  .headerText {
+    width: 60% !important;
+  }
+
+  .headerTextCont {
+    left: 20% !important;
+  }
+
+  #the_cards {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (min-width: 1023px) and (max-height: 850px) {
+  #the_cards {
+    margin-top: 80px;
+  }
+
+  .cardImg {
+    height: 80px;
+  }
+
+  .cardDescBox {
+    padding: 10px !important;
+    height: 80px !important;
+  }
+  .cardFooter {
+    padding: 12px 10px !important;
+    margin-top: 1px !important;
+  }
+}
+
+@media only screen and (min-width: 1023px) and (max-height: 688px) {
+  #the_cards {
+    margin-top: 40px !important;
+    /* display: none !important; */
+  }
+
+  header {
+    padding: 0px !important;
+    /* display: none !important; */
+  }
+  header #theHeader {
+    height: 30px !important;
+  }
+
+  header #theHeader a {
+    font-size: 12px !important;
+  }
+
+  header #theHeader img {
+    width: 40px !important;
+  }
+
+  input {
+    height: 35px !important;
+  }
+  .button {
+    background: var(--primaryCol) !important;
+    color: #fff !important;
+    border: 2px solid var(--primaryCol);
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .headerText p {
+    font-size: 12px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
+
+  .headerText h1 {
+    font-size: 40px !important;
+  }
+
+  .headerText div {
+    margin-top: 20px !important;
+  }
+
+  .cardImg {
+    display: block;
+    height: 80px;
+  }
+  .cardDesc {
+    font-size: 10px !important;
+    height: 40px !important;
+  }
+  .cardBtn {
+    font-size: 12px !important;
+  }
+  .cardDescBox {
+    padding: 10px !important;
+    height: 70px !important;
+  }
+  .cardFooter {
+    padding: 8px 10px !important;
+    margin-top: 1px !important;
+  }
+  .cardFooter i {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (min-width: 1023px) and (min-height: 600px) {
+  #the_cards {
+    margin-top: 40px !important;
+    /* display: none !important; */
+  }
+
+  header {
+    padding: 0px !important;
+    /* display: none !important; */
+  }
+  header #theHeader {
+    height: 60px !important;
+  }
+
+  header #theHeader a {
+    font-size: 15px !important;
+  }
+
+  header #theHeader img {
+    width: 60px !important;
+  }
+
+  .headerText p {
+    font-size: 15px !important;
+    height: 40px !important;
+    margin-top: 20px !important;
+    margin-bottom: 50px !important;
+  }
+
+  input {
+    height: 48px !important;
+  }
+
+  .button {
+    background: var(--primaryCol) !important;
+    color: #fff !important;
+    border: 2px solid var(--primaryCol);
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .headerText h1 {
+    font-size: 40px !important;
+  }
+
+  .cardDesc {
+    font-size: 10px !important;
+    height: 60px !important;
+  }
+  .cardDescBox {
+    padding: 10px !important;
+    height: 80px !important;
+  }
+  .cardFooter {
+    padding: 10px 10px !important;
+    margin-top: 1px !important;
+  }
+}
+
+@media only screen and (min-width: 840px) and (max-height: 500px) {
+  #the_cards {
+    margin-top: 20px !important;
+    /* display: none !important; */
+  }
+
+  header {
+    padding: 0px !important;
+    /* display: none !important; */
+  }
+  header #theHeader {
+    height: 30px !important;
+  }
+
+  header #theHeader a {
+    font-size: 10px !important;
+  }
+
+  header #theHeader img {
+    width: 40px !important;
+  }
+
+  input {
+    height: 35px !important;
+  }
+  .button {
+    background: var(--primaryCol) !important;
+    color: #fff !important;
+    border: 2px solid var(--primaryCol);
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .headerText p {
+    font-size: 10px !important;
+    height: 40px !important;
+    margin-top: 5px !important;
+  }
+
+  .headerText h1 {
+    font-size: 28px !important;
+  }
+
+  .cardImg {
+    display: block;
+    height: 60px !important;
+  }
+  .cardDesc {
+    font-size: 8px !important;
+    height: 30px !important;
+  }
+  .cardBtn {
+    font-size: 9px !important;
+  }
+  .cardDescBox {
+    padding: 8px !important;
+    height: 60px !important;
+  }
+  .cardFooter {
+    padding: 3px 6px !important;
+    margin: 3px !important;
+  }
+  .cardFooter i {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .headerText {
+    width: 100% !important;
+  }
+
+  .headerTextCont {
+    left: 0 !important;
+  }
+
+  .paddingPlace {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .rect {
+    display: none;
+  }
+
+  .slideimage3 {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 1120px) and (max-height: 650px) {
+  #the_cards {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-height: 851px) {
+  #the_cards {
+    margin-top: 70px;
+  }
+}
+
+/* @media only screen and (max-height: 720px) {
+  .big-text {
+    font-size: 24px !important;
+  }
+
+  #slideshow-description {
+    font-size: 14px !important;
+  }
+
+  #the_cards {
+    margin-top: 50px !important;
+  }
+} */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

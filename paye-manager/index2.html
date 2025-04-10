@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>PayJigawa</title>
+
+    <!-- FAVION ICON -->
+    <link
+      rel="shortcut icon"
+      href="../assets/img/favicon.png"
+      type="image/x-icon"
+    />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+	<link rel="stylesheet" href="assets/css/fontawesome-all.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/colors/switch.css">
+	<!-- Color Alternatives -->
+	<link href="assets/css/colors/color-2.css" rel="alternate stylesheet" type="text/css" title="color-2">
+	<link href="assets/css/colors/color-3.css" rel="alternate stylesheet" type="text/css" title="color-3">
+	<link href="assets/css/colors/color-4.css" rel="alternate stylesheet" type="text/css" title="color-4">
+	<link href="assets/css/colors/color-5.css" rel="alternate stylesheet" type="text/css" title="color-5">
+</head>
+
+<body>
+
+
+	<div class="clearfix"></div>
+
+
+	<div class="wrapper">
+		<div class="steps-area steps-area-fixed">
+			<div class="image-holder">
+				<img class="myimg" src="assets/img/side-img.jpg" alt="">
+			</div>
+			<div class="steps clearfix">
+				<ul class="tablist multisteps-form__progress">
+					<li class="multisteps-form__progress-btn js-active current">
+						<span>1</span>
+					</li>
+					<li class="multisteps-form__progress-btn">
+						<span>2</span>
+					</li>
+					<li class="multisteps-form__progress-btn">
+						<span>3</span>
+					</li>
+					<li class="multisteps-form__progress-btn last">
+						<span>4</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<form class="multisteps-form__form" action="index.html#" id="wizard" method="POST">
+			<div style="position: absolute;">
+				<a href="../index.html" class="d-flex gap-1 align-items-center m-4">
+				  <div class="flex items-center">
+					<img src="../assets/img/img/jigawa.png" style="width: 60px;" />
+				  </div>
+				  <p class="text-black fontBold" style="font-size: 20px; color: #000; font-weight: bold;">PayJigawa
+				  </p>
+				</a>
+			  </div>
+		
+			<div class="form-area position-relative">
+				<!-- div 1 -->
+				<div class="multisteps-form__panel js-active" data-animation="slideHorz">
+					<div class="wizard-forms">
+						<div>
+							<div class="form-content pera-content">
+								<div class="step-inner-content">
+									<!-- <span class="step-no">Category</span> -->
+									<h2>PAYE MANAGER</h2>
+									<!-- <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p> -->
+									<div class="step-box">
+										<div class="row">
+
+											<div class="col-md-4">
+												<label class="step-box-content bg-white text-center relative-position">
+													<span class="step-box-icon">
+														<div><img style="width: 80px; height: 80px; margin: 0 auto;"
+																class="text-xl lg:text-2xl" src="assets/img/profile.png"
+																alt=""></div>
+													</span>
+													<span class="step-box-text">
+														Private
+													</span>
+
+													<span class="service-check-option">
+														<span><input id="condition1" type="radio" name="service_name"
+																value="Freelancing Services"></span>
+													</span>
+												</label>
+											</div>
+
+											<div class="col-md-4">
+												<label class="step-box-content bg-white text-center relative-position">
+													<span class="step-box-icon">
+														<div><img style="width: 70px; height: 70px; margin: 0 auto;"
+																class="text-xl lg:text-2xl"
+																src="assets/img/corporate.png" alt=""></div>
+													</span>
+													<span class="step-box-text">
+														<h3 class="text-xl font-semibold">Public</h3>
+													</span>
+
+													<span class="service-check-option">
+														<span><input id="condition1" type="radio" name="service_name"
+																value="Freelancing Services"></span>
+													</span>
+												</label>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.inner -->
+						<div class="actions">
+							<ul>
+								<li class="disable" aria-disabled="true"><span class="js-btn-next" title="NEXT">Backward
+										<i class="fa fa-arrow-right"></i></span></li>
+								<li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- div 2 -->
+				<div class="multisteps-form__panel" data-animation="slideHorz">
+					<div class="wizard-forms">
+						<div>
+							<div class="form-content pera-content">
+								<div class="step-inner-content">
+									<div style="margin-top: 50px;">  
+										<span class="step-no bottom-line">Step 2</span>
+										<div class="step-progress float-right">
+											<span>2 of 4 completed</span>
+											<div class="step-progress-bar">
+												<div class="progress">
+													<div class="progress-bar" style="width: 35%;"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<h2>REGISTER</h2>
+									<p>Basic Information</p>
+									<!-- <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p> -->
+
+									<div class="form-inner-area">
+
+										<div class="mb-3 mt-3">
+											<label for="idNumber" class="form-label">Name Of Organization*</label>
+											<div class="form-inner-area">
+												<input type="text">
+											</div>
+										</div>
+										<div class="language-select mt-3">
+											<label class="form-label">Select Your Industry*</label>
+											<select class="form-select" required="">
+												<option value="">Select from list</option>
+												<option value="Industry A">Industry A</option>
+												<option value="Industry B">Industry B</option>
+												<option value="Industry C">Industry C</option>
+											</select>
+										</div>
+
+										<div class="mb-3 mt-3">
+											<label for="idNumber" class="form-label">Number Of Staffs*</label>
+											<div class="form-inner-area">
+												<input type="text">
+											</div>
+										</div>
+
+										<div class="mb-3 mt-3">
+											<label for="idNumber" class="form-label">TIN*</label>
+
+											<div class="form-inner-area">
+												<input type="text" name="phone" placeholder="Optional">
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<!-- /.inner -->
+						<div class="actions">
+							<ul>
+								<li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK </span>
+								</li>
+								<li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- div 3 -->
+				<div class="multisteps-form__panel" data-animation="slideHorz">
+					<div class="wizard-forms">
+						<div>
+							<div class="form-content pera-content">
+								<div class="step-inner-content">
+									<div style="margin-top: 50px;">  
+										<span class="step-no bottom-line">Step 3</span>
+										<div class="step-progress float-right">
+											<span>3 of 4 completed</span>
+											<div class="step-progress-bar">
+												<div class="progress">
+													<div class="progress-bar" style="width:70%"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<h2>Register</h2>
+									<p>Contact Information</p>
+
+									<div class="form-inner-area">
+										<input type="text" name="full_name" minlength="2"
+											placeholder="First and last name *" required="">
+										<input type="email" name="email"
+											placeholder="Email Address *" required="">
+										<input type="text" name="phone" placeholder="Phone *">
+										<input type="text" name="phone" placeholder="State *">
+										<input type="text" name="phone" placeholder="Lga *">
+										<input type="text" name="phone" placeholder="Area *">
+										<input type="text" name="address" placeholder="Address *">
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<!-- ./inner -->
+						<div class="actions">
+							<ul>
+								<li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK </span>
+								</li>
+								<li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- div 4 -->
+				<div class="multisteps-form__panel" data-animation="slideHorz">
+					<div class="wizard-forms">
+						<div>
+							<div class="form-content pera-content">
+								<div class="step-inner-content">
+									<div style="margin-top: 50px;">  
+										<span class="step-no bottom-line">Step 4</span>
+										<div class="step-progress float-right">
+											<span>4 of 4 completed</span>
+											<div class="step-progress-bar">
+												<div class="progress">
+													<div class="progress-bar" style="width:100%"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<h2>Preview And Submit</h2>
+
+									<div class="form-inner-area"> <label for="idNumber" class="form-label">Name Of
+											Organization</label> <input type="text" class="form-control" readonly="">
+										<label for="idNumber" class="form-label">Industry</label> <input type="text"
+											class="form-control" readonly=""> <label for="idNumber"
+											class="form-label">Number Of Staff</label> <input type="text"
+											class="form-control" readonly=""> <label for="idNumber"
+											class="form-label">TIN(optional)</label> <input type="text"
+											class="form-control" readonly=""> <label for="idNumber"
+											class="form-label">Email</label> <input type="text" class="form-control"
+											readonly=""> <label for="idNumber" class="form-label">State</label> <input
+											type="text" class="form-control" readonly=""> <label for="idNumber"
+											class="form-label">LGA</label> <input type="text" class="form-control"
+											readonly=""> <label for="idNumber" class="form-label">Address</label> <input
+											type="text" class="form-control" readonly=""> </div>
+
+									
+								</div>
+							</div>
+						</div>
+						<!-- /.inner -->
+						<div class="actions">
+							<ul>
+								<li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK </span>
+								</li>
+								<li><span title="Submit">SUBMIT <i class="fa fa-arrow-right"></i></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- div 5 -->
+				
+
+				
+
+				
+			</div>
+
+			
+
+	</div>
+	</form>
+	</div>
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/jquery.validate.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/conditionize.flexible.jquery.min.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/switch.js"></script>
+	<script>
+		$("#files").change(function () {
+			filename = this.files[0].name
+			// console.log(filename);
+		});
+
+		function UploadFile() {
+			var reader = new FileReader();
+			var file = document.getElementById('attach').files[0];
+			reader.onload = function () {
+				document.getElementById('fileContent').value = reader.result;
+				document.getElementById('filename').value = file.name;
+				document.getElementById('wizard').submit();
+			}
+			reader.readAsDataURL(file);
+		}
+
+		$(document).ready(function () {
+			$('.conditional').conditionize();
+		});
+
+
+		
+
+
+	</script>
+</body>
+
+</html>

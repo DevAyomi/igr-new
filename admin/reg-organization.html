@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./assets/img/apple-icon.png"
+    />
+    <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+    <title>PayJigawa</title>
+
+    <meta name="keywords" content="Jigawa IGR" />
+    <meta name="description" content="Jigawa Tax Collector" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <!-- Nucleo Icons -->
+    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link
+      id="pagestyle"
+      href="./assets/css/argon-dashboard.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  </head>
+
+  <body class="g-sidenav-show bg-gray-100">
+    <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+    <aside
+      class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+      id="sidenav-main"
+      style="background-color: white"
+    >
+      <!-- CONTENT COMING FROM NAV.JS -->
+    </aside>
+
+    <main class="main-content">
+      <nav
+        class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
+      >
+        <div class="container-fluid py-1 px-3">
+          <!-- CONTENT COMING FROM NAV.JS -->
+          <div id="breadcrumb-container"></div>
+          <div
+            class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto"
+          >
+            <a href="javascript:;" class="nav-link text-body p-0">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line bg-white"></i>
+                <i class="sidenav-toggler-line bg-white"></i>
+                <i class="sidenav-toggler-line bg-white"></i>
+              </div>
+            </a>
+          </div>
+          <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+            <ul class="navbar-nav justify-content-end ms-auto">
+              <li class="nav-item d-flex align-items-center" id="profileImage">
+                <!-- CONTENT COMING FROM NAV.JS -->
+              </li>
+              <li
+                class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center"
+              >
+                <a
+                  href="javascript:;"
+                  class="nav-link text-body p-0"
+                  id="iconNavbarSidenav"
+                >
+                  <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                    <i class="sidenav-toggler-line bg-white"></i>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container-fluid mt-6">
+        <div class="mx-4 position-relative">
+          <div class="container-fluid py-4">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="">
+                      <button
+                        class="flex p-0 btn btn-link text-white items-center gap-2"
+                        onclick="history.go(-1)"
+                      >
+                        <iconify-icon
+                          icon="eva:arrow-back-outline"
+                        ></iconify-icon>
+                        <span>Go back</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="multisteps-form">
+                    <div class="row">
+                      <div class="col-12 col-lg-12 mx-auto mt-4 mb-sm-5">
+                        <div class="multisteps-form__progress card-body">
+                          <button
+                            class="multisteps-form__progress-btn js-active"
+                            type="button"
+                            title="Basic Information"
+                          >
+                            Basic Information
+                          </button>
+                          <button
+                            class="multisteps-form__progress-btn"
+                            type="button"
+                            title="Contact Information"
+                          >
+                            Contact Information
+                          </button>
+                          <button
+                            class="multisteps-form__progress-btn"
+                            type="button"
+                            title="Preview & Verify"
+                          >
+                            Preview & Verify
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!--form panels-->
+                    <div class="row">
+                      <div class="col-12 col-lg-12 m-auto">
+                        <form
+                          class="multisteps-form__form"
+                          onSubmit="return false"
+                        >
+                          <!--single form panel-->
+                          <div
+                            class="multisteps-form__panel p-3 border-radius-xl bg-white js-active"
+                            data-animation="FadeIn"
+                          >
+                            <div class="multisteps-form__content">
+                              <div class="basicInfo">
+                                <h4 class="fw-bold">Register</h4>
+                                <p class="mt-2 mb-4">Basic Information</p>
+
+                                <div class="form-group mb-3">
+                                  <label for="">Name Of Organization*</label>
+                                  <input
+                                    type="text"
+                                    class="form-control w-full payeInput"
+                                    name="name"
+                                    required
+                                  />
+                                  <small class="text-danger d-none"
+                                    >This field is required.</small
+                                  >
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="">Category</label>
+                                  <select
+                                    class="form-select w-full payeInput"
+                                    name="category"
+                                    required
+                                  >
+                                    <option value="">Select from list</option>
+                                    <option value="Private">Private</option>
+                                    <option value="Public">Public</option>
+                                  </select>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                  <label for="">Select Your Industry*</label>
+                                  <select
+                                    class="form-select w-full payeInput"
+                                    name="industry"
+                                    required
+                                  >
+                                    <option value="">Select from list</option>
+                                    <option value="Mining">Mining</option>
+                                    <option value="Commerce">Commerce</option>
+                                    <option value="Banking">Banking</option>
+                                    <option value="Agriculture">
+                                      Agriculture
+                                    </option>
+                                    <option value="Engineering">
+                                      Engineering
+                                    </option>
+                                    <option value="Construction">
+                                      Construction
+                                    </option>
+                                    <option value="Government Institution">
+                                      Government Institution
+                                    </option>
+                                    <option value="NGO">NGO</option>
+                                    <option value="Religious Institutions">
+                                      Religious Institutions
+                                    </option>
+                                    <option value="General Merchandise">
+                                      General Merchandise
+                                    </option>
+                                    <option value="General Contractor">
+                                      General Contractor
+                                    </option>
+                                    <option value="Private Schools">
+                                      Private Schools
+                                    </option>
+                                    <option value="Public Schools">
+                                      Public Schools
+                                    </option>
+                                    <option value="Hospitals">Hospitals</option>
+                                  </select>
+                                  <small class="text-danger d-none"
+                                    >This field is required.</small
+                                  >
+                                </div>
+
+                                <div class="form-group mb-3">
+                                  <label for="">No. Of Staff*</label>
+                                  <input
+                                    type="number"
+                                    class="form-control w-full payeInput"
+                                    name="staff_quota"
+                                    required
+                                  />
+                                  <small class="text-danger d-none"
+                                    >This field is required.</small
+                                  >
+                                </div>
+
+                                <div class="form-group mb-3">
+                                  <label for="">TIN (Optional)</label>
+                                  <input
+                                    type="text"
+                                    class="form-control w-full payeInput"
+                                    name="official_TIN"
+                                  />
+                                </div>
+                              </div>
+                              <div class="button-row d-flex mt-4">
+                                <button
+                                  class="btn btn-primary ms-auto mb-0"
+                                  onclick="nextPage()"
+                                  type="button"
+                                  title="Continue"
+                                >
+                                  Continue
+                                </button>
+                                <button
+                                  class="d-none js-btn-next"
+                                  id="nextPageID"
+                                >
+                                  next
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <!--single form panel-->
+                          <div
+                            class="multisteps-form__panel p-3 border-radius-xl bg-white"
+                            data-animation="FadeIn"
+                          >
+                            <div class="multisteps-form__content">
+                              <div class="contactInfo">
+                                <h4 class="fw-bold">Register</h4>
+                                <p class="mt-2 mb-4">Contact Information</p>
+
+                                <div class="form-group mb-3">
+                                  <label for="">Email*</label>
+                                  <input
+                                    type="text"
+                                    class="form-control payeInput"
+                                    name="email"
+                                    required
+                                  />
+                                  <small class="text-danger d-none"
+                                    >This field is required.</small
+                                  >
+                                </div>
+
+                                <div class="form-group mb-3">
+                                  <label for="">Phone Number*</label>
+                                  <input
+                                    type="text"
+                                    class="form-control payeInput"
+                                    name="phone"
+                                    required
+                                  />
+                                  <small class="text-danger d-none"
+                                    >This field is required.</small
+                                  >
+                                </div>
+
+                                <div class="row">
+                                  <div class="form-group col-6 mb-3">
+                                    <label for="">State*</label>
+                                    <select
+                                      class="form-select payeInput"
+                                      name="state"
+                                      id="repSelectState"
+                                      required
+                                    ></select>
+                                    <small class="text-danger d-none"
+                                      >This field is required.</small
+                                    >
+                                  </div>
+
+                                  <div class="form-group col-6 mb-3">
+                                    <label for="">Local Government Area*</label>
+                                    <select
+                                      class="form-select payeInput"
+                                      name="lga"
+                                      id="repSelectLGA"
+                                      required
+                                    ></select>
+                                    <small class="text-danger d-none"
+                                      >This field is required.</small
+                                    >
+                                  </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                  <label for="">Address*</label>
+                                  <input
+                                    type="text"
+                                    class="form-control payeInput"
+                                    name="address"
+                                    required
+                                  />
+                                  <small class="text-danger d-none"
+                                    >This field is required.</small
+                                  >
+                                </div>
+
+                                <div>
+                                  <h5 class="mb-0">Password</h5>
+                                  <div class="form-group mb-3">
+                                    <label for="">Password*</label>
+                                    <input
+                                      type="password"
+                                      class="form-control payeInput"
+                                      name="password"
+                                      required
+                                    />
+                                    <small class="text-danger d-none"
+                                      >This field is required.</small
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="button-row d-flex mt-4">
+                                <button
+                                  class="btn btn-secondary mb-0 js-btn-prev"
+                                  type="button"
+                                  title="Previous"
+                                >
+                                  Previous
+                                </button>
+                                <button
+                                  class="btn btn-primary ms-auto mb-0"
+                                  onclick="previewInfo()"
+                                  type="button"
+                                  title="Continue"
+                                >
+                                  Continue
+                                </button>
+                                <button
+                                  class="d-none js-btn-next"
+                                  id="nextClick2"
+                                >
+                                  next
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <!--single form panel-->
+                          <div
+                            class="multisteps-form__panel p-3 border-radius-xl bg-white"
+                            data-animation="FadeIn"
+                          >
+                            <div class="multisteps-form__content">
+                              <div>
+                                <h4 class="fw-bold">Company Information</h4>
+                                <p class="mt-2 mb-4">Contact Information</p>
+
+                                <div class="flex gap-3 md:flex-row flex-col">
+                                  <div class="form-group">
+                                    <label for="">Name Of Organisation</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="name"
+                                      readonly
+                                    />
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="">Category</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="category"
+                                      readonly
+                                    />
+                                    <select
+                                      class="form-select payeInput2"
+                                      name="category"
+                                    ></select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="">Industry</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="industry"
+                                      readonly
+                                    />
+                                  </div>
+                                </div>
+
+                                <div
+                                  class="flex gap-3 md:flex-row flex-col mb-3"
+                                >
+                                  <div class="form-group">
+                                    <label for="">No Of Staff</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="staff_quota"
+                                      readonly
+                                    />
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="">TIN (Optional)</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="official_TIN"
+                                      readonly
+                                    />
+                                  </div>
+                                </div>
+
+                                <div
+                                  class="flex gap-3 md:flex-row flex-col mb-3"
+                                >
+                                  <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="email"
+                                      readonly
+                                    />
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="">State</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="state"
+                                      readonly
+                                    />
+                                  </div>
+                                </div>
+
+                                <div
+                                  class="flex gap-3 md:flex-row flex-col mb-3"
+                                >
+                                  <div class="form-group">
+                                    <label for="">LGA</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="lga"
+                                      readonly
+                                    />
+                                  </div>
+
+                                  <div class="form-group mb-3">
+                                    <label for="">Address</label>
+                                    <input
+                                      type="text"
+                                      class="form-control payeInput2"
+                                      name="address"
+                                      readonly
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="button-row d-flex mt-4">
+                                <button
+                                  class="btn btn-secondary mb-0 js-btn-prev"
+                                  type="button"
+                                  title="Verify"
+                                >
+                                  Previous
+                                </button>
+                                <button
+                                  class="btn btn-primary ms-auto mb-0"
+                                  id="regBtn"
+                                  onclick="registerUser()"
+                                  type="button"
+                                >
+                                  Register
+                                </button>
+                              </div>
+
+                              <div id="msg_box"></div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="footer pt-3" id="footer">
+            <!-- CONTENT COMING FROM NAV.JS -->
+          </footer>
+        </div>
+      </div>
+    </main>
+
+    <!--   Core JS Files   -->
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap.min.js"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="./assets/js/plugins/choices.min.js"></script>
+    <script src="./assets/js/plugins/chartjs.min.js"></script>
+    <script src="./assets/js/plugins/datatables.js"></script>
+    <script src="./assets/js/plugins/multistep-form.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+
+    <script src="../assets/js/constant.js"></script>
+    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/argon-dashboard.min.js"></script>
+    <script>
+      showActiveNav("dashboard-nav");
+      showBreadCrumb("Register Organization");
+    </script>
+    <script src="./assets/js/reg-organization.js"></script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="breadcrumb-container">
+      <!-- CONTENT COMING FROM NAV.JS -->
+    </nav>
+
+    <div class="container-fluid mt-5">
+      <div class="position-relative">
+        <div class="container-fluid py-4">
+          <div class="row mb-3">
+            <div class="col-6">
+              <h3 class="text-white">ENUMERATION</h3>
+            </div>
+          </div>
+
+
+    <div class="row mt-6 mx-4">
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="card h-100">
+          <div class="card-header">
+            <h5 class="mb-0 text-capitalize">Individual</h5>
+          </div>
+          
+            <a href="enumerationindiv.html" class="card card-body md:w-[250px] md:h-full">
+              <div class="d-flex justify-content-center">
+                <img src="./assets/img/individual.png" alt="">
+              </div>
+              <p class="font-bold text-lg text-center">Individual</p>
+              <p class="text-center mt-2">These are individuals who are required to pay taxes on their personal
+                income,
+                such as salary,
+                freelance work, rental income, etc.</p>
+            </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="card h-100 ">
+          <div class="card-header">
+            <h5 class="mb-0 text-capitalize">Corporate</h5>
+          </div>
+          <a href="enumeratorcopr.html" class="card card-body md:w-[250px] md:h-full">
+            <div class="d-flex justify-content-center">
+              <img src="./assets/img/corporate.png" alt="">
+            </div>
+            <p class="text-[#000] font-bold text-lg text-center">Corporate</p>
+            <p class="text-center mt-2">These are businesses, including corporations and limited liability
+              companies,
+              that are required to pay taxes on their profits.</p>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card h-100 ">
+          <div class="card-header">
+            <h5 class="mb-0 text-capitalize">Properties</h5>
+          </div>
+          <a href="enumerationprops.html" class="card card-body md:w-[250px] md:h-full">
+
+            <div class="d-flex justify-content-center">
+              <img src="./assets/img/properties.png" alt="">
+            </div>
+            <p class="text-[#000] font-bold text-lg text-center">Properties</p>
+            <p class="text-center mt-2">These are real estate assets owned by individuals that may be subject to
+              taxes, such as property taxes, rental income taxation, and capital gains taxes upon sale.</p>
+
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer pt-3" id="footer">
+      <!-- CONTENT COMING FROM NAV.JS -->
+    </footer>
+     
+  </main>
+  
+ 
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+
+  <script>
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script>
+    showActiveNav("dashboard-nav");
+    showBreadCrumb("Dashboard");
+  </script>
+</body>
+
+</html>

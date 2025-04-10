@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/css/tableStyle.css">
+  <style>
+    .chart-container {
+      position: relative;
+      height: 400px;
+      /* Reduced height */
+      margin: 0.5rem 0;
+      max-width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .chart-container {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white;">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <div class="position-relative">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4 class="text-white">Enumeration</h4>
+            </div>
+            <div class="col-lg-6 d-flex ms-auto">
+              <button class="btn btn-icon btn-primary ms-auto d-none" id="createFieldAgent" data-bs-toggle="modal"
+                data-bs-target="#createNewFieldAgentModal">
+                <span class="btn-inner--text">Create Field Agent</span>
+                <span class="btn-inner--icon"><i class="fa fa-plus text-sm ms-2"></i></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="nav-wrapper col-sm-12 col-lg-8 position-relative end-0">
+                    <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center active"
+                          data-bs-toggle="pill" data-bs-target="#pills-one" href="javascript:;" role="tab"
+                          aria-selected="true">
+                          <i class="ni ni-badge"></i>
+                          <span class="ms-2">Enumeration Dashboard</span>
+                        </a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+                          data-bs-toggle="tab" data-bs-target="#pills-two" href="javascript:;" role="tab"
+                          aria-selected="false" tabindex="-1">
+                          <i class="fas fa-users"></i>
+                          <span class="ms-2">List Of Enumerators</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-one" role="tabpanel"
+                      aria-labelledby="pills-one-tab">
+
+                      <section class="d-none" id="enumDashboard">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="row">
+                              <div class="col-lg-4 col-md-6 col-12">
+                                <div class="card  mb-4">
+                                  <div class="card-body p-4">
+                                    <div class="row">
+                                      <div class="col-8">
+                                        <div class="numbers">
+                                          <p class="text-sm mb-0 text-uppercase font-weight-bold">TOTAL TAXPAYER
+                                            ENUMERATED</p>
+                                          <h5 class="font-weight-bolder" id="totalTaxpayerEnum">
+                                            0
+                                          </h5>
+                                        </div>
+                                      </div>
+                                      <div class="col-4 text-end">
+                                        <div
+                                          class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                          <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-4 col-md-6 col-12">
+                                <div class="card mb-4">
+                                  <div class="card-body p-4">
+                                    <div class="row">
+                                      <div class="col-9">
+                                        <div class="numbers">
+                                          <p class="text-sm mb-0 text-uppercase font-weight-bold">TOTAL NO OF FIELD
+                                            AGENTS
+                                          </p>
+                                          <h5 class="font-weight-bolder" id="totalFieldAgent">
+                                            0
+                                          </h5>
+                                        </div>
+                                      </div>
+                                      <div class="col-3 text-end">
+                                        <div
+                                          class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                          <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Charts Row -->
+                        <div class="row">
+                          <!-- Taxpayer Category Chart -->
+                          <div class="col-md-6 mb-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <h6 class="card-title">TOTAL TAXPAYER ENUMERATED</h6>
+                                <p class="text-muted small">By taxpayer category</p>
+                                <div class="chart-container">
+                                  <canvas id="categoryChart"></canvas>
+                                </div>
+                                <div class="text-center mt-3">
+                                  <span class="text-muted">Total: </span>
+                                  <span class="text-success">16</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Tax Category Chart -->
+                          <div class="col-md-6 mb-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <h6 class="card-title">TOTAL TAXPAYER ENUMERATED</h6>
+                                <p class="text-muted small">By tax category</p>
+                                <div class="chart-container">
+                                  <canvas id="taxChart"></canvas>
+                                </div>
+                                <div class="text-center mt-3">
+                                  <span class="text-muted">Total: </span>
+                                  <span class="text-success">20</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Pie Chart -->
+                          <div class="col-md-6 mb-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <h6 class="card-title">TOTAL TAXPAYERS REGISTERED (BY FIELD AGENTS)</h6>
+                                <div class="chart-container">
+                                  <canvas id="pieChart"></canvas>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Business Type Chart (Empty) -->
+                          <div class="col-md-6 mb-4">
+                            <div class="card">
+                              <div class="card-body">
+                                <h6 class="card-title">TOTAL TAXPAYER ENUMERATED BY BUSINESS TYPE</h6>
+                                <div class="chart-container">
+                                  <canvas id="pieChart2"></canvas>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </section>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-two" role="tabpanel" aria-labelledby="pills-two-tab">
+                      <div class="table-responsive">
+                        <table class="table" id="datatable1">
+                          <thead>
+                            <tr>
+                              <th>S/N</th>
+                              <!-- <th>Agent ID</th> -->
+                              <th>Agent Name</th>
+                              <th>Email</th>
+                              <th>Contact</th>
+                              <th>No of Taxpayers Registered</th>
+                              <th>Manage</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-sm">
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <footer class="footer pt-3" id="footer">
+            <!-- CONTENT COMING FROM NAV.JS -->
+          </footer>
+        </div>
+      </div>
+  </main>
+
+  <div class="modal fade" id="createNewFieldAgentModal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header ">
+          <h5 class="modal-title" id="createNewFieldAgentModalLabel3">Create new field agent</h5>
+          <button type="button" class="btn-close d-flex text-dark justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close">
+            <iconify-icon icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="form-group">
+              <label for="agentName" class="form-label">Name Of User <span class="text-danger">*</span></label>
+              <input required type="text" id="agentName" class="form-control" placeholder="Enter full name" />
+            </div>
+            <div class="form-group">
+              <label for="agentEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input required type="email" class="form-control" id="agentEmail" placeholder="Email address" />
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+              <input required type="number" class="form-control" id="phone" placeholder="Phone Number" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password <span class="text-danger">*</span></label>
+              <div class="formb d-flex align-items-center position-relative mb-2">
+                <input required type="password" id="userPassword" class="form-control passwordInput"
+                  placeholder="Password">
+                <i class="fas fa-eye-slash togglePassword position-absolute end-3 cursor-pointer"
+                  style="top: 50%; transform: translateY(-50%)"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-6 col-sm-12">
+                <label for="repSelectState" class="form-label">State</label>
+                <select class="form-select" id="repSelectState" required>
+                  <option value="Jigawa">Jigawa</option>
+                </select>
+              </div>
+              <div class="form-group col-lg-6 col-sm-12">
+                <label for="repSelectLGA" class="form-label">Local Government Area</label>
+                <select class="form-select" id="repSelectLGA" required>
+                  <option selected disabled>Select LGA</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+              <input required type="text" class="form-control" id="address" placeholder="Address" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="createUserBtn" type="button" class="btn btn-primary">Create User</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+
+
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    } 
+  </script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/rolespermission.js"></script>
+  <script src="./assets/js/enumerator.js"></script>
+
+  <script>
+    showActiveNav("enumeration-nav");
+    showBreadCrumb("Enumeration");
+  </script>
+  <script>
+    // JavaScript to toggle password visibility
+    let allTogglePass = document.querySelectorAll(".togglePassword");
+    allTogglePass.forEach((alltg, i) => {
+      alltg.addEventListener("click", function () {
+        const passwordInput = document.querySelectorAll(".passwordInput")[i];
+        const icon = this;
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        } else {
+          passwordInput.type = "password";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+  <script>
+    // Category Chart
+    new Chart(document.getElementById('categoryChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Individual', 'Corporate', 'Properties'],
+        datasets: [{
+          data: [10, 8, 9],
+          backgroundColor: ['#4e73df', '#858796', '#172b4d']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    // Tax Chart
+    new Chart(document.getElementById('taxChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Formal Tax', 'In-Formal Tax', 'Presumptive Tax'],
+        datasets: [{
+          data: [1, 1, 0],
+          backgroundColor: ['#4e73df', '#858796', '#172b4d']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    // Pie Chart
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Self Registered', 'Enumerated'],
+        datasets: [{
+          data: [21, 2],
+          backgroundColor: ['#5e72e4', '#172b4d']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    // Pie Chart
+    new Chart(document.getElementById('pieChart2'), {
+      type: 'pie',
+      data: {
+        labels: ['Business One', 'Business Two'],
+        datasets: [{
+          data: [1, 1],
+          backgroundColor: ['#5e72e4', '#172b4d']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'right',
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

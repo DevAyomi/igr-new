@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/css/tableStyle.css">
+  <style>
+    .user-details {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      max-width: 400px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .info-card {
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .info-item i {
+      font-size: 20px;
+      margin-right: 10px;
+      color: #333;
+    }
+
+    .info-item label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    .access-section {
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+
+    .access-section h5 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .access-item {
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+
+    .access-item.active {
+      background-color: #e0f7fa;
+      border-color: #007bff;
+    }
+
+    .access-item i {
+      font-size: 18px;
+      margin-right: 8px;
+    }
+
+    .access-item .status {
+      margin-left: auto;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white;">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <div class="mx-lg-4 position-relative">
+        <div class="container py-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="">
+                <button class="flex p-0 btn btn-link text-white items-center gap-2" onclick="history.go(-1)">
+                  <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+                  <span>Go back</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h4 class="text-white">Edit User</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="w-full">
+
+                <div class="card-body card mb-2">
+                  <div class="d-flex justify-content-center flex-column align-items-center" id="loading">
+                    <div class="loader">
+                      <div class="rotating-dots">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+                    <span>Loading...</span>
+                  </div>
+
+                  <div class="d-none" id="manageUser">
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label class="form-label">Name of User</label>
+                        <input required type="text" id="userName" class="form-control updateInputs" data-name="fullname"
+                          placeholder="Enter Full Name..">
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label class="form-label">Email Address</label>
+                        <input required type="email" id="userEmail" class="form-control updateInputs" data-name="email"
+                          placeholder="Email address">
+                      </div>
+                    </div>
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label class="form-label">Phone Number</label>
+                        <input required type="number" id="userPhone" class="form-control updateInputs" data-name="phone"
+                          placeholder="Phone Number">
+                      </div>
+                    </div>
+
+
+                    <div class="row mb-2" id="passwordInputtt">
+
+                    </div>
+
+                    <div class="row mb-2">
+                      <div class="col">
+                        <label class="form-label">Role</label>
+                        <select id="userRole" class="form-select updateInputs" data-name="role">
+                          <option value="support">Support</option>
+                          <option value="admin_support">Support Admin</option>
+                          <option value="super_admin">Admin</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-5">
+                      <button class="btn btn-primary" id="editUserBtn">Edit</button>
+                    </div>
+                    <div id="msg_box"></div>
+                  </div>
+
+
+                </div>
+
+                <div class="card card-body">
+                  <p class="mb-5 h5">Access Level</p>
+
+
+                  <div id="allPermissionsContainer">
+                    <div class="loader">
+                      <div class="rotating-dots">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+                    <!-- All permissions will be dynamically inserted here -->
+                  </div>
+
+                  <div class="d-flex justify-content-end ms-auto mt-4">
+                    <button id="editPermissionBtn" type="button" class="btn btn-primary">Update Permission</button>
+                  </div>
+                  <div id="msg_box2"></div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <footer class="footer pt-3" id="footer">
+          <!-- CONTENT COMING FROM NAV.JS -->
+        </footer>
+      </div>
+    </div>
+  </main>
+
+
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"></script>
+  </script>
+
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="./assets/js/rolespermission.js"></script>
+  <script src="./assets/js/manageuser.js"></script>
+  <script>
+    showActiveNav("user-nav");
+    showBreadCrumb("User Management");
+  </script>
+</body>
+
+</html>

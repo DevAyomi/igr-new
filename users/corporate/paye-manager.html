@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <title>PAY-JIGAWA</title>
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css" />
+  <!-- Anti-flicker snippet (recommended)  -->
+  <link rel="stylesheet" href="../assets/css/tablestyle.css" />
+  <style>
+    .async-hide {
+      opacity: 0 !important
+    }
+  </style>
+
+  <style>
+    @media only screen and (max-width: 576px) {
+      .add-employee-btn {
+        display: none;
+      }
+    }
+
+    /* Custom Modal Styling */
+    #staffModal .modal-dialog {
+      max-width: 800px;
+    }
+
+    #staffModal .modal-body {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    #staffModal .table {
+      margin-bottom: 0;
+    }
+
+    #staffModal .table th,
+    #staffModal .table td {
+      padding: 0.75rem;
+      vertical-align: middle;
+    }
+
+    #staffModal .table th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+  <main class="main-content position-relative border-radius-lg">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="add-employee-btn">
+              <div id="mvieww" class="mt-3 mx-3">
+                <a href="add-staff.html"
+                  class="btn btn-primary d-block d-flex align-items-center btn-sm text-nowrap gap-1">
+                  <div style="margin-top: 4px">
+                    <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                  </div>
+                  <div><span>Add Employee</span></div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <h3 style="color: white; margin-left: 15px;">PAYE Manager</h3>
+      <!-- End Navbar -->
+      <div class="container-fluid py-4">
+
+        <section class="w-full main_section">
+          <h4 class="text-white">Overview</h4>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="numbers">
+                            <p class="text-xs mb-1 text-uppercase font-weight-bold">MONTHLY ESTIMATE</p>
+                            <input type="month" class="form-control monthlyEstiFilter">
+                            <h5 class="text-md mt-1 font-weight-bolder" id="monthlyEstimate">
+                              ₦ 0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-4 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="numbers">
+                            <p class="text-xs mb-1 text-uppercase font-weight-bold">ANNUAL ESTIMATE</p>
+                            <div class="form-group mb-0">
+                              <select class="form-select annualEstFilter"></select>
+                            </div>
+                            <h5 class="text-md mt-1 font-weight-bolder" id="totalAnnualEstimate">
+                              ₦ 0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-4 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="numbers">
+                            <p class="text-xs mb-1 text-uppercase font-weight-bold">ANNUAL REMITTANCE</p>
+                            <div class="form-group mb-0">
+                              <select class="form-select annualEstFilter2"></select>
+                            </div>
+                            <h5 class="text-md mt-1 font-weight-bolder" id="totalAnnualRemittance">
+                              ₦ 0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-4 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="numbers">
+                            <p class="text-xs mb-1 text-uppercase font-weight-bold">MONTHLY REMITTANCE</p>
+                            <input type="month" class="form-control monthlyEstiFilter2">
+                            <h5 class="text-md mt-1 font-weight-bolder" id="totalMonthlyRemittance">
+                              ₦ 0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-4 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="numbers">
+                            <p class="text-xs mb-1 text-uppercase font-weight-bold">NO OF EMPLOYEES</p>
+                            <h5 class="text-md mt-1 font-weight-bolder" id="noOfEmployees">
+                              0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-4 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="ni ni-single-02 text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <section class="mt-2">
+                <div class="d-flex gap-2 text-end justify-content-end">
+                  <button class="btn btn-icon btn-3 btn-primary" type="button" onclick="generateInvoice()">
+                    <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                    <span class="btn-inner--text">Generate Invoice</span>
+                  </button>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header d-flex pb-0 p-3">
+
+                        <div class="nav-wrapper position-relative w-50">
+                          <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#cam1" role="tab"
+                                aria-controls="cam1" aria-selected="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                                  viewBox="0 0 36 36">
+                                  <ellipse cx="18" cy="11.28" fill="currentColor" rx="4.76" ry="4.7"></ellipse>
+                                  <path fill="currentColor"
+                                    d="M10.78 11.75h.48v-.43a6.7 6.7 0 0 1 3.75-6a4.62 4.62 0 1 0-4.21 6.46Zm13.98-.47v.43h.48A4.58 4.58 0 1 0 21 5.29a6.7 6.7 0 0 1 3.76 5.99m-2.47 5.17a21.5 21.5 0 0 1 5.71 2a2.7 2.7 0 0 1 .68.53H34v-3.42a.72.72 0 0 0-.38-.64a18 18 0 0 0-8.4-2.05h-.66a6.66 6.66 0 0 1-2.27 3.58M6.53 20.92A2.76 2.76 0 0 1 8 18.47a21.5 21.5 0 0 1 5.71-2a6.66 6.66 0 0 1-2.27-3.55h-.66a18 18 0 0 0-8.4 2.05a.72.72 0 0 0-.38.64V22h4.53Zm14.93 5.77h5.96v1.4h-5.96z">
+                                  </path>
+                                  <path fill="currentColor"
+                                    d="M32.81 21.26h-6.87v-1a1 1 0 0 0-2 0v1H22v-2.83a20 20 0 0 0-4-.43a19.3 19.3 0 0 0-9.06 2.22a.76.76 0 0 0-.41.68v5.61h7.11v6.09a1 1 0 0 0 1 1h16.17a1 1 0 0 0 1-1V22.26a1 1 0 0 0-1-1m-1 10.36H17.64v-8.36h6.3v.91a1 1 0 0 0 2 0v-.91h5.87Z">
+                                  </path>
+                                </svg>
+                                Employee List
+                              </a>
+                            </li>
+
+                            <li class="nav-item">
+                              <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#cam2" role="tab"
+                                aria-controls="cam1" aria-selected="false">
+                                <i class="fa fa-credit-card text-dark"></i>
+                                Payment History
+                              </a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                      </div>
+                      <div class="card-body p-3 mt-2">
+                        <div class="tab-content" id="v-pills-tabContent">
+
+                          <div class="tab-pane fade show position-relative active border-radius-lg" id="cam1"
+                            role="tabpanel" aria-labelledby="cam1">
+                            <div class="table-responsive">
+
+                              <table class="table" id="paye-table">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" onclick="checkAll(this)"
+                                          id="flexCheckDefault">
+                                        <label class="th" for="flexCheckDefault">Select all</label>
+                                      </div>
+                                    </th>
+                                    <th>Payer ID</th>
+                                    <th>Name</th>
+                                    <th>Annual gross income</th>
+                                    <th>Basic salary</th>
+                                    <th>Monthly tax payable</th>
+                                    <th>Date added</th>
+                                    <th>Manage</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="text-sm">
+
+
+                                </tbody>
+
+                              </table>
+                            </div>
+                          </div>
+
+                          <div class="tab-pane fade position-relative border-radius-lg" id="cam2" role="tabpanel"
+                            aria-labelledby="cam1">
+                            <div class="table-responsive">
+
+                              <div class="table-responsive">
+                                <table class="table table-flush" id="payment-table">
+                                  <thead class="thead-light">
+                                    <tr>
+                                      <th>S/N</th>
+                                      <th>Payer ID</th>
+                                      <th>Payment reference No.</th>
+                                      <th>Payment for</th>
+                                      <th>Duration</th>
+                                      <th>Amount paid</th>
+                                      <th>Payment method</th>
+                                      <th>Payment status</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="text-sm">
+
+                                  </tbody>
+                                </table>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </section>
+
+        </section>
+
+        <footer class="footer pt-3" id="footer">
+          <!-- CONTENT COMING FROM NAV.JS -->
+        </footer>
+
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Structure -->
+  <div class="modal fade" id="staffModal" tabindex="-1" aria-labelledby="staffModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staffModalLabel">Staff Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Staff Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Monthly Tax Payable</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody id="staffModalBody">
+              <!-- Staff data will be appended here -->
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editStaffModal" tabindex="-1" aria-labelledby="singleLinkingLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="singleLinkingLabel">Edit Staff</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form action="">
+            <form action="" class="mt-4 w-8/12">
+
+              <div class="flex gap-3 md:flex-row flex-col mb-3">
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Full Name*</label>
+                  <input type="text" class="form-control w-full enumInput2" data-name="fullname" required>
+                </div>
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Email*</label>
+                  <input type="email" class="form-control w-full enumInput2" data-name="email" required>
+                </div>
+
+              </div>
+
+              <div class="flex gap-3 md:flex-row flex-col mb-3">
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Phone*</label>
+                  <input type="number" class="form-control w-full enumInput2" data-name="phone" required>
+                </div>
+
+
+              </div>
+
+
+              <div class="flex gap-3 md:flex-row flex-col mb-3">
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Basic Salary*</label>
+                  <input type="number" class="form-control w-full enumInput2" data-number="yes" data-name="basic_salary"
+                    required>
+                </div>
+
+                <!-- <div class="form-group md:w-6/12">
+                <label for="">Date Employed*</label>
+                <input type="date" class="form-control w-full enumInput2" data-name="date_employed" required>
+              </div> -->
+
+              </div>
+
+              <div class="flex gap-3 md:flex-row flex-col mb-3">
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Housing</label>
+                  <input type="number" class="form-control w-full enumInput2" data-number="yes" data-name="housing">
+                </div>
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Transport</label>
+                  <input type="number" class="form-control w-full enumInput2" data-number="yes" data-name="transport">
+                </div>
+
+              </div>
+
+              <div class="flex gap-3 md:flex-row flex-col mb-3">
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Utility</label>
+                  <input type="number" class="form-control w-full enumInput2" data-number="yes" data-name="utility">
+                </div>
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Medical</label>
+                  <input type="number" class="form-control w-full enumInput2" data-number="yes" data-name="medical">
+                </div>
+
+              </div>
+
+              <div class="flex gap-3 md:flex-row flex-col mb-3">
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Entertainment</label>
+                  <input type="number" class="form-control w-full enumInput2" data-name="entertainment">
+                </div>
+
+                <div class="form-group md:w-6/12">
+                  <label for="">Leave</label>
+                  <input type="number" class="form-control w-full enumInput2" data-name="leaves">
+                </div>
+
+              </div>
+
+            </form>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="editStaffBtn">Edit Staff</button>
+          <div id="msg_boxedit"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+
+  <script src="../../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+  <script src="./assets/js/paye-manager.js"></script>
+  <script>
+    showActiveNav("paye-nav");
+    showBreadCrumb("PAYE Manager");
+  </script>
+</body>
+
+</html>

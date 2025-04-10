@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <div class="position-relative">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <div class="row">
+                <div class="col-lg-6">
+                  <h4 class="text-white">Audit Trail Summary</h4>
+                </div>
+                <div class="col-lg-6 d-flex ms-auto">
+                  <a href="javascript:;" class="btn btn-icon btn-primary ms-auto" data-bs-toggle="modal"
+                    data-bs-target="#filterInvoiceModal">
+                    <span class="btn-inner--text">Filter</span>
+                    <span class="btn-inner--icon"><i class="fa fa-filter"></i></span>
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="numbers">
+                            <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                              Total Activity Count by Date
+                            </p>
+
+                            <div class="form-group" style="margin-top: 10px">
+                              <select class="form-select" id="monthlyYear">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11" selected="">
+                                  November
+                                </option>
+                                <option value="12">December</option>
+                              </select>
+                            </div>
+                            <h5 class="font-weight-bolder">2132</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="numbers">
+                            <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                              Total User Logins by Date
+                            </p>
+
+                            <div class="form-group" style="margin-top: 10px">
+                              <select class="form-select" id="monthlyYear">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11" selected="">
+                                  November
+                                </option>
+                                <option value="12">December</option>
+                              </select>
+                            </div>
+                            <h5 class="font-weight-bolder">459</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="numbers">
+                            <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                              Total System Errors Incurred by Date
+                            </p>
+
+                            <div class="form-group" style="margin-top: 10px">
+                              <select class="form-select" id="monthlyYear">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11" selected="">
+                                  November
+                                </option>
+                                <option value="12">December</option>
+                              </select>
+                            </div>
+                            <h5 class="font-weight-bolder">12</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6 d-flex ms-auto">
+              <button class="btn btn-primary ms-auto" type="button">
+                Download Report<i class="fas fa-cloud-download-alt ms-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table dataTable" id="datatable1">
+                      <thead class="text-center">
+                        <tr>
+                          <th>S/N</th>
+                          <th>Time Stamp</th>
+                          <th>User Name</th>
+                          <th>Role</th>
+                          <th>Activity Type</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0" id="showEnumerators"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer pt-3" id="footer">
+          <!-- CONTENT COMING FROM NAV.JS -->
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="filterInvoiceModal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filterInvoiceModalLabel3">Filter</h5>
+          <button type="button" class="btn-close d-flex text-dark justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close">
+            <iconify-icon icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <label for="">User Type</label>
+              <div class="form-group">
+                <select required class="form-select">
+                  <option value="">select</option>
+                  <option value="Payer User">End User</option>
+                  <option value="Admin User">Admin User</option>
+                  <option value="Enum User">Enum user</option>
+                  <option value="Mda User">Mda user</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="form-label">Activity</label>
+              <div class="form-group">
+                <select required class="form-select">
+                  <option value="">select</option>
+                  <option value="Applicable taxes">Applicable taxes</option>
+                  <option value="Logged In">Logged In</option>
+                  <option value="Logged In">Logged In</option>
+                  <option value="Admin Loggedin successfully">
+                    Admin Loggedin successfully
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <hr class="bg-dark h-1" />
+          <div class="row">
+            <label for="" class="">Date Range</label>
+            <div class="col">
+              <label for="" class="form-label">From</label>
+              <input type="date" name="date" class="form-control" />
+            </div>
+            <div class="col">
+              <label for="" class="form-label">To</label>
+              <input type="date" name="date" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-primary">Clear filter</button>
+          <div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="./assets/js/plugins/datatables.js"></script>
+  <script>
+    const dataTable = new simpleDatatables.DataTable(".dataTable");
+
+    const dataTable1 = new simpleDatatables.DataTable("#datatable1");
+  </script>
+
+  <script>
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script>
+    showActiveNav("audit-nav");
+    showBreadCrumb("Audit Trail");
+  </script>
+</body>
+
+</html>

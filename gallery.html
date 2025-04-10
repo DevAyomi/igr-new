@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PayJigawa</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  <style>
+    /* Add styles for the gallery page */
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-button:hover,
+    .filter-button.active {
+      background: #333;
+      color: #fff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .item-overlay {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      transition: bottom 0.3s ease;
+    }
+
+    .gallery-item:hover .item-overlay {
+      bottom: 0;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      padding: 2rem;
+    }
+
+    .modal-content {
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .modal img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .gallery-grid {
+        gap: 1rem;
+      }
+
+      .gallery-item img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="flex justify-between md:px-10 bg-white py-3">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
+
+  <main class="gallery-container">
+    <section class="lg:p-5 mt-20">
+      <div class="container">
+        <div class="">
+          <h2 class="mb-2 text-4xl lg:text-6xl text-center font-extrabold text-dark">
+            Gallery
+          </h2>
+          <p class="mb-4 text-lg text-center text-dark">Stay updates</p>
+        </div>
+      </div>
+    </section>
+    <section class="gallery-grid" id="gallery-container">
+      <!-- Gallery items will be dynamically inserted here -->
+    </section>
+    <p id="empty-state" class="text-center text-gray-500" style="display: none">
+      No items to display
+    </p>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img src="" alt="Modal Image" />
+      </div>
+    </div>
+  </main>
+
+  <section class="bottom-0 position-absolute w-full" id="footer"></section>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/constant.js"></script>
+  <script src="assets/js/nav.js?v=1.2"></script>
+  <script src="./assets/js/tax-calculator.js"></script>
+  <script src="assets/js/landing.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+
+  <script src="assets/js/gallery.js"></script>
+  <script>
+    showActiveNav("gallery");
+  </script>
+</body>
+
+</html>

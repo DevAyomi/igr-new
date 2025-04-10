@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/css/tableStyle.css">
+  <style>
+    .chart-container {
+      position: relative;
+      height: 400px;
+      /* Reduced height */
+      margin: 0.5rem 0;
+      max-width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .chart-container {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <div class="position-relative">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4 class="text-white">Revenue Head</h4>
+            </div>
+            <div class="col-lg-6 col-sm-12 d-flex ms-auto">
+              <button class="btn btn-icon btn-primary ms-auto" data-bs-toggle="modal"
+                data-bs-target="#createRevenueHeadModal">
+                <span class="btn-inner--text">Create Revenue Head</span>
+                <span class="btn-inner--icon"><i class="fa fa-plus text-sm ms-2"></i></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-8">
+                          <div class="numbers">
+                            <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                              Total number of revenue heads
+                            </p>
+                            <h5 class="font-weight-bolder" id="totalRev">
+                              0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-4 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="fa fa-id-card-alt text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="numbers">
+                            <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                              Total number of inactive revenue heads
+                            </p>
+                            <h5 class="font-weight-bolder" id="inactiveRev">
+                              0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-3 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="fa fa-id-card text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card mb-4">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="numbers">
+                            <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                              Total number of active revenue heads
+                            </p>
+                            <h5 class="font-weight-bolder" id="activeRev">
+                              0
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-3 text-end">
+                          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                            <i class="ni ni-badge text-lg opacity-10" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="row align-items-center justify-content-between">
+                        <div class="col-8">
+                          <h6 class="">Revenue Head</h6>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6 justify-content-end ms-auto d-flex gap-3">
+                          <div class="form-group text-end col-3">
+                            <select class="form-select" id="status">
+                              <option selected>All</option>
+                              <option value="1">Active</option>
+                              <option value="2">Inactive</option>
+                            </select>
+                          </div>
+                          <div class="form-group text-end">
+                            <button class="btn btn-icon btn-primary" id="filterBtn">
+                              <span class="btn-inner--text">Apply</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table" id="revenue-table">
+                          <thead>
+                            <tr>
+                              <th>S/N</th>
+                              <th>REVENUE HEAD</th>
+                              <th>CATEGORY</th>
+                              <th>AMOUNT</th>
+                              <th>REVENUE GENERATED</th>
+                              <th>FREQUENCY</th>
+                              <th>STATUS</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-sm"></tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer pt-3" id="footer">
+          <!-- CONTENT COMING FROM NAV.JS -->
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="createRevenueHeadModal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createRevenueHeadModalLabel3">
+            Create Revenue Head
+          </h5>
+          <button type="button" class="btn-close flex justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close">
+            <iconify-icon icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="revHeadName" class="form-label">Revenue Head Name</label>
+              <input type="text" id="revHeadName" class="form-control" placeholder="Enter revenue head name" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="amount" class="form-label">Amount To Be Paid</label>
+              <input type="text" id="amount" class="form-control" placeholder="XXXX" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="code" class="form-label">Revenue Code</label>
+              <input type="text" id="code" class="form-control" placeholder="Code" />
+            </div>
+            <div class="col mb-3 form-group">
+              <label for="category" class="form-label">Select category</label>
+              <select id="category" class="form-select">
+                <option selected>Select category</option>
+                <option value="corporate">Corporate</option>
+                <option value="individual">Individual</option>
+                <option value="state">State Agency</option>
+                <option value="federal">Federal Agency</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="status" class="form-label">Status</label>
+              <select id="status" class="form-select">
+                <option selected>Select status</option>
+                <option value="1">Approved</option>
+                <option value="2">Pending</option>
+              </select>
+            </div>
+            <div class="col mb-3 form-group">
+              <label for="frequency" class="">Frequency</label>
+              <select class="form-select" id="frequency">
+                <option selected>Select from list</option>
+                <option value="one-off">One-off</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" id="createRevBtn" class="btn btn-primary">
+            Create Revenue Head
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editRevenueHeadModal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editRevenueHeadModalLabel3">
+            Edit Revenue Head
+          </h5>
+          <button type="button" class="btn-close flex justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close">
+            <iconify-icon icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="revHeadId" />
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="revHeadName" class="form-label">Revenue Head Name</label>
+              <input type="text" id="revHeadName" class="form-control" placeholder="Enter revenue head name" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="amount" class="form-label">Amount To Be Paid</label>
+              <input type="text" id="amount" class="form-control" placeholder="XXXX" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="code" class="form-label">Revenue Code</label>
+              <input type="text" id="code" class="form-control" placeholder="Code" />
+            </div>
+            <div class="col mb-3 form-group">
+              <label for="category" class="form-label">Select category</label>
+              <select id="category" class="form-select">
+                <option value="corporate">Corporate</option>
+                <option value="individual">Individual</option>
+                <option value="state">State Agency</option>
+                <option value="federal">Federal Agency</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col mb-3 form-group">
+              <label for="status" class="form-label">Status</label>
+              <select id="status" class="form-select">
+                <option value="1">Approved</option>
+                <option value="2">Pending</option>
+              </select>
+            </div>
+            <div class="col mb-3 form-group">
+              <label for="frequency" class="">Frequency</label>
+              <select class="form-select" id="frequency">
+                <option selected>Select from list</option>
+                <option value="one-off">One-off</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" id="editRevenueHeadSubmitBtn" class="btn btn-primary">
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // const dataTable = new simpleDatatables.DataTable("#revenue-table");
+
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/revenue.js"></script>
+  <script>
+    showActiveNav("revenue-nav");
+    showBreadCrumb("Revenue Head");
+  </script>
+</body>
+
+</html>

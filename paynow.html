@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PayJigawa</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  <link id="pagestyle" href="users/assets/css/argon-dashboard.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="flex shadow-sm justify-between md:px-10 px-4 bg-white py-3">
+    <div class="container flex justify-between items-center" id="theHeader"></div>
+  </header>
+
+  <div class="container min-vh-100 flex-col justify-center">
+    <!-- Content -->
+    <div class="multisteps-form">
+      <!--progress bar-->
+      <div class="row mt-8">
+        <div class="col-12 col-lg-8 mx-auto my-5">
+          <div class="multisteps-form__progress">
+            <button class="multisteps-form__progress-btn js-active" type="button" title="Invoice Number">
+              <span>Invoice Number</span>
+            </button>
+            <button class="multisteps-form__progress-btn" type="button" title="Invoice Status">
+              <span>Invoice Status</span>
+            </button>
+            <button class="multisteps-form__progress-btn" type="button" title="Make Payment">
+              <span>Make Payment</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-lg-8 m-auto">
+        <form class="multisteps-form__form">
+
+          <!--single form panel-->
+          <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+            <div class="multisteps-form__content">
+              <div class="row mt-3">
+                <div action="" class="w-full">
+                  <h1 class="fontBold text-dark text-2xl" id="title">
+                    Verify Invoice
+                  </h1>
+                  <h1 class="my-3 text-dark">Invoice Number</h1>
+
+                  <div class="form-group mb-4">
+                    <label for="">Input your invoice number*</label>
+                    <input type="text" class="form-control" id="invoice_number" />
+                  </div>
+
+                  <div class="verifiyer text-center mb-3"></div>
+
+                  <button class="button w-full js-btn-next" type="button" id="verifyInvoice">
+                    Verify
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--single form panel-->
+          <div class="card multisteps-form__panel p-3 border-radius-xl bg-white" data-animation="FadeIn">
+            <div class="multisteps-form__content">
+              <div class="flex items-center">
+                <div action="" class="w-[100%]">
+                  <h1 class="fontBold text-2xl text-center text-dark">
+                    Verify Invoice
+                  </h1>
+
+                  <div class="flex justify-center mt-5">
+                    <img src="./assets/img/notPaid.svg" alt="" />
+                  </div>
+
+                  <p class="text-center text-dark mt-2 text-xl">
+                    This invoice has not been paid!!
+                  </p>
+
+                  <p class="text-center text-dark mt-3 text-sm text-lg">
+                    Please pay before the due date
+                  </p>
+
+                  <div class="flex justify-center">
+                    <div class="flex justify-between mt-4 gap-3">
+                      <a href="index.html" class="outline-btn flex gap-3 items-center" type="button">
+                        Return to the homepage
+                      </a>
+
+                      <button type="button" class="button flex gap-3 items-center js-btn-next">
+                        Preview & Pay Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/aos-master/dist/aos.js"></script>
+  <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/payment.js"></script>
+  <script src="assets/js/tabHandler.js"></script>
+  <script src="assets/js/invoice.js"></script>
+  <script src="assets/js/verifyInvoice.js"></script>
+  <script src="assets/js/landingcms.js"></script>
+  <script src="assets/js/multistep-form.js"></script>
+</body>
+
+</html>

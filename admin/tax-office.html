@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/css/tableStyle.css">
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <div class="position-relative">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-lg-4">
+              <h3 class="text-white">Tax Offices</h3>
+            </div>
+            <div class="col-lg-8 col-sm-12 d-flex flex-wrap ms-auto" id="mda-actions">
+              <div class="ms-auto filterBtn">
+                <a href="javascript:;" class="btn btn-icon btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#filterTaxOfficeModal">
+                  <span class="btn-inner--text">Filter</span>
+                  <span class="btn-inner--icon"><i class="fa fa-filter"></i></span>
+                </a>
+              </div>
+              <div class="createMdaBtn">
+                <a href="#" class="btn btn-icon btn-primary ms-3" data-bs-toggle="modal"
+                  data-bs-target="#createTaxOfficeModal">
+                  <span class="btn-inner--text">Create New Office</span>
+                  <span class="btn-inner--icon"><i class="fa fa-plus text-sm ms-2"></i></span>
+                </a>
+              </div>
+              <div class="ms-3 downloadBtn">
+                <button class="btn btn-outline-primary bg-white" type="button" onclick="exportData()">
+                  Download List<i class="fas fa-cloud-download-alt ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table" id="tax-office-datatable">
+                    <thead>
+                      <tr>
+                        <th>S/N</th>
+                        <th>Office Name</th>
+                        <th>Office Code</th>
+                        <th>Location</th>
+                        <th>Contact Phone</th>
+                        <th>Contact Email</th>
+                        <th>Region</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer pt-3" id="footer">
+        <!-- CONTENT COMING FROM NAV.JS -->
+      </footer>
+    </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="bulkCreateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    role="dialog" aria-labelledby="bulkCreateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bulkCreateModalLabel">
+            Bulk Create MDA
+          </h5>
+          <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+            <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Upload Your File</label>
+            <input type="file" class="form-control" id="csv-file" accept=".csv" />
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <a href="../assets/mdatemplate.csv" class="btn btn-primary" download>Download Template</a>
+          <div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" id="submitBulkCreate" class="btn btn-primary">Upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="errorMessage"></p>
+          <div id="errorList" class="list-group"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="createTaxOfficeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="createTaxOfficeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createTaxOfficeModalLabel">Create New Tax Office</h5>
+        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+          <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="office_name" class="form-label">Office Name</label>
+            <input type="text" class="form-control" placeholder="Enter office name" id="office_name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="office_code" class="form-label">Office Code</label>
+            <input type="text" class="form-control" placeholder="Enter office code" id="office_code" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" placeholder="Enter location" id="location" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="contact_phone" class="form-label">Contact Phone</label>
+            <input type="text" class="form-control" placeholder="Enter contact phone" id="contact_phone" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="contact_email" class="form-label">Contact Email</label>
+            <input type="email" class="form-control" placeholder="Enter contact email" id="contact_email" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="region" class="form-label">Region</label>
+            <select id="region" class="form-select">
+              <option value="">Select region</option>
+              <option value="South West">South West</option>
+              <option value="South East">South East</option>
+              <option value="South South">South South</option>
+              <option value="North West">North West</option>
+              <option value="North East">North East</option>
+              <option value="North Central">North Central</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="createTaxOfficeBtn" class="btn btn-primary">Create Tax Office</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Tax Office Modal -->
+<div class="modal fade" id="editTaxOfficeModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="editTaxOfficeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editTaxOfficeModalLabel">Edit Tax Office</h5>
+        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+          <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="edit_office_id" />
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="edit_office_name" class="form-label">Office Name</label>
+            <input type="text" class="form-control" placeholder="Enter office name" id="edit_office_name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="edit_office_code" class="form-label">Office Code</label>
+            <input type="text" class="form-control" placeholder="Enter office code" id="edit_office_code" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="edit_location" class="form-label">Location</label>
+            <input type="text" class="form-control" placeholder="Enter location" id="edit_location" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="edit_contact_phone" class="form-label">Contact Phone</label>
+            <input type="text" class="form-control" placeholder="Enter contact phone" id="edit_contact_phone" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="edit_contact_email" class="form-label">Contact Email</label>
+            <input type="email" class="form-control" placeholder="Enter contact email" id="edit_contact_email" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col form-group mb-3">
+            <label for="edit_region" class="form-label">Region</label>
+            <select id="edit_region" class="form-select">
+              <option value="">Select region</option>
+              <option value="South West">South West</option>
+              <option value="South East">South East</option>
+              <option value="South South">South South</option>
+              <option value="North West">North West</option>
+              <option value="North East">North East</option>
+              <option value="North Central">North Central</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="editTaxOfficeBtn" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="modal fade" id="filterTaxOfficeModal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filterTaxOfficeModalLabel3">Filter</h5>
+          <button type="button" class="btn-close d-flex text-dark justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close">
+            <iconify-icon icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body" id="filterDropdown">  
+            <div class="form-group">
+                <label for="office_name_filter">Office Name:</label>
+                <input type="text" id="office_name_filter" class="form-control" placeholder="Enter office name" />
+            </div>
+            <div class="form-group">
+                <label for="office_code_filter">Office Code:</label>
+                <input type="text" id="office_code_filter" class="form-control" placeholder="Enter office code" />
+            </div>
+            <div class="form-group">
+                <label for="region_filter">Region:</label>
+                <select id="region_filter" class="form-control">
+                <option value="">Select region</option>
+                <option value="South West">South West</option>
+                <option value="South East">South East</option>
+                <option value="South South">South South</option>
+                <option value="North West">North West</option>
+                <option value="North East">North East</option>
+                <option value="North Central">North Central</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" id="clearFilter" class="btn btn-primary">
+            Clear filter
+          </button>
+          <div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button type="button" id="applyFilter" class="btn btn-primary">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/datatables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+
+  <script>
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/taxoffice.js"></script>
+  <script>
+    showActiveNav("taxoffice-nav");
+    showBreadCrumb("Tax Office");
+  </script>
+</body>
+
+</html>

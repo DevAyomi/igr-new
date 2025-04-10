@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <title>PayJigawa</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/create.css" />
+</head>
+
+<body class="bg-gray-50">
+  <div class="profile-web-form-wrapper">
+    <div class="bg-properties bg-default-color">
+      <div class="mx-auto min-h-screen flex flex-col">
+        <!-- Header -->
+        <div class="flex container px-4 justify-between items-center py-4">
+          <a href="../index.html">
+            <div class="flex items-center">
+              <img src="./img/jigawa.png" width="70" />
+              <span class="font-semibold text-xl">PayJigawa</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Form Tab -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 lg:my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">Pay Now</h1>
+            <p class="text-gray-600 mb-8">
+              Complete your payment in simple steps.
+            </p>
+          </div>
+
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <button class="flex gap-1 items-center text-[#17A349]" onclick="history.go(-1)">
+              <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+            <h2 class="text-xl font-semibold mb-2">Invoice validation</h2>
+            <p class="text-gray-600 mb-4">
+              Please provide your invoice number to validate and proceed with
+              the payment process.
+            </p>
+
+            <form onSubmit="return false;">
+              <!-- Radio Options -->
+              <div class="form-floating mb-4">
+                <input type="text" class="form-control" name="invoice_number" placeholder="Enter Your Invoice Number"
+                  id="invoice_number" />
+                <label for="invoice_number">Invoice Number</label>
+              </div>
+              <!-- description related to the above information -->
+              <p class="text-gray-500 mb-4 text-sm">
+                This will help us verify the status of your invoice payment.
+              </p>
+
+              <!-- Submit Button -->
+              <button type="button" id="verifyInvoice"
+                class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition">
+                Verify
+              </button>
+              <div id="msg_box"></div>
+            </form>
+          </div>
+        </div>
+
+        <!-- invoice success -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">Pay your tax</h1>
+            <p class="text-gray-600 mb-8">
+              Complete your payment in simple steps.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Invoice validation</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Invoice Status</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white w-full flex justify-center space-y-6 flex-col items-center p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <div class="w-full text-left">
+              <button class="flex gap-1 items-center text-[#17A349]" onclick="nextPrev(-1)">
+                <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+                <span>Go Back</span>
+              </button>
+            </div>
+            <div id="errorIcon" class="hidden">
+              <img src="../assets/img/notPaid.svg" alt="Status" id="imgPay" />
+            </div>
+
+            <div id="successIcon" class="hidden">
+              <svg width="400" height="100" viewBox="0 0 30 30" class="text-9xl" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="13.4301" cy="13.4301" r="13.4301" fill="#BCE8C0"></circle>
+                <circle cx="13.4301" cy="13.4301" r="10.6366" fill="#1EB12D"></circle>
+                <circle cx="13.4299" cy="13.4301" r="8.27291" fill="#18902C"></circle>
+                <path
+                  d="M9.40263 13.4033C9.69091 13.1236 10.158 13.1231 10.4466 13.4023L11.6708 14.5862C11.7651 14.6775 11.9179 14.6774 12.0122 14.5859L16.1946 10.5251C16.4847 10.2435 16.9552 10.2443 17.2442 10.5269C17.5316 10.8081 17.5308 11.262 17.2422 11.5422L12.6406 16.0098C12.1993 16.4382 11.4839 16.4382 11.0425 16.0098L9.40263 14.4177C9.11416 14.1376 9.11416 13.6834 9.40263 13.4033Z"
+                  fill="white"></path>
+              </svg>
+            </div>
+            <h2 id="textPay" class="text-xl font-semibold text-gray-800">
+              -
+            </h2>
+
+            <a href="../invoiceGeneration/invoice.html" id="urlPay"
+              class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition text-center">Pay
+              Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="./tabHandler.js"></script>
+  <script src="./assets/js/paynow.js"></script>
+</body>
+
+</html>

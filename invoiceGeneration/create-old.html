@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>PayJigawa</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome-all.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" type="text/css" href="assets/css/colors/switch.css" />
+  <!-- Color Alternatives -->
+  <link href="assets/css/colors/color-2.css" rel="alternate stylesheet" type="text/css" title="color-2" />
+  <link href="assets/css/colors/color-3.css" rel="alternate stylesheet" type="text/css" title="color-3" />
+  <link href="assets/css/colors/color-4.css" rel="alternate stylesheet" type="text/css" title="color-4" />
+  <link href="assets/css/colors/color-5.css" rel="alternate stylesheet" type="text/css" title="color-5" />
+  <style>
+    .title {
+      color: #02a75a;
+    }
+
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+      outline: 0;
+      padding-left: 20px;
+      -webkit-appearance: none;
+      border: 3px solid #02a75a;
+      width: 100%;
+    }
+
+    .select2-container--default .select2-selection--multiple {
+      background-color: white;
+      border-radius: 4px;
+      cursor: text;
+      padding-bottom: 5px;
+      padding-right: 5px;
+      position: relative;
+      height: 50px;
+      padding-left: 20px;
+      -webkit-appearance: none;
+      border: 3px solid #d8d9db;
+      width: 100%;
+    }
+
+    .select2-container {
+      width: 76% !important;
+    }
+
+    /* Container for Success Message */
+    .success-container {
+      text-align: center;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    /* Success Icon */
+    .success-icon {
+      font-size: 50px;
+      color: #4caf50;
+      margin-bottom: 20px;
+    }
+
+    /* Title */
+    .success-box h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    /* Success Message */
+    .success-message {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* Invoice Details */
+    .invoice-details {
+      background: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    .invoice-details h2 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .invoice-details p {
+      font-size: 14px;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    /* Button Group */
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* Buttons */
+    .button {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .download-button {
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .download-button:hover {
+      background-color: #45a049;
+    }
+
+    .secondary-button {
+      background-color: #ddd;
+      color: #333;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .secondary-button:hover {
+      background-color: #ccc;
+    }
+
+    .validationBox {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      /* Add space between items */
+      justify-content: space-evenly;
+      /* Center the items */
+    }
+
+    .wizard-checked {
+      flex: 1 1 100px;
+      /* Allow each item to take up space and shrink if needed */
+      max-width: 200px;
+      /* Limit the maximum width for each item */
+      text-align: center;
+    }
+
+    .checkbox-circle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .checkbox-circle input[type="radio"] {
+      display: none;
+      /* Hide default radio */
+    }
+
+    .checkbox-circle .checkmark {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #02a75a;
+      border-radius: 50%;
+      margin-bottom: 5px;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .checkbox-circle input[type="radio"]:checked+.checkmark {
+      background-color: #02a75a;
+    }
+
+    .checkbox-circle input[type="radio"]:checked+.checkmark::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    textarea {
+      width: 76%;
+      height: 50px;
+      padding-left: 20px;
+      -webkit-appearance: none;
+      border: 3px solid #d8d9db;
+      height: 170px;
+    }
+
+    textarea:focus {
+      border: 3px solid #02a75a;
+    }
+
+    .form-control {
+      border: 3px solid #d8d9db !important;
+    }
+
+    .form-control:focus {
+      border: 3px solid #02a75a !important;
+    }
+
+    .selectCategory {
+      width: 76%;
+      height: 50px;
+      padding-left: 20px;
+      -webkit-appearance: none;
+      border: 3px solid #d8d9db;
+    }
+
+    .selectCategory:focus {
+      border: 3px solid #02a75a;
+    }
+
+    @media (max-width: 768px) {
+      .wizard-form-input {
+        gap: 0.5rem;
+      }
+
+      .wizard-checked {
+        flex: 1 1 calc(50% - 1rem);
+        /* Adjust to two columns on smaller screens */
+      }
+    }
+
+    @media (max-width: 1199px) {
+      .wizard-title {
+        margin-top: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wizard-checked {
+        flex: 1 1 100%;
+        /* Stack items in a single column */
+      }
+
+      textarea {
+        width: 100%;
+      }
+
+      .wizard-form-input select {
+        width: 100%;
+      }
+
+      .select2-container {
+        width: 100% !important;
+      }
+
+      .amountBox {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper wizard d-flex clearfix multisteps-form position-relative">
+    <div class="steps order-2 position-relative w-25">
+      <div class="multisteps-form__progress">
+        <span class="multisteps-form__progress-btn js-active" title="Customer Validation"><i
+            class="far fa-user"></i><span>Customer Validation</span></span>
+        <span class="multisteps-form__progress-btn" title="Personal Details"><i class="far fa-user"></i><span>Personal
+            Details</span></span>
+        <span class="multisteps-form__progress-btn" title="Billing Information"><i
+            class="far fa-credit-card"></i><span>Billing Information</span></span>
+        <span class="multisteps-form__progress-btn" title="Verify"><i class="fa fa-check"></i><span>Verify</span></span>
+        <span class="multisteps-form__progress-btn" title="Generate Invoice"><i class="fa fa-print"></i><span>Generate
+            Invoice</span></span>
+      </div>
+    </div>
+    <form class="multisteps-form__form w-75 order-1" action="#" id="wizard">
+      <div style="position: absolute; z-index: 10">
+        <a href="../index.html" class="d-flex gap-1 align-items-center m-4">
+          <div class="flex items-center">
+            <img src="../assets/img/img/jigawa.png" style="width: 60px" />
+          </div>
+          <p class="text-black fontBold" style="font-size: 20px; color: #000; font-weight: bold">
+            PayJigawa
+          </p>
+        </a>
+      </div>
+
+      <div class="form-area position-relative">
+        <!-- div 1 -->
+        <div class="multisteps-form__panel js-active" data-animation="slideHorz">
+          <div class="wizard-forms">
+            <div class="inner pb-100 clearfix">
+              <div class="wizard-title">
+                <h4 class="title">Pay Your Tax</h4>
+              </div>
+              <div class="wizard-form-field pb-100">
+                <label style="font-size: 24px">Choose Your Validation Type</label>
+                <div class="wizard-form-input">
+                  <div class="wizard-checked m-0">
+                    <label class="checkbox-circle h5">
+                      <input type="radio" name="validation_type" value="TaxRegID"
+                        onclick="updateValidationType('TaxRegID')" />
+                      <span class="checkmark"></span>
+                      Tax RegID.
+                    </label>
+                  </div>
+                  <div class="wizard-checked m-0">
+                    <label class="checkbox-circle h5">
+                      <input type="radio" name="validation_type" value="TIN" onclick="updateValidationType('TIN')" />
+                      <span class="checkmark"></span>
+                      TIN
+                    </label>
+                  </div>
+                  <div class="wizard-checked m-0">
+                    <label class="checkbox-circle h5">
+                      <input type="radio" checked name="validation_type" value="Email"
+                        onclick="updateValidationType('Email')" />
+                      <span class="checkmark"></span>
+                      Email
+                    </label>
+                  </div>
+                  <div class="wizard-checked m-0">
+                    <label class="checkbox-circle h5">
+                      <input type="radio" name="validation_type" value="Phone"
+                        onclick="updateValidationType('Phone')" />
+                      <span class="checkmark"></span>
+                      Phone
+                    </label>
+                  </div>
+                </div>
+
+                <div id="TINField" class="wizard-form-input" style="display: none">
+                  <!-- <label>TIN</label> -->
+                  <input type="text" name="tin" placeholder="Enter your TIN number" class="firstInpts" />
+                </div>
+                <div id="TaxRegIDField" class="wizard-form-input" style="display: none">
+                  <!-- <label>Tax regID</label> -->
+                  <input type="text" name="taxregId" placeholder="Enter your tax regID" class="firstInpts" />
+                </div>
+                <div id="EmailField" class="wizard-form-input">
+                  <!-- <label>Email</label> -->
+                  <input type="email" name="email" placeholder="Enter your email address" class="firstInpts" />
+                </div>
+                <div id="PhoneField" class="wizard-form-input" style="display: none">
+                  <!-- <label>Phone</label> -->
+                  <input type="phone" name="phone" placeholder="Enter your phone number" class="firstInpts" />
+                </div>
+                <div class="wizard-form-input mb-60 mt-60">
+                  <div class="line"></div>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <ul>
+                <li>
+                  <span title="fill Manually" class="js-btn-next">Fill Manually</span>
+                </li>
+                <li>
+                  <span title="NEXT" id="submitFetch" onclick="fetchUserDetails()">Fetch User <i
+                      class="fa fa-arrow-right"></i></span>
+                </li>
+                <li class="js-btn-next d-none" id="nextPage"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- div 2 -->
+        <div class="multisteps-form__panel" data-animation="slideHorz">
+          <div class="wizard-forms">
+            <div class="inner pb-100 clearfix">
+              <div class="wizard-title">
+                <h4 class="title">Pay Your Tax</h4>
+              </div>
+              <div class="wizard-form-field pb-100">
+                <div class="wizard-form-input">
+                  <label>Select Category</label>
+                  <select name="category" class="invInput selCateg">
+                    <option>--Select--</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Corporate">Corporate</option>
+                  </select>
+                </div>
+
+                <div id="categ_container">
+                  <div class="wizard-form-input">
+                    <label>First Name*</label>
+                    <input type="text" name="first_name" class="invInput required" />
+                  </div>
+                  <div class="wizard-form-input">
+                    <label>Surname*</label>
+                    <input type="text" name="surname" class="invInput required" />
+                  </div>
+                </div>
+
+                <div class="wizard-form-input">
+                  <label>Email*</label>
+                  <input type="email" name="email" class="invInput required" />
+                </div>
+                <div class="wizard-form-input">
+                  <label>Phone Number*</label>
+                  <input type="tel" name="phone" class="invInput required" />
+                </div>
+                <div class="wizard-form-input">
+                  <label>TIN (Optional)</label>
+                  <input type="text" name="tin" class="invInput" />
+                </div>
+                <div class="wizard-form-input">
+                  <label>State*</label>
+                  <select name="state" class="invInput required" id="repSelectState"></select>
+                </div>
+                <div class="wizard-form-input">
+                  <label>LGA*</label>
+                  <select name="lga" class="invInput required" id="repSelectLGA"></select>
+                </div>
+                <div class="wizard-form-input">
+                  <label>Address*</label>
+                  <input type="text" class="invInput required" name="address" />
+                </div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <ul>
+                <li>
+                  <span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK
+                  </span>
+                </li>
+                <li>
+                  <span class="js-btn-next" title="NEXT">Next <i class="fa fa-arrow-right"></i></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- div 3 -->
+        <div class="multisteps-form__panel" data-animation="slideHorz">
+          <div class="wizard-forms section-padding">
+            <div class="inner pb-100 clearfix">
+              <div class="wizard-title">
+                <h4 class="title">Pay Your Tax</h4>
+              </div>
+              <div class="wizard-form-field pb-100">
+                <div class="wizard-form-input">
+                  <label>Assessment Item</label>
+                  <select class="form-select js-example-basic-multiple revenue_item" id="revenue_items" name="">
+                    <option>--Select--</option>
+                  </select>
+                </div>
+
+                <div class="wizard-form-input">
+                  <label>Amount To Be Paid*</label>
+                  <input type="text" class="amount required" name="amount" />
+                </div>
+
+                <div class="wizard-form-input">
+                  <label>Description*</label>
+                  <input type="text" class="description required" name="description" />
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <ul>
+                <li>
+                  <span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK
+                  </span>
+                </li>
+                <li>
+                  <span title="PREVIEW" onclick="previewInfo()">PREVIEW <i class="fa fa-arrow-right"></i></span>
+                </li>
+                <li>
+                  <span class="js-btn-next d-none" id="nextPreview"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- div 4 -->
+        <div class="multisteps-form__panel" data-animation="slideHorz">
+          <div class="wizard-forms">
+            <div class="inner pb-100 clearfix">
+              <div class="wizard-title">
+                <h4 class="title">Pay Your Tax</h4>
+              </div>
+              <div class="wizard-form-field mb-85">
+                <div id="categ_container2">
+                  <div class="wizard-form-input">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" class="invInput2" readonly />
+                  </div>
+                  <div class="wizard-form-input">
+                    <label>Surname</label>
+                    <input type="text" name="surname" class="invInput2" readonly />
+                  </div>
+                </div>
+
+                <div class="wizard-form-input">
+                  <label>Email</label>
+                  <input type="text" name="email" class="invInput2" readonly />
+                </div>
+                <div class="wizard-form-input">
+                  <label>Phone Number</label>
+                  <input type="text" name="phone" class="invInput2" readonly />
+                </div>
+                <div class="wizard-form-input">
+                  <label>TIN</label>
+                  <input type="text" name="tin" class="invInput2" readonly />
+                </div>
+                <div class="wizard-form-input">
+                  <label>State</label>
+                  <input type="text" name="state" class="invInput2" readonly />
+                </div>
+                <div class="wizard-form-input">
+                  <label>LGA</label>
+                  <input type="text" name="lga" class="invInput2" readonly />
+                </div>
+                <div class="wizard-form-input">
+                  <label>Address</label>
+                  <input type="text" class="invInput2" name="address" readonly />
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <ul>
+                <li>
+                  <span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK
+                  </span>
+                </li>
+                <li>
+                  <span title="Generate Invoice" id="genInvoice" onclick="generateInvoice()">Generate Invoice <i
+                      class="fa fa-arrow-right"></i>
+                  </span>
+                </li>
+                <li>
+                  <span class="js-btn-next d-none" id="theNextAfterClick">next</span>
+                </li>
+              </ul>
+
+              <div id="msg_box"></div>
+            </div>
+          </div>
+        </div>
+        <!-- div 5 -->
+        <div class="multisteps-form__panel" data-animation="slideHorz">
+          <div class="wizard-forms">
+            <div class="inner pb-100 clearfix">
+              <div class="wizard-title">
+                <h4 class="title">Pay Your Tax</h4>
+              </div>
+              <div class="wizard-form-field mb-85">
+                <div class="success-container">
+                  <div class="success-box">
+                    <div class="success-icon">
+                      <i class="fa fa-check-circle"></i>
+                    </div>
+                    <h1>Invoice Generated Successfully!</h1>
+                    <p class="success-message">
+                      Your invoice has been generated successfully. You can
+                      now preview it or proceed to make payment.
+                    </p>
+
+                    <a href="#" class="btn btn-primary" style="background: #4daf51; color: #fff"
+                      id="previewInvoice">Preview</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/jquery.validate.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/conditionize.flexible.jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/slick.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/switch.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/createInvoice.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".js-example-basic-multiple").select2();
+    });
+  </script>
+  <script>
+    function updateValidationType(selectedType) {
+      // List all the field IDs
+      const fields = [
+        "TINField",
+        "TaxRegIDField",
+        "EmailField",
+        "PhoneField",
+      ];
+
+      // Loop through fields and hide all of them
+      fields.forEach((fieldId) => {
+        document.getElementById(fieldId).style.display = "none";
+      });
+
+      // Show the selected field
+      const selectedFieldId = `${selectedType}Field`;
+      const selectedField = document.getElementById(selectedFieldId);
+      if (selectedField) {
+        selectedField.style.display = "block";
+      }
+    }
+
+    // Set TIN as the default visible field on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      updateValidationType("Email");
+    });
+  </script>
+</body>
+
+</html>

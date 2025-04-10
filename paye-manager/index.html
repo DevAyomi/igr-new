@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <title>PayJigawa</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/create.css" />
+</head>
+
+<body class="bg-gray-50">
+  <div class="profile-web-form-wrapper">
+    <div class="bg-properties bg-default-color">
+      <div class="mx-auto min-h-screen flex flex-col">
+        <!-- Header -->
+        <div class="flex container px-4 justify-between items-center py-4">
+          <a href="../index.html">
+            <div class="flex items-center">
+              <img src="assets/img/jigawa.png" width="70" />
+              <span class="font-semibold text-xl">PayJigawa</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Form Tab -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 lg:my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">PAYE Manager</h1>
+            <p class="text-gray-600">
+              Register to manage your taxes, access financial services, and
+              streamline your business operations.
+            </p>
+          </div>
+
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <button class="flex gap-1 items-center text-[#17A349]" onclick="history.go(-1)">
+              <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+            <h2 class="text-xl font-semibold mb-2">Customer validation</h2>
+            <p class="text-gray-600 mb-4">
+              Select your preferred identification method
+            </p>
+
+            <form onSubmit="return false;">
+              <!-- Radio Options -->
+              <div class="mb-4 flex gap-4 flex-wrap items-center">
+                <div class="form-check mb-2">
+                  <input class="form-check-input firstInpts" type="radio" name="identificationMethod" value="TIN"
+                    id="TIN" />
+                  <label class="form-check-label" for="TIN">TIN</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input firstInpts" type="radio" name="identificationMethod" value="Email"
+                    id="Email" checked />
+                  <label class="form-check-label" for="Email">Email</label>
+                </div>
+
+              </div>
+
+              <!-- Floating Input -->
+              <div class="form-floating mb-4">
+                <input type="text" class="form-control" id="identificationInput" placeholder=" " />
+                <label for="identificationInput">Enter your <span id="identiMethod">Email</span></label>
+              </div>
+              <!-- description related to the above information -->
+              <p class="text-gray-500 mb-4 text-sm">
+                This will help us verify your identity and access your
+                account.
+              </p>
+
+              <!-- Submit Button -->
+              <button onclick="fetchUserDetails()" id="submitFetch"
+                class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-500 transition">
+                Continue
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Business Information -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">PAYE Manager</h1>
+            <p class="text-gray-600 mb-8">
+              Register to manage your taxes, access financial services, and
+              streamline your business operations.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Customer Validation</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start mb-2">
+                <div class="step-circle active"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Business Information</span>
+              </div>
+              <div class="step-line"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Employee Details</span>
+              </div>
+              <div class="step-line"></div>
+
+
+            </div>
+          </div>
+
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <div class="block sm:hidden">
+              <div class="flex items-center justify-between">
+                <div class="cursor-pointer">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M21.5607 26.0607C20.9749 26.6464 20.0251 26.6464 19.4393 26.0607L10.4393 17.0607C9.85355 16.4749 9.85355 15.5251 10.4393 14.9393L19.4393 5.93934C20.0251 5.35355 20.9749 5.35355 21.5607 5.93934C22.1464 6.52513 22.1464 7.47487 21.5607 8.06066L13.6213 16L21.5607 23.9393C22.1464 24.5251 22.1464 25.4749 21.5607 26.0607Z"
+                      fill="#02a75a"></path>
+                  </svg>
+                </div>
+                <!---->
+              </div>
+              <div class="py-[22px]">
+                <svg width="100%" height="3" viewBox="0 0 100 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="3" fill="#DBE7FD"></rect>
+                  <rect width="390" height="3" fill="#02a75a"></rect>
+                </svg>
+              </div>
+              <!---->
+            </div>
+
+            <button class="flex gap-1 items-center text-[#17A349]" onclick="nextPrev(-1)">
+              <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+            <h2 class="text-xl font-semibold mb-2">Business Information</h2>
+
+            <div id="businessContainer">
+
+            </div>
+
+            
+
+            
+
+
+          </div>
+        </div>
+
+        <!-- manually fill personal details -->
+        <div class="sm:flex lg:mx-auto max-w-6xl lg:gap-10 my-8 form-tab">
+          <div class="w-full sm:w-1.4/3 hidden sm:block">
+            <h1 class="text-xl lg:text-5xl font-bold mb-4">PAYE Manager</h1>
+            <p class="text-gray-600 mb-8">
+              Register to manage your taxes, access financial services, and
+              streamline your business operations.
+            </p>
+            <div class="flex flex-col">
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Customer Validation</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start mb-2">
+                <div class="step-circle completed flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="ml-4 font-semibold hidden sm:block">Business Information</span>
+              </div>
+              <div class="step-line step-active"></div>
+
+              <div class="flex items-start">
+                <div class="step-circle active"></div>
+                <span class="ml-4 font-semibold hidden sm:block">Employee Details</span>
+              </div>
+              <div class="step-line"></div>
+
+
+            </div>
+          </div>
+
+          <div class="bg-white w-full p-4 lg:p-10 sm:max-w-xl lg:rounded-2xl">
+            <div class="block sm:hidden">
+              <div class="flex items-center justify-between">
+                <div class="cursor-pointer">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M21.5607 26.0607C20.9749 26.6464 20.0251 26.6464 19.4393 26.0607L10.4393 17.0607C9.85355 16.4749 9.85355 15.5251 10.4393 14.9393L19.4393 5.93934C20.0251 5.35355 20.9749 5.35355 21.5607 5.93934C22.1464 6.52513 22.1464 7.47487 21.5607 8.06066L13.6213 16L21.5607 23.9393C22.1464 24.5251 22.1464 25.4749 21.5607 26.0607Z"
+                      fill="#02a75a"></path>
+                  </svg>
+                </div>
+                <!---->
+              </div>
+              <div class="py-[22px]">
+                <svg width="100%" height="3" viewBox="0 0 100 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100%" height="3" fill="#DBE7FD"></rect>
+                  <rect width="260" height="3" fill="#02a75a"></rect>
+                </svg>
+              </div>
+              <!---->
+            </div>
+
+            <button class="flex gap-1 items-center text-[#17A349]" onclick="nextPrev(-1)">
+              <iconify-icon icon="eva:arrow-back-outline"></iconify-icon>
+              <span>Go Back</span>
+            </button>
+            <h2 class="text-xl font-semibold mb-2">Employee(s) Details</h2>
+
+            <h2 class="text-lg text-[#02A75A] font-bold" id="business-name">-</h2>
+
+            <table class="mt-10 table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Monthly Tax</th>
+                  <th>Date Created</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm text-gray-600" id="employeeContainer">
+                
+              </tbody>
+            </table>  
+
+            <p class="text-center text-lg mb-4">Please login into your account to manage and generate Invoices for your employees.</p>
+            <a href="../signin.html"
+              class="block text-center w-full bg-green-600 disabled:bg-slate-300 text-white py-3 rounded-lg hover:bg-green-500 transition">
+              Login
+          </a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="./tabHandler.js"></script>
+  <script src="assets/js/paye.js"></script>
+</body>
+
+</html>

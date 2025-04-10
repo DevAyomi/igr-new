@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="assets/css/tableStyle.css">
+  <style>
+    .preview-card {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .info-row {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .info-value {
+      font-weight: 500;
+      color: #2c3e50;
+    }
+
+    .identifier-badge {
+      background-color: #e9ecef;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .amount-value {
+      color: #28a745;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white;">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid">
+      <div class="position-relative">
+        <div class="container-fluid py-4" id="presumptive-tax-container">
+          <div class="row">
+            <div class="col-lg-6 col-sm-12">
+              <h4 class="text-white">Presumptive Tax</h4>
+            </div>
+            <div class="col-lg-6 col-sm-12 d-flex ms-auto">
+              <a href="../register/index.html?createdby=admin" class="btn btn-icon btn-primary ms-auto"
+                data-bs-toggle="modal" data-bs-target="#createPresumptive">
+                <span class="btn-inner--text">Generate Assessment</span>
+                <span class="btn-inner--icon"><i class="fa fa-plus text-sm ms-2"></i></span>
+              </a>
+              <div class="ms-3">
+                <button class="btn btn-outline-primary bg-white" type="button" onclick="exportData()">
+                  Download Report<i class="fas fa-cloud-download-alt ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table" id="datatable">
+                      <thead>
+                        <tr>
+                          <th>S/N</th>
+                          <th>Payer ID</th>
+                          <th>MDA</th>
+                          <th>Revenue Head</th>
+                          <th>Name</th>
+                          <th>Invoice Number</th>
+                          <th>Amount</th>
+                          <th>Date Created</th>
+                          <th>Due Date</th>
+                          <th>Payment Status</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-sm">
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <footer class="footer pt-3" id="footer">
+            <!-- CONTENT COMING FROM NAV.JS -->
+          </footer>
+        </div>
+      </div>
+  </main>
+
+  <div class="modal fade" id="createPresumptive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="createPresumptiveLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createPresumptiveLabel">Generate Presumptive Tax</h5>
+          <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+            <iconify-icon class="text-lg" icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-tab" style="width: 100%;">
+            <form id="userValidationForm" style="width: 100%;" class="needs-validation" novalidate>
+
+              <h6 class="mb-4">Choose Your Validation Type</h6>
+
+              <!-- Radio Button Group -->
+              <div class="row mb-4">
+                <div class="col-md-3 col-6">
+                  <div class="form-check">
+                    <input type="radio" id="TaxRegID" name="identificationMethod" class="form-check-input firstInpts"
+                      value="TaxRegID">
+                    <label class="form-check-label" for="TaxRegID">Tax RegID</label>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6">
+                  <div class="form-check">
+                    <input type="radio" id="TIN" name="identificationMethod" class="form-check-input firstInpts"
+                      value="TIN">
+                    <label class="form-check-label" for="TIN">TIN</label>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6">
+                  <div class="form-check">
+                    <input type="radio" id="Email" name="identificationMethod" class="form-check-input firstInpts"
+                      value="Email" checked>
+                    <label class="form-check-label" for="Email">Email</label>
+                  </div>
+                </div>
+                <div class="col-md-3 col-6">
+                  <div class="form-check">
+                    <input type="radio" id="Phone" name="identificationMethod" class="form-check-input firstInpts"
+                      value="Phone">
+                    <label class="form-check-label" for="Phone">Phone</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Identification Input -->
+              <div class="mb-4">
+                <label for="identificationInput" class="form-label">Enter your <span
+                    id="identiMethod">Email</span></label>
+                <input type="text" class="form-control" id="identificationInput" required>
+                <div class="invalid-feedback">
+                  Please provide a valid input.
+                </div>
+              </div>
+
+              <!-- Business Section -->
+              <div id="bizSec" class="d-none">
+                <div class="mb-3">
+                  <label for="business_type" class="form-label">Business Type</label>
+                  <select class="" id="business_type" required>
+                    <option value="">Select</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a business type.
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="number_of_staff" class="form-label">No. Of Staff</label>
+                  <select class="form-select" id="number_of_staff" required>
+                    <option value="">Select</option>
+                    <option value="1-9">1-9</option>
+                    <option value="10-29">10-29</option>
+                    <option value="30-50">30-50</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select number of staff.
+                  </div>
+                </div>
+                <input type="hidden" id="taxnumber">
+              </div>
+
+              <!-- Form Buttons -->
+              <div class="d-flex justify-content-between align-items-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="d-flex gap-2">
+                  <button type="button" id="submitFetch" class="btn btn-primary"
+                    onclick="fetchUserDetails()">Check</button>
+                  <button type="button" id="submitCalc" class="btn btn-primary d-none"
+                    onclick="validateAndProceed('userValidationForm', calculateTax)">Calculate Tax</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="form-tab">
+            <div class="preview-card" style="width: 100%;">
+
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Assessment Preview</h5>
+                <!-- <span class="identifier-badge">
+                  <i class="fas fa-hashtag me-1"></i>
+                  -
+                </span> -->
+              </div>
+
+
+              <!-- Business Type -->
+              <div class="info-row">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="info-label">
+                      <i class="fas fa-user me-2"></i>Tax Number
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info-value taxNum">-</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="info-label">
+                      <i class="fas fa-building me-2"></i>Business Type
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info-value btype">-</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Number of Staff -->
+              <div class="info-row">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="info-label">
+                      <i class="fas fa-users me-2"></i>Staff Strength
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info-value noOfStaff">- employees</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tax Category -->
+              <div class="info-row">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="info-label">
+                      <i class="fas fa-tag me-2"></i>Tax Category
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info-value text-capitalize taxCat">-</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payment Frequency -->
+              <div class="info-row">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="info-label">
+                      <i class="fas fa-calendar me-2"></i>Payment Frequency
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info-value freq">-</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Amount -->
+              <div class="info-row">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <div class="info-label">
+                      <i class="fas fa-money-bill me-2"></i>Payable Amount
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="amount-value">₦ <span class="amountPay">0.00</span></div>
+                    <div id="revenue_head_id"></div>
+                    <div id="mda_id"></div>
+                    <div id="amount"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <button type="button" id="genInvoice" onclick="generateInvoice()" class="btn btn-primary mt-5">Generate
+                  Invoice</button>
+                <div id="msg_box"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-tab">
+            <div class="preview-card text-center" style="width: 100%;">
+              <svg width="400" height="100" viewBox="0 0 30 30" class="text-9xl" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="13.4301" cy="13.4301" r="13.4301" fill="#BCE8C0"></circle>
+                <circle cx="13.4301" cy="13.4301" r="10.6366" fill="#1EB12D"></circle>
+                <circle cx="13.4299" cy="13.4301" r="8.27291" fill="#18902C"></circle>
+                <path
+                  d="M9.40263 13.4033C9.69091 13.1236 10.158 13.1231 10.4466 13.4023L11.6708 14.5862C11.7651 14.6775 11.9179 14.6774 12.0122 14.5859L16.1946 10.5251C16.4847 10.2435 16.9552 10.2443 17.2442 10.5269C17.5316 10.8081 17.5308 11.262 17.2422 11.5422L12.6406 16.0098C12.1993 16.4382 11.4839 16.4382 11.0425 16.0098L9.40263 14.4177C9.11416 14.1376 9.11416 13.6834 9.40263 13.4033Z"
+                  fill="white"></path>
+              </svg>
+              <h4 class="font-semibold text-gray-800">
+                Invoice Generated Successfully!
+              </h4>
+              <p class="text-center">
+                Your invoice has been generated successfully. You can now
+                preview it or proceed to make payment.
+              </p>
+
+              <a href="../invoiceGeneration/invoice.html" id="previewInvoice" class="btn btn-primary">Preview</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="editTaxpayerModel" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filterInvoiceModalLabel3">Update Taxpayer</h5>
+          <button type="button" class="btn-close d-flex justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close">
+            <iconify-icon icon="ph:x-thin"></iconify-icon>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="taxpayerId" />
+          <div action="form-group">
+            <label for="tinStatus" class="text-center">TIN Status</label>
+            <select name="" id="tinStatus" class="form-select">
+              <option selected>Select status</option>
+              <option value="issued">Verified</option>
+              <option value="pending">Unverified</option>
+            </select>
+            <small class="text-center mt-4">
+              Update the status of the payer Tax Identification Number.
+            </small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" id="editTaxpayerSubmitBtn" class="btn btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // const dataTable = new simpleDatatables.DataTable("#datatable");
+
+    // const dataTable1 = new simpleDatatables.DataTable("#datatable1");
+
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"></script>
+
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/tabHandler.js"></script>
+  <script src="./assets/js/rolespermission.js"></script>
+  <script src="./assets/js/presumptive.js"></script>
+  <script>
+    showActiveNav("informal-nav");
+    showBreadCrumb("Presumptive Tax");
+  </script>
+</body>
+
+</html>

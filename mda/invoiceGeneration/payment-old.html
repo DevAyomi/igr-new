@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>PayJigawa</title>
+
+  <!-- FAVION ICON -->
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome-all.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <link rel="stylesheet" type="text/css" href="assets/css/colors/switch.css" />
+  <!-- Color Alternatives -->
+  <link href="assets/css/colors/color-2.css" rel="alternate stylesheet" type="text/css" title="color-2" />
+  <link href="assets/css/colors/color-3.css" rel="alternate stylesheet" type="text/css" title="color-3" />
+  <link href="assets/css/colors/color-4.css" rel="alternate stylesheet" type="text/css" title="color-4" />
+  <link href="assets/css/colors/color-5.css" rel="alternate stylesheet" type="text/css" title="color-5" />
+  <style>
+    .title {
+      color: #02a75a;
+    }
+
+    #slider-service {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .services-box-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      position: relative;
+    }
+
+    .service-checkbox {
+      display: none;
+      /* Hide the checkbox itself */
+    }
+
+    .w-service-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .service-icon img {
+      width: 140px;
+      /* Adjust image size */
+      height: 140px;
+      /* Adjust image size */
+      object-fit: contain;
+    }
+
+    .service-text {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .option-seclect {
+      margin-top: 4px;
+      font-size: 12px;
+      color: gray;
+    }
+
+    .option-seclect span {
+      display: none;
+      /* Hide by default, you can show it when selected */
+    }
+
+    .service-checkbox:checked+.w-service-box .option-seclect span {
+      display: inline-block;
+      /* Show "Selected" when checkbox is checked */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper wizard d-flex clearfix multisteps-form position-relative">
+    <div class="steps order-2 position-relative w-25">
+      <div class="multisteps-form__progress">
+        <span class="multisteps-form__progress-btn js-active" title="Choose Payment Method"><i
+            class="far fa-credit-card"></i><span>Choose Payment Method</span></span>
+        <span class="multisteps-form__progress-btn" title="Payment Receipt"><i class="fa fa-print"></i><span>Payment
+            Receipt</span></span>
+      </div>
+    </div>
+    <form class="multisteps-form__form w-75 order-1" action="#" id="wizard">
+      <div style="position: absolute; z-index: 10;">
+        <a href="../index.html" class="d-flex gap-1 align-items-center ml-4 m-2">
+          <div class="flex items-center">
+            <img src="../assets/img/img/jigawa.png" style="width: 60px" />
+          </div>
+          <p class="text-black fontBold" style="font-size: 20px; color: #000; font-weight: bold">
+            PayJigawa
+          </p>
+        </a>
+      </div>
+
+      <!-- div 1 -->
+      <div class="multisteps-form__panel js-active" data-animation="slideHorz">
+        <div class="wizard-forms">
+          <div class="inner pb-200 clearfix">
+            <div class="wizard-title pt-5">
+              <h4 class="title">Make Payment</h4>
+            </div>
+            <div id="slider-service" class="wizard-service-slide">
+              <label class="services-box-item">
+                <input type="checkbox" name="contact_person" value="Paystack" class="service-checkbox" />
+                <span class="w-service-box text-center position-relative">
+                  <span class="service-icon">
+                    <img src="../assets/img/img/paystack.png" alt="" />
+                  </span>
+                  <span class="service-text primary"> Paystack </span>
+                  <span class="option-seclect">
+                    <span>Selected</span>
+                  </span>
+                </span>
+              </label>
+              <label class="services-box-item">
+                <input type="checkbox" name="contact_person" value="Credo" class="service-checkbox" />
+                <span class="w-service-box text-center position-relative">
+                  <span class="service-icon">
+                    <img src="../assets/img/img/credo.png" style="width: 60px;" alt="" />
+                  </span>
+                  <span class="service-text primary"> Credo </span>
+                  <span class="option-seclect">
+                    <span>Selected</span>
+                  </span>
+                </span>
+              </label>
+              <label class="services-box-item">
+                <input type="checkbox" name="contact_person" value="Interswitch" class="service-checkbox" />
+                <span class="w-service-box text-center position-relative">
+                  <span class="service-icon">
+                    <img src="../assets/img/img/interswitch.png" alt="" />
+                  </span>
+                  <span class="service-text primary"> Interswitch </span>
+                  <span class="option-seclect">
+                    <span>Selected</span>
+                  </span>
+                </span>
+              </label>
+              <label class="services-box-item">
+                <input type="checkbox" name="contact_person" value="Flutterwave" class="service-checkbox" />
+                <span class="w-service-box text-center position-relative">
+                  <span class="service-icon">
+                    <img src="../assets/img/img/flutterwave.png" alt="" />
+                  </span>
+                  <span class="service-text primary"> Flutterwave </span>
+                  <span class="option-seclect">
+                    <span>Selected</span>
+                  </span>
+                </span>
+              </label>
+              <label class="services-box-item">
+                <input type="checkbox" name="contact_person" value="Remita" class="service-checkbox" />
+                <span class="w-service-box text-center position-relative">
+                  <span class="service-icon">
+                    <img src="../assets/img/img/remita.png" alt="" />
+                  </span>
+                  <span class="service-text primary"> Remita </span>
+                  <span class="option-seclect">
+                    <span>Selected</span>
+                  </span>
+                </span>
+              </label>
+              <label class="services-box-item">
+                <input type="checkbox" name="contact_person" value="Bank" class="service-checkbox" />
+                <span class="w-service-box text-center position-relative">
+                  <span class="service-icon">
+                    <i class="fa fa-university" style="font-size: 50px"></i><br /><br /><br />
+                  </span>
+                  <span class="service-text primary"> Bank Branch </span>
+                  <span class="option-seclect">
+                    <span>Selected</span>
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="actions">
+            <ul>
+              <li>
+                <span class="js-btn-prev" title="BACK" onclick="history.go(-1)"><i class="fa fa-arrow-left"></i> BACK
+                </span>
+              </li>
+              <li>
+                <span onclick="payNow()" id="paynowBtn" title="Pay Now">Pay Now <i class="fa fa-arrow-right"></i>
+                </span>
+              </li>
+
+              <div id="msg_box"></div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/slick.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/switch.js"></script>
+  <script>
+    document.querySelectorAll(".service-checkbox").forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
+        if (this.checked) {
+          document
+            .querySelectorAll(".service-checkbox")
+            .forEach((otherCheckbox) => {
+              if (otherCheckbox !== this) {
+                otherCheckbox.checked = false;
+              }
+            });
+        }
+      });
+    });
+  </script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="assets/js/payment.js"></script>
+
+</body>
+
+</html>

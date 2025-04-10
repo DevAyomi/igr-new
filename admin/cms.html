@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="./assets/img/logo.png" />
+  <title>PayJigawa</title>
+
+  <meta name="keywords" content="Jigawa IGR" />
+  <meta name="description" content="Jigawa Tax Collector" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./assets/css/argon-dashboard.min.css?v=2.0.4" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="min-height-300 bg-dark position-absolute w-100"></div>
+
+  <aside
+    class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
+    id="sidenav-main" style="background-color: white">
+    <!-- CONTENT COMING FROM NAV.JS -->
+  </aside>
+
+  <main class="main-content h-100">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl">
+      <div class="container-fluid py-1 px-3">
+        <!-- CONTENT COMING FROM NAV.JS -->
+        <div id="breadcrumb-container"></div>
+        <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none me-auto">
+          <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2">
+          <ul class="navbar-nav justify-content-end ms-auto">
+            <li class="nav-item d-flex align-items-center" id="profileImage">
+              <!-- CONTENT COMING FROM NAV.JS -->
+            </li>
+            <li class="nav-item d-xl-none ps-3 pe-0 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                  <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-lg-5 mt-sm-3">
+      <div class="position-relative">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <div class="row">
+                <div class="col-lg-6">
+                  <h3 class="text-white">CMS</h3>
+                </div>
+                <div class="col-lg-6 d-flex ms-auto">
+                  <a href="./new-cms.html" class="btn btn-icon btn-primary ms-auto d-none" id="createPostCms">
+                    <span class="btn-inner--text">Create Post</span>
+                    <span class="btn-inner--icon"><i class="fa fa-plus text-sm ms-2"></i></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header d-flex pb-0 p-3">
+                  <div class="nav-wrapper col-lg-10 col-sm-12 position-relative end-0">
+                    <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center active"
+                          data-bs-toggle="pill" data-bs-target="#pills-one" href="javascript:;" role="tab"
+                          aria-selected="true">
+                          <i class="fas fa-book text-dark text-sm opacity-10"></i>
+                          <span class="ms-2">News</span>
+                        </a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+                          data-bs-toggle="tab" data-bs-target="#pills-two" href="javascript:;" role="tab"
+                          aria-selected="false" tabindex="-1">
+                          <i class="fas fa-image text-dark text-sm opacity-10"></i>
+                          <span class="ms-2">Gallery</span>
+                        </a>
+                      </li>
+
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center"
+                          data-bs-toggle="tab" data-bs-target="#pills-three" href="javascript:;" role="tab"
+                          aria-selected="false" tabindex="-1">
+                          <i class="fas fa-book-open text-dark text-sm opacity-10"></i>
+                          <span class="ms-2">Library</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+                <div class="card-body p-3 mt-2">
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade  show active position-relative border-radius-lg" id="pills-one"
+                      role="tabpanel" aria-labelledby="pills-one">
+                      <h3>Published News</h3>
+                      <div class="containerPost"></div>
+
+                    </div>
+
+
+                    <div class="tab-pane fade position-relative border-radius-lg" id="pills-two" role="tabpanel"
+                      aria-labelledby="pills-two">
+
+                      <h3>Gallery</h3>
+                      <div class="containerPost"></div>
+
+                    </div>
+
+                    <div class="tab-pane fade position-relative border-radius-lg" id="pills-three" role="tabpanel"
+                      aria-labelledby="pills-three">
+
+                      <h3>Library</h3>
+                      <div class="containerPost"></div>
+
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <footer class="footer pt-3" id="footer">
+        <!-- CONTENT COMING FROM NAV.JS -->
+      </footer>
+    </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="editMod" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header ">
+          <button type="button" class="btn-close flex justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close"><iconify-icon icon="ph:x-thin"></iconify-icon></button>
+        </div>
+        <div class="modal-body mb-5">
+          <h5 class="text-xl font-bold">Edit Gallery</h5>
+          <form action="" class="md:w-[100%] mt-4">
+
+            <div class="form-group mb-2">
+              <label for="">Media* (upload picture and vidoes)</label>
+              <div class="border border-gray-200 p-3 rounded-lg">
+                <p class="text-lg fontBold">Image</p>
+
+                <div class="flex items-center space-x-10">
+                  <p class="w-2/12">Upload image</p>
+                  <div class="border-2 border-dashed border-gray-200 rounded-lg p-3 flex items-center space-x-6 w-6/12">
+                    <i class="fas fa-photo-video text-gray-500"></i>
+                    <p><button class="text-[#CDA545]" id="addImg" type="button">Upload file</button> or drag
+                      and drop</p>
+                    <input type="file" id="image" class="d-none taxReqInput2" data-name="image">
+                  </div>
+                </div>
+                <div class="flex items-center space-x-10 mt-3">
+                  <p class="text-gray-500 w-2/12">Caption</p>
+                  <input type="text" class="form-control md:w-6/12 taxReqInput" id="caption" data-name="caption" />
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button class="button" type="button">Publish</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editNews" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header ">
+          <button type="button" class="btn-close flex justify-content-center" data-bs-dismiss="modal"
+            aria-label="Close"><iconify-icon icon="ph:x-thin"></iconify-icon></button>
+        </div>
+        <div class="modal-body mb-5">
+
+          <div class="w-full">
+
+            <h5 class="text-xl font-bold">Edit Post</h5>
+            <form action="" class="w-[100%] mt-4">
+              <div class="form-group mb-2">
+                <label for="">Your Title*</label>
+                <input type="text" class="form-control taxReqInput" id="title" data-name="title">
+              </div>
+
+              <div class="form-group mb-2">
+                <label for="">Text*</label>
+                <textarea id="textarea" class="form-control taxReqInput" id="content" data-name="content">
+                    Write your message
+                 </textarea>
+              </div>
+
+              <div class="form-group mb-2">
+                <label for="">Media*</label>
+                <div class="border border-gray-200 p-3 rounded-lg">
+                  <div class="flex items-center space-x-10">
+                    <p class="md:w-2/12">Upload image</p>
+                    <div
+                      class="border-2 border-dashed border-gray-200 rounded-lg p-3 flex items-center space-x-6 md:w-6/12">
+                      <i class="fas fa-photo-video text-gray-500"></i>
+                      <p><button class="text-[#CDA545] btn-primary btn" id="addImg1" type="button">Upload file</button>
+                        or drag
+                        and drop</p>
+                      <input type="file" id="image1" class="d-none taxReqInput2" data-name="image1">
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-10 mt-3">
+                    <p class="text-gray-500 w-2/12">Alt text</p>
+                    <input type="text" class="form-control md:w-6/12 taxReqInput" id="caption" data-name="caption" />
+                  </div>
+                </div>
+              </div>
+
+            </form>
+
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary mt-3" type="button">Publish</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./assets/js/plugins/choices.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="./assets/js/plugins/datatables.js"></script>
+
+  <script>
+    var win = navigator.platform.indexOf("Win") > -1;
+    if (win && document.querySelector("#sidenav-scrollbar")) {
+      var options = {
+        damping: "0.5",
+      };
+      Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+    }
+  </script>
+
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+  <script src="../assets/js/constant.js"></script>
+  <script src="./assets/js/nav.js"></script>
+  <script src="./assets/js/argon-dashboard.min.js"></script>
+  <script src="./assets/js/rolespermission.js"></script>
+  <script src="./assets/js/cms.js"></script>
+  <script>
+    showActiveNav("cms-nav");
+    showBreadCrumb("CMS");
+  </script>
+</body>
+
+</html>

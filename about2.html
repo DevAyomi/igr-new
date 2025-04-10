@@ -1,0 +1,947 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayJigawa</title>
+
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+    <style>
+      .faqAccordion {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .accordion-item {
+        border: none;
+        margin-bottom: 12px;
+        background: transparent;
+      }
+
+      .accordion-button {
+        background-color: #f8f9fa;
+        border-radius: 8px !important;
+        padding: 20px 30px;
+
+        color: #333;
+        box-shadow: none !important;
+        transition: all 0.3s ease;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background-color: #02a75a;
+        color: white;
+      }
+
+      .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        transition: transform 0.3s ease;
+      }
+
+      .accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      }
+
+      .accordion-body {
+        padding: 20px 30px;
+        background-color: white;
+        border-radius: 8px;
+        margin-top: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        line-height: 1.6;
+      }
+
+      .accordion-button:hover {
+        background-color: #e9ecef;
+      }
+
+      .accordion-button:not(.collapsed):hover {
+        background-color: #02a75a;
+      }
+
+      .accordion-collapse {
+        transition: all 0.3s ease-in-out;
+      }
+
+      @media (max-width: 768px) {
+        .faqAccordion {
+          padding: 10px;
+        }
+
+        .accordion-button {
+          padding: 15px 20px;
+          font-size: 14px;
+        }
+
+        .accordion-body {
+          padding: 15px 20px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="flex justify-between md:px-10 bg-white py-3">
+      <div
+        class="container flex justify-between items-center"
+        id="theHeader"
+      ></div>
+    </header>
+
+    <main class="position-relative">
+      <section class="breadcrumb container mt-24 px-10 py-2 bg-white"></section>
+
+      <section class="px-2 lg:p-20">
+        <div class="container space-y-20">
+          <div class="row justify-between items-center">
+            <div class="col-md-8 mx-auto text-center">
+              <h2 class="mb-2 text-3xl lg:text-5xl font-bold text-dark">
+                Intelligent Billing System (IBS)
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container space-y-20">
+        <div class="mt-4">
+          <h1
+            class="text-xl lg:text-4xl text-center text-[#101828] font-bold mb-2"
+          >
+            ABOUT IBS
+          </h1>
+          <p class="mb-4 text-sm lg:text-lg text-dark">
+            This is a state-of-the-art solution designed to address critical
+            issues in national revenue collection and financial management. Many
+            regions face significant challenges due to inadequate revenue
+            collection, resulting in insufficient funds for essential services
+            and developmental projects. The tax-to-GDP ratio remains critically
+            low, and opaque data management practices hinder transparency and
+            accountability. IBS is engineered to tackle these problems head-on,
+            providing a robust, efficient, and transparent billing system.
+          </p>
+          <div class="faqAccordion mt-2 flex justify-center">
+            <div
+              class="accordion accordion-flush w-[100%]"
+              id="accordionFlushExample"
+            >
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    1.1 Accuracy and Quality
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS ensures the accuracy and quality of billing processes by
+                    accurately capturing and processing billing information,
+                    performing precise calculations, and generating error-free
+                    invoices. Rigorous quality checks and automated validation
+                    processes minimize errors that can lead to billing
+                    discrepancies and customer dissatisfaction. Our commitment
+                    to accuracy supports better financial management and builds
+                    trust among taxpayers.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                  >
+                    1.2 Enhanced Customer Experience
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingTwo"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS prioritizes the customer experience throughout the
+                    billing process. The system provides clear and transparent
+                    billing information, multiple payment methods, and
+                    self-service options for accessing invoices and billing
+                    history. By addressing customer inquiries and disputes
+                    promptly, IBS ensures a smooth and satisfactory billing
+                    experience, thereby enhancing customer satisfaction and
+                    loyalty.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree"
+                  >
+                    1.3 Compliance and Regulatory Adherence
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingThree"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    Designed to ensure compliance with applicable billing
+                    regulations and requirements, IBS stays updated with
+                    evolving tax laws, data protection regulations, and
+                    industry-specific guidelines. Prioritizing compliance helps
+                    organizations avoid legal pitfalls, maintain audit trails,
+                    and generate reports that demonstrate adherence to all
+                    relevant standards, thus enhancing their credibility.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingfour">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapsefour"
+                    aria-expanded="false"
+                    aria-controls="flush-collapsefour"
+                  >
+                    1.4 Analytics and Insights
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapsefour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingfour"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS leverages advanced analytics to generate meaningful
+                    reports, key performance indicators (KPIs), and dashboards.
+                    These tools provide valuable business intelligence, allowing
+                    organizations to identify billing trends, analyze revenue
+                    patterns, monitor billing metrics, and make data-driven
+                    decisions. This analytical capability optimizes revenue
+                    generation and improves overall financial performance.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-fivee">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-five"
+                    aria-expanded="false"
+                    aria-controls="flush-five"
+                  >
+                    1.5 Impact Across Various Sectors
+                  </button>
+                </h2>
+                <div
+                  id="flush-five"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-fivee"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS significantly impacts multiple sectors, including
+                    education, housing and land, healthcare, agriculture, and
+                    the oil industry. By automating tax-related procedures, IBS
+                    helps organizations in these sectors save time and money,
+                    minimize errors, and ensure compliance with tax regulations.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container space-y-20">
+        <div class="mt-4">
+          <h1
+            class="text-xl lg:text-4xl text-center text-[#101828] font-bold mb-2"
+          >
+            PRINCIPLES BEHIND IBS
+          </h1>
+          <p class="text-dark text-sm lg:text-base mb-5">
+            Taxation with the IBS operates efficiently by following a systematic
+            process that combines automation, data analysis, and adherence to
+            tax laws and regulations. We integrate seamlessly with various data
+            sources like accounting software, financial records, invoices, and
+            receipts. Our goal is to collect and consolidate this data
+            accurately for precise tax calculations.
+          </p>
+          <div class="faqAccordion mt-2 flex justify-center">
+            <div
+              class="accordion accordion-flush w-[100%]"
+              id="accordionFlushExample"
+            >
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne1">
+                  <button
+                    class="accordion-button main-faq_question-wrap collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne1"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne1"
+                  >
+                    3.1 Compliance
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne1"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS incorporates the most recent tax laws and regulations
+                    into its system to ensure accuracy. We constantly update our
+                    knowledge base to reflect changes in tax codes, rates,
+                    thresholds, and deductions. This commitment guarantees that
+                    our tax calculations align with the current tax regulations.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo2">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo2"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo2"
+                  >
+                    3.2 RDMS
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingTwo2"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    Once the data is gathered, IBS utilizes advanced algorithms
+                    and machine learning techniques to analyze financial
+                    information comprehensively. To determine the exact tax
+                    amounts owed, we consider multiple factors, including
+                    income, expenses, deductions, tax brackets, and credits.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree3">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree3"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree3"
+                  >
+                    3.3 Intelligent Billing
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseThree3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingThree3"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    Based on this analysis and the applicable tax rules, IBS
+                    automatically performs tax calculations for various tax
+                    types such as income, sales, and property taxes. By applying
+                    the correct tax rates and formulas, we accurately determine
+                    the tax liability for each client.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingfour4">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapsefour4"
+                    aria-expanded="false"
+                    aria-controls="flush-collapsefour4"
+                  >
+                    3.4 Transparency and Accountability
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapsefour4"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingfour4"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS generates detailed tax bills for clients. These bills
+                    provide an itemized breakdown of different tax types,
+                    offering transparency and clarity regarding the tax amounts
+                    owed.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-five5">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-five5"
+                    aria-expanded="false"
+                    aria-controls="flush-five5"
+                  >
+                    3.5 Integration with Other Systems
+                  </button>
+                </h2>
+                <div
+                  id="flush-five5"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-five5"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    The IBS leverages open standards and APIs (Application
+                    Programming Interfaces) to facilitate seamless communication
+                    and data exchange with various external systems. This,
+                    coupled with its modular design, empowers the IBS to
+                    integrate with a wide range of platforms, fostering a
+                    flexible and adaptable IT ecosystem.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-six6">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-six6"
+                    aria-expanded="false"
+                    aria-controls="flush-six6"
+                  >
+                    3.6 Seamless Multiple Payment Options
+                  </button>
+                </h2>
+                <div
+                  id="flush-six6"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-six6"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    The IBS has integrated with multiple payment options to
+                    facilitate the payment process, enabling taxpayers to choose
+                    from a range of payment channels. <br />
+                    Our approach keeps users informed about updates and their
+                    potential impact on their tax liabilities. To further
+                    promote transparency, we maintain a comprehensive audit
+                    trail within the system, documenting all transactions,
+                    calculations, and changes. This audit trail aids in auditing
+                    processes and provides an extra layer of transparency and
+                    accountability.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full py-5 lg:p-20">
+        <div class="container lg:my-20">
+          <h1
+            class="text-xl lg:text-4xl text-center text-[#101828] font-bold mb-2"
+          >
+            COMMITMENT TO INNOVATION
+          </h1>
+          <p class="my-4 text-sm lg:text-lg text-dark">
+            The current tax ecosystem is fraught with systems and software that
+            have many limitations that make it cumbersome and time-consuming to
+            use. Some of these issues are increased errors and inconsistencies
+            in tax returns, complexities surrounding tax preparation and
+            appropriation, and the administrative burden on the Internal Revenue
+            Service (IRS). The prevalence of technology in the business world
+            has amplified the need for transparency across all levels. As people
+            and businesses become more globally interconnected, it becomes
+            increasingly important to consider the impact of funds and services
+            on society. The tax ecosystem has not been left behind in this
+            trend.
+            <br /><br />
+            IBS has identified these problems and recognizes the unique needs of
+            different aspects of service delivery and offers a tailored tax
+            billing and collection solution. This system empowers the government
+            to efficiently manage all aspects of tax management, from tax
+            extension to disbursement and collection.
+            <br /><br />
+            The Intelligent Billing System sets itself above every other
+            software by combining accuracy, automation, and compliance
+            monitoring in its service delivery. IBS ensures that users can focus
+            on their core business while effectively managing their tax
+            obligations.
+            <br /><br />
+            The IBS system is customizable, scalable, and integrates with
+            existing infrastructure, making it a comprehensive and intelligent
+            solution for tax management in 2023 and beyond.
+          </p>
+        </div>
+      </section>
+
+      <section class="container space-y-20">
+        <div class="mt-4">
+          <h1
+            class="text-xl lg:text-4xl text-center text-[#101828] font-bold mb-2"
+          >
+            STRATEGIC FEATURES
+          </h1>
+          <p class="text-dark text-sm lg:text-base mb-5">
+            The Intelligent Billing System offers a range of essential features
+            that provide benefits to both taxpayers and government tax
+            authorities. It streamlines the tax collection process, provides
+            timely reminders, and facilitates payment options, improving tax
+            compliance and overall efficiency.
+            <br />
+            <br />
+            The software makes it easy for taxpayers to keep track of their tax
+            bills and due dates as well as automate the tax billing procedure.
+            The Software has several important characteristics that include the;
+          </p>
+          <div class="faqAccordion mt-2 flex justify-center">
+            <div
+              class="accordion accordion-flush w-[100%]"
+              id="accordionFlushExample"
+            >
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    Data Management
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS integrates with various data sources, such as financial
+                    records, invoices, and receipts, to gather the necessary
+                    information for tax calculation and billing. It ensures
+                    secure storage and retrieval of sensitive financial data.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                  >
+                    Tax Calculation
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingTwo"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS automates tax calculations based on the applicable tax
+                    laws and regulations. It considers factors such as income,
+                    expenses, deductions, tax brackets, and credits to determine
+                    accurate tax amounts.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree"
+                  >
+                    Billing Generation
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingThree"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    IBS generates detailed tax bills based on the calculated tax
+                    amounts. It includes itemized breakdowns of different tax
+                    types, such as income tax, sales tax, property tax, and
+                    more. The bills are customizable and can be generated in
+                    various formats, including digital or print.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingfour">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapsefour"
+                    aria-expanded="false"
+                    aria-controls="flush-collapsefour"
+                  >
+                    Automation
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapsefour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingfour"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    To reduce manual efforts, IBS automatically retrieves
+                    financial data from connected systems, updates tax rates and
+                    regulations, and generates periodic tax bills without human
+                    intervention. This increases efficiency and minimizes
+                    errors.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-fivee">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-five"
+                    aria-expanded="false"
+                    aria-controls="flush-five"
+                  >
+                    Compliance Monitoring
+                  </button>
+                </h2>
+                <div
+                  id="flush-five"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-fivee"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    This helps users stay compliant with tax regulations by
+                    monitoring changes in tax laws and notifying them about
+                    updates and potential impacts on their tax liabilities. And
+                    this works to provide real-time alerts and suggestions to
+                    ensure adherence to legal requirements.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-sive">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-six"
+                    aria-expanded="false"
+                    aria-controls="flush-six"
+                  >
+                    Audit Trail and Reporting
+                  </button>
+                </h2>
+                <div
+                  id="flush-six"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-sive"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    Our billing system maintains a comprehensive audit trail,
+                    recording all transactions, calculations, and changes made
+                    within the system. It generates detailed reports, summaries,
+                    and visualizations to facilitate financial analysis, tax
+                    planning, and auditing processes.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-seven">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-seven"
+                    aria-expanded="false"
+                    aria-controls="flush-seven"
+                  >
+                    Security and Privacy
+                  </button>
+                </h2>
+                <div
+                  id="flush-seven"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-seven"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    To prioritize data security and privacy, IBS employs
+                    encryption, access controls, and security protocols to
+                    protect sensitive information. It complies with data
+                    protection regulations and ensures user data is only
+                    accessible by authorized individuals.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-eight">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-eight"
+                    aria-expanded="false"
+                    aria-controls="flush-eight"
+                  >
+                    Scalability and Customization
+                  </button>
+                </h2>
+                <div
+                  id="flush-eight"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-eight"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    Our system is designed to accommodate diverse user needs. It
+                    can handle tax calculations and billing for individuals,
+                    small businesses, large corporations, and government
+                    entities. The system is highly scalable and customizable,
+                    allowing users to configure tax rules, thresholds, and
+                    specific requirements.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-nine">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-nine"
+                    aria-expanded="false"
+                    aria-controls="flush-nine"
+                  >
+                    Customer Support
+                  </button>
+                </h2>
+                <div
+                  id="flush-nine"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-nine"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body text-[#555555] visible">
+                    It gets really interesting at this point because IBS
+                    provides reliable customer support, including technical
+                    assistance, training resources, and an automated help desk.
+                    Users can seek guidance on system usage, tax-related
+                    queries, and troubleshooting issues.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-2 lg:p-20">
+        <div class="container space-y-20">
+          <div class="row justify-between items-center">
+            <div class="col-md-12">
+              <h1
+                class="text-xl lg:text-4xl text-center text-[#101828] font-bold mb-2"
+              >
+                ABOUT PRIMEGUAGE
+              </h1>
+              <p class="mb-4 text-sm lg:text-lg text-dark">
+                Primeguage Solutions Limited is a data-driven technology firm
+                that offers distinct industry solutions to clients across
+                government and private enterprises. We examine, plan, develop
+                and execute fit for purpose solutions to assist our clients
+                optimize their business operations and for them to grow. Our
+                primal solutions are centered around revenue and payment
+                management, optimizing data management, advisory and
+                implementing quality security protocols that are scalable and
+                managed across public, private, and hybrid systems.
+              </p>
+              <p class="mb-4 text-sm lg:text-lg text-dark">
+                Our high level of service is the result of years of experience
+                providing feature-specific tech solutions frameworks with the
+                latest digital innovations to deliver better business outcomes
+                for our clients and stakeholders. We handle unique problems
+                within organizations by developing revolutionary technology from
+                start to finish in direct response to the needs of our clients.
+              </p>
+              <p class="mb-4 text-sm lg:text-lg text-dark">
+                Our ambition is to provide smooth, cross-cutting, and creative
+                technology solution approaches to millions of private and
+                public-sector end-users across various industries, primarily
+                within Africa. Our clients enjoy the advantage of our highly
+                recognized business intelligence in advisory and consultation
+                services. Our expertise assures strategic planning and execution
+                to solve problems like recovery, liabilities and leakages that
+                affect maximum functionality in an organization.
+              </p>
+              <p class="mb-4 text-sm lg:text-lg text-dark">
+                Our success story is built on the trust we have earned by
+                solving complex problems in both the public and private sectors
+                over the years. We encourage Cooperative partnership with our
+                clients in minimizing business risk and maximizing
+                opportunities. Our world-class talents join our customers’ teams
+                in developing the right technology to work for their businesses.
+                We invest in developing productive client partnerships that can
+                flex and evolve, to handle new problems with confidence, speed,
+                and innovation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full px-6 py-10 lg:p-20">
+        <div class="container lg:my-20">
+          <h2
+            class="mb-2 text-center text-xl lg:text-4xl text-dark font-extrabold"
+          >
+            Don't know how to register?
+          </h2>
+          <p class="mb-4 text-center text-base lg:text-lg text-dark">
+            You can get started easily with the following simple steps
+          </p>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <div class="col flex gap-6 items-center">
+              <i class="fas fa-portrait textPrimary text-xl lg:text-4xl"></i>
+              <div class="">
+                <h5 class="text-dark font-bold my-2">Select your Category</h5>
+                <p class="text-muted text-sm lg:text-base">
+                  Select the type of taxpayer you are (Individual/Corporate)
+                </p>
+              </div>
+            </div>
+            <div class="col flex gap-6 items-center">
+              <i
+                class="fas fa-address-card textPrimary text-xl lg:text-4xl"
+              ></i>
+              <div class="">
+                <h5 class="text-dark font-bold my-2">Fill in your Details</h5>
+                <p class="text-muted text-sm lg:text-base">
+                  Input all your information
+                </p>
+              </div>
+            </div>
+            <div class="col flex gap-6 items-center">
+              <i class="fas fa-fingerprint textPrimary text-xl lg:text-4xl"></i>
+              <div class="">
+                <h5 class="text-dark font-bold my-2">Get Taxpayer ID</h5>
+                <p class="text-muted text-sm lg:text-base">
+                  Get your Taxpayer ID instantly
+                </p>
+              </div>
+            </div>
+            <div class="col flex gap-6 items-center">
+              <i class="fas fa-user-check textPrimary text-xl lg:text-4xl"></i>
+              <div class="">
+                <h5 class="text-dark font-bold my-2">Verify Account</h5>
+                <p class="text-muted text-sm lg:text-base">
+                  Verify account with email or Phone number
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 text-center">
+            <a class="button" href="regcategory.html">Register as Taxpayer</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="bottom-0 w-full" id="footer"></section>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/aos-master/dist/aos.js"></script>
+    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="assets/js/nav.js?v=1.2"></script>
+    <script src="./assets/js/tax-calculator.js"></script>
+    <script src="assets/js/landing.js"></script>
+    <script src="assets/js/landingcms.js"></script>
+    <script>
+      showActiveNav("about");
+      showActiveNav("about1");
+    </script>
+  </body>
+</html> -->

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayJigawa</title>
+
+    <!-- FAVION ICON -->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/landing.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  </head>
+
+  <body>
+    <header class="flex justify-between bg-white py-3">
+      <div
+        class="container flex justify-between items-center"
+        id="theHeader"
+      ></div>
+    </header>
+
+    <main>
+      <div
+        class="flex justify-between gap-10 pr-20 h-[50vh] mt-10 overflow-hidden"
+      >
+        <img
+          src="./assets/img/img/slideone.png"
+          class="slideimage"
+          id="slideshow-image"
+          alt=""
+        />
+
+        <img src="./assets/img/img/rectangle.png" class="rect" alt="" />
+      </div>
+
+      <section class="absolute theBody overflow-x-hidden pb-2">
+        <div class="px-20 paddingPlace">
+          <div class="flex justify-center relative left-[13%] headerTextCont">
+            <div class="w-[50%] headerText">
+              <h1
+                class="text-center xl:text-5xl text-3xl big-text fontBold bg-clip-text bg-gradient-to-r from-[#02A75AD9] via-[#01763FEE] to-[#014C29]"
+              >
+                Tax for all Tax for one
+              </h1>
+              <p
+                class="text-[#737373] xl:text-lg text-base leading-normal mt-4 text-center h-[60px]"
+                id="slideshow-description"
+              >
+                "Taxes are the price we pay for a better society. As citizens,
+                when we pay taxes, we empower the government to deliver services
+                effectively."
+              </p>
+
+              <div
+                class="flex mt-3 sm:flex-row flex-col gap-3 items-center space-x-2"
+              >
+                <input
+                  type="text"
+                  placeholder="Verify Invoice, Payment"
+                  id="invoiceNumber"
+                  class="form-control w-full px-2 py-2 border h-12 fontBold bg-white rounded-md placeholder:text-[#84BB7CB8] focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+                <button class="button w-36 text-sm" id="verifyBtn">
+                  Verify
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- the cards -->
+
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            id="the_cards"
+          ></div>
+        </div>
+
+        <footer
+          class="lg:fixed lg:mt-0 mt-10 bottom-0 w-full z-10"
+          id="footer"
+        ></footer>
+      </section>
+    </main>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/aos-master/dist/aos.js"></script>
+    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script src="assets/js/constant.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <!-- <script src="./assets/js/tax-calculator.js"></script> -->
+    <script src="assets/js/landing.js"></script>
+
+    <script>
+      let allCards = [
+        {
+          description:
+            "Quickly and securely fulfill your tax obligations to support community development and essential public services",
+          img: "./assets/img/img/tax.jpg",
+          link: "./invoiceGeneration/create.html",
+          buttonText: "Generate Invoice",
+        },
+        {
+          description:
+            "Efficiently manage employee tax deductions and compliance with seamless tools designed for businesses.",
+          img: "./assets/img/img/paye.jpg",
+          link: "./paye-manager/index.html",
+          buttonText: "PAYE Manager",
+        },
+        {
+          description:
+            "Manage taxes, payments, and updates anytime—file returns, request TIN, and get tax clearance.",
+          img: "./assets/img/img/service.jpg",
+          link: "./eservices.html",
+          buttonText: "Self Services",
+        },
+        {
+          description: "Pay Invoices quickly and get an instant receipt",
+          img: "./assets/img/img/pay.jpg",
+          link: "./paynow/index.html",
+          buttonText: "Proceed to Pay",
+        },
+      ];
+
+      allCards.forEach((thecard) => {
+        $("#the_cards").append(`
+        <div class="w-full">
+          <a href="${thecard.link}">
+            <div
+              class="group overflow-hidden shadow-md rounded-xl bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="relative overflow-hidden w-full cardImg">
+                <img src="${thecard.img}" alt="#" fill
+                  class="object-cover transition-transform duration-300 group-hover:scale-110 w-full  h-full" />
+              </div>
+              <div class="cardDescBox p-3">
+                <p
+                  class="text-[#737373] cardDesc xl:text-sm text-xs h-[80px]">
+                  ${thecard.description}
+                </p>
+              </div>
+              <div class="bgPrimary h-[1px]"></div>
+              <div class="cardFooter p-3 pt-0 mt-2">
+                <div class="flex justify-between items-center font-medium">
+                  <p class="fontBold textSecondary2 cardBtn text-sm">
+                    ${thecard.buttonText}
+                  </p>
+                  <i class="fa fa-arrow-right textSecondary2"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      `);
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = [
+          {
+            image: "./assets/img/img/slideone.png",
+            description: `"Taxes are the price we pay for a better society. As citizens, when we pay taxes, we empower the government to deliver services effectively."`,
+          },
+          {
+            image: "./assets/img/img/slidetwo.png",
+            description: `"A just tax system is one where everyone contributes according to their means, ensuring fairness and prosperity for all."`,
+          },
+          {
+            image: "./assets/img/img/slidethree.png",
+            description: `"Development is a collective effort. Your taxes are the bricks with which we build the future of Lagos and Nigeria at large."`,
+          },
+        ];
+
+        let currentSlide = 0;
+
+        const imageElement = document.getElementById("slideshow-image");
+        const descriptionElement = document.getElementById(
+          "slideshow-description"
+        );
+
+        function showSlide(index) {
+          const slide = slides[index];
+          imageElement.src = slide.image;
+          descriptionElement.textContent = slide.description;
+        }
+
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slides.length;
+          if (currentSlide === 2) {
+            document.querySelector(".rect").src = "";
+            imageElement.classList.add("slideimage3");
+          } else {
+            document.querySelector(".rect").src =
+              "./assets/img/img/rectangle.png";
+            imageElement.classList.remove("slideimage3");
+          }
+
+          if (currentSlide === 1) {
+            imageElement.classList.add("slideimage2");
+            document.querySelector(".rect").src = "";
+          } else {
+            imageElement.classList.remove("slideimage2");
+            // document.querySelector(".rect").src = './assets/img/img/rectangle.png'
+          }
+          showSlide(currentSlide);
+        }
+
+        // Initialize the first slide
+        showSlide(currentSlide);
+
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+      });
+    </script>
+    <script>
+      showActiveNav("home");
+      showActiveNav("home1");
+    </script>
+  </body>
+</html>

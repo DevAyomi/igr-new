@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayJigawa</title>
+
+    <!-- FAVION ICON -->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="assets/js/aos-master/dist/aos.css" />
+  </head>
+
+  <body>
+    <header class="flex justify-between md:px-10 bg-white py-3">
+      <div
+        class="container flex justify-between items-center"
+        id="theHeader"
+      ></div>
+    </header>
+
+    <section
+      class="bg-cover bg-center h-screen dark:bg-gray-900"
+      style="background-image: url('./assets/img/herobg.jpg')"
+    >
+      <div
+        class="flex flex-col mt-[90px] h-full items-center justify-center px-6 py-8 mx-auto lg:py-0"
+      >
+        <div
+          class="mx-auto w-full gap-6 flex flex-col items-center justify-center"
+        >
+          <div
+            class="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-lg p-4"
+          >
+            <div>
+              <p class="h1" style="font-size: 20px; color: black">
+                Check Application Status
+              </p>
+              <p class="text-dark text-xs mb-2">
+                Input your TCC number to check your application status
+              </p>
+            </div>
+
+            <form>
+              <div class="form-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tccNumInput"
+                  placeholder="Input TCC Number"
+                />
+              </div>
+
+              <button
+                class="button block w-full"
+                id="checkStatus"
+                type="button"
+              >
+                Check Status
+              </button>
+            </form>
+          </div>
+
+          <div
+            class="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-lg p-3"
+          >
+            <p class="text-md font-bold" style="color: black">E-Services</p>
+            <div class="row">
+              <div class="col-6 w-1/2 h-30">
+                <a href="./register/tinrequest.html" class="card-link">
+                  <div
+                    class="card bg-white h-full rounded-xl flex flex-col items-center justify-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
+                  >
+                    <iconify-icon
+                      icon="material-symbols:file-present"
+                      class="textPrimary text-2xl"
+                    ></iconify-icon>
+                    <p class="text-xs">TIN Request</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6 w-1/2 h-30">
+                <a href="./etcc/initiate.html" class="card-link">
+                  <div
+                    class="card bg-white h-full py-2 rounded-xl flex flex-col items-center justify-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
+                  >
+                    <iconify-icon
+                      icon="material-symbols:layers-rounded"
+                      class="textPrimary text-2xl"
+                    ></iconify-icon>
+                    <p class="text-xs">ETCC</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-6 w-1/2 h-20">
+                <a href="./filetax/index.html" class="card-link">
+                  <div
+                    class="card bg-white h-full rounded-xl flex flex-col items-center justify-center gap-3 text-center text-lg font-bold text-dark relative hover-effect"
+                  >
+                    <i class="textPrimary fa fa-file-alt"></i>
+                    <p class="text-xs">Tax Filing</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-0 w-full h-10" id="footer"></section>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/aos-master/dist/aos.js"></script>
+    <script src="assets/js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+
+    <script src="assets/js/nav.js?v=1.2"></script>
+    <script src="assets/js/constant.js"></script>
+    <script src="./assets/js/eservice.js"></script>
+  </body>
+</html>

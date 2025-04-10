@@ -1,0 +1,108 @@
+[
+  {
+    "objectID": "1",
+    "title": "Pay Your Tax",
+    "description": "Quickly and securely fulfill your tax obligations to support community development and essential public services.",
+    "link": "./invoiceGeneration/create.html",
+    "img": "./assets/img/img/tax.jpg"
+  },
+  {
+    "objectID": "2",
+    "title": "PAYE Manager",
+    "description": "Efficiently manage employee tax deductions and compliance with seamless tools designed for businesses.",
+    "link": "./paye-manager/index.html",
+    "img": "./assets/img/img/paye.jpg"
+  },
+  {
+    "objectID": "3",
+    "title": "Self Services",
+    "description": "Manage taxes, payments, and updates anytime—file returns, request TIN, and get tax clearance.",
+    "link": "./eservices.html",
+    "img": "./assets/img/img/service.jpg"
+  },
+  {
+    "objectID": "4",
+    "title": "Proceed to Pay",
+    "description": "Pay Invoices quickly and get an instant receipt.",
+    "link": "./paynow/index.html",
+    "img": "./assets/img/img/pay.jpg"
+  },
+  {
+    "objectID": "5",
+    "title": "Tax Calculator",
+    "description": "Calculate your tax obligations easily.",
+    "link": "#",
+    "img": "./assets/img/icons/calculator.svg"
+  },
+  {
+    "objectID": "6",
+    "title": "FAQs",
+    "description": "Find answers to frequently asked questions.",
+    "link": "./faqs.html",
+    "img": "./assets/img/icons/faq.svg"
+  },
+
+  {
+    "objectID": "8",
+    "title": "Contact Support",
+    "description": "Get in touch with our support team for any tax-related inquiries.",
+    "link": "./contact.html",
+    "img": "./assets/img/img/jigawa.png"
+  },
+  {
+    "objectID": "9",
+    "title": "News",
+    "description": "Stay updated with the latest news.",
+    "link": "./news.html",
+    "img": "./assets/img/icons/news.svg"
+  },
+  {
+    "objectID": "10",
+    "title": "Library",
+    "description": "Access a wide range of resources in our library.",
+    "link": "./gallery.html",
+    "img": "./assets/img/icons/library.svg"
+  },
+  {
+    "objectID": "11",
+    "title": "Gallery",
+    "description": "Explore our gallery of images and videos.",
+    "link": "./gallery.html",
+    "img": "./assets/img/icons/gallery.svg"
+  },
+  {
+    "objectID": "12",
+    "title": "Tax Calculator",
+    "description": "Calculate your tax obligations easily.",
+    "link": "#",
+    "img": "./assets/img/icons/calculator.svg"
+  },
+  {
+    "objectID": "13",
+    "title": "FAQs",
+    "description": "Find answers to frequently asked questions.",
+    "link": "./faqs.html",
+    "img": "./assets/img/icons/faq.svg"
+  },
+  {
+    "objectID": "14",
+    "title": "Register",
+    "description": "Create a new account to become tax payer.",
+    "link": "./register/index.html",
+    "img": "./assets/img/img/jigawa.png"
+  },
+  {
+    "objectID": "15",
+    "title": "ETCC",
+    "description": "Access the Electronic Tax Clearance Certificate system.",
+    "link": "./etcc/initiate.html",
+    "img": "./assets/img/img/jigawa.png"
+  },
+  {
+    "objectID": "16",
+    "title": "Login",
+    "description": "Log in to your account to manage your taxes.",
+    "link": "./signin.html",
+    "img": "./assets/img/img/jigawa.png"
+  }
+]
